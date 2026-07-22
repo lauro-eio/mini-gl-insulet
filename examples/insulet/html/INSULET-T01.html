@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INSULET T01 — Seguridad Psicológica y Dinámica de Equipos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c;
+      --ink-soft: #2a3d34;
+      --paper: #f3efe6;
+      --paper-2: #e8e2d4;
+      --line: #c9c0ae;
+      --accent: #0f6e56;
+      --accent-deep: #0a4f3d;
+      --warm: #c45c26;
+      --white: #fbfaf6;
+      --shadow: 0 18px 40px rgba(20, 34, 28, 0.08);
+      --max: 44rem;
+      --wide: 68rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Outfit", system-ui, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(15, 110, 86, 0.12), transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, rgba(196, 92, 38, 0.1), transparent 50%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent-deep); }
+    a:hover { color: var(--warm); }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      z-index: 100;
+    }
+    .skip:focus { left: 1rem; top: 1rem; }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: min(92vh, 760px);
+      display: grid;
+      align-items: end;
+      padding: 1.25rem clamp(1.25rem, 4vw, 3rem) 3rem;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(165deg, rgba(10, 40, 32, 0.92) 0%, rgba(15, 70, 54, 0.88) 45%, rgba(20, 34, 28, 0.94) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.06'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -30% 40%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(196, 92, 38, 0.35), transparent 65%);
+      pointer-events: none;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      from { transform: translate(-2%, 0) scale(1); }
+      to { transform: translate(4%, -4%) scale(1.08); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--wide);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 0 0 0.75rem;
+      opacity: 0;
+      animation: rise 0.9s ease forwards 0.15s;
+    }
+
+    .hero h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem, 3.2vw, 2rem);
+      font-weight: 500;
+      line-height: 1.25;
+      max-width: 22ch;
+      margin: 0 0 1rem;
+      opacity: 0;
+      animation: rise 0.9s ease forwards 0.35s;
+    }
+
+    .hero-lead {
+      max-width: 38rem;
+      margin: 0 0 1.75rem;
+      color: rgba(251, 250, 246, 0.88);
+      opacity: 0;
+      animation: rise 0.9s ease forwards 0.5s;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.95rem;
+      color: rgba(251, 250, 246, 0.75);
+      opacity: 0;
+      animation: rise 0.9s ease forwards 0.55s;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: rise 0.9s ease forwards 0.7s;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1.5px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--warm);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #a84b1c; color: var(--white); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(251, 250, 246, 0.45);
+    }
+    .btn-ghost:hover {
+      background: rgba(251, 250, 246, 0.1);
+      color: var(--white);
+    }
+    .btn-accent {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-accent:hover { background: var(--accent-deep); color: var(--white); }
+
+    /* —— Nav —— */
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 239, 230, 0.88);
+      border-bottom: 1px solid var(--line);
+    }
+    .toc-inner {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 0.65rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      gap: 0.35rem 1rem;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    .toc a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.35rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .toc a:hover,
+    .toc a:focus-visible {
+      color: var(--accent-deep);
+      border-bottom-color: var(--accent);
+    }
+
+    /* —— Layout —— */
+    main {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 4rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    section:last-of-type { border-bottom: 0; }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+
+    h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 0.75rem;
+      max-width: 28ch;
+    }
+
+    h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.75rem 0 0.6rem;
+    }
+
+    .lede {
+      max-width: var(--max);
+      color: var(--ink-soft);
+      margin: 0 0 1.5rem;
+    }
+
+    .prose {
+      max-width: var(--max);
+    }
+    .prose p { margin: 0 0 1rem; }
+    .prose .kicker {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .refs {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--line);
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+    }
+    .refs ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.1rem;
+    }
+    .refs li { margin-bottom: 0.35rem; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      min-width: 520px;
+    }
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      background: var(--paper-2);
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+    tr:last-child td { border-bottom: 0; }
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: 600;
+      padding: 0.75rem 1rem 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    /* Cases */
+    .case-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.25rem 0 1rem;
+    }
+    .case-tabs button {
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .case-tabs button[aria-selected="true"] {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+    .case-panel {
+      display: none;
+      max-width: var(--max);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.35s ease;
+    }
+    .case-panel.is-active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .case-panel h3:first-child { margin-top: 0; }
+    .questions {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--line);
+    }
+    .questions ol {
+      margin: 0.75rem 0 0;
+      padding-left: 1.2rem;
+    }
+    .questions li { margin-bottom: 0.85rem; }
+    .q-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Actions / forms */
+    .action-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+      margin-top: 1.25rem;
+    }
+    @media (min-width: 720px) {
+      .action-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .action {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+    .action h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+    }
+    .action p {
+      margin: 0 0 1rem;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+    }
+    .action .btn { width: 100%; max-width: 18rem; }
+
+    footer {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 3rem;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="brand">Global Leadership</p>
+      <h1>Taller 1: Seguridad Psicológica y Dinámica de Equipos</h1>
+      <p class="hero-lead">
+        Concientizar sobre la importancia de un entorno laboral favorable donde el equipo colabore con confianza, respeto y un fuerte sentido de pertenencia.
+      </p>
+      <div class="hero-meta">
+        <span>INSULET · Unidad T01</span>
+        <span>Duración sugerida: 2 horas</span>
+        <span>NOM-035 · Entorno organizacional favorable</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#diagnostico" target="_self">Iniciar diagnóstico</a>
+        <a class="btn btn-ghost" href="#articulos">Leer artículos</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Secciones del taller">
+    <div class="toc-inner">
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#articulos">Artículos</a>
+      <a href="#casos">Casos</a>
+      <a href="#compromiso">Compromiso</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <!-- Diagnóstico -->
+    <section id="diagnostico">
+      <p class="section-label">Pre-trabajo</p>
+      <h2>Diagnóstico de estilo de liderazgo</h2>
+      <p class="lede">
+        Completa el autodiagnóstico confidencial <em>“¿Qué tan seguro es hablar conmigo?”</em> antes o al inicio del taller. Recibirás un perfil de retroalimentación por correo.
+      </p>
+      <div class="action-grid" style="grid-template-columns: 1fr;">
+        <div class="action">
+          <h3>Test de diagnóstico personal</h3>
+          <p>Evalúa si, de manera inconsciente, reaccionas de forma punitiva, ambigua o constructiva ante el error de un compañero.</p>
+          <a class="btn btn-accent"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSeIYTDMOmctIlFf9jWfhK4BieNa6i3TANfCDqf0ZFPiCVVrMA/viewform?usp=sharing&ouid=105005647516132439901"
+             target="_blank" rel="noopener noreferrer">Abrir formulario de diagnóstico</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artículos -->
+    <section id="articulos">
+      <p class="section-label">Lecturas</p>
+      <h2>Artículos de la unidad</h2>
+      <p class="lede">Una nota de investigación basada en evidencia y una columna de opinión para abrir la reflexión antes de los casos prácticos.</p>
+
+      <article id="art01" class="prose" style="margin-bottom: 3rem;">
+        <p class="section-label">Investigación · ART01</p>
+        <h2 style="max-width: 28ch;">Liderazgo Positivo y Seguridad Psicológica en la Gestión Diaria</h2>
+        <p>
+          Tu estilo de supervisión diario determina el rendimiento, la estabilidad y la calidad del trabajo de tu equipo. Asignar tareas sin claridad, presionar de forma destructiva o no brindar apoyo genera problemas operativos directos como renuncia de personal capacitado, faltas constantes y errores ocultos. Este artículo sintetiza la evidencia científica y empresarial para mostrar cómo la claridad en las funciones y la seguridad psicológica te permiten construir un equipo de alto rendimiento y evitar costos operativos innecesarios.
+        </p>
+        <p>
+          Para un coordinador, supervisor o gerente junior, la transición hacia la gestión de personas representa un reto operativo fundamental. Los problemas de supervisión no son simples desacuerdos de clima laboral; son factores que afectan de forma directa las entregas diarias, los costos del área y la continuidad del trabajo.
+        </p>
+        <p>
+          Liderar de forma positiva y generar un entorno de seguridad psicológica no significa evitar la exigencia ni ser paternalista. Por el contrario, se trata de una estrategia de gestión orientada a dar certidumbre, aclarar responsabilidades y eliminar las barreras que impiden que el equipo alcance sus metas.
+        </p>
+
+        <h3>Retención de talento y control del ausentismo en tu equipo</h3>
+        <p>
+          El liderazgo punitivo o la mala comunicación de los mandos directos es una de las causas principales por las que los colaboradores capacitados deciden renunciar. La investigación en comportamiento organizacional confirma la existencia de una relación directa entre los estilos de supervisión hostiles y la intención de renuncia del personal (Schyns &amp; Schilling, 2013). Asimismo, el apoyo constante por parte del supervisor inmediato funciona como un factor decisivo para evitar la fuga de talento en áreas de alta exigencia.
+        </p>
+        <p>
+          Perder a un integrante del equipo implica un costo operativo significativo. Reemplazar a un colaborador técnico o profesional puede costar entre el 50% y el 200% de su sueldo anual en gastos de reclutamiento, capacitación y pérdida de productividad durante el periodo de vacante (Society for Human Resource Management [SHRM], s.f.).
+        </p>
+        <p>
+          En cuanto a las faltas e incapacidades, los modelos de estrés laboral demuestran que la falta de apoyo por parte del jefe directo y la ambigüedad en las tareas incrementan en más de un 40% el riesgo de ausentismo por estrés y agotamiento profesional (Karasek, 1979; Johnson &amp; Hall, 1988). Garantizar metas claras y acompañamiento constante promueve una asistencia regular y un compromiso sostenido.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Tabla 1. Impacto del estilo de supervisión en los indicadores clave del equipo</caption>
+            <thead>
+              <tr>
+                <th>Indicador operativo</th>
+                <th>Supervisión punitiva o ambigua</th>
+                <th>Supervisión con claridad y seguridad psicológica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rotación de personal</td>
+                <td>Aumento de renuncias por falta de claridad y apoyo (Schyns &amp; Schilling, 2013).</td>
+                <td>Retención sostenida del equipo al generar certidumbre y sentido de pertenencia.</td>
+              </tr>
+              <tr>
+                <td>Costo de contratación</td>
+                <td>Gasto elevado y retrabajo constante por reposición de vacantes (SHRM, s.f.).</td>
+                <td>Aprovechamiento del presupuesto al mantener la curva de aprendizaje del equipo.</td>
+              </tr>
+              <tr>
+                <td>Ausentismo y faltas</td>
+                <td>Incremento de faltas e incapacidades por estrés (&gt;40% de riesgo; Karasek, 1979).</td>
+                <td>Asistencia constante facilitada por un ambiente estructurado y de bajo estrés.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Mitigación de errores operativos y eficiencia en la ejecución</h3>
+        <p>
+          Un ambiente de trabajo donde existe claridad y respeto mutuo incide de forma directa en la calidad del trabajo. Los estudios sobre seguridad psicológica de Edmondson (1999) demuestran que los equipos donde no se castiga el error de manera destructiva reportan y corrigen hasta un 60% más de fallas a tiempo. Cuando los colaboradores no temen represalias, comunican las desviaciones de inmediato, lo que permite al supervisor corregir el problema antes de que afecte a los clientes o genere pérdidas materiales.
+        </p>
+        <p>
+          Adicionalmente, la investigación sobre estresores laborales (Podsakoff et al., 2007) señala que la falta de claridad en las funciones genera confusión y pérdidas de tiempo. Asignar responsabilidades con precisión y mantener canales abiertos de comunicación reduce los tiempos muertos y mejora la eficiencia en la ejecución de tareas entre un 15% y un 20%, evitando la duplicidad de actividades y previniendo conflictos internos.
+        </p>
+
+        <h3>Resultados operativos y cumplimiento de metas</h3>
+        <p>Los programas de desarrollo para mandos medios enfocados en retroalimentación estructurada y comunicación efectiva muestran resultados medibles en la gestión operativa:</p>
+        <p><span class="kicker">Reducción de renuncias:</span> La capacitación de supervisores en comunicación efectiva logra reducciones de hasta un 35% en las bajas voluntarias durante los primeros meses de aplicación (Gallup Inc., s.f.).</p>
+        <p><span class="kicker">Aumento en el cumplimiento de metas:</span> Los equipos cuyos supervisores brindan retroalimentación clara y apoyo directo registran incrementos de hasta un 22% en el cumplimiento de objetivos y entregas trimestrales, al eliminar bloqueos informativos (Gallup Inc., s.f.).</p>
+        <p>
+          Fomentar la seguridad psicológica, el trato respetuoso y la claridad en las asignaciones no es una concesión opcional; es una herramienta práctica de gestión. Los coordinadores y supervisores que corrigen los hábitos de supervisión destructivos logran equipos más estables, reducen los errores operativos y aseguran el cumplimiento constante de los objetivos de su área.
+        </p>
+
+        <div class="refs">
+          <strong>Referencias</strong>
+          <ul>
+            <li>Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(4), 350-383.</li>
+            <li>Gallup Inc. (s.f.). State of the global workplace report &amp; Meta-analysis on employee engagement and business outcomes.</li>
+            <li>Johnson, J. V., &amp; Hall, E. M. (1988). Job strain, workplace social support, and cardiovascular disease. <em>American Journal of Public Health, 78</em>(10), 1336-1342.</li>
+            <li>Karasek, R. A. (1979). Job demands, job decision latitude, and mental strain. <em>Administrative Science Quarterly, 24</em>(2), 285-308.</li>
+            <li>Podsakoff, N. P., LePine, J. A., &amp; LePine, M. A. (2007). Differential challenge stressor-hindrance stressor relationships… <em>Journal of Applied Psychology, 92</em>(2), 438-454.</li>
+            <li>Schyns, B., &amp; Schilling, J. (2013). How bad are the effects of bad leaders? <em>The Leadership Quarterly, 24</em>(1), 138-158.</li>
+            <li>Society for Human Resource Management. (s.f.). Human capital benchmarking report &amp; Cost of turnover studies.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article id="art02" class="prose">
+        <p class="section-label">Opinión · ART02</p>
+        <h2 style="max-width: 32ch;">El día que entendí que infundir miedo no es liderar</h2>
+        <p style="font-style: italic; color: var(--ink-soft);">Una lección sobre autoridad y resultados</p>
+        <p>
+          Durante mis primeros meses al frente de un equipo, cometí un error bastante común entre quienes asumimos por primera vez una responsabilidad directiva: confundí la exigencia con el control absoluto. Creía firmemente que mantener una postura distante, cuestionar cada detalle y no tolerar desviaciones me otorgaba una imagen de autoridad y determinación.
+        </p>
+        <p>
+          Recuerdo perfectamente una reunión de avance en la que el proyecto principal presentaba retrasos. Interrumpí la explicación técnica del responsable con una frase dura: “No me interesan las excusas, les di una fecha y espero que se cumpla”. En ese momento, percibí un silencio sepulcral en la sala. Los colaboradores asintieron, bajaron la mirada y no volvieron a objetar nada. Por un breve instante sentí que había tomado el control.
+        </p>
+        <p>
+          Sin embargo, las semanas siguientes demostraron lo contrario. El trabajo no mejoró; simplemente dejó de fluir. Nadie volvió a levantar la mano para advertir sobre un posible problema en los procesos, nadie propuso ideas nuevas y las fallas comenzaron a ocultarse hasta que era demasiado tarde para corregirlas sin generar un costo elevado. Fue entonces cuando comprendí una verdad fundamental: el miedo no genera compromiso ni eficiencia, solo produce un profundo silencio defensivo.
+        </p>
+        <p>
+          El liderazgo negativo rara vez se manifiesta mediante abusos evidentes; habitualmente se camufla bajo la narrativa del “alto rendimiento” o la “presión necesaria”. No obstante, la experiencia en campo demuestra que cuando un mando recurre a la penalización destructiva del error o impone reglas difusas, la energía del colaborador se desvía de resolver el problema hacia la construcción de estrategias de autoprotección. Se prioriza el resguardo de correos y la delegación de culpas por encima de la consecución de las metas operativas.
+        </p>
+        <p>
+          A lo largo de los años he comprobado que crear un entorno de seguridad psicológica no equivale a bajar la barra de exigencia ni a adoptar una actitud paternalista. Consiste en garantizar que el equipo tenga claridad absoluta sobre sus responsabilidades y la certeza de que puede admitir un fallo, reportar un riesgo o proponer una idea sin temor a ser descalificado o sancionado injustamente.
+        </p>
+        <p>
+          Cuando un líder logra sustituir el temor reverencial por el respeto mutuo y la transparencia, los resultados cambian drásticamente. Las fallas operativas se visibilizan a tiempo, los tiempos muertos disminuyen y la colaboración espontánea regresa a la mesa. Para quienes ocupamos posiciones de supervisión y gestión de personal, entender que la verdadera eficiencia no nace de la presión desmedida, sino de la confianza y la certidumbre, es la lección más valiosa que podemos aprender.
+        </p>
+      </article>
+    </section>
+
+    <!-- Casos -->
+    <section id="casos">
+      <p class="section-label">Dinámica en subgrupos</p>
+      <h2>Casos de estudio</h2>
+      <p class="lede">Elige un caso por subgrupo. Lean el escenario, discutan el dilema del líder junior y respondan las preguntas de análisis.</p>
+
+      <div class="case-tabs" role="tablist" aria-label="Casos de estudio">
+        <button type="button" role="tab" id="tab-cs1" aria-controls="panel-cs1" aria-selected="true">CS1 · Exclusión</button>
+        <button type="button" role="tab" id="tab-cs2" aria-controls="panel-cs2" aria-selected="false">CS2 · Ambigüedad</button>
+        <button type="button" role="tab" id="tab-cs3" aria-controls="panel-cs3" aria-selected="false">CS3 · Silencio</button>
+      </div>
+
+      <div class="case-panel is-active" role="tabpanel" id="panel-cs1" aria-labelledby="tab-cs1">
+        <h3>El Sesgo Invisible y el Aislamiento del Equipo</h3>
+        <h3>1. Contexto</h3>
+        <p>Sofía coordina un equipo de desarrollo y soporte técnico de seis personas. Tras la integración de Roberto —un colaborador de mayor edad que proviene de otra planta con procesos más tradicionales—, el área ha mantenido sus entregas a tiempo. Sofía se considera una líder “de puertas abiertas” porque no impone órdenes de manera autoritaria y le gusta dar libertad de acción.</p>
+        <p>Sin embargo, para agilizar la comunicación, el núcleo más joven del equipo creó un grupo paralelo informal de mensajería donde se toman decisiones rápidas sobre los proyectos diaria y semanalmente, dejando fuera a Roberto.</p>
+        <h3>2. El problema operativo y la dinámica humana</h3>
+        <p>En las últimas semanas, la falta de cohesión y las conductas sutiles de exclusión comenzaron a mellar la dinámica del departamento:</p>
+        <p><span class="kicker">Microagresiones y comparaciones veladas:</span> Durante las reuniones formales, cuando Roberto propone metodologías basadas en su experiencia previa, algunos compañeros responden con comentarios sarcásticos como “eso es del siglo pasado, aquí vamos a otro ritmo” o ignoran su participación cambiando drásticamente de tema. Sofía nota estas interacciones pero decide no intervenir para “no generar tensión innecesaria”.</p>
+        <p><span class="kicker">Indiferencia y aislamiento:</span> Roberto ha comenzado a recibir información sobre cambios en los proyectos cuando ya están en marcha, lo que le genera confusión y fallas de sincronización. Al sentirse marginado y desvaluado, dejó de opinar en las juntas, limita su interacción al mínimo y muestra signos de apatía y desconexión con las metas del área.</p>
+        <p><span class="kicker">Impacto en el clima y la productividad:</span> La falta de apoyo social y el ambiente de exclusión rompieron el sentido de pertenencia. El rendimiento general comenzó a caer debido a la falta de transferencia de conocimiento entre el personal con experiencia y los perfiles más jóvenes, generando fricciones constantes y un clima laboral tenso.</p>
+        <h3>3. El dilema del líder junior</h3>
+        <p>Sofía nota que la integración del equipo se está fracturando. Si mantiene su postura pasiva para “evitar conflictos entre adultos”, la marginación de Roberto se consolidará, dañando la salud emocional del colaborador, aumentando el riesgo de rotación y perdiendo el valor de su experiencia.</p>
+        <p>Por el contrario, si decide intervenir de manera firme, deberá asumir un rol activo de liderazgo para erradicar las microagresiones, establecer normas claras de trato digno y convivencia, y reestructurar los canales formales de información sin que el equipo interprete su postura como una imposición destructiva.</p>
+        <div class="questions">
+          <strong>Preguntas para el análisis en subgrupos</strong>
+          <ol>
+            <li>
+              <span class="q-label">Identificación de conductas que aíslan (Bloque 2)</span>
+              ¿Cuáles son las conductas de exclusión y liderazgo pasivo presentes en el caso que atentan contra un entorno organizacional favorable y el trato digno del personal?
+            </li>
+            <li>
+              <span class="q-label">Seguridad psicológica y pertenencia (Bloques 1 y 4)</span>
+              ¿De qué manera el “silencio de interferencia” de Sofía ante las faltas de respeto afecta la confianza del grupo y el compromiso mutuo dentro del equipo?
+            </li>
+            <li>
+              <span class="q-label">Intervención y acuerdos de equipo</span>
+              Si fueras Sofía, ¿cómo abordarías esta situación en la siguiente reunión de equipo? Diseña 2 acciones concretas para promover la colaboración activa, erradicar la marginación y asegurar que los canales de comunicación sean incluyentes para todos.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="case-panel" role="tabpanel" id="panel-cs2" aria-labelledby="tab-cs2" hidden>
+        <h3>La Trampa de la Ambigüedad y la Sobreexigencia</h3>
+        <h3>1. Contexto</h3>
+        <p>Carlos asumió recientemente la supervisión del área de Logística e Inventarios. Ante el incremento de volumen de operaciones, decidió adoptar una estrategia de “flexibilidad total”: no formalizó la división de funciones entre sus colaboradores para que “todos hicieran de todo” según las urgencias del día.</p>
+        <p>Para mantener el ritmo de trabajo, Carlos suele enviar indicaciones de último momento mediante mensajes de texto fuera del horario laboral y asignar responsabilidades dobles sin verificar la capacidad operativa del personal. Cuando alguien le consulta sobre la prioridad de una tarea, Carlos suele responder: “Todo es prioridad, organícense entre ustedes y resuélvanlo”.</p>
+        <h3>2. El problema operativo y la dinámica humana</h3>
+        <p>Tras dos meses bajo esta dinámica, la falta de certidumbre y estructura generó consecuencias operativas y humanas graves:</p>
+        <p><span class="kicker">Conflictos por duplicidad y vacío de funciones:</span> Dos integrantes del equipo trabajaron de manera simultánea en el mismo reporte de embarques, generando retrabajo y fricción interpersonal sobre quién era el “dueño” de la tarea. Al mismo tiempo, las auditorías físicas de inventario quedaron desatendidas porque ambos asumieron que le correspondían al otro.</p>
+        <p><span class="kicker">Estrés laboral y ausentismo:</span> La ambigüedad constante y la sobrecarga derivaron en altos niveles de ansiedad y agotamiento profesional en el equipo. En la última semana, tres colaboradores clave presentaron incapacidades consecutivas por estrés, dejando el área desprotegida.</p>
+        <p><span class="kicker">Liderazgo negativo indirecto:</span> Ante el caos y los retrasos, Carlos reaccionó en las reuniones grupales comparando destructivamente al equipo con otras áreas de la empresa y advirtiendo que “quien no aguante el ritmo, no tiene la camiseta puesta”, lo que derivó en la renuncia voluntaria de la analista más capacitada del departamento.</p>
+        <h3>3. El dilema del líder junior</h3>
+        <p>Con un equipo sobrecargado, incompleto por las ausencias y con entregables acumulados frente a la Gerencia de Operaciones, Carlos se encuentra en una encrucijada:</p>
+        <p>Continuar presionando de forma punitiva para exigir resultados inmediatos a los colaboradores restantes, lo que incrementará el riesgo de más renuncias y fallas en las entregas.</p>
+        <p>O asumir su responsabilidad como líder para erradicar la ambigüedad, redefinir con claridad las funciones de cada puesto y construir un canal de comunicación transparente que garantice un entorno laboral favorable.</p>
+        <div class="questions">
+          <strong>Preguntas para el análisis en subgrupos</strong>
+          <ol>
+            <li>
+              <span class="q-label">Claridad de funciones y estrés (Bloques 1 y 3)</span>
+              ¿De qué manera la ambigüedad en las responsabilidades asignadas por Carlos impactó directamente en el nivel de estrés del equipo, el ausentismo y los costos por rotación?
+            </li>
+            <li>
+              <span class="q-label">Conductas de liderazgo (Bloque 2)</span>
+              ¿Cuáles fueron los principales errores de supervisión cometidos por Carlos que devaluaron al personal y deterioraron el sentido de pertenencia en el área?
+            </li>
+            <li>
+              <span class="q-label">Retroalimentación y solución práctica (Bloque 3)</span>
+              Si fueras el mentor o jefe directo de Carlos, ¿cómo estructurarías una sesión de retroalimentación directiva con él para ayudarle a diseñar un plan de mitigación que restablezca la claridad de funciones y la seguridad psicológica de su equipo?
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="case-panel" role="tabpanel" id="panel-cs3" aria-labelledby="tab-cs3" hidden>
+        <h3>El Costo del Silencio en la Línea de Operaciones</h3>
+        <h3>1. Contexto</h3>
+        <p>Mariana fue promovida recientemente a Coordinadora de Operaciones en el área de empaque. Tiene a su cargo un equipo de ocho personas. Para consolidar su autoridad y asegurar los objetivos del trimestre, Mariana adoptó un estilo de supervisión basado en el control estricto y la baja tolerancia al error.</p>
+        <p>En la última reunión semanal, ante un pequeño retraso en el reporte de incidencias, Mariana interrumpió de forma tajante a uno de sus colaboradores frente a todo el equipo: “Aquí no venimos a dar excusas ni a perder el tiempo. Les di una meta y espero que se cumpla sin pretextos”. El equipo guardó un silencio absoluto, asentó con la cabeza y bajó la mirada. Mariana asumió que la firmeza había funcionado y que el mensaje de “exigencia” había quedado claro.</p>
+        <h3>2. El problema operativo y la dinámica humana</h3>
+        <p>Tres semanas después, la línea de empaque comenzó a presentar cuellos de botella severos y un incremento en las quejas de calidad:</p>
+        <p><span class="kicker">Ocultamiento de errores:</span> Un operador detectó una descalibración leve en la maquinaria al inicio del turno. Temiendo la reacción de Mariana y ser reprendido públicamente por “poner pretextos”, prefirió no reportar el riesgo y continuó operando. El fallo se agravó, deteniendo la línea por cuatro horas y generando un elevado costo en retrabajo y merma.</p>
+        <p><span class="kicker">Ambigüedad y falta de apoyo:</span> La falta de claridad en las funciones y la ausencia de un trato digno provocaron incertidumbre en las asignaciones diarias. El personal dejó de proponer mejoras o levantar la mano para pedir ayuda, limitándose a ejecutar lo mínimo para evitar sanciones (“silencio defensivo”).</p>
+        <p><span class="kicker">Impacto en indicadores:</span> Se registraron dos faltas por incapacidad asociadas a estrés laboral en el equipo y la renuncia voluntaria de un técnico capacitado. Esto generó un costo de sustitución inesperado para el área y sobrecarga de trabajo para los demás.</p>
+        <h3>3. El dilema del líder junior</h3>
+        <p>Mariana enfrenta la entrega del balance mensual ante la gerencia. Si atribuye el problema exclusivamente a “falta de compromiso” del personal, corre el riesgo de aumentar la rotación y el ausentismo. Si reconoce que su estilo de supervisión punitivo destruyó la seguridad psicológica del grupo, debe replantear su liderazgo, asumir la corresponsabilidad de la falla y transformar la dinámica del equipo bajo los lineamientos de un entorno organizacional favorable.</p>
+        <div class="questions">
+          <strong>Preguntas para el análisis en subgrupos</strong>
+          <ol>
+            <li>
+              <span class="q-label">Diagnóstico del entorno (NOM-035 / Seguridad psicológica)</span>
+              ¿Qué conductas de liderazgo negativo ejercidas por Mariana afectaron el entorno organizacional favorable y la claridad de funciones del equipo?
+            </li>
+            <li>
+              <span class="q-label">Gestión del error como aprendizaje</span>
+              ¿De qué manera el miedo a la penalización destructiva provocó que el operador ocultara la falla en la maquinaria, y cómo debió haberse abordado ese evento para transformarlo en una oportunidad de aprendizaje?
+            </li>
+            <li>
+              <span class="q-label">Plan de acción y transición</span>
+              Si fueras Mariana, ¿cuáles serían las primeras 3 acciones concretas que implementarías para reestructurar la comunicación, reparar la confianza y establecer un trato digno en la gestión diaria con tu equipo?
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compromiso -->
+    <section id="compromiso">
+      <p class="section-label">Cierre del taller</p>
+      <h2>Contrato de Confianza</h2>
+      <p class="lede">
+        Declara compromisos medibles y accionables con tu equipo. Este formulario convierte la asistencia en un plan de cambio concreto para los próximos 7 y 30 días.
+      </p>
+      <div class="action-grid">
+        <div class="action">
+          <h3>Carta de compromiso</h3>
+          <p>Define qué conducta eliminarás, qué canal formal implementarás y cómo responderás la próxima vez que te reporten una falla.</p>
+          <a class="btn btn-primary"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfIX_OyoCSiu5ypFZnpUFpQc0haSaiQXNSInWJ58t3jXAu3-Q/viewform?usp=sharing&ouid=105005647516132439901"
+             target="_blank" rel="noopener noreferrer">Firmar compromiso en Google Forms</a>
+        </div>
+        <div class="action">
+          <h3>Volver al diagnóstico</h3>
+          <p>Si aún no completaste el autodiagnóstico de estilo de liderazgo, hazlo antes de cerrar el taller.</p>
+          <a class="btn btn-accent"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSeIYTDMOmctIlFf9jWfhK4BieNa6i3TANfCDqf0ZFPiCVVrMA/viewform?usp=sharing&ouid=105005647516132439901"
+             target="_blank" rel="noopener noreferrer">Abrir diagnóstico</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>INSULET · Global Leadership · T01 Seguridad Psicológica y Dinámica de Equipos · Material de taller (MVP)</p>
+  </footer>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.case-tabs [role="tab"]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.case-panel'));
+
+      function activate(id) {
+        tabs.forEach(function (tab) {
+          var selected = tab.getAttribute("aria-controls") === id;
+          tab.setAttribute("aria-selected", selected ? "true" : "false");
+        });
+        panels.forEach(function (panel) {
+          var on = panel.id === id;
+          panel.classList.toggle("is-active", on);
+          if (on) {
+            panel.removeAttribute("hidden");
+          } else {
+            panel.setAttribute("hidden", "");
+          }
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          activate(tab.getAttribute("aria-controls"));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

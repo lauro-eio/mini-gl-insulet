@@ -1,0 +1,28 @@
+# Public publish surface: HTML only.
+# Ignore everything by default, then whitelist what GitHub Pages / public viewers need.
+
+*
+
+# Keep directory traversal for whitelist paths
+!**/
+
+# Repo essentials
+!.gitignore
+!index.html
+!README.md
+!LICENSE
+!LICENSE.*
+
+# Published unit pages
+!examples/
+!examples/insulet/
+!examples/insulet/html/
+!examples/insulet/html/**
+
+# Never commit secrets or local tooling even if added later
+.env
+.env.*
+!.env.example
+**/.DS_Store
+**/Thumbs.db
+**/*.local
