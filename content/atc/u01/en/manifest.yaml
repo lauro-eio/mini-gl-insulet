@@ -1,0 +1,65 @@
+program_id: ATC
+unit_id: u01
+audience_id: tier_2_frontline_leader
+locale: en
+public_title: Habit Systems for Frontline Leaders
+unit_goal: >
+  Turn big team goals into daily compounding actions a frontline leader
+  can coach, see, and sustain when they are not in the room.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Atomic Habits
+  - Habit Hacking for Breakthrough
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Why Tiny Improvements Beat Big Leaps: Evidence for Frontline Habit Systems"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The Week I Stopped Asking My Team for a Miracle"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Tiny Gains, Visible Systems"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — How Do You Drive Change on Your Team?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — Frontline 1% Habit Canvas"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — Personal Habit + Team-Visible Practice"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Sofia and the Monday Reset Trap"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Diego’s Dashboard vs. the Floor Ritual"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Selling a Micro-Habit to a Skeptical Peer"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Protecting a Team Ritual Under Pressure"

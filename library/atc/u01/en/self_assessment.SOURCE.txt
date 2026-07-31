@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When setting a personal goal, which approach best describes your mindset?
+ A) I believe success comes from one giant leap.
+ B) I make a few big changes when inspired.
+ C) I focus on small steps that build up over time.
+ D) I commit to tiny, daily adjustments that compound.
+
+Q2: When faced with challenges in your daily routine, what’s your typical reaction?
+ A) I try one massive change to shift everything.
+ B) I make occasional tweaks when things go off track.
+ C) I adjust small habits that eventually make a difference.
+ D) I consistently refine my routine in minor, focused ways.
+
+Q3: How do you view the idea of compound growth in personal success?
+ A) I’m skeptical—it seems too slow.
+ B) I appreciate it occasionally, but I prefer quick wins.
+ C) I believe that small daily gains add up over time.
+ D) I fully embrace how tiny improvements create breakthrough results.
+
+Q4: When planning your week, what best captures your strategy?
+ A) I set one big, overwhelming goal.
+ B) I list a few goals and hope for the best.
+ C) I break big tasks into manageable, small steps.
+ D) I design daily habits that form a robust improvement system.
+
+Q5: Which statement resonates with you regarding success?
+ A) Success requires drastic, sweeping changes.
+ B) Success is about catching occasional lucky breaks.
+ C) Success comes from steady improvements made day by day.
+ D) Success is built on a system of continuous, micro improvements.
+
+Q6: How do you respond when you don’t see immediate dramatic results?
+ A) I assume my approach isn’t working.
+ B) I wait and hope a breakthrough eventually happens.
+ C) I look for subtle signs that my small efforts are accumulating.
+ D) I reinforce my daily habits, trusting that tiny gains compound in time.
+
+Q7: In the context of self-improvement, how important is regular self-reflection?
+ A) Not very—I prefer immediate, bold actions.
+ B) I reflect occasionally when prompted.
+ C) It’s important; I regularly review my small wins.
+ D) It’s critical—I continuously assess and tweak my daily habits.
+
+Q8: How do you tackle overwhelming long-term goals?
+ A) I attempt one huge change to knock it out all at once.
+ B) I set the goal and hope for intermittent improvements.
+ C) I divide the goal into smaller, achievable parts.
+ D) I create a system of atomic improvements that steadily build success.
+
+Q9: When you improve a single area of your life, what do you expect?
+ A) A sudden, dramatic transformation.
+ B) An occasional benefit with unpredictable results.
+ C) Gradual improvement that eventually makes a difference.
+ D) Consistent, small enhancements that multiply over time.
+
+Q10: In moments of discouragement, how do you keep motivated?
+ A) I often give up and try something entirely new.
+ B) I take a break and wait for inspiration.
+ C) I focus on one small, positive step at a time.
+ D) I lean on my established routine, knowing that every tiny effort counts.
+
+Q11: What is your approach to optimizing your surroundings for success?
+ A) I leave my environment as it is.
+ B) I make a few adjustments when things seem off.
+ C) I introduce subtle cues to remind me to act.
+ D) I systematically design my space to support daily habit growth.
+
+Q12: Which description best fits your long-term approach to improvement?
+ A) I tend to get overwhelmed by big goals.
+ B) I celebrate occasional wins even if progress is slow.
+ C) I value gradual improvements that steadily add up.
+ D) I believe that constant, minor adjustments lead to breakthrough success.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Habit Hesitator: (Score 12-21) — You tend to rely on sporadic changes and big leaps of faith rather than systematic improvements. Your approach might feel overwhelming and unpredictable, often leaving you frustrated by slow progress. Embracing smaller, targeted actions could help you see more consistent growth. Consider gradually incorporating micro habits into your routine to start feeling the cumulative benefits.
+
+2. The Strategic Starter: (Score 22-30) — You show an emerging recognition that small improvements can lead to lasting change, even if you still lean on occasional leaps. You’ve begun experimenting with more consistent practices, but sometimes your efforts waver. Your journey shows promise, and with a bit more focus on routine and system-building, you’re likely to unlock even greater success. A few tweaks to your daily habits could be the catalyst for exponential growth.
+
+3. The Consistent Contributor: (Score 31-39) — You are well aware of the power of incremental improvements and actively incorporate them into your life. Your approach is methodical and aimed at long-term success, reflecting a solid commitment to building better systems. You consistently break down major goals into manageable tasks, making steady progress. Keep celebrating your small wins—they are the building blocks of your breakthrough achievements.
+
+4. The Master of Marginal Gains: (Score 40-48) — You embody the core principle of daily atomic improvements, turning every tiny effort into monumental success. Your disciplined, systematic approach ensures that every minor adjustment contributes to an extraordinary transformation. You fully understand that sustainable progress comes from consistency and continuous refinement. Your mastery of compound gains is not only inspiring but also a roadmap for anyone seeking breakthrough results in their personal and professional lives.

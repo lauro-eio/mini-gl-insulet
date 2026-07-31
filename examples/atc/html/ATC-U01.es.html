@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistemas de hábitos para líderes de primera línea — ATC U01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .5rem; }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.25rem,3vw,1.85rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <h1>Sistemas de hábitos para líderes de primera línea</h1>
+      <p class="hero-lead">Convertir grandes metas de equipo en acciones diarias acumulativas que un líder de primera línea pueda coachar, ver y sostener cuando no está en el piso.</p>
+      <div class="hero-meta">
+        <span>ATC · U01</span>
+        <span>tier_2_frontline_leader</span>
+        <span>Locale: es</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Por qué las mejoras pequeñas vencen a los saltos</a>
+<a href="#opinion">La semana en que dejé de pedirle milagros a mi e</a>
+<a href="#assessment">Autodiagnóstico — ¿Cómo impulsas el cambio en tu</a>
+<a href="#case-1">Caso 1 — Sofía y la trampa del reinicio del lune</a>
+<a href="#case-2">Caso 2 — El tablero de Diego frente al ritual de</a>
+<a href="#framework">Marco — Lienzo del hábito del 1% en primera líne</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Vender un microhábito a un par e</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger un ritual bajo </a>
+<a href="#key-notes">Puntos clave — Ganancias pequeñas, sistemas visi</a>
+<a href="#commitment">Compromiso — Hábito personal + práctica visible </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Por qué las mejoras pequeñas vencen a los saltos grandes</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Por qué las mejoras pequeñas vencen a los saltos grandes</h2>
+<p>A los supervisores de primera línea a menudo se les mide por giros espectaculares: limpiar un atraso en una semana, alcanzar una meta extrema, “arreglar al equipo de un día para otro”. La evidencia en cambio de comportamiento apunta en otra dirección. Las mejoras sostenibles suelen venir de cambios pequeños y repetidos en las rutinas, no de un solo empujón heroico.</p>
+<h3>Ganancias compuestas, no héroes ocasionales</h3>
+<p>La investigación sobre aprendizaje de habilidades y formación de hábitos muestra que la práctica frecuente y modesta se acumula. La lógica de sumar “ganancias marginales”—mejorar muchos factores pequeños en lugar de cazar un único breakthrough—coincide con cómo se forman los hábitos: cada acción diaria es un voto por una identidad y una capacidad futuras.</p>
+<p>En el trabajo, el mismo patrón aparece cuando los equipos rastrean indicadores adelantados (calidad del traspaso, primer acierto, una conversación de coaching por semana) en lugar de solo KPIs rezagados.</p>
+<h3>Los sistemas vencen a las metas solas</h3>
+<p>Las metas describen el destino; los sistemas describen lo que la gente hace el martes. Los estudios sobre intenciones de implementación (“cuando ocurra la situación X, haré Y”) encuentran que especificar claves y respuestas eleva el seguimiento comparado con solo declarar la meta (Gollwitzer y Sheeran, 2006). Para un líder de primera línea, eso significa traducir “mejorar la confiabilidad del equipo” en un ritual visible: un chequeo de cinco minutos al inicio del turno, una agenda estándar de 1:1, o una nota de dos minutos al cierre sobre un fricción.</p>
+<h3>El entorno moldea la conducta</h3>
+<p>El autocontrol es limitado. Los entornos que hacen obvia la acción deseada y incómoda la no deseada superan a los discursos motivacionales. Reorganizar herramientas, mensajes y valores por defecto hace que la acción correcta sea la más fácil.</p>
+<h3>Qué implica para supervisores</h3>
+<ol>
+<li>Prefiere un cambio de proceso del 1% que el equipo pueda ver esta semana a un mandato vago de transformación.</li>
+<li>Ata cada cambio a una clave que ya exista en el turno.</li>
+<li>Mide hábitos líderes (cumplimiento del ritual), no solo el tablero de fin de mes.</li>
+</ol>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis. <em>Advances in Experimental Social Psychology, 38</em>, 69–119.</li>
+<li>Lally, P., et al. (2010). How are habits formed: Modelling habit formation in the real world. <em>European Journal of Social Psychology, 40</em>(6), 998–1009.</li>
+<li>Wood, W., &amp; Neal, D. T. (2007). A new look at habits and the habit–goal interface. <em>Psychological Review, 114</em>(4), 843–863.</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La semana en que dejé de pedirle milagros a mi equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La semana en que dejé de pedirle milagros a mi equipo</h2>
+<p>Los lunes los corría como mitin. Nueva meta extrema. Nuevo “todos a bordo”. Para el jueves el tablero se veía peor, y yo culpaba a la motivación.</p>
+<p>El cambio llegó tras un 1:1 con Mateo, un operador fuerte al que había promovido a mi antiguo puesto. Me dijo, en voz baja: “Cada semana cambias la meta. Nunca terminamos el último arreglo.” Tenía razón. Estaba enganchado a los saltos grandes porque se sentían a liderazgo. Eran, en su mayoría, ruido.</p>
+<p>Esa semana probé algo más pequeño. Una sola mejora: cada traspaso debe incluir una nota de dos líneas—qué está hecho, qué está bloqueado. Sin discursos. Sin tablero nuevo. Solo esa clave en cada cambio de turno.</p>
+<p>El primer día no pasó nada espectacular. El cuarto día, dos tickets que solían rebotar entre equipos se cerraron la misma tarde. El viernes, Mateo corrió el traspaso sin mí. El milagro que yo exigía apareció como un ritual aburrido.</p>
+<p>Si lideras a quienes antes eran tus pares, resiste la urgencia de probar autoridad con un reinicio espectacular. Pruébala con un sistema que puedan repetir cuando tú no estás en el piso. El uno por ciento no es timidez. Es cómo los equipos de primera línea se vuelven confiables.</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Cómo impulsas el cambio en tu equipo?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Autodiagnóstico — ¿Cómo impulsas el cambio en tu equipo?</h2>
+<p>Responde según cómo lideras <strong>este mes</strong> (A=1 … D=4). Sé honesto: es diagnóstico, no evaluación de desempeño.</p>
+<p>--- SECTION 1: QUESTIONS ---</p>
+<p><strong>Q1.</strong> Cuando tu equipo pierde una meta semanal, tu primer movimiento suele ser:</p>
+<ul>
+<li>A) Anunciar un empujón audaz para la siguiente semana</li>
+<li>B) Pedir algunos arreglos grandes cuando haya capacidad</li>
+<li>C) Partir el fallo en brechas pequeñas de proceso y elegir una para corregir</li>
+<li>D) Instalar un ritual diario diminuto y seguirlo dos semanas</li>
+</ul>
+<p><strong>Q2.</strong> En los 1:1 con un excompañero que ahora supervisas, sueles:</p>
+<ul>
+<li>A) Empujar un plan de giro dramático</li>
+<li>B) Dar consejos ocasionales cuando algo falla</li>
+<li>C) Acordar una conducta pequeña para practicar antes de la próxima semana</li>
+<li>D) Co-diseñar un bucle de hábito (clave, acción, recompensa) que ellos posean</li>
+</ul>
+<p><strong>Q3.</strong> ¿Cómo tratas las mejoras “compuestas” del equipo?</p>
+<ul>
+<li>A) Con escepticismo—demasiado lento para mi jefe</li>
+<li>B) Útiles a veces, pero aún prefiero victorias ruidosas</li>
+<li>C) Creo que las ganancias diarias suman si somos constantes</li>
+<li>D) Dirijo el equipo con microhábitos visibles y los reviso cada semana</li>
+</ul>
+<p><strong>Q4.</strong> Al planear la semana, principalmente:</p>
+<ul>
+<li>A) Fijas un resultado abrumador para todos</li>
+<li>B) Listas varias metas y esperas que aparezca capacidad</li>
+<li>C) Partes el trabajo grande en pasos manejables con dueños</li>
+<li>D) Diseñas hábitos a nivel de turno que hagan la meta casi automática</li>
+</ul>
+<p><strong>Q5.</strong> Después de un turno difícil, sueles:</p>
+<ul>
+<li>A) Reiniciar todo el lunes con un nuevo mandato</li>
+<li>B) Esperar inspiración o una crisis que fuerce el cambio</li>
+<li>C) Buscar una fricción para quitar mañana</li>
+<li>D) Reforzar el ritual existente y ajustar la clave si hace falta</li>
+</ul>
+<p><strong>Q6.</strong> El diseño del entorno en tu piso se ve así:</p>
+<ul>
+<li>A) Sin cambios—la gente debería esforzarse más</li>
+<li>B) Carteles o recordatorios ocasionales</li>
+<li>C) Algunas claves que apoyan mejores hábitos</li>
+<li>D) Herramientas, tableros y valores por defecto para que lo correcto sea lo más fácil</li>
+</ul>
+<p><strong>Q7.</strong> Cuando la gerencia pide un “gran salto”, tú:</p>
+<ul>
+<li>A) Pasas la presión directo al equipo</li>
+<li>B) Suavizas el mensaje pero mantienes el marco del salto</li>
+<li>C) Lo traduces a una secuencia de pasos pequeños y medibles</li>
+<li>D) Proteges el sistema del equipo y negocias indicadores adelantados hacia arriba</li>
+</ul>
+<p><strong>Q8.</strong> El éxito como líder de primera línea significa:</p>
+<ul>
+<li>A) Salvamentos espectaculares y visibles</li>
+<li>B) Golpes de suerte ocasionales</li>
+<li>C) Mejora constante semana a semana</li>
+<li>D) Un equipo que corre hábitos confiables sin que tú los vigiles</li>
+</ul>
+<p>--- SECTION 2: SCORING ---</p>
+<p>Puntúa A=1, B=2, C=3, D=4. Rango total 8–32.</p>
+<p>--- SECTION 3: PROFILES ---</p>
+<ol>
+<li><strong>Supervisor del salto (8–14):</strong> Por defecto reinicias en grande. Útil en emergencias; costoso como estilo semanal. Prueba un microhábito 10 días laborales antes de anunciar otro salto.</li>
+<li><strong>Constructor emergente (15–20):</strong> Ves el valor de los pasos pequeños pero aún cazas victorias ruidosas. Ata un ritual a una clave de turno y revísalo cada viernes.</li>
+<li><strong>Coach constante (21–26):</strong> Ya partes metas en práctica. Fortalece la visibilidad—haz el hábito público en el tablero.</li>
+<li><strong>Líder de sistemas (27–32):</strong> Lideras por rutinas que se acumulan. Enseña a un reportante a poseer una clave este mes para que el sistema sobreviva tu ausencia.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Sofía y la trampa del reinicio del lunes</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Sofía y la trampa del reinicio del lunes</h2>
+<h3>Apertura</h3>
+<p>Sofía es una <strong>supervisora de línea</strong> recién promovida en un hub logístico. El año pasado era una de las mejores en el mismo piso. Ahora lidera a ocho personas—incluidos dos amigos que aún bromean sobre “cuando Sofía era una de nosotros.” Los lunes siente presión de su gerente, Raúl, para “voltear los números esta semana.” Su default se volvió un reinicio ruidoso: nueva meta extrema, nuevo discurso, misma frustración el jueves.</p>
+<h3>Contexto</h3>
+<p>La exactitud de salida es aceptable, pero los <strong>traspasos entre picking y empaque</strong> se resbalan. Errores pequeños se convierten en tiempo extra. Raúl mide a Sofía por throughput semanal. Casi no pregunta por hábitos líderes.</p>
+<p>El mes pasado Sofía intentó un gran salto: rediseño total de un día para otro. El equipo cumplió dos días y luego se desvió. Mateo (excompañero) le dijo que la gente espera “el próximo discurso de Sofía” en lugar de apropiarse del trabajo.</p>
+<h3>Punto de decisión</h3>
+<p>Raúl quiere otro reinicio el lunes tras un viernes malo. Sofía puede:</p>
+<ol>
+<li>Anunciar otro salto y montarse en la adrenalina.</li>
+<li>Elegir <strong>un</strong> microhábito (p. ej., notas de traspaso de dos líneas) y coacharlo dos semanas antes de cambiar otra cosa.</li>
+<li>Híbrido: mantener la meta de Raúl pero traducirla a tres acciones diarias diminutas con seguimiento visible.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué hábitos de liderazgo modela Sofía—y qué está aprendiendo el equipo a ignorar?</li>
+<li>¿Cómo debería hablar con Raúl para que “sistemas del 1%” no suene a excusa?</li>
+<li>Diseña el bucle (clave, respuesta, recompensa) de la nota de traspaso—¿quién posee la clave cuando Sofía no está?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — El tablero de Diego frente al ritual del piso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — El tablero de Diego frente al ritual del piso</h2>
+<h3>Apertura</h3>
+<p>Diego coordina un <strong>pod de soporte</strong> de seis agentes. Cada mañana un tablero lo recibe con azulejos rojos. Su instinto: limpiar el rojo con un empujón dramático—horas extra, señalamientos públicos, “todos se quedan hasta que esté verde.” La resolución de primer contacto bajó igual. Los agentes están cansados y callados en el stand-up.</p>
+<h3>Contexto</h3>
+<p>Un pod vecino mejoró de forma constante tras instalar un <strong>tablero de bloqueos de dos minutos</strong> al inicio de cada turno. Sin blitz. Diego lo descartó como “demasiado pequeño para mover KPIs.” Dos meses después, la tasa de reapertura de ese pod bajó mientras los blitz de Diego compraban verdes temporales que siempre se desvanecían.</p>
+<h3>Punto de decisión</h3>
+<p>El stand-up es en 12 horas. Diego puede:</p>
+<ol>
+<li>Correr otro blitz y limpiar personalmente los tickets más rojos.</li>
+<li>Probar el tablero de bloqueos cinco turnos y rastrear reaperturas como medida adelantada.</li>
+<li>Mantener el teatro del tablero para su jefe mientras corre el ritual en secreto—arriesgando señales mixtas.</li>
+</ol>
+<h3>Exhibición (simplificada)</h3>
+<div class="table-wrap"><table>
+<tr><th>Semana</th><th>Reapertura pod Diego</th><th>Reapertura pod vecino</th></tr>
+<tr><td>1</td><td>18%</td><td>17%</td></tr>
+<tr><td>2 (blitz)</td><td>14%</td><td>15%</td></tr>
+<tr><td>3</td><td>19%</td><td>12%</td></tr>
+<tr><td>4</td><td>20%</td><td>11%</td></tr>
+</table></div>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué sugiere la tabla sobre saltos frente a rutinas que se acumulan?</li>
+<li>¿Cómo puede Diego proteger un ritual pequeño sin ocultarlo a su gerente?</li>
+<li>Escribe la declaración de identidad que el pod ganaría si el tablero dura 30 días.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo del hábito del 1% en primera línea</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo del hábito del 1% en primera línea</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Completa un lienzo por hábito que coacharás esta semana.</p>
+<h3>1. Resultado (una frase)</h3>
+<p>¿Qué debería ser cierto para el equipo en 30 días?</p>
+<h3>2. Voto de identidad</h3>
+<p>“Somos el tipo de equipo que ________.”</p>
+<h3>3. Acción diminuta (menos de 5 minutos)</h3>
+<p>¿Qué harán las personas—no qué “intentarán”?</p>
+<h3>4. Bucle del hábito</h3>
+<div class="table-wrap"><table>
+<tr><th>Elemento</th><th>Tu diseño</th></tr>
+<tr><td>Clave (ya existe en el turno)</td><td></td></tr>
+<tr><td>Anhelo (por qué importa, en palabras simples)</td><td></td></tr>
+<tr><td>Respuesta (conducta exacta)</td><td></td></tr>
+<tr><td>Recompensa (qué cierra el ciclo)</td><td></td></tr>
+</table></div>
+<h3>5. Entorno</h3>
+<p>¿Qué agregarás, moverás o quitarás para que la respuesta sea más fácil que el viejo hábito?</p>
+<h3>6. Visibilidad</h3>
+<p>¿Dónde es visible el cumplimiento para el equipo?</p>
+<h3>7. Dueño cuando faltas</h3>
+<p>Nombre + respaldo:</p>
+<h3>8. Revisión de viernes (10 minutos)</h3>
+<p>Mantener / ajustar / soltar — y una nota a tu gerente en lenguaje de indicador adelantado:</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Vender un microhábito a un par escéptico</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Vender un microhábito a un par escéptico</h2>
+<p><strong>Duración:</strong> 25–35 minutos  </p>
+<p><strong>Propósito:</strong> Practicar traducir una meta grande a un solo hábito diminuto sin volver al lenguaje del salto.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Coach de hábitos)</strong>  </p>
+<p>Quiere acuerdo sobre un ritual de menos de 5 minutos atado a una clave existente. No debe anunciar un rediseño completo.</p>
+<p><strong>Rol 2 — Excompañero escéptico</strong>  </p>
+<p>Respeta el trabajo duro pero cree que “lo chico no mueve el número.” Empuja un arreglo dramático. Cederá solo si ve un bucle claro y un juicio justo del ensayo.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el supervisor asegurar un ensayo de dos semanas de un microhábito sin quemar la relación ni prometer milagros?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el coach propone; el escéptico resiste.</li>
+<li>Ronda 2 (8 min): el coach rediseña clave/respuesta con el lenguaje del escéptico.</li>
+<li>Cierre (10 min): ¿dónde volvió el lenguaje del salto? ¿qué evidencia convencería?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger un ritual bajo presión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger un ritual bajo presión</h2>
+<p><strong>Duración:</strong> 40–50 minutos  </p>
+<p><strong>Propósito:</strong> Asegurar apoyo para una rutina que se acumula cuando otros piden un salto.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para un ensayo de dos semanas con tablero visible.</li>
+<li><strong>Líder tradicionalista (antagonista):</strong> Prefiere blitz y metas públicas extremas; llama “pérdida de tiempo” a los hábitos pequeños.</li>
+<li><strong>Analista de operaciones (escéptico):</strong> Necesita un indicador adelantado medible y criterios para matar el ensayo.</li>
+<li><strong>Supervisor par (aliado o voto):</strong> Apoyará si el plan no descarga trabajo extra en equipos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger un sistema pequeño y acumulativo sin parecer resistente al desempeño?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Una clave clara y un dueño</li>
+<li>Una métrica adelantada (no solo el KPI rezagado)</li>
+<li>Fecha de revisión a dos semanas</li>
+<li>Ningún segundo plan secreto que contradiga el ritual</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumentos funcionaron con el analista frente al tradicionalista?</li>
+<li>¿Cómo tradujo el supervisor el “1%” a lenguaje seguro para gerencia?</li>
+<li>¿Qué rompería el ritual en la semana dos—y quién previene eso?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Ganancias pequeñas, sistemas visibles</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Ganancias pequeñas, sistemas visibles</h2>
+<p><strong>Meta de la unidad:</strong> Convertir grandes metas de equipo en acciones diarias que tu gente pueda ver y repetir.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Mentalidad del 1%:</strong> Las mejoras diarias pequeñas se acumulan; los saltos grandes suelen reiniciar al equipo.</li>
+<li><strong>Sistemas por encima de metas solas:</strong> La meta nombra el resultado; el sistema nombra la conducta del martes.</li>
+<li><strong>Bucle del hábito:</strong> Clave → anhelo → respuesta → recompensa — diseña los cuatro.</li>
+<li><strong>Identidad:</strong> Cada microacción completada es un voto por “somos un equipo confiable.”</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Elige <strong>una</strong> meta de largo plazo y lista 3 acciones diminutas (menos de 5 minutos).</li>
+<li>Ata cada acción a una clave que ya exista (inicio de turno, tras el stand-up, antes del traspaso).</li>
+<li>Escribe el bucle de un comportamiento que coacharás esta semana.</li>
+<li>Haz la acción visible (tablero, plantilla de chat o checklist).</li>
+<li>Quita una fricción que bloquee el nuevo hábito.</li>
+<li>Agenda una revisión de 10 minutos el viernes: mantener, ajustar o soltar.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué ritual seguiría corriendo si faltas dos días—y quién es dueño de la clave?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Hábito personal + práctica visible del equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Compromiso — Hábito personal + práctica visible del equipo</h2>
+<p>Complétalo antes de salir del taller. Comparte la línea visible del equipo en 48 horas.</p>
+<h3>A. Hábito operativo personal (tú)</h3>
+<ol>
+<li>Una conducta que practicaré a diario los próximos 7 días:</li>
+<li>Clave que ya existe en mi día:</li>
+<li>Cómo sabré que ocurrió (una línea de registro):</li>
+</ol>
+<h3>B. Práctica visible del equipo (tus reportantes)</h3>
+<ol>
+<li>Un microrritual que el equipo correrá cada turno/día:</li>
+<li>Quién posee la clave si yo falto:</li>
+<li>Dónde es visible el cumplimiento:</li>
+</ol>
+<h3>C. Alineación con el gerente</h3>
+<p>En una frase, cómo explicaré esto a mi gerente como <strong>indicador adelantado</strong> (no como excusa):</p>
+<h3>D. Firma</h3>
+<p>Nombre: ____________ Fecha: ____________  </p>
+<p>Revisaré A–C el próximo viernes y ajustaré una vez—no reiniciaré desde cero.</p></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>ATC · Global Leadership · Factory preview (not for client brand review until approved)</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

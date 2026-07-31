@@ -1,0 +1,66 @@
+program_id: ATC
+unit_id: u01
+audience_id: tier_2_frontline_leader
+locale: es
+public_title: Sistemas de hábitos para líderes de primera línea
+unit_goal: >
+  Convertir grandes metas de equipo en acciones diarias acumulativas que un líder
+  de primera línea pueda coachar, ver y sostener cuando no está en el piso.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Atomic Habits
+  - Habit Hacking for Breakthrough
+  - In our modern age
+  - In a fast-paced world
+  - Hábitos Atómicos
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Por qué las mejoras pequeñas vencen a los saltos grandes"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "La semana en que dejé de pedirle milagros a mi equipo"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Ganancias pequeñas, sistemas visibles"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Cómo impulsas el cambio en tu equipo?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo del hábito del 1% en primera línea"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Hábito personal + práctica visible del equipo"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Sofía y la trampa del reinicio del lunes"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — El tablero de Diego frente al ritual del piso"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Vender un microhábito a un par escéptico"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger un ritual bajo presión"

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egregor.io/schemas/gl-asset-meta.json",
+  "title": "GLAssetMeta",
+  "description": "YAML/JSON front-matter contract for a single workshop asset body file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["asset_id", "program_id", "unit_id", "locale", "audience_id", "title"],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "enum": [
+        "research_article",
+        "opinion_article",
+        "key_notes",
+        "self_assessment",
+        "case_study",
+        "framework_tool",
+        "commitment_plan",
+        "live_roleplay_1v1",
+        "live_roleplay_strategic"
+      ]
+    },
+    "program_id": { "type": "string" },
+    "unit_id": { "type": "string" },
+    "locale": { "type": "string", "enum": ["en", "es"] },
+    "audience_id": {
+      "type": "string",
+      "enum": [
+        "tier_1_operator",
+        "tier_2_frontline_leader",
+        "tier_3_operational_manager",
+        "tier_4_strategic_leader",
+        "shared"
+      ]
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "slot": {
+      "type": "string",
+      "enum": ["pre", "live", "post"]
+    },
+    "case_index": { "type": "integer", "minimum": 1 },
+    "source_of": { "type": "string", "description": "Original filename or provenance note." }
+  }
+}
