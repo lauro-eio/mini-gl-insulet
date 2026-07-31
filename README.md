@@ -4,6 +4,12 @@ Factory for soft-skills workshop packs: normalize existing assets, validate, ren
 
 Platform (EGREGOR) convert/upload is **out of scope** for the current MVP.
 
+## Scope boundary
+
+**Global Leadership (this factory)** = catalog programs such as ATC (and future TFS, EIG, …).
+
+**Insulet** = a separate, tailored **client** workshop. It is **not** part of the GL catalog, not a factory program ID, and must not be mixed into GL publish surfaces or the Insulet-named client hosting repo. Keep any Insulet files under `examples/insulet/` (or a future `clients/insulet/`) isolated from `library/`, `content/`, and GL preview publishing.
+
 ## MVP (locked)
 
 | Field | Value |
