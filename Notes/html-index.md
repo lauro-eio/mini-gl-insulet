@@ -2,7 +2,7 @@
 
 One GL publish repo → one Vercel site. Many unit pages. Two audiences.
 
-**Publish repo (HTML only):** [https://github.com/lauro-eio/GL-Preview.git](https://github.com/lauro-eio/GL-Preview.git) — see [gl-preview-repo.md](gl-preview-repo.md).
+**Publish repo (HTML only):** [https://github.com/lauro-eio/global-leadership-preview.git](https://github.com/lauro-eio/global-leadership-preview.git) — see [gl-preview-repo.md](gl-preview-repo.md).
 
 Learners must not navigate across units or workshops **inside the HTML**.  
 Editors still need a browsable map of everything.
@@ -13,7 +13,7 @@ Related: [workshops-naming-convention.md](workshops-naming-convention.md) (handl
 
 ## Locked rules
 
-1. **One GL publish repo** (`lauro-eio/GL-Preview`) → one Vercel project. Not one repo per unit. HTML content only — no factory source.
+1. **One GL publish repo** (`lauro-eio/global-leadership-preview`) → one Vercel project. Not one repo per unit. HTML content only — no factory source.
 2. **Publish atom** = one HTML document per `(program × unit × locale)`.
 3. **No cross-nav in atoms:** unit pages must not link to other units or workshops. In-page section TOC only.
 4. **App** deep-links the enrolled unit URL only — never the catalog.
@@ -33,7 +33,7 @@ Related: [workshops-naming-convention.md](workshops-naming-convention.md) (handl
 ```text
 Factory (mini-GL)  →  render HTML
        ↓
-Publish repo (GitHub: lauro-eio/GL-Preview)  →  Vercel
+Publish repo (GitHub: lauro-eio/global-leadership-preview)  →  Vercel
        ↓
   ┌────┴────┐
   atom URL   catalog (editor)

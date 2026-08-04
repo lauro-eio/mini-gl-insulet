@@ -27,7 +27,7 @@ Platform (EGREGOR) convert/upload is **out of scope** for the current MVP.
 Full codebook, lens matrix, and ingest rules: [Notes/workshops-naming-convention.md](Notes/workshops-naming-convention.md). Client titles must **not** use book names (e.g. “Atomic Habits”).
 
 HTML publish (one repo, unit atoms, editor catalog): [Notes/html-index.md](Notes/html-index.md).  
-Publish target (HTML only): [https://github.com/lauro-eio/GL-Preview.git](https://github.com/lauro-eio/GL-Preview.git) — [Notes/gl-preview-repo.md](Notes/gl-preview-repo.md).
+Publish target (HTML only): [https://github.com/lauro-eio/global-leadership-preview.git](https://github.com/lauro-eio/global-leadership-preview.git) — [Notes/gl-preview-repo.md](Notes/gl-preview-repo.md).
 
 ATC T2 status: [Notes/atc-program.md](Notes/atc-program.md).
 

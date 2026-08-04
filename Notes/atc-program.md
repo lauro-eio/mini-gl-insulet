@@ -28,7 +28,7 @@ Examples: `examples/atc/html/ATC-U0N.{en,es}.html`
 - T1 / T3 / T4 ATC packs
 - Live Google Form URLs
 - EGREGOR / platform upload
-- Dedicated Vercel publish repo: [https://github.com/lauro-eio/GL-Preview.git](https://github.com/lauro-eio/GL-Preview.git) (see `Notes/gl-preview-repo.md`) — first HTML push still pending
+- Dedicated Vercel publish repo: [https://github.com/lauro-eio/global-leadership-preview.git](https://github.com/lauro-eio/global-leadership-preview.git) (ATC T2 HTML published; connect Vercel when ready)
 
 ## Contracts
 
