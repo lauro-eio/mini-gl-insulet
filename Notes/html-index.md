@@ -17,7 +17,7 @@ Related: [workshops-naming-convention.md](workshops-naming-convention.md) (handl
 2. **Publish atom** = one HTML document per `(program × unit × locale)`.
 3. **No cross-nav in atoms:** unit pages must not link to other units or workshops. In-page section TOC only.
 4. **App** deep-links the enrolled unit URL only — never the catalog.
-5. **Catalog** = editor revision surface only; protect it and/or keep it out of the app.
+5. **Catalog** = locale-split main index at `/en/` and `/es/` (header language switch); not linked from atoms or the learner app.
 6. **Insulet** never ships on the GL publish site.
 
 ---
@@ -27,7 +27,7 @@ Related: [workshops-naming-convention.md](workshops-naming-convention.md) (handl
 | Surface | Who | Role |
 | --- | --- | --- |
 | Unit atom | Learners (via app) | Sealed unit document |
-| Catalog (`/_review/` or similar) | Editors | Navigate all packs for revision |
+| Catalog `/en/` + `/es/` | Editors | Browse all packs by locale |
 | App | Product | Curriculum router + enrollment gate |
 
 ```text
@@ -36,7 +36,7 @@ Factory (mini-GL)  →  render HTML
 Publish repo (GitHub: lauro-eio/global-leadership-preview)  →  Vercel
        ↓
   ┌────┴────┐
-  atom URL   catalog (editor)
+  atom URL   catalog /en/ + /es/
   (app only) (you only)
 ```
 
@@ -77,14 +77,17 @@ Open unit in-app → load that URL (iframe / WebView / browser). Cross-unit and 
 
 ---
 
-## Catalog (editor only)
+## Catalog (locale-split main index)
 
-- Location: e.g. `/_review/index.html` (or root `/` only if Deployment Protection / password / private preview).
-- May list every program × unit × locale with links to atoms.
-- Atoms must **not** link back to the catalog.
-- Prefer `noindex` on the catalog when the site is otherwise public.
+- **`/en/`** — English workshop catalog (programs → units).
+- **`/es/`** — Spanish workshop catalog.
+- **`/`** — redirects to `/en/` (with link to `/es/`).
+- Header on catalogs: **EN | ES** switch (catalog pages only — never on unit atoms).
+- Group by program (`program_title` + `lens_title`), then unit theme links.
+- Prefer `noindex` on catalogs when the site is otherwise public.
+- Legacy `/_review/` redirects to `/en/`.
 
-Root `index.html` in this factory today is a **local/editor convenience**, not a learner entry for production.
+Atoms must **not** link back to the catalog.
 
 ---
 
@@ -98,6 +101,6 @@ Path isolation stops casual browsing and in-page leakage. Anyone who knows anoth
 
 1. Validate + render in factory.
 2. Copy atom to publish repo at `/{program}/{unit}/{locale}/index.html`.
-3. Update editor catalog entry (handle + program/lens titles + locale links).
+3. Update locale catalogs `/en/` and `/es/` (and factory `en/` / `es/` mirrors).
 4. Set app `content_url_*` for that unit.
 5. Confirm atom has no outbound links to other units/workshops.

@@ -11,7 +11,7 @@ Formerly named `GL-Preview` (deleted); use the lowercase name only.
 | Include | Exclude |
 | --- | --- |
 | Static HTML unit pages (`/{program}/{unit}/{locale}/`) | Factory source (`content/`, `library/`, schemas, scripts) |
-| Optional `/_review/` editor catalog | Markdown drafts, YAML manifests |
+| Locale catalogs `/en/` and `/es/` | Markdown drafts, YAML manifests |
 | Minimal site assets needed to serve HTML | Insulet / client-tailored workshops |
 | | Notes, agent transcripts, Python tooling |
 
@@ -34,4 +34,4 @@ mini-GL (factory)  →  validate / render  →  copy HTML into global-leadership
 
 ## Status
 
-ATC T2 U01–U04 EN+ES published at `/atc/u0N/{en,es}/`, editor catalog at `/_review/`. Connect Vercel to this repo when ready.
+ATC T2 U01–U04 EN+ES published at `/atc/u0N/{en,es}/`. Locale catalogs at `/en/` and `/es/`. Connect Vercel when ready.

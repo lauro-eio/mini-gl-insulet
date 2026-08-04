@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Global Leadership — Talleres (ES)</title>
+  <link rel="alternate" hreflang="en" href="../en/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d;
+      --white: #fbfaf6; --wide: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+      min-height: 100vh;
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(243,239,230,.92);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header-inner {
+      max-width: var(--wide); margin: 0 auto;
+      padding: .85rem clamp(1.25rem,4vw,2rem);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .site-brand {
+      font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.15rem;
+      text-decoration: none; color: var(--ink);
+    }
+    .lang-switch { display: flex; gap: .35rem; font-size: .9rem; font-weight: 600; }
+    .lang-switch a, .lang-switch span {
+      text-decoration: none; padding: .35rem .65rem; border-radius: 4px; color: var(--ink-soft);
+    }
+    .lang-switch a:hover { color: var(--accent-deep); background: rgba(15,110,86,.08); }
+    .lang-switch [aria-current="page"] { color: var(--white); background: var(--accent); }
+    .hero {
+      color: var(--white);
+      padding: 2.5rem clamp(1.25rem,4vw,2rem) 2.25rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .hero-inner { max-width: var(--wide); margin: 0 auto; }
+    .hero .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2rem,5vw,3rem); font-weight: 700; margin: 0 0 .75rem;
+    }
+    .hero p { margin: 0; max-width: 36rem; color: rgba(251,250,246,.88); }
+    main { max-width: var(--wide); margin: 0 auto; padding: 2rem clamp(1.25rem,4vw,2rem) 4rem; }
+    .program { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+    .section-label {
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin: 0 0 .35rem;
+    }
+    .program h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.35rem,2.8vw,1.75rem); margin: 0 0 .35rem; letter-spacing: -.02em;
+    }
+    .lens { margin: 0 0 1rem; color: var(--ink-soft); }
+    .unit-list { list-style: none; margin: 0; padding: 0; }
+    .unit-list li { margin: 0; border-top: 1px solid var(--line); }
+    .unit-list a {
+      display: block; padding: .85rem 0; text-decoration: none; color: var(--ink); font-weight: 500;
+    }
+    .unit-list a:hover { color: var(--accent-deep); }
+    .unit-id { color: var(--accent); font-size: .85rem; font-weight: 600; margin-right: .5rem; }
+    footer {
+      max-width: var(--wide); margin: 0 auto;
+      padding: 0 clamp(1.25rem,4vw,2rem) 3rem; color: var(--ink-soft); font-size: .88rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="./">Global Leadership</a>
+      <nav class="lang-switch" aria-label="Idioma">
+        <a href="../en/" lang="en" hreflang="en">EN</a>
+        <span aria-current="page">ES</span>
+      </nav>
+    </div>
+  </header>
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="brand">Global Leadership</p>
+      <p>Catálogo de la fábrica (local). Publicación: <code>global-leadership-preview</code>.</p>
+    </div>
+  </div>
+  <main>
+    <section class="program" id="atc">
+      <p class="section-label">ATC · T2</p>
+      <h2>Hábitos operativos y ejecución</h2>
+      <p class="lens">Bucles de responsabilidad del equipo</p>
+      <ul class="unit-list">
+        <li><a href="../examples/atc/html/ATC-U01.es.html"><span class="unit-id">U01</span> Mejoras del 1% / sistemas frente a metas</a></li>
+        <li><a href="../examples/atc/html/ATC-U02.es.html"><span class="unit-id">U02</span> Hábitos basados en identidad</a></li>
+        <li><a href="../examples/atc/html/ATC-U03.es.html"><span class="unit-id">U03</span> Bucle del hábito</a></li>
+        <li><a href="../examples/atc/html/ATC-U04.es.html"><span class="unit-id">U04</span> Claves, tablero y entorno</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Hábitos operativos y ejecución · Global Leadership · {E}</p>
+  </footer>
+</body>
+</html>
