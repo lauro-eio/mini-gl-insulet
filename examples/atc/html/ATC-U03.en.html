@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Accountability Loops — Operational Habits &amp; Execution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Operational Habits &amp; Execution</p>
+      <h1>Team Accountability Loops</h1>
+      <p class="hero-lead">Equip frontline leaders to map the cue-craving-response-reward loop behind a team&#x27;s unwanted floor behavior and redesign it into a goal-aligned habit they can coach even when they are not watching.</p>
+      <div class="hero-meta">
+        <span>ATC · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Cue, Craving, Response, Reward: The Evidence Beh</a>
+<a href="#opinion">The Shortcut My Team Took Every Time I Looked Aw</a>
+<a href="#assessment">Self-Assessment — How Do You Handle Bad Loops on</a>
+<a href="#case-1">Case 1 — Priya and the Escalation-Avoidance Loop</a>
+<a href="#case-2">Case 2 — Marcus and the Shortcut Loop on the Lin</a>
+<a href="#framework">Framework — Team Habit Loop Redesign Canvas</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Coaching a Habit Loop Without Sh</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Rolling Out a Redesigned F</a>
+<a href="#key-notes">Key Notes — Mapping and Redesigning the Team Hab</a>
+<a href="#commitment">Commitment — One Loop I Will Redesign This Month</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Cue, Craving, Response, Reward: The Evidence Behind Team Habit Loops</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Cue, Craving, Response, Reward: The Evidence Behind Team Habit Loops</h2>
+<p>Frontline leaders often try to fix team behavior by repeating the rule louder. Decades of habit research suggest a different lever: behavior on the floor is rarely a motivation problem alone. It is a loop—a cue that fires, a craving it activates, a response the brain has learned to run, and a reward that locks the response in. Change one element without touching the others and the old loop returns within days.</p>
+<h3>The four parts, on your floor</h3>
+<p>Psychologists studying habit describe behavior as context-triggered repetition: a stable cue in the environment comes to automatically activate a response because that response has reliably produced a rewarding outcome (Wood &amp; Rünger, 2016). Once formed, the response can run with little deliberate thought—which is exactly why &quot;just try harder&quot; rarely dents it (Neal, Wood, &amp; Quinn, 2006).</p>
+<p>For a supervisor, the practical translation is a four-part map:</p>
+<ol>
+<li><strong>Cue</strong> — the specific, observable trigger already present in the shift (a red number on the board, an angry caller, a backlog at hour six).</li>
+<li><strong>Craving</strong> — the felt want the cue activates (relief from pressure, avoiding a hard conversation, looking competent to peers).</li>
+<li><strong>Response</strong> — the exact behavior the team runs to satisfy the craving (skipping a step, transferring a call, staying quiet in stand-up).</li>
+<li><strong>Reward</strong> — what the response delivers that reinforces the loop (the number moves, the conflict ends, the shift ends without confrontation).</li>
+</ol>
+<h3>Why naming the craving matters more than banning the response</h3>
+<p>Teams often keep an unwanted response even after being told to stop, because the underlying craving is still unmet. Research on habit strength shows that repetition under stable, matching context is what cements a response—not intent to change it (Verplanken &amp; Orbell, 2003). A supervisor who blocks the response without offering a different way to satisfy the same craving will usually see the old response reappear, or a worse one take its place.</p>
+<h3>Cues are easier to redesign than willpower</h3>
+<p>Habit-change reviews consistently find that changing or removing the triggering cue, or attaching a new response to the same cue, outperforms appeals to self-control (Gardner, 2015). This matters on a floor a leader cannot watch every minute: the cue already fires whether or not the leader is present, so the redesign has to live in the cue-response link itself, not in supervision intensity.</p>
+<h3>What this means for a frontline leader</h3>
+<ol>
+<li>Before coaching a behavior, name its cue, craving, response, and reward in plain words—not just the behavior you dislike.</li>
+<li>Keep the cue and the craving; redesign only the response so it satisfies the same want in a way that serves the goal.</li>
+<li>Attach a visible, fast reward to the new response, or the old loop will win by default.</li>
+<li>Expect relapse under the original cue for the first days; that is the loop testing whether the new response actually pays off.</li>
+</ol>
+<h3>Selected references</h3>
+<ul>
+<li>Wood, W., &amp; Rünger, D. (2016). Psychology of habit. <em>Annual Review of Psychology, 67</em>, 289–314.</li>
+<li>Neal, D. T., Wood, W., &amp; Quinn, J. M. (2006). Habits—A repeat performance. <em>Current Directions in Psychological Science, 15</em>(4), 198–202.</li>
+<li>Verplanken, B., &amp; Orbell, S. (2003). Reflections on past behavior: A self-report index of habit strength. <em>Journal of Applied Social Psychology, 33</em>(6), 1313–1330.</li>
+<li>Gardner, B. (2015). A review and analysis of the use of &#x27;habit&#x27; in understanding, predicting and influencing health-related behaviour. <em>Health Psychology Review, 9</em>(3), 277–295.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Shortcut My Team Took Every Time I Looked Away</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Shortcut My Team Took Every Time I Looked Away</h2>
+<p>For three months I thought I had a discipline problem. Every time the queue backed up past twenty tickets, at least one agent would close a case with a vague note instead of the real fix. I wrote a policy. I retrained the team. The backlog would drop, the shortcuts would stop for a week, and then the queue would spike again and the same two agents would quietly do it again.</p>
+<p>I finally sat with Renata, my steadiest agent, after she did it too. I did not ask her to defend herself. I asked what happens in her head when the queue crosses twenty. She said: &quot;It stops feeling like my job to solve it right. It feels like my job to make the number go down before you see it.&quot; The cue was the queue count. The craving was relief from being seen as the reason it was red. The response was a fast, thin close. The reward was the number moving and no one asking her anything.</p>
+<p>My policy had attacked the response and left the other three parts untouched. Of course it came back.</p>
+<p>We tried something different the next week. Same cue—queue past twenty. Same craving—she still wanted relief from looking like the problem. New response: instead of a thin close, she flags the ticket in a shared channel with one line, &quot;queue over 20, need a second pass,&quot; and moves to the next case. New reward: I answered every flag within ten minutes, out loud, so the team saw that flagging made the queue <em>my</em> problem too, not a mark against her.</p>
+<p>The backlog spikes still happen. The thin closes mostly do not, because the loop now pays off without them. I stopped asking why my team &quot;won&#x27;t follow the process&quot; and started asking what the process was quietly training them to want instead. That question changed more shifts than any retraining ever did.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — How Do You Handle Bad Loops on Your Floor?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Priya and the Escalation-Avoidance Loop</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Priya and the Escalation-Avoidance Loop</h2>
+<h3>Opening</h3>
+<p>Priya supervises eleven agents on a customer-support floor. Whenever the queue crosses twenty open tickets, she has noticed the same pattern: at least one agent closes a difficult case with a thin, vague note instead of the documented fix. She used to call it &quot;cutting corners.&quot; After a training on habit loops, she wants to name what is actually happening before she corrects anyone again.</p>
+<h3>Context</h3>
+<p>The cue is consistent: queue count crossing twenty visible on the shared dashboard. Talking with two agents privately, Priya hears the same craving in different words—relief from being seen as the reason the queue is red. The response, a thin close, delivers that relief fast: the ticket count drops and no one asks questions. The reward reinforces itself before any manager notices the quality problem, which usually surfaces days later as a reopened ticket from an annoyed customer.</p>
+<p>Priya&#x27;s prior fix was a stricter closing-note policy with a warning for violations. It worked for four or five days after each retraining, then quietly reappeared once the queue spiked again. Agents did not see it as breaking rules—they saw it as surviving a bad ten minutes.</p>
+<h3>Decision point</h3>
+<p>The queue is about to spike again this afternoon. Priya can:</p>
+<ol>
+<li>Reissue the closing-note policy with a firmer warning and monitor closely today.</li>
+<li>Keep the cue (queue past twenty) and the craving (relief from looking like the problem) the same, but design a new response—flag the ticket in a shared channel for a fast second pass—paired with a visible, quick reward.</li>
+<li>Quietly reassign difficult tickets away from agents who have done this before, avoiding the conversation entirely.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What was the original loop actually rewarding, and why did the policy alone fail to remove it?</li>
+<li>How should Priya introduce the new response so agents experience it as relief, not extra scrutiny?</li>
+<li>Design the full redesigned loop (cue, craving, response, reward) for this floor, and name who confirms the reward happens within ten minutes.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Marcus and the Shortcut Loop on the Line</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Marcus and the Shortcut Loop on the Line</h2>
+<h3>Opening</h3>
+<p>Marcus leads a six-person assembly line. When the hourly count falls behind pace—visible on a red digital counter above the line—operators sometimes skip the second-check step meant to catch misaligned parts before they move downstream. Marcus used to frame this as &quot;people rushing when they shouldn&#x27;t.&quot; After mapping the loop, he sees it differently: the red counter is the cue, catching up before shift-end is the craving, skipping the check is the response, and the reward is the counter turning green plus avoiding a conversation with Marcus about being behind.</p>
+<h3>Context</h3>
+<p>Line data from the last four weeks shows the pattern clearly:</p>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Skipped-check incidents</th><th>Hourly count red minutes</th></tr>
+<tr><td>1</td><td>3</td><td>42</td></tr>
+<tr><td>2 (reminder posted)</td><td>2</td><td>45</td></tr>
+<tr><td>3</td><td>5</td><td>61</td></tr>
+<tr><td>4</td><td>6</td><td>58</td></tr>
+</table></div>
+<p>Reminders posted on the line reduced incidents for one week, then incidents rose again alongside red minutes—suggesting the trigger, not awareness, drives the behavior. Downstream, misaligned parts caught later cost more rework time than the seconds saved by skipping the check.</p>
+<h3>Decision point</h3>
+<p>The counter has been red for the last two hours. Marcus can:</p>
+<ol>
+<li>Walk the line and personally remind operators to slow down and check properly.</li>
+<li>Keep the cue (red counter) and craving (avoid falling further behind, avoid Marcus&#x27;s follow-up), but redesign the response—a five-second visual check paired with a call for help the moment count slips, rewarded by Marcus reassigning a hand immediately, not after shift.</li>
+<li>Move the second-check step to a separate quality station so operators on the line never touch it.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What does the incident and red-minutes pattern suggest about whether this is a motivation problem or a loop problem?</li>
+<li>If Marcus chooses option 2, what specific reward has to arrive within minutes to compete with &quot;the counter turns green&quot;?</li>
+<li>How should Marcus explain the redesign to his own manager without sounding like he is excusing skipped checks?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Team Habit Loop Redesign Canvas</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Team Habit Loop Redesign Canvas</h2>
+<p>Use in workshop or print for the floor. Complete one canvas per unwanted behavior you will redesign this month.</p>
+<h3>1. Target behavior</h3>
+<p>What exact behavior do you want to change? (Observable, not a character judgment.)</p>
+<h3>2. Map the current loop</h3>
+<div class="table-wrap"><table>
+<tr><th>Element</th><th>Current loop</th></tr>
+<tr><td>Cue (specific, observable trigger)</td><td></td></tr>
+<tr><td>Craving (the want it activates)</td><td></td></tr>
+<tr><td>Response (exact current behavior)</td><td></td></tr>
+<tr><td>Reward (what reinforces it today)</td><td></td></tr>
+</table></div>
+<h3>3. What stays the same</h3>
+<p>Which cue and craving will you keep, because removing them isn&#x27;t realistic on this floor?</p>
+<h3>4. Redesigned response</h3>
+<p>What new behavior satisfies the same craving, tied to the same cue, while serving the team goal?</p>
+<h3>5. Redesigned reward</h3>
+<p>What fires fast and visibly the moment the new response happens—fast enough to outcompete the old reward?</p>
+<h3>6. Friction to remove</h3>
+<p>What tool, script, or approval step makes the new response harder than the old one right now?</p>
+<h3>7. Owner and visibility</h3>
+<p>Who confirms the new loop ran today, and where is that visible to the team?</p>
+<h3>8. Relapse plan</h3>
+<p>If the old response reappears once, what will you say and do—without restarting from zero?</p>
+<h3>9. Two-week review</h3>
+<p>Keep / adjust / drop—and one line to your manager framed as a leading indicator, not an excuse:</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Coaching a Habit Loop Without Shame</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Coaching a Habit Loop Without Shame</h2>
+<p><strong>Duration:</strong> 25–35 minutes  </p>
+<p><strong>Purpose:</strong> Practice naming a team member&#x27;s cue, craving, response, and reward together—without lecturing or triggering defensiveness.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Loop Coach)</strong>  </p>
+<p>You have noticed a repeat shortcut and want to map its loop with the person, then agree on one redesigned response tied to the same trigger. You must not open with a warning or a rule reminder.</p>
+<p><strong>Role 2 — Team member who repeats the shortcut</strong>  </p>
+<p>You feel the correction is coming and expect to be blamed. You will open guarded or slightly defensive. You will engage honestly only if the coach asks about the trigger and the pressure you feel, not just the rule you broke.</p>
+<h3>Conflict</h3>
+<p>Can the supervisor get the team member to name the real craving behind the shortcut, and agree to try one new response for a short trial—without the conversation turning into a warning?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Coach opens by asking about the moment the shortcut happens, not the shortcut itself; team member resists or minimizes.</li>
+<li>Round 2 (8 min): Coach and team member co-design one new response to the same cue; team member proposes the reward that would make it worth trying.</li>
+<li>Debrief (10 min): Where did blame language creep back in? What made the team member willing to name the real craving?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Rolling Out a Redesigned Floor Ritual</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Rolling Out a Redesigned Floor Ritual</h2>
+<p><strong>Duration:</strong> 40–50 minutes  </p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a redesigned team loop when stakeholders want a faster, blunter fix.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to trial a redesigned response to a known floor trigger, with a visible reward mechanism, for two weeks.</li>
+<li><strong>Ops lead (antagonist):</strong> Wants the old behavior stopped immediately through stricter enforcement and consequences; sees loop language as slow and soft.</li>
+<li><strong>Quality analyst (skeptic):</strong> Needs a clear before/after signal and a defined point at which the trial is judged to have failed.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the trial if it does not quietly shift extra checking work onto a neighboring shift.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a loop redesign that keeps the same cue and craving—rather than only banning the response—without looking like they are tolerating the original shortcut?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>A clearly named cue, craving, response, and reward—not just &quot;we&#x27;ll stop doing X&quot;</li>
+<li>One visible signal the analyst can check within two weeks</li>
+<li>A named owner for the reward on shifts the supervisor doesn&#x27;t work</li>
+<li>No parallel enforcement crackdown that contradicts the redesigned loop</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument moved the ops lead: enforcement risk, or a faster reward loop?</li>
+<li>How did the supervisor answer &quot;why not just stop them from doing it&quot;?</li>
+<li>What would cause the old response to win again in week two, and who owns preventing it?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Mapping and Redesigning the Team Habit Loop</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Mapping and Redesigning the Team Habit Loop</h2>
+<p><strong>Unit goal:</strong> Map the loop behind an unwanted floor behavior and redesign it into something goal-aligned—one you can coach even when you are not watching.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>The loop:</strong> Cue → craving → response → reward. All four are always present, whether you named them or not.</li>
+<li><strong>Cue:</strong> The specific, observable trigger already on the shift (a red number, a hard call, a backlog).</li>
+<li><strong>Craving:</strong> The felt want the cue activates—often relief, belonging, or looking competent, not the behavior itself.</li>
+<li><strong>Response is the easiest lever to change, but never the only one:</strong> blocking it without meeting the craving invites relapse or a worse workaround.</li>
+<li><strong>Reward must arrive fast and visibly</strong>, or the redesigned response loses to the old one by default.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Pick one unwanted behavior you can observe directly this week.</li>
+<li>Write its loop in one line each: cue, craving, response, reward.</li>
+<li>Ask what the response is actually buying the person—not what rule it breaks.</li>
+<li>Design a new response tied to the <strong>same cue</strong>, satisfying the <strong>same craving</strong>, that serves the team goal.</li>
+<li>Attach a fast, visible reward to the new response before you remove the old one.</li>
+<li>Expect the old response to reappear once; treat it as data, not defiance.</li>
+<li>Coach the loop with the person, out loud, so they can run it without you present.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which unwanted behavior on your floor keeps &quot;coming back&quot; no matter how many times you&#x27;ve corrected it—and what is it quietly rewarding?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — One Loop I Will Redesign This Month</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Operational Habits &amp; Execution · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

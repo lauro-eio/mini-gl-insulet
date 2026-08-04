@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Accountability Loops — Operational Habits &amp; Execution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Operational Habits &amp; Execution</p>
+      <h1>Team Accountability Loops</h1>
+      <p class="hero-lead">Help frontline leaders build team identity so daily actions reinforce who the crew is becoming—not only what they hit this week.</p>
+      <div class="hero-meta">
+        <span>ATC · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Why Identity Outlasts Motivation: The Evidence B</a>
+<a href="#opinion">The Day My Team Stopped Waiting for Me to Say Go</a>
+<a href="#assessment">Self-Assessment — Are You Coaching Outcomes or I</a>
+<a href="#case-1">Case 1 — Marisol and the Onboarding Gap</a>
+<a href="#case-2">Case 2 — Two Pods, Same Metric, Different Identi</a>
+<a href="#framework">Framework — Team Identity Canvas: Daily Votes</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending an Identity Ritual to </a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting Team Identity U</a>
+<a href="#key-notes">Key Notes — Three Layers, One Identity</a>
+<a href="#commitment">Commitment — One Identity Vote, Team-Visible</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Why Identity Outlasts Motivation: The Evidence Behind &#x27;We Are a Reliable Team&#x27;</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Why Identity Outlasts Motivation: The Evidence Behind &#x27;We Are a Reliable Team&#x27;</h2>
+<p>Frontline supervisors usually manage two layers of change: the outcome (hit the number) and the process (the steps that produce it). Behavioral science points to a third, quieter layer that determines whether the other two survive a bad week: identity—what the person, or the team, believes it is.</p>
+<h3>Three layers, one system</h3>
+<p>Outcomes describe results: throughput, reopen rate, accuracy. Processes describe the steps that produce those results: a checklist, a handoff format, a review cadence. Identity describes the belief underneath both: &quot;we are a team that checks its own work&quot; or &quot;we are a team that waits to be told.&quot; Coaching that only targets outcomes and processes tends to erode the moment a supervisor is off-shift, because nothing holds the behavior in place when no one is watching.</p>
+<h3>Action as evidence about the self</h3>
+<p>Self-perception theory (Bem, 1972) found that people infer attitudes and identity partly by observing their own behavior, not only the reverse. A worker who repeatedly double-checks a handoff is not just following a rule; each repetition is small evidence the person submits to themselves about who they are. Applied to teams, a supervisor who makes a behavior visible and repeatable is not just enforcing compliance—she is letting the crew build a case for its own reliability.</p>
+<h3>Possible selves and identity-based motivation</h3>
+<p>Markus and Nurius (1986) described &quot;possible selves&quot;—the versions of ourselves we can imagine becoming—as powerful drivers of present action, provided the identity feels reachable in this specific situation. Oyserman&#x27;s identity-based motivation research (2007) extends this: people act in identity-congruent ways only when the identity feels relevant and attainable right now, not as a distant aspiration. For a supervisor, this means an identity statement like &quot;we are the pod that never lets a ticket sit overnight&quot; only motivates if today&#x27;s shift offers an obvious, doable way to enact it. A slogan without a next action is not identity work; it is decoration.</p>
+<h3>Habits and identity reinforce each other</h3>
+<p>Verplanken and Sui (2019) reviewed evidence that strong habits become self-defining: once a behavior repeats often enough in a stable context, people start describing it as part of who they are, and that self-description then defends the habit against disruption, fatigue, or a bad day. This is why a team that has practiced a ritual long enough will often keep running it even when a supervisor is absent or under-resourced—the behavior has migrated from &quot;something we do&quot; to &quot;something we are.&quot;</p>
+<h3>What this means for frontline supervisors</h3>
+<ol>
+<li>Pair every process instruction with an identity sentence the team can say about itself, not just a rule to follow.</li>
+<li>Make the identity attainable today: choose one small, visible action the team can complete this shift as evidence for the identity, not a distant transformation.</li>
+<li>Audit for contradictions. If leadership praises a number the team privately knows was gamed or padded to look good, the identity story breaks faster than any process failure would.</li>
+<li>Protect the identity ritual when a new hire, a rush order, or a rough shift threatens to skip it—consistency under pressure is what turns a nice idea into a self-concept the team defends on its own.</li>
+</ol>
+<h3>Selected references</h3>
+<ul>
+<li>Bem, D. J. (1972). Self-perception theory. <em>Advances in Experimental Social Psychology, 6</em>, 1–62.</li>
+<li>Markus, H., &amp; Nurius, P. (1986). Possible selves. <em>American Psychologist, 41</em>(9), 954–969.</li>
+<li>Oyserman, D. (2007). Identity-based motivation and consumer behavior. <em>Journal of Consumer Psychology, 17</em>(4), 250–260.</li>
+<li>Verplanken, B., &amp; Sui, J. (2019). Habit and identity: Behavioral, cognitive, affective, and motivational facets of an integrated self. <em>Frontiers in Psychology, 10</em>, 1504.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Day My Team Stopped Waiting for Me to Say Good Job</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Day My Team Stopped Waiting for Me to Say Good Job</h2>
+<p>For two years I ran my pod on praise. Green tile, I said &quot;great work.&quot; Red tile, I said &quot;let&#x27;s push harder.&quot; I thought I was coaching. I was actually the only battery in the room—the moment I stepped out for a dentist appointment, the praise stopped, and so did the effort.</p>
+<p>The turn came from an unlikely place: a new hire named Priya asked me why we double-checked outbound labels when the system already flagged errors. I gave her the process answer—fewer returns, cleaner audit. She nodded, unconvinced. A week later I heard her tell another new hire something different: &quot;We&#x27;re the crew that doesn&#x27;t let a mistake leave this station. That&#x27;s just who we are here.&quot; I hadn&#x27;t taught her that line. She had absorbed it from watching us do the check, shift after shift, long before I ever said it out loud.</p>
+<p>That is when I understood I had been coaching the wrong layer. I was managing the scoreboard and the checklist, but never naming the identity underneath them. So I stopped ending stand-up with &quot;let&#x27;s hit the number&quot; and started ending it with &quot;who were we today&quot;—one sentence, no more than that. Some days the answer was small: &quot;we caught a mislabel before it left the dock.&quot; Some days it was blunt: &quot;we let one slide because we were rushing.&quot; Either way, we said it out loud, together, every shift.</p>
+<p>Three weeks in, I was out for two days with a family emergency. I came back expecting the usual drift. Instead, the whiteboard had a note from Priya: &quot;we caught 4/4 this week—still that crew.&quot; Nobody had told her to write it. The identity had become something the team defended on its own, not something I had to police.</p>
+<p>I am not naive about this. A slogan on a wall does nothing. What changed my floor was smaller and slower: one visible action every shift that gave the team evidence for who it was becoming, repeated long enough that the story started writing itself. If you supervise people who used to stand beside you on the line, do not just hand them a checklist. Give them a sentence they can say about themselves that the checklist proves true. That sentence will still be running the floor after you have gone home.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Are You Coaching Outcomes or Identity?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Marisol and the Onboarding Gap</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Marisol and the Onboarding Gap</h2>
+<h3>Opening</h3>
+<p>Marisol supervises a six-person assembly cell at a small electronics plant. Over the past year, her cell built a quiet reputation: &quot;the station that catches its own mistakes.&quot; No one taught this formally—it grew out of a habit Marisol started after a costly rework incident: every operator does a 30-second self-check before passing a unit down the line, and says out loud what they checked. New teammates picked it up by watching, not by reading a manual.</p>
+<h3>Context</h3>
+<p>This month, three experienced operators transferred to a new shift, and three new hires backfilled the cell in the same week. The self-check ritual has already slipped twice—once dropped entirely during a rush order, once done silently instead of out loud, which meant no one else could catch a miss. Marisol&#x27;s manager only tracks first-pass yield and does not know the ritual exists as a named practice; he just sees the number was strong last quarter and assumes it will hold.</p>
+<p>Marisol notices the new hires treat the self-check as an optional courtesy rather than &quot;how we work here.&quot; One new hire, told to hurry during a rush order, skipped it and said, &quot;nobody told me it was mandatory.&quot; He was technically right—it was never written down.</p>
+<h3>Decision point</h3>
+<p>Yield numbers still look fine this week, but Marisol can feel the ritual thinning. She can:</p>
+<ol>
+<li>Write the self-check into the formal SOP and treat it as a compliance item to enforce.</li>
+<li>Pair each new hire with a senior operator for two weeks specifically to narrate and model the identity behind the check, not just the steps.</li>
+<li>Wait and see—yield is still acceptable, and she does not want to seem like she is micromanaging a team that used to run itself.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What is the difference between teaching the self-check as a rule versus transferring it as an identity—and why does that difference matter when experienced people rotate out?</li>
+<li>How should Marisol respond to the new hire who skipped the check &quot;because no one told him it was mandatory&quot;? What does her answer teach the rest of the cell?</li>
+<li>Design one visible, repeatable moment this week where the cell can say out loud &quot;this is who we are,&quot; even under a rush order.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Two Pods, Same Metric, Different Identity</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Two Pods, Same Metric, Different Identity</h2>
+<h3>Opening</h3>
+<p>Two customer-support pods sit on the same floor, tracked on the same headline metric: first-contact resolution. Pod A, led by Tomás, hit strong numbers for two straight months. Pod B, led by Ana, hit slightly lower numbers but the gap kept narrowing. Leadership planned to hold up Tomás&#x27;s pod as the model for a company town hall.</p>
+<h3>Context</h3>
+<p>A closer look, prompted by an unrelated quality audit, showed the two pods got their numbers in very different ways. Tomás&#x27;s team, under pressure to keep the streak alive, had started closing tickets as &quot;resolved&quot; after a single reply even when the customer&#x27;s issue was still open—technically hitting the metric, not actually solving the problem. No one on the team objected out loud, but two agents privately told the auditor they felt uneasy about it and stopped correcting each other on borderline calls.</p>
+<p>Ana&#x27;s team resolves fewer tickets on the first contact, but agents openly coach each other mid-shift: &quot;would you close this if it were your own account?&quot; That question, repeated for weeks, had become something people said unprompted, even to Ana herself when she was rushing.</p>
+<h3>Decision point</h3>
+<p>The audit lands on Ana&#x27;s manager&#x27;s desk the same week as the town-hall planning email. She can:</p>
+<ol>
+<li>Quietly ask Tomás to tighten reporting and still feature his pod, since the public number is what leadership remembers.</li>
+<li>Feature Ana&#x27;s pod instead and use the audit finding to explain why a slower, honest number matters more than a fast one.</li>
+<li>Cancel the town-hall spotlight entirely and treat both numbers as equally unreliable until further review.</li>
+</ol>
+<h3>Exhibits (simplified)</h3>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Pod A first-contact resolution</th><th>Pod B first-contact resolution</th><th>Reopen rate (either pod)</th></tr>
+<tr><td>1</td><td>71%</td><td>66%</td><td>9%</td></tr>
+<tr><td>2</td><td>74%</td><td>68%</td><td>8%</td></tr>
+<tr><td>3</td><td>78%</td><td>70%</td><td>7%</td></tr>
+<tr><td>4 (audit)</td><td>80%</td><td>72%</td><td>Pod A: 21% · Pod B: 6%</td></tr>
+</table></div>
+<h3>Discussion questions</h3>
+<ol>
+<li>What does the reopen-rate column reveal that the headline metric hides—and why is that gap an identity problem, not only a measurement problem?</li>
+<li>How should Ana&#x27;s manager talk to Tomás&#x27;s pod without shaming individual agents who stayed quiet under pressure?</li>
+<li>Write the identity sentence Ana&#x27;s pod has actually earned, based on what people say to each other mid-shift—not based on the scoreboard.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Team Identity Canvas: Daily Votes</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Team Identity Canvas: Daily Votes</h2>
+<p>Use in workshop or print for the floor. Complete one canvas per identity you want your team to build this month.</p>
+<h3>1. Aspirational identity</h3>
+<p>&quot;We are the kind of team that ________.&quot;</p>
+<h3>2. Evidence audit</h3>
+<div class="table-wrap"><table>
+<tr><th>Question</th><th>Your notes</th></tr>
+<tr><td>What already proves this identity is true?</td><td></td></tr>
+<tr><td>What contradicts it right now (a shortcut, a padded number, a skipped step)?</td><td></td></tr>
+</table></div>
+<h3>3. Today&#x27;s vote</h3>
+<p>What one small, visible action this shift counts as evidence for the identity? (Under 5 minutes, done by the team, not just described.)</p>
+<h3>4. Layers check</h3>
+<div class="table-wrap"><table>
+<tr><th>Layer</th><th>Your design</th></tr>
+<tr><td>Outcome (the result we want)</td><td></td></tr>
+<tr><td>Process (the step that produces it)</td><td></td></tr>
+<tr><td>Identity (the sentence the process proves)</td><td></td></tr>
+</table></div>
+<h3>5. Visibility</h3>
+<p>Where does the team see or hear the identity reinforced (stand-up line, board, handover note)?</p>
+<h3>6. Onboarding a newcomer</h3>
+<p>How will a new hire learn this identity in week one—who narrates it, and what do they watch, not just read?</p>
+<h3>7. Pressure test</h3>
+<p>Name one situation this month (rush order, bad shift, short-staffing) likely to test this identity. What will you coach the team to protect first?</p>
+<h3>8. Friday review</h3>
+<p>Keep / tweak / drop the vote—and one sentence for your manager describing the identity in outcome language, not soft language.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending an Identity Ritual to a Skeptical Peer</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending an Identity Ritual to a Skeptical Peer</h2>
+<p><strong>Duration:</strong> 25–35 minutes  </p>
+<p><strong>Purpose:</strong> Practice defending a team identity ritual against a peer who thinks it is soft, slow, or unnecessary once numbers look fine.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Identity Coach)</strong>  </p>
+<p>Your team has an identity ritual (a self-check, a handover phrase, a stand-up line) that is starting to slip because the scoreboard still looks acceptable. You must connect the ritual to a concrete outcome, not just a feeling.</p>
+<p><strong>Role 2 — Skeptical former peer</strong>  </p>
+<p>You respect the supervisor but think the ritual is &quot;extra talk&quot; that slows the shift down. Numbers are fine, so you push to drop or shorten it under time pressure. You will yield only if shown a specific moment where the ritual already caught something the number would have missed.</p>
+<h3>Conflict</h3>
+<p>Can the supervisor protect the identity ritual without sounding like they are defending a feeling instead of a result?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes to cut the ritual under time pressure; coach responds.</li>
+<li>Round 2 (8 min): Coach reframes the ritual using one concrete catch or near-miss it prevented.</li>
+<li>Debrief (10 min): Where did the coach slip into vague identity language with no evidence? What single example would have convinced the skeptic faster?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting Team Identity Under Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting Team Identity Under Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes  </p>
+<p><strong>Purpose:</strong> Practice protecting a team&#x27;s identity ritual when a rush order or shortcut request would quietly break it.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants to keep the identity ritual running through a rush order without slowing the shift enough to draw complaints.</li>
+<li><strong>Senior ops lead (antagonist):</strong> Wants the rush order cleared fast and sees the ritual as a step that can be skipped &quot;just this once.&quot;</li>
+<li><strong>Quality analyst (skeptic):</strong> Needs evidence the ritual actually prevents defects or rework, not just team morale, before defending it upward.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support keeping the ritual only if it does not create an unfair double standard against their own pod.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect the identity ritual during real pressure without looking inflexible—and without letting &quot;just this once&quot; become the new normal?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>One concrete link between the ritual and a defect, rework, or reopen it prevents</li>
+<li>A clear line on what does not get skipped even under a rush order</li>
+<li>A fair standard that does not single out one pod</li>
+<li>No quiet second version of the process that contradicts the public one</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument moved the ops lead—identity language or outcome language?</li>
+<li>What would it have cost the team&#x27;s identity if the ritual had been skipped &quot;just this once&quot;?</li>
+<li>How does the supervisor make sure this exception does not become next week&#x27;s default?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Three Layers, One Identity</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Three Layers, One Identity</h2>
+<p><strong>Unit goal:</strong> Help frontline leaders build team identity so daily actions reinforce who the crew is becoming—not only what they hit this week.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Three layers of change:</strong> Outcome (the result), process (the steps), identity (the belief underneath both). Coach all three, not only the first two.</li>
+<li><strong>Votes for identity:</strong> Every completed micro-action is evidence the team submits to itself about who it is—each repetition is a small vote for &quot;we are a reliable team.&quot;</li>
+<li><strong>Identity must be attainable today:</strong> A statement like &quot;we are the pod that catches errors&quot; only motivates if there is an obvious, doable action this shift proves it.</li>
+<li><strong>Habits become self-defining:</strong> A behavior repeated long enough in a stable context stops feeling like a rule and starts feeling like identity—which is why it survives when the supervisor is off-shift.</li>
+<li><strong>Contradictions break identity fast:</strong> A padded number or a skipped ritual under pressure damages the team&#x27;s self-story faster than a missed target ever will.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Write one aspirational identity sentence for your team: &quot;We are the kind of crew that ________.&quot;</li>
+<li>Pick one small, visible action this shift that would count as evidence for that sentence.</li>
+<li>End stand-up or handover with &quot;who were we today&quot;—one honest sentence, said out loud.</li>
+<li>Watch for a moment this week when the identity is tested (rush order, new hire, bad shift) and coach the team through protecting it.</li>
+<li>Ask one direct report to narrate the identity to a newer teammate, so it does not depend only on your voice.</li>
+</ol>
+<h3>Reflection</h3>
+<p>If a new hire joined your team tomorrow with no orientation document, what would they learn about &quot;who we are&quot; just from watching one shift?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — One Identity Vote, Team-Visible</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Operational Habits &amp; Execution · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

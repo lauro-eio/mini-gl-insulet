@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bucles de responsabilidad del equipo — Hábitos operativos y ejecución</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Hábitos operativos y ejecución</p>
+      <h1>Bucles de responsabilidad del equipo</h1>
+      <p class="hero-lead">Ayudar a los supervisores de primera línea a notar las claves que disparan los hábitos del equipo, calificar qué hábitos del piso ayudan o dañan el desempeño, y rediseñar el entorno físico y social para que los buenos hábitos se sostengan sin depender solo de la fuerza de voluntad.</p>
+      <div class="hero-meta">
+        <span>ATC · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Por qué gana el entorno: evidencia sobre el dise</a>
+<a href="#opinion">El día en que dejé de culpar a mi equipo y moví </a>
+<a href="#assessment">Autodiagnóstico — ¿Qué tan bien ves las claves d</a>
+<a href="#case-1">Caso 1 — Marta y el hábito de la esquina ciega</a>
+<a href="#case-2">Caso 2 — Los dos pizarrones de Priya</a>
+<a href="#framework">Marco — Lienzo de rediseño de claves y entorno e</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Nombrar un hábito dañino sin ave</a>
+<a href="#roleplay-strategic">Role-play estratégico — Rediseñar el piso bajo p</a>
+<a href="#key-notes">Puntos clave — Ve la clave, califica el hábito, </a>
+<a href="#commitment">Compromiso — Una clave que rediseñaré esta seman</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Por qué gana el entorno: evidencia sobre el diseño de claves en primera línea</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Por qué gana el entorno: evidencia sobre el diseño de claves en primera línea</h2>
+<p>Los supervisores de primera línea a menudo intentan corregir una conducta recurrente del equipo con un recordatorio, una advertencia o un tono más firme en el stand-up. La investigación sobre comportamiento apunta primero a otro lugar: la mayoría de las conductas repetidas son disparadas por una clave que ya está en el entorno, no elegidas de nuevo cada vez.</p>
+<h3>Los hábitos corren por claves, no por fuerza de voluntad</h3>
+<p>Los estudios de diario sobre conducta cotidiana encuentran que una gran parte de lo que la gente hace se dispara automáticamente por un contexto estable —la misma puerta, la misma herramienta, el mismo rostro— en lugar de decidirse de nuevo cada vez (Neal, Wood y Quinn, 2006). Una vez que un hábito es fuerte, la clave misma inicia la conducta antes de que la intención consciente la alcance (Wood y Neal, 2007). Para un supervisor, esto significa que un discurso motivacional rara vez cambia un hábito del piso que en realidad está siendo disparado por un layout roto, una herramienta faltante o un camino de paso muy transitado.</p>
+<h3>Arquitectura de elección: haz que el camino seguro sea el camino fácil</h3>
+<p>Cambios pequeños y deliberados en la &quot;arquitectura de elección&quot; alrededor de una decisión —el orden de los pasos, la opción por defecto, dónde se ubica físicamente un objeto— cambian la conducta de forma más confiable que la persuasión sola (Thaler y Sunstein, 2003). En un piso de turno, esto se ve como mover un escáner al alcance de la mano, reordenar un checklist para que el paso de seguridad venga primero por defecto, o colocar una señal de riesgo a la altura de los ojos en lugar de en una pared detrás del operador.</p>
+<h3>Monitoreo vigilante: nombrar la clave en voz alta</h3>
+<p>Las personas que notan y nombran explícitamente el momento en que un hábito riesgoso está por activarse —en lugar de depender del autocontrol general— tienen más éxito al interrumpirlo (Quinn, Pascoe, Wood y Neal, 2010). Esta es la evidencia detrás de prácticas como anunciar un riesgo en voz alta antes de cruzarlo: nombrar la clave en voz alta la mueve de automática a consciente durante el segundo que importa.</p>
+<h3>El entorno moldea el volumen, no solo la elección</h3>
+<p>La investigación sobre consumo cotidiano encontró que las personas subestiman consistentemente cuánto cambia el layout, la distancia y la visibilidad la conducta —independientemente de la intención declarada (Wansink y Sobal, 2007). La misma lógica aplica a un piso de turno: qué tan lejos está una herramienta de la estación de trabajo, o qué tan visible es un tablero de hábitos, cambia lo que la gente hace incluso cuando nadie ha hablado de fuerza de voluntad en absoluto.</p>
+<h3>Qué implica para los supervisores</h3>
+<ol>
+<li>Antes de corregir a una persona, pregunta qué clave en la sala está disparando el hábito.</li>
+<li>Cambia una pieza del entorno —ubicación, valor por defecto o visibilidad— antes de agregar una nueva regla.</li>
+<li>Enseña a tu equipo a nombrar en voz alta una clave riesgosa en el momento en que aparece, y rastrea qué hábitos ayuda o bloquea esa práctica.</li>
+</ol>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Neal, D. T., Wood, W., &amp; Quinn, J. M. (2006). Habits—A repeat performance. <em>Current Directions in Psychological Science, 15</em>(4), 198–202.</li>
+<li>Wood, W., &amp; Neal, D. T. (2007). A new look at habits and the habit–goal interface. <em>Psychological Review, 114</em>(4), 843–863.</li>
+<li>Thaler, R. H., &amp; Sunstein, C. R. (2003). Libertarian paternalism. <em>American Economic Review, 93</em>(2), 175–179.</li>
+<li>Quinn, J. M., Pascoe, A., Wood, W., &amp; Neal, D. T. (2010). Can&#x27;t control yourself? Monitor those bad habits. <em>Personality and Social Psychology Bulletin, 36</em>(4), 499–511.</li>
+<li>Wansink, B., &amp; Sobal, J. (2007). Mindless eating: The 200 daily food decisions we overlook. <em>Environment and Behavior, 39</em>(1), 106–123.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El día en que dejé de culpar a mi equipo y moví el pizarrón</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El día en que dejé de culpar a mi equipo y moví el pizarrón</h2>
+<p>Durante tres semanas escribí la misma nota en mi bitácora de turno: &quot;El equipo se salta el chequeo de carril en la esquina junto a recibo. Recordado otra vez.&quot; Lo dije en el stand-up. Puse un letrero. Nada cambió, y empecé a asumir que a mi gente simplemente no le importaba lo suficiente.</p>
+<p>Entonces un supervisor par me hizo una pregunta que no me gustó: &quot;¿Qué hay exactamente en esa esquina?&quot; Fui a ver. Un montacargas manual estaba parqueado justo donde debía hacerse el chequeo de carril, bloqueando la línea de visión y haciendo que el &quot;paso rápido por el hueco&quot; fuera el camino más fácil. Mi letrero estaba pegado a una columna que nadie miraba mientras caminaba esa ruta. Había estado pidiéndole a la gente que peleara contra la sala y llamándolo un problema de disciplina.</p>
+<p>Moví el montacargas tres metros de distancia, pegué una franja brillante en el piso en el punto exacto donde debía hacerse el chequeo, y le pedí a una operadora que dijera &quot;despejado&quot; en voz alta cada vez que lo hiciera —no para mí, solo para que el momento se volviera visible para ella misma y para quien estuviera cerca. En dos turnos, otras tres personas ya decían &quot;despejado&quot; sin que se les pidiera. Nadie recibió un sermón.</p>
+<p>Todavía rastreo el hábito —no con una métrica nueva y dramática, solo una marca en una tarjeta en la esquina: chequeado o saltado. Algunos días baja cuando estamos cortos de personal, y me apuro a arreglar el layout otra vez, no a la persona.</p>
+<p>Si tu equipo sigue fallando el mismo paso, mira el piso antes de mirar la nómina. La sala suele ser lo que más fuerte le habla a tu gente, y la mayor parte de lo que enseña, lo enseña sin decir una palabra.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Qué tan bien ves las claves de tu equipo?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Marta y el hábito de la esquina ciega</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Marta y el hábito de la esquina ciega</h2>
+<h3>Apertura</h3>
+<p>Marta supervisa un equipo de recibo en un centro de distribución regional. Durante un mes, los operadores han estado &quot;pasando de prisa&quot; por una esquina ciega cerca del muelle en lugar de detenerse para el chequeo de carril obligatorio. Todavía no hay un incidente, pero se registraron dos casi-accidentes. Marta ha recordado al equipo cuatro veces en el stand-up. El hábito persiste.</p>
+<h3>Contexto</h3>
+<p>La esquina en cuestión tiene un montacargas manual parqueado que bloquea la línea de visión y angosta el pasillo, lo que hace que el paso rápido por el hueco sea la opción físicamente más fácil. El letrero del chequeo de carril está pegado a una columna que da la espalda a la ruta de paso. El gerente de Marta, Devon, quiere los casi-accidentes en cero y ha pedido &quot;una capacitación de refuerzo&quot; para todo el turno.</p>
+<p>Marta sospecha que la capacitación no arreglará un hábito que el layout mismo está premiando. Nunca ha corrido un tablero de hábitos para su equipo —los problemas se manejan uno a la vez, no se rastrean como un patrón.</p>
+<h3>Punto de decisión</h3>
+<p>Devon quiere el refuerzo agendado para el viernes. Marta puede:</p>
+<ol>
+<li>Correr la capacitación de refuerzo como se pidió y considerar el asunto cerrado.</li>
+<li>Empezar un tablero de hábitos, nombrar la clave exacta (ubicación del montacargas, ubicación del letrero, ancho del pasillo) y rediseñar la esquina antes de capacitar a nadie.</li>
+<li>Hacer ambas cosas: un stand-up corto y honesto sobre la causa real, junto con un arreglo inmediato de bajo costo en el entorno, y proponer el tablero como una práctica continua.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué le está &quot;enseñando&quot; la esquina ciega al equipo, sin importar lo que Marta diga en el stand-up?</li>
+<li>¿Cómo debería hablar Marta con Devon para que rediseñar el entorno no suene como que está evadiendo responsabilidad por la capacitación?</li>
+<li>Diseña la entrada del tablero de hábitos para este hábito: ¿es útil o dañino, cuál es la clave, y qué único cambio de entorno harías primero?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Los dos pizarrones de Priya</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Los dos pizarrones de Priya</h2>
+<h3>Apertura</h3>
+<p>Priya lidera un equipo de procesamiento de reclamos de seis personas. Sobre su escritorio cuelga un pizarrón que lista el conteo de errores de cada agente en la semana, actualizado a diario por su líder de equipo. Los agentes evitan mirarlo. La corrección de errores se ha estancado. Un supervisor más nuevo dos equipos más allá, Han, usa un pizarrón distinto: una línea por turno donde cualquier agente puede señalar &quot;un paso que casi me salté y por qué.&quot; El equipo de Han tiene menos errores repetidos, aunque nadie está clasificado públicamente.</p>
+<h3>Contexto</h3>
+<p>El pizarrón de errores de Priya se heredó de su predecesor y nunca se cuestionó —simplemente es &quot;como el equipo siempre ha rastreado las cosas.&quot; Los agentes lo describen como un hábito que han aprendido a ignorar en lugar de actuar sobre él; algunos admiten que ahora esconden pequeños errores en lugar de señalarlos, ya que señalarlos agrega una marca a un conteo público. Priya nunca ha separado &quot;los hábitos que ayudan al equipo&quot; de &quot;los hábitos que el pizarrón mismo está fomentando silenciosamente.&quot;</p>
+<p>El gerente de Priya prefiere el pizarrón de errores porque es fácil capturarlo en pantalla para los reportes semanales. El pizarrón de &quot;casi me salté&quot; de Han produce números menos limpios pero más alertas tempranas.</p>
+<h3>Punto de decisión</h3>
+<p>Priya debe presentar las métricas del equipo esta semana. Puede:</p>
+<ol>
+<li>Mantener el pizarrón de errores exactamente como lo heredó, ya que es fácil de reportar hacia arriba.</li>
+<li>Reemplazar el pizarrón de errores con una versión del pizarrón de Han enfocado en claves, y construir su propio tablero de hábitos para ver qué cambia en realidad.</li>
+<li>Correr ambos pizarrones durante dos semanas, rastreando cuál produce más alertas tempranas frente a más errores escondidos, antes de decidir.</li>
+</ol>
+<h3>Exhibiciones (simplificado)</h3>
+<div class="table-wrap"><table>
+<tr><th>Semana</th><th>Equipo de Priya — errores señalados temprano</th><th>Equipo de Han — errores señalados temprano</th></tr>
+<tr><td>1</td><td>2</td><td>6</td></tr>
+<tr><td>2</td><td>1</td><td>7</td></tr>
+<tr><td>3 (piloto)</td><td>5</td><td>6</td></tr>
+<tr><td>4 (piloto)</td><td>6</td><td>8</td></tr>
+</table></div>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué hábito estaba disparando el pizarrón original de Priya, y era el hábito que ella realmente quería?</li>
+<li>¿Cómo puede Priya presentar un cambio de rumbo respecto al pizarrón de errores frente a su gerente sin que suene como que está escondiendo problemas?</li>
+<li>Construye la línea del tablero de hábitos para &quot;esconder un pequeño error&quot;: la clave, si es útil o dañino, y un cambio de entorno que lo revertiría.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de rediseño de claves y entorno en primera línea</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de rediseño de claves y entorno en primera línea</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre primero el tablero, luego rediseña un hábito a la vez.</p>
+<h3>1. Tablero de hábitos</h3>
+<p>Lista cinco hábitos actuales del equipo o personales en el piso. Marca cada uno Útil (U) o Dañino (X).</p>
+<div class="table-wrap"><table>
+<tr><th>Hábito</th><th>U / X</th><th>Con qué frecuencia</th></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</table></div>
+<h3>2. Elige un hábito dañino</h3>
+<p>¿Qué hábito rediseñarás primero, y por qué este?</p>
+<h3>3. Nombra la clave</h3>
+<p>¿Qué dispara exactamente este hábito —lugar, objeto, momento del día, persona, sonido?</p>
+<h3>4. Hazlo consciente</h3>
+<p>¿Qué dirá o señalará alguien en voz alta, justo cuando aparece la clave, para que deje de ser automático?</p>
+<h3>5. Rediseña el entorno</h3>
+<p>¿Qué moverás, quitarás, reetiquetarás o reordenarás para que la respuesta útil sea el camino más fácil?</p>
+<h3>6. Visibilidad</h3>
+<p>¿Dónde vivirán el tablero y el cambio para que el equipo pueda verlos y reforzarlos (pizarrón / tarjeta de turno / checklist)?</p>
+<h3>7. Dueño cuando faltas</h3>
+<p>Nombre + respaldo:</p>
+<h3>8. Revisión de viernes (10 minutos)</h3>
+<p>¿Qué hábito se movió de dañino a útil? ¿Qué clave todavía necesita un rediseño?</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Nombrar un hábito dañino sin avergonzar a un par</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Nombrar un hábito dañino sin avergonzar a un par</h2>
+<p><strong>Duración:</strong> 25–35 minutos  </p>
+<p><strong>Propósito:</strong> Practicar nombrar en voz alta un hábito dañino y su clave, y proponer un arreglo de entorno, sin que la conversación se convierta en un señalamiento personal.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Coach de claves)</strong>  </p>
+<p>Notaste un hábito dañino y lo rastreaste hasta una clave específica en el entorno. Quieres acuerdo sobre un rediseño visible, no una promesa de &quot;esforzarse más.&quot;</p>
+<p><strong>Rol 2 — Excompañero, ahora reportante directo</strong>  </p>
+<p>Te sientes señalado en el momento en que se hablan de hábitos uno a uno. Crees que el problema real es la carga de trabajo, no tú. Te involucrarás en serio solo si el coach nombra la clave, no tu carácter, y propone un cambio a la sala, no un sermón hacia ti.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el supervisor nombrar el hábito dañino y su clave con suficiente claridad para lograr acuerdo sobre un rediseño de entorno, sin que el par lo escuche como un ataque personal?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el coach abre con el hábito; el par se pone defensivo.</li>
+<li>Ronda 2 (8 min): el coach vuelve a abrir nombrando la clave y el entorno, no a la persona, y propone un cambio visible.</li>
+<li>Cierre (10 min): ¿dónde se deslizó la conversación de lenguaje de &quot;clave&quot; a lenguaje de &quot;carácter&quot;? ¿qué haría que el rediseño se sostenga después de que termine este turno?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Rediseñar el piso bajo presión de presupuesto</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Rediseñar el piso bajo presión de presupuesto</h2>
+<p><strong>Duración:</strong> 40–50 minutos  </p>
+<p><strong>Propósito:</strong> Practicar conseguir aprobación para un rediseño de entorno de bajo costo cuando los interesados prefieren por defecto capacitación o señalización.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para rediseñar una clave en el layout físico, respaldado por el tablero de hábitos del equipo.</li>
+<li><strong>Gerente cuidadoso del presupuesto (antagonista):</strong> Prefiere una capacitación de refuerzo barata o un letrero nuevo antes que cualquier cambio físico; llama al rediseño &quot;una solicitud de instalaciones, no un arreglo de liderazgo.&quot;</li>
+<li><strong>Analista de seguridad/operaciones (escéptico):</strong> Quiere evidencia de que la clave, no la persona, está causando el hábito dañino, y una forma de verificar que el arreglo funcionó.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará si el rediseño no crea un nuevo cuello de botella o costo para su propio equipo.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor ganar aprobación para rediseñar el entorno —no solo capacitar a las personas en él— sin sonar como que está evadiendo responsabilidad?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Una clave nombrada y su evidencia (casi-accidentes, entradas del tablero, patrón repetido)</li>
+<li>Un primer movimiento de bajo costo, distinto de una petición de presupuesto mayor</li>
+<li>Una forma de verificar si el rediseño cambió el hábito</li>
+<li>Ningún plan secreto de simplemente correr más capacitación en su lugar</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente cuidadoso del presupuesto: el tablero, la comparación de costos, o el enfoque de seguridad?</li>
+<li>¿Cómo separó el supervisor &quot;la sala causó esto&quot; de &quot;nadie es responsable&quot;?</li>
+<li>¿Qué necesitaría ver el analista en dos semanas para llamar exitoso al rediseño?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Ve la clave, califica el hábito, rediseña el entorno</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Ve la clave, califica el hábito, rediseña el entorno</h2>
+<p><strong>Meta de la unidad:</strong> Notar las claves que disparan los hábitos del equipo, calificar qué hábitos del piso ayudan o dañan, y rediseñar el entorno para que los buenos hábitos se sostengan sin fuerza de voluntad constante.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Las claves manejan los hábitos:</strong> la mayoría de las conductas repetidas son disparadas por algo que ya está en la sala —layout, ubicación de herramientas, un rostro, un sonido— no una decisión nueva cada vez.</li>
+<li><strong>Hazlo consciente:</strong> nombrar una clave en voz alta, justo cuando aparece, convierte un momento automático en una elección durante un segundo crítico.</li>
+<li><strong>Tablero de hábitos:</strong> lista los hábitos actuales del piso y del equipo, y marca cada uno como útil o dañino antes de intentar cambiar algo.</li>
+<li><strong>Arquitectura de elección:</strong> el camino más fácil gana. Cambia el valor por defecto, la distancia o la visibilidad, y la conducta cambia con menos fricción que una nueva regla.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Recorre tu piso y lista cinco hábitos recurrentes —tuyos y del equipo. Marca cada uno útil (U) o dañino (X).</li>
+<li>Para un hábito dañino, nombra la clave exacta que lo dispara (lugar, momento, objeto, persona).</li>
+<li>Cambia una pieza del entorno —muévela, quítala o vuelve a etiquetarla— para que la respuesta útil sea la más fácil.</li>
+<li>Elige un momento donde una clave deba nombrarse en voz alta, y pide a una persona que lo practique esta semana.</li>
+<li>Haz visible el tablero (pizarrón, tarjeta de turno, checklist) — no solo algo en tu cabeza.</li>
+<li>Agenda una revisión de 10 minutos: qué hábito se movió, qué clave todavía necesita un rediseño.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué hábito dañino en tu piso está siendo causado por la sala misma, no por las personas en ella?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Una clave que rediseñaré esta semana</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Hábitos operativos y ejecución · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

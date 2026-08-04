@@ -1,4 +1,4 @@
-# mini-GL — Global Leadership content factory
+﻿# mini-GL — Global Leadership content factory
 
 Factory for soft-skills workshop packs: normalize existing assets, validate, render HTML preview, then publish to a thin HTML repo.
 
@@ -14,15 +14,22 @@ Platform (EGREGOR) convert/upload is **out of scope** for the current MVP.
 
 | Field | Value |
 | --- | --- |
-| Program (internal) | `ATC` |
-| Public title (EN) | Habit Systems for Frontline Leaders |
-| Public title (ES) | Sistemas de hábitos para líderes de primera línea |
-| Unit | `u01` (1% improvements / systems vs goals) |
+| Handle | `ATC-T2-U01` (program complete through U04 — see Notes/atc-program.md) |
+| Program title (EN) | Operational Habits & Execution |
+| Lens title (EN) | Team Accountability Loops |
+| Program title (ES) | Hábitos operativos y ejecución |
+| Lens title (ES) | Bucles de responsabilidad del equipo |
+| Units | `u01`–`u04` (T2) |
 | Audience | `tier_2_frontline_leader` |
-| Locales | `en` first, then `es` |
+| Locales | `en`, `es` |
 | Ship | HTML preview → publish repo |
 
-Internal workshop codes (backend): see `Notes/` / `old-gl/notes/workshop-naming-convention`. Client-facing titles must **not** use book names (e.g. “Atomic Habits”).
+Full codebook, lens matrix, and ingest rules: [Notes/workshops-naming-convention.md](Notes/workshops-naming-convention.md). Client titles must **not** use book names (e.g. “Atomic Habits”).
+
+HTML publish (one repo, unit atoms, editor catalog): [Notes/html-index.md](Notes/html-index.md).  
+Publish target (HTML only): [https://github.com/lauro-eio/GL-Preview.git](https://github.com/lauro-eio/GL-Preview.git) — [Notes/gl-preview-repo.md](Notes/gl-preview-repo.md).
+
+ATC T2 status: [Notes/atc-program.md](Notes/atc-program.md).
 
 ## Layout
 
@@ -53,7 +60,17 @@ Rendered output: `preview/atc/u01/en/index.html`
 
 | Layer | Example |
 | --- | --- |
-| Internal ID | `ATC` / `atc_u01` |
-| Client EN | Habit Systems for Frontline Leaders |
-| Client ES | Sistemas de hábitos para líderes de primera línea |
-| Audience | Metadata `audience_id`, not a separate workshop code |
+| Handle (internal) | `ATC-T2-U01` |
+| `program_title` (client) | Operational Habits & Execution |
+| `lens_title` (client H1) | Team Accountability Loops |
+| Audience | `audience_id` → T1–T4 in the handle |
+| Unit | `unit_id` + `unit_goal` (not a third brand title) |
+
+### Ingest checklist (new packs)
+
+1. Confirm code in the codebook (or add once).
+2. Path: `content/{code_lower}/{uNN}/{locale}/`.
+3. Manifest: `program_id`, `unit_id`, `audience_id`, `program_title`, `lens_title` from the naming note — no third title.
+4. Ban book/source names in `banned_phrases`.
+5. Asset titles stay on assets.
+6. Talk ID: `{CODE}-T{n}-U{nn}` only.

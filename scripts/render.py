@@ -12,6 +12,8 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+SIGNATURE_PATH = ROOT / "schemas" / "article_signature.yaml"
+ARTICLE_ASSET_IDS = frozenset({"research_article", "opinion_article"})
 
 
 def load_yaml(path: Path) -> dict:
@@ -29,6 +31,13 @@ def parse_markdown_file(path: Path) -> tuple[dict, str]:
             meta = yaml.safe_load(text[3:end]) or {}
             body = text[end + 4 :].lstrip("\n")
     return meta, body
+
+
+def article_signature_for(manifest: dict, locale: str) -> str:
+    if manifest.get("article_signature"):
+        return str(manifest["article_signature"])
+    cfg = load_yaml(SIGNATURE_PATH)
+    return str((cfg.get("by_locale") or {})[locale])
 
 
 def md_inline(text: str) -> str:
@@ -131,23 +140,122 @@ def section_fold(sid: str, label: str, title: str, body_html: str) -> str:
     """
 
 
+COMING_SOON = {
+    "en": {
+        "self_assessment": (
+            "<div class=\"gate-panel\">"
+            "<p class=\"gate-kicker\">Coming soon</p>"
+            "<p>This diagnostic will open in <strong>Google Forms</strong> so answers stay "
+            "private and you get your profile after submit — not inside this page.</p>"
+            "<p class=\"gate-note\">Questions and scoring stay in the form. Nothing to fill here yet.</p>"
+            "</div>"
+        ),
+        "commitment_plan": (
+            "<div class=\"gate-panel\">"
+            "<p class=\"gate-kicker\">Coming soon</p>"
+            "<p>Your commitment plan will open in <strong>Google Forms</strong> so you can "
+            "submit and keep a record — not as fillable fields on this page.</p>"
+            "<p class=\"gate-note\">Nothing to complete here until the form link is ready.</p>"
+            "</div>"
+        ),
+        "open_form": "Open Google Form",
+        "form_lead_assessment": (
+            "<p>Complete this diagnostic in Google Forms (opens in a new tab). "
+            "You will receive your profile after you submit.</p>"
+        ),
+        "form_lead_commitment": (
+            "<p>Complete your commitment plan in Google Forms (opens in a new tab).</p>"
+        ),
+    },
+    "es": {
+        "self_assessment": (
+            "<div class=\"gate-panel\">"
+            "<p class=\"gate-kicker\">Próximamente</p>"
+            "<p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus "
+            "respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p>"
+            "<p class=\"gate-note\">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p>"
+            "</div>"
+        ),
+        "commitment_plan": (
+            "<div class=\"gate-panel\">"
+            "<p class=\"gate-kicker\">Próximamente</p>"
+            "<p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que "
+            "puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p>"
+            "<p class=\"gate-note\">Nada que completar aquí hasta que el enlace del formulario esté listo.</p>"
+            "</div>"
+        ),
+        "open_form": "Abrir Google Form",
+        "form_lead_assessment": (
+            "<p>Completa este diagnóstico en Google Forms (se abre en una pestaña nueva). "
+            "Recibirás tu perfil después de enviar.</p>"
+        ),
+        "form_lead_commitment": (
+            "<p>Completa tu plan de compromiso en Google Forms (se abre en una pestaña nueva).</p>"
+        ),
+    },
+}
+
+
+def form_gated_body(locale: str, kind: str, form_url: str | None) -> str:
+    copy = COMING_SOON.get(locale) or COMING_SOON["en"]
+    url = (form_url or "").strip()
+    if not url:
+        return copy[kind]
+    lead_key = (
+        "form_lead_assessment" if kind == "self_assessment" else "form_lead_commitment"
+    )
+    return (
+        f'<div class="gate-panel gate-panel--ready">'
+        f"{copy[lead_key]}"
+        f'<p><a class="form-cta" href="{html.escape(url)}" target="_blank" rel="noopener noreferrer">'
+        f'{html.escape(copy["open_form"])}</a></p>'
+        f"</div>"
+    )
+
+
 def render_pack(program: str, unit: str, locale: str) -> Path:
     pack_dir = ROOT / "content" / program / unit / locale
     manifest = load_yaml(pack_dir / "manifest.yaml")
     assets = manifest["assets"]
+    signature = article_signature_for(manifest, locale)
+    sig_cfg = load_yaml(SIGNATURE_PATH)
+    article_ids = set(sig_cfg.get("required_asset_ids") or list(ARTICLE_ASSET_IDS))
+    # Opt-in per pack: when `forms` is present, hide quiz/commitment markdown
+    # (answers stay off-page) until / unless Form URLs are set.
+    gate_forms = "forms" in manifest
+    forms = manifest.get("forms") or {}
 
     sections: list[str] = []
     toc: list[tuple[str, str]] = []
 
-    def add(sid: str, label: str, ref: dict) -> None:
+    def add(sid: str, label: str, ref: dict, *, form_key: str | None = None) -> None:
         meta, body = parse_markdown_file(pack_dir / ref["path"])
         title = ref.get("title") or meta.get("title") or sid
         toc.append((sid, title))
-        sections.append(section_fold(sid, label, title, md_to_html(body)))
+        if gate_forms and form_key:
+            kind = (
+                "self_assessment"
+                if form_key == "self_assessment_url"
+                else "commitment_plan"
+            )
+            body_html = form_gated_body(locale, kind, forms.get(form_key))
+        else:
+            body_html = md_to_html(body)
+            asset_id = ref.get("asset_id") or meta.get("asset_id")
+            if asset_id in article_ids:
+                body_html += (
+                    f'\n<p class="article-signature">{html.escape(signature)}</p>'
+                )
+        sections.append(section_fold(sid, label, title, body_html))
 
     add("research", "Pre-work · Research", assets["research_article"])
     add("opinion", "Pre-work · Opinion", assets["opinion_article"])
-    add("assessment", "Pre-work · Diagnostic", assets["self_assessment"])
+    add(
+        "assessment",
+        "Pre-work · Diagnostic",
+        assets["self_assessment"],
+        form_key="self_assessment_url",
+    )
     for i, case in enumerate(assets.get("cases", []), 1):
         add(f"case-{i}", f"Live · Case {i}", case)
     add("framework", "Live · Framework", assets["framework_tool"])
@@ -156,21 +264,27 @@ def render_pack(program: str, unit: str, locale: str) -> Path:
     if assets.get("live_roleplay_strategic"):
         add("roleplay-strategic", "Live · Strategic role-play", assets["live_roleplay_strategic"])
     add("key-notes", "Take-away · Key notes", assets["key_notes"])
-    add("commitment", "Close · Commitment", assets["commitment_plan"])
+    add(
+        "commitment",
+        "Close · Commitment",
+        assets["commitment_plan"],
+        form_key="commitment_plan_url",
+    )
 
     toc_html = "\n".join(
         f'<a href="#{html.escape(sid)}">{html.escape(title[:48])}</a>' for sid, title in toc
     )
-    title = manifest["public_title"]
-    audience = manifest["audience_id"]
+    program_title = manifest["program_title"]
+    lens_title = manifest["lens_title"]
     program_id = manifest["program_id"]
+    handle_coords = f"{program_id} · {unit.upper()}"
 
     page = f"""<!DOCTYPE html>
 <html lang="{html.escape(locale)}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{html.escape(title)} — {html.escape(program_id)} {html.escape(unit.upper())}</title>
+  <title>{html.escape(lens_title)} — {html.escape(program_title)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -191,8 +305,12 @@ def render_pack(program: str, unit: str, locale: str) -> Path:
       padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
       background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
     }}
-    .brand {{ font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .5rem; }}
-    .hero h1 {{ font-family: "Fraunces", Georgia, serif; font-size: clamp(1.25rem,3vw,1.85rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }}
+    .brand {{ font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }}
+    .program-title {{
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }}
+    .hero h1 {{ font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }}
     .hero-lead {{ max-width: 40rem; color: rgba(251,250,246,.88); }}
     .hero-meta {{ display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }}
     .toc {{ position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }}
@@ -212,6 +330,40 @@ def render_pack(program: str, unit: str, locale: str) -> Path:
     .prose p {{ margin: 0 0 1rem; }}
     .prose ul, .prose ol {{ margin: 0 0 1rem; padding-left: 1.2rem; }}
     .prose h2:first-child {{ display: none; }}
+    .article-signature {{
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }}
+    .gate-panel {{
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }}
+    .gate-kicker {{
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }}
+    .gate-note {{ color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }}
+    .form-cta {{
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }}
+    .form-cta:hover {{ background: var(--accent-deep); }}
     .table-wrap {{ overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }}
     table {{ width: 100%; border-collapse: collapse; font-size: .92rem; }}
     th, td {{ padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }}
@@ -223,12 +375,11 @@ def render_pack(program: str, unit: str, locale: str) -> Path:
   <header class="hero">
     <div>
       <p class="brand">Global Leadership</p>
-      <h1>{html.escape(title)}</h1>
+      <p class="program-title">{html.escape(program_title)}</p>
+      <h1>{html.escape(lens_title)}</h1>
       <p class="hero-lead">{html.escape(manifest.get("unit_goal", "").strip())}</p>
       <div class="hero-meta">
-        <span>{html.escape(program_id)} · {html.escape(unit.upper())}</span>
-        <span>{html.escape(audience)}</span>
-        <span>Locale: {html.escape(locale)}</span>
+        <span>{html.escape(handle_coords)}</span>
       </div>
     </div>
   </header>
@@ -237,7 +388,7 @@ def render_pack(program: str, unit: str, locale: str) -> Path:
     {''.join(sections)}
   </main>
   <footer>
-    <p>{html.escape(program_id)} · Global Leadership · Factory preview (not for client brand review until approved)</p>
+    <p>{html.escape(program_title)} · Global Leadership · {{E}}</p>
   </footer>
   <script>
     (function () {{

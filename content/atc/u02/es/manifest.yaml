@@ -1,0 +1,73 @@
+﻿program_id: ATC
+unit_id: u02
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Hábitos operativos y ejecución
+lens_title: Bucles de responsabilidad del equipo
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a construir la identidad del equipo,
+  para que las acciones diarias refuercen en quién se está convirtiendo el
+  equipo—no solo lo que logra esta semana.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Atomic Habits
+  - Habit Hacking for Breakthrough
+  - In our modern age
+  - In a fast-paced world
+  - Hábitos Atómicos
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Por qué la identidad dura más que la motivación: la evidencia detrás de 'somos un equipo confiable'"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "El día en que mi equipo dejó de esperar a que yo dijera 'buen trabajo'"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Tres capas, una identidad"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Coacheas resultados o identidad?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo de identidad del equipo: Votos diarios"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Un voto de identidad, visible para el equipo"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Marisol y la brecha de inducción"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — Dos pods, la misma métrica, distinta identidad"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender un ritual de identidad ante un par escéptico"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger la identidad del equipo bajo presión"

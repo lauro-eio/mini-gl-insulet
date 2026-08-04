@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sistemas de hábitos para líderes de primera línea — ATC U01</title>
+  <title>Bucles de responsabilidad del equipo — Hábitos operativos y ejecución</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -24,8 +24,12 @@
       padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
       background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
     }
-    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .5rem; }
-    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.25rem,3vw,1.85rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
     .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
     .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
     .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
@@ -45,6 +49,40 @@
     .prose p { margin: 0 0 1rem; }
     .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
     .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
     .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
     table { width: 100%; border-collapse: collapse; font-size: .92rem; }
     th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
@@ -56,12 +94,11 @@
   <header class="hero">
     <div>
       <p class="brand">Global Leadership</p>
-      <h1>Sistemas de hábitos para líderes de primera línea</h1>
+      <p class="program-title">Hábitos operativos y ejecución</p>
+      <h1>Bucles de responsabilidad del equipo</h1>
       <p class="hero-lead">Convertir grandes metas de equipo en acciones diarias acumulativas que un líder de primera línea pueda coachar, ver y sostener cuando no está en el piso.</p>
       <div class="hero-meta">
         <span>ATC · U01</span>
-        <span>tier_2_frontline_leader</span>
-        <span>Locale: es</span>
       </div>
     </div>
   </header>
@@ -106,7 +143,8 @@
 <li>Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis. <em>Advances in Experimental Social Psychology, 38</em>, 69–119.</li>
 <li>Lally, P., et al. (2010). How are habits formed: Modelling habit formation in the real world. <em>European Journal of Social Psychology, 40</em>(6), 998–1009.</li>
 <li>Wood, W., &amp; Neal, D. T. (2007). A new look at habits and the habit–goal interface. <em>Psychological Review, 114</em>(4), 843–863.</li>
-</ul></div>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
       </details>
     </section>
     
@@ -124,7 +162,8 @@
 <p>El cambio llegó tras un 1:1 con Mateo, un operador fuerte al que había promovido a mi antiguo puesto. Me dijo, en voz baja: “Cada semana cambias la meta. Nunca terminamos el último arreglo.” Tenía razón. Estaba enganchado a los saltos grandes porque se sentían a liderazgo. Eran, en su mayoría, ruido.</p>
 <p>Esa semana probé algo más pequeño. Una sola mejora: cada traspaso debe incluir una nota de dos líneas—qué está hecho, qué está bloqueado. Sin discursos. Sin tablero nuevo. Solo esa clave en cada cambio de turno.</p>
 <p>El primer día no pasó nada espectacular. El cuarto día, dos tickets que solían rebotar entre equipos se cerraron la misma tarde. El viernes, Mateo corrió el traspaso sin mí. El milagro que yo exigía apareció como un ritual aburrido.</p>
-<p>Si lideras a quienes antes eran tus pares, resiste la urgencia de probar autoridad con un reinicio espectacular. Pruébala con un sistema que puedan repetir cuando tú no estás en el piso. El uno por ciento no es timidez. Es cómo los equipos de primera línea se vuelven confiables.</p></div>
+<p>Si lideras a quienes antes eran tus pares, resiste la urgencia de probar autoridad con un reinicio espectacular. Pruébala con un sistema que puedan repetir cuando tú no estás en el piso. El uno por ciento no es timidez. Es cómo los equipos de primera línea se vuelven confiables.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
       </details>
     </section>
     
@@ -137,74 +176,7 @@
           </div>
           <span class="fold-chevron" aria-hidden="true"></span>
         </summary>
-        <div class="fold-body prose"><h2>Autodiagnóstico — ¿Cómo impulsas el cambio en tu equipo?</h2>
-<p>Responde según cómo lideras <strong>este mes</strong> (A=1 … D=4). Sé honesto: es diagnóstico, no evaluación de desempeño.</p>
-<p>--- SECTION 1: QUESTIONS ---</p>
-<p><strong>Q1.</strong> Cuando tu equipo pierde una meta semanal, tu primer movimiento suele ser:</p>
-<ul>
-<li>A) Anunciar un empujón audaz para la siguiente semana</li>
-<li>B) Pedir algunos arreglos grandes cuando haya capacidad</li>
-<li>C) Partir el fallo en brechas pequeñas de proceso y elegir una para corregir</li>
-<li>D) Instalar un ritual diario diminuto y seguirlo dos semanas</li>
-</ul>
-<p><strong>Q2.</strong> En los 1:1 con un excompañero que ahora supervisas, sueles:</p>
-<ul>
-<li>A) Empujar un plan de giro dramático</li>
-<li>B) Dar consejos ocasionales cuando algo falla</li>
-<li>C) Acordar una conducta pequeña para practicar antes de la próxima semana</li>
-<li>D) Co-diseñar un bucle de hábito (clave, acción, recompensa) que ellos posean</li>
-</ul>
-<p><strong>Q3.</strong> ¿Cómo tratas las mejoras “compuestas” del equipo?</p>
-<ul>
-<li>A) Con escepticismo—demasiado lento para mi jefe</li>
-<li>B) Útiles a veces, pero aún prefiero victorias ruidosas</li>
-<li>C) Creo que las ganancias diarias suman si somos constantes</li>
-<li>D) Dirijo el equipo con microhábitos visibles y los reviso cada semana</li>
-</ul>
-<p><strong>Q4.</strong> Al planear la semana, principalmente:</p>
-<ul>
-<li>A) Fijas un resultado abrumador para todos</li>
-<li>B) Listas varias metas y esperas que aparezca capacidad</li>
-<li>C) Partes el trabajo grande en pasos manejables con dueños</li>
-<li>D) Diseñas hábitos a nivel de turno que hagan la meta casi automática</li>
-</ul>
-<p><strong>Q5.</strong> Después de un turno difícil, sueles:</p>
-<ul>
-<li>A) Reiniciar todo el lunes con un nuevo mandato</li>
-<li>B) Esperar inspiración o una crisis que fuerce el cambio</li>
-<li>C) Buscar una fricción para quitar mañana</li>
-<li>D) Reforzar el ritual existente y ajustar la clave si hace falta</li>
-</ul>
-<p><strong>Q6.</strong> El diseño del entorno en tu piso se ve así:</p>
-<ul>
-<li>A) Sin cambios—la gente debería esforzarse más</li>
-<li>B) Carteles o recordatorios ocasionales</li>
-<li>C) Algunas claves que apoyan mejores hábitos</li>
-<li>D) Herramientas, tableros y valores por defecto para que lo correcto sea lo más fácil</li>
-</ul>
-<p><strong>Q7.</strong> Cuando la gerencia pide un “gran salto”, tú:</p>
-<ul>
-<li>A) Pasas la presión directo al equipo</li>
-<li>B) Suavizas el mensaje pero mantienes el marco del salto</li>
-<li>C) Lo traduces a una secuencia de pasos pequeños y medibles</li>
-<li>D) Proteges el sistema del equipo y negocias indicadores adelantados hacia arriba</li>
-</ul>
-<p><strong>Q8.</strong> El éxito como líder de primera línea significa:</p>
-<ul>
-<li>A) Salvamentos espectaculares y visibles</li>
-<li>B) Golpes de suerte ocasionales</li>
-<li>C) Mejora constante semana a semana</li>
-<li>D) Un equipo que corre hábitos confiables sin que tú los vigiles</li>
-</ul>
-<p>--- SECTION 2: SCORING ---</p>
-<p>Puntúa A=1, B=2, C=3, D=4. Rango total 8–32.</p>
-<p>--- SECTION 3: PROFILES ---</p>
-<ol>
-<li><strong>Supervisor del salto (8–14):</strong> Por defecto reinicias en grande. Útil en emergencias; costoso como estilo semanal. Prueba un microhábito 10 días laborales antes de anunciar otro salto.</li>
-<li><strong>Constructor emergente (15–20):</strong> Ves el valor de los pasos pequeños pero aún cazas victorias ruidosas. Ata un ritual a una clave de turno y revísalo cada viernes.</li>
-<li><strong>Coach constante (21–26):</strong> Ya partes metas en práctica. Fortalece la visibilidad—haz el hábito público en el tablero.</li>
-<li><strong>Líder de sistemas (27–32):</strong> Lideras por rutinas que se acumulan. Enseña a un reportante a poseer una clave este mes para que el sistema sobreviva tu ausencia.</li>
-</ol></div>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
       </details>
     </section>
     
@@ -419,31 +391,13 @@
           </div>
           <span class="fold-chevron" aria-hidden="true"></span>
         </summary>
-        <div class="fold-body prose"><h2>Compromiso — Hábito personal + práctica visible del equipo</h2>
-<p>Complétalo antes de salir del taller. Comparte la línea visible del equipo en 48 horas.</p>
-<h3>A. Hábito operativo personal (tú)</h3>
-<ol>
-<li>Una conducta que practicaré a diario los próximos 7 días:</li>
-<li>Clave que ya existe en mi día:</li>
-<li>Cómo sabré que ocurrió (una línea de registro):</li>
-</ol>
-<h3>B. Práctica visible del equipo (tus reportantes)</h3>
-<ol>
-<li>Un microrritual que el equipo correrá cada turno/día:</li>
-<li>Quién posee la clave si yo falto:</li>
-<li>Dónde es visible el cumplimiento:</li>
-</ol>
-<h3>C. Alineación con el gerente</h3>
-<p>En una frase, cómo explicaré esto a mi gerente como <strong>indicador adelantado</strong> (no como excusa):</p>
-<h3>D. Firma</h3>
-<p>Nombre: ____________ Fecha: ____________  </p>
-<p>Revisaré A–C el próximo viernes y ajustaré una vez—no reiniciaré desde cero.</p></div>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
       </details>
     </section>
     
   </main>
   <footer>
-    <p>ATC · Global Leadership · Factory preview (not for client brand review until approved)</p>
+    <p>Hábitos operativos y ejecución · Global Leadership · {E}</p>
   </footer>
   <script>
     (function () {

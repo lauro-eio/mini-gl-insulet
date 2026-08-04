@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When you begin your day, how aware are you of the little cues that guide your routine?
+ A. I barely notice them – my day just unfolds.
+ B. I sometimes recognize them after the fact.
+ C. I catch a few cues and try to adjust.
+ D. I intentionally monitor every small signal to set a positive tone.
+
+Q2: How do you handle habitual tasks like leaving the house or turning off appliances?
+ A. I do them automatically without any thought.
+ B. I occasionally double-check if everything is as it should be.
+ C. I’ve started saying a few reminders aloud.
+ D. I always use a verbal checklist to ensure each step is done correctly.
+
+Q3: When you encounter a minor error in your routine, what is your reaction?
+ A. I shrug it off without considering why it happened.
+ B. I make a mental note and move on.
+ C. I reflect on the subtle cues that might have led to it.
+ D. I analyze what cue was missed and adjust my process immediately.
+
+Q4: How frequently do you review your daily habits to see if they align with your goals?
+ A. Never—I just go with the flow.
+ B. Occasionally, when something goes wrong.
+ C. Pretty regularly, with some informal thinking.
+ D. Every day, using a structured scorecard to evaluate my habits.
+
+Q5: Consider a challenging work situation. How do you ensure you’re operating at your best?
+ A. I rely on my instincts without much thought.
+ B. I try to focus but rarely articulate my steps.
+ C. I verbalize some key points to guide myself.
+ D. I methodically point out and call out each step involved in my tasks.
+
+Q6: When learning a new skill, what role do cues and feedback play in your process?
+ A. I rarely pay attention to the small details.
+ B. I notice some hints but do not act on them consistently.
+ C. I actively try to catch and respond to these signals.
+ D. I focus on every cue and even articulate steps to reinforce my learning.
+
+Q7: In designing your personal workspace, how much consideration do you give to environmental cues?
+ A. I don’t think about it at all.
+ B. I have a basic setup, but it’s not intentionally optimized.
+ C. I’ve made a few adjustments to support my work habits.
+ D. I meticulously arrange my space to trigger and support beneficial routines.
+
+Q8: How do you perceive your personal identity in relation to your daily habits?
+ A. I don’t see a connection between my habits and who I am.
+ B. I think a little about it, but it’s not a priority.
+ C. I occasionally let my habits reflect my aspirations.
+ D. I intentionally shape habits that reinforce the identity I want to project.
+
+Q9: When faced with unexpected disruptions in your routine, how do you respond?
+ A. I’m thrown off completely and revert to old ways.
+ B. I manage to adjust eventually without much reflection.
+ C. I pause briefly to understand the cues I missed.
+ D. I use the disruption as an opportunity to fine-tune my cue recognition and verbal checks.
+
+Q10: How do you integrate social accountability (like support partners) into your habit-building process?
+ A. I prefer to work completely on my own.
+ B. I occasionally share my goals with friends.
+ C. I have informal accountability with a close group.
+ D. I actively engage with a supportive community that reinforces my habit improvements.
+
+Q11: How likely are you to experiment with techniques like “Pointing-and-Calling” to become more mindful of your actions?
+ A. I don’t see any benefit in it.
+ B. I’m curious, but haven’t tried it much.
+ C. I have experimented on occasion with good results.
+ D. I regularly practice it as a key part of my routine improvement.
+
+Q12: Reflecting on your progress, how systematic are you in tracking and improving your habits?
+ A. There isn’t any real system—I just hope for the best.
+ B. I keep casual tabs but nothing concrete.
+ C. I’m starting to create a daily habits scorecard.
+ D. I employ a rigorous, step-by-step method to monitor and optimize every part of my day.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Habit Novice: (Score 12-21) — You might be operating on autopilot without fully harnessing the subtle power of your daily cues. Your habits tend to be automatic rather than intentionally managed. It’s a great starting point, and there’s plenty of room for growth. Consider small, mindful changes to start living more intentionally.
+
+2. The Conscious Starter: (Score 22-30) — You are beginning to notice the importance of small improvements in your routines. While you sometimes recognize cues and take steps toward change, there is still potential to cultivate a more systematic approach. Embrace practices like verbalizing your actions or keeping a simple scorecard to further enhance your habit awareness. Your journey is off to a thoughtful start!
+
+3. The Mindful Improver: (Score 31-39) — You’re well aware of the cues around you and have begun to implement techniques that support your daily performance. Your commitment to reflective practices and minor improvements is paying off. With a bit more structure and consistency in monitoring your habits, you can unlock even greater personal and professional breakthroughs. Keep refining your system—you’re on an impressive path!
+
+4. The Habit Master: (Score 40-48) — You excel at transforming automatic behaviors into deliberate, mindful actions. Your strategic use of environmental cues, verbal checklists, and a structured habits scorecard has clearly elevated your daily routine to an art form. You relentlessly pursue small, consistent steps that compound into significant long-term success. Share your mastery with others and continue inspiring breakthrough results!

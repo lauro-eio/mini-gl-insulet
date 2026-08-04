@@ -34,8 +34,8 @@ Seven assets per principle. `shared` = one generation per principle. `lens` = on
 
 | # | `asset_id` | Name | Tiering | Default slot | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `research_article` | Research / investigation article | shared | pre (series) · post (intensive) | Empirical data, metrics, behavioral science. Optional light per-tier implications footer. |
-| 2 | `opinion_article` | Opinion article | lens | pre (series) · post (intensive) | Narrative portrait of a dilemma inside the tier's operational reality. |
+| 1 | `research_article` | Research / investigation article | shared | pre (series) · post (intensive) | Empirical data, metrics, behavioral science. **Required signature:** EN `Curated by {E}` / ES `Curaduría de {E}` (render-injected). |
+| 2 | `opinion_article` | Opinion article | lens | pre (series) · post (intensive) | Narrative portrait of a dilemma inside the tier's operational reality. **Same article signature requirement.** |
 | 3 | `key_notes` | Key notes / takeaways | shared | post (take-away) | Definitions and heuristics. One-page, high-visual. |
 | 4 | `self_assessment` | Self-assessment (quiz) | lens | pre | Situational judgment questions scoped to the tier's decision authority. |
 | 5 | `case_study` | Case study + discussion guide | lens | live | Scenario-heavy, written for subgroup breakouts. No prerequisites on other principles. |
@@ -88,7 +88,7 @@ Add `{audience_id}` to every lens asset prompt:
 | Case cardinality | **Resolved (MVP):** `cases[]` with 1–N. ATC U01 ships two cases. |
 | MVP audience | **Resolved (MVP):** ship `tier_2_frontline_leader` only; other tiers later. |
 | Live extras | **Resolved (MVP):** `live_roleplay_1v1` and `live_roleplay_strategic` allowed on unit manifest (outside core 7). |
-| Segment naming | Open: prefer principle / unit / module atom over book / chapter. |
+| Segment naming | **Resolved:** handle `{CODE}-T{n}-U{nn}`; client titles = `program_title` + `lens_title` only. See `Notes/workshops-naming-convention.md`. |
 | Justification sync | Open: `justification.md` still argues 6 assets; update to 7 + case. |
-| Naming layers | Open: keep client labels separate from `asset_id`. |
+| Naming layers | **Resolved:** client labels are program + lens; `asset_id` stays machine-facing. |
 | Case independence check | Open: enforce in `scripts/validate.py`. |

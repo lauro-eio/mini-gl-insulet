@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When it comes to your daily routines, you see them as…
+A. A necessary evil that I must get through.  
+B. Something I try, but sometimes I let slip.  
+C. Small stepping stones towards a bigger goal.  
+D. Deliberate actions that define who I truly am.
+
+Q2: How do you feel about long-term goals versus daily habits?
+A. Long-term goals are exciting, but daily habits feel overwhelming.  
+B. I focus on goals, but my daily habits don’t always match up.  
+C. I try to bridge the two, slowly aligning habits with goals.  
+D. I believe every tiny daily action is a vote for the person I want to become.
+
+Q3: When facing a setback, your reaction is to:
+A. Blame the circumstances and postpone change.  
+B. Get discouraged and question if change is possible.  
+C. Consider it a lesson and adjust my routine a bit.  
+D. Use it as confirmation to reassert my new identity and try again.
+
+Q4: In moments when you can choose an activity, you tend to:
+A. Do what’s easiest, even if it doesn’t help me improve.  
+B. Occasionally opt for a healthier or more productive option.  
+C. Pick activities that slowly reflect the person I want to be.  
+D. Consistently choose actions that reinforce my ideal self-image.
+
+Q5: How do you view “small wins” in your journey to change?
+A. They seem insignificant compared to large goals.  
+B. They’re nice but don’t make a huge difference.  
+C. They build momentum and help reshape my mindset.  
+D. Each small win is a powerful vote in creating my new identity.
+
+Q6: What best describes your attitude towards self-reflection?
+A. I rarely stop to think about my habits.  
+B. I reflect occasionally when something goes wrong.  
+C. I look back now and then to connect my actions to my goals.  
+D. I regularly assess my behaviors, ensuring they align with who I aspire to be.
+
+Q7: When planning your day, you:
+A. Go with the flow without a structured plan.  
+B. Plan loosely, with room for unplanned moments.  
+C. Create a routine that hints at my desired future self.  
+D. Design a detailed plan where every action reinforces my ideal identity.
+
+Q8: How do you approach challenges with your habits?
+A. I see them as barriers too hard to overcome.  
+B. I try to tackle them, even if progress is slow.  
+C. I view challenges as opportunities to prove my commitment.  
+D. I embrace challenges wholeheartedly, knowing they refine my identity.
+
+Q9: When you commit to a new habit, you feel:
+A. Doubtful about my capability to change.  
+B. Tentatively optimistic, yet unsure of long-term impact.  
+C. Motivated by small successes that steadily build my self-image.  
+D. Empowered, confidently affirming the identity I am shaping.
+
+Q10: How do you integrate feedback from your daily actions?
+A. I rarely notice or act on feedback.  
+B. Occasionally, I adjust if something feels off.  
+C. I selectively adjust behaviors to match my future self.  
+D. I meticulously tune my actions, always aligning them with my ideal identity.
+
+Q11: In redefining your habits, what is most important?
+A. Just getting through the day without overthinking.  
+B. Occasionally trying new things without full commitment.  
+C. Gradually aligning my daily actions with my desired self-image.  
+D. Constantly voting for and reinforcing the person I truly want to be.
+
+Q12: When you think about lasting behavior change, you believe it comes from:
+A. Waiting for a big breakthrough moment.  
+B. Occasionally trying to change without a clear plan.  
+C. Consistently improving with small, mindful adjustments.  
+D. Transforming my identity by aligning every action with who I aspire to be.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Habit Hesitator (Score 12-21) — You’re in the early stages of self-change, still exploring what works for you. Your habits currently feel disconnected from your desired identity, often leaving you feeling a bit stuck. With small shifts and intentional actions, you can start to see more alignment. Embrace the journey and celebrate even the tiniest victories as you begin to redefine yourself.
+
+2. The Process Pioneer (Score 22-30) — You’ve started taking steps towards a better alignment between your habits and your self-image. There are clear signs that you understand the importance of consistency and routine, though the transformation is still in progress. You’re experimenting with new routines and gradually seeing positive changes, yet there’s room to push further. With a bit more focus on reinforcing your desired identity, your breakthroughs are near.
+
+3. The Identity Shifter (Score 31-39) — Your daily actions are increasingly painting the picture of the person you aspire to be. You have a solid grasp on the power of small wins, and your routines are beginning to feel like true reflections of your inner self. You actively use feedback from your experiences to adjust and improve. Keep harnessing these habits, and you’ll continue molding your future one small vote at a time.
+
+4. The Habit Hero (Score 40-48) — You exemplify the power of identity-based habit change. Every action you take reinforces the person you want to become, creating a strong, unwavering feedback loop. Your daily routines and self-reflections are finely tuned to support your transformative journey. You’re not just achieving goals—you’re living your ideal identity every day. Celebrate your mastery and inspire others with your commitment.

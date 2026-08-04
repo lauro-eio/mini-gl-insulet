@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bucles de responsabilidad del equipo — Hábitos operativos y ejecución</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Hábitos operativos y ejecución</p>
+      <h1>Bucles de responsabilidad del equipo</h1>
+      <p class="hero-lead">Equipar a los líderes de primera línea para mapear el bucle clave-anhelo-respuesta-recompensa detrás de una conducta no deseada del equipo y rediseñarlo en un hábito alineado a la meta que puedan coachear incluso cuando no están observando.</p>
+      <div class="hero-meta">
+        <span>ATC · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Clave, anhelo, respuesta, recompensa: la evidenc</a>
+<a href="#opinion">El atajo que mi equipo tomaba cada vez que yo mi</a>
+<a href="#assessment">Autodiagnóstico — ¿Cómo manejas los bucles malos</a>
+<a href="#case-1">Caso 1 — Priya y el bucle de evasión de escalaci</a>
+<a href="#case-2">Caso 2 — Marcus y el bucle del atajo en la línea</a>
+<a href="#framework">Marco — Lienzo de rediseño del bucle de hábito d</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Coachear un bucle de hábito sin </a>
+<a href="#roleplay-strategic">Role-play estratégico — Implementar un ritual de</a>
+<a href="#key-notes">Puntos clave — Mapear y rediseñar el bucle de há</a>
+<a href="#commitment">Compromiso — Un bucle que rediseñaré este mes</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Clave, anhelo, respuesta, recompensa: la evidencia detrás de los bucles de hábito del equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Clave, anhelo, respuesta, recompensa: la evidencia detrás de los bucles de hábito del equipo</h2>
+<p>Los líderes de primera línea a menudo intentan corregir la conducta del equipo repitiendo la regla más fuerte. Décadas de investigación sobre hábitos sugieren una palanca distinta: la conducta en el piso rara vez es solo un problema de motivación. Es un bucle—una clave que se activa, un anhelo que ella despierta, una respuesta que el cerebro ha aprendido a ejecutar, y una recompensa que fija esa respuesta. Cambia un elemento sin tocar los otros y el viejo bucle regresa en días.</p>
+<h3>Las cuatro partes, en tu piso</h3>
+<p>Los psicólogos que estudian el hábito describen la conducta como repetición gatillada por el contexto: una clave estable en el entorno llega a activar automáticamente una respuesta porque esa respuesta ha producido de forma confiable un resultado gratificante (Wood y Rünger, 2016). Una vez formada, la respuesta puede correr con poco pensamiento deliberado—por eso “solo esfuérzate más” rara vez la afecta (Neal, Wood y Quinn, 2006).</p>
+<p>Para un supervisor, la traducción práctica es un mapa de cuatro partes:</p>
+<ol>
+<li><strong>Clave</strong> — el disparador específico y observable ya presente en el turno (un número rojo en el tablero, una llamada difícil, un atraso en la hora seis).</li>
+<li><strong>Anhelo</strong> — el deseo que la clave activa (alivio de la presión, evitar una conversación difícil, verse competente ante los pares).</li>
+<li><strong>Respuesta</strong> — la conducta exacta que el equipo ejecuta para satisfacer el anhelo (saltarse un paso, transferir una llamada, quedarse callado en el stand-up).</li>
+<li><strong>Recompensa</strong> — lo que la respuesta entrega y refuerza el bucle (el número se mueve, el conflicto termina, el turno acaba sin confrontación).</li>
+</ol>
+<h3>Por qué nombrar el anhelo importa más que prohibir la respuesta</h3>
+<p>Los equipos a menudo mantienen una respuesta no deseada incluso después de que se les dijo que se detuvieran, porque el anhelo subyacente sigue sin satisfacerse. La investigación sobre la fuerza del hábito muestra que la repetición bajo un contexto estable y coincidente es lo que cimenta una respuesta—no la intención de cambiarla (Verplanken y Orbell, 2003). Un supervisor que bloquea la respuesta sin ofrecer otra forma de satisfacer el mismo anhelo por lo general verá reaparecer la vieja respuesta, o una peor en su lugar.</p>
+<h3>Las claves son más fáciles de rediseñar que la fuerza de voluntad</h3>
+<p>Las revisiones sobre cambio de hábitos encuentran de forma consistente que cambiar o eliminar la clave que dispara, o atar una nueva respuesta a la misma clave, supera a los llamados al autocontrol (Gardner, 2015). Esto importa en un piso que un líder no puede vigilar cada minuto: la clave se activa esté o no presente el líder, así que el rediseño debe vivir en el vínculo clave-respuesta mismo, no en la intensidad de la supervisión.</p>
+<h3>Qué implica para un líder de primera línea</h3>
+<ol>
+<li>Antes de coachear una conducta, nombra su clave, anhelo, respuesta y recompensa en palabras simples—no solo la conducta que te desagrada.</li>
+<li>Mantén la clave y el anhelo; rediseña solo la respuesta para que satisfaga el mismo deseo de una forma que sirva a la meta.</li>
+<li>Ata una recompensa visible y rápida a la nueva respuesta, o el viejo bucle ganará por default.</li>
+<li>Espera una recaída bajo la clave original los primeros días; eso es el bucle probando si la nueva respuesta realmente compensa.</li>
+</ol>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Wood, W., &amp; Rünger, D. (2016). Psychology of habit. <em>Annual Review of Psychology, 67</em>, 289–314.</li>
+<li>Neal, D. T., Wood, W., &amp; Quinn, J. M. (2006). Habits—A repeat performance. <em>Current Directions in Psychological Science, 15</em>(4), 198–202.</li>
+<li>Verplanken, B., &amp; Orbell, S. (2003). Reflections on past behavior: A self-report index of habit strength. <em>Journal of Applied Social Psychology, 33</em>(6), 1313–1330.</li>
+<li>Gardner, B. (2015). A review and analysis of the use of &#x27;habit&#x27; in understanding, predicting and influencing health-related behaviour. <em>Health Psychology Review, 9</em>(3), 277–295.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El atajo que mi equipo tomaba cada vez que yo miraba para otro lado</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El atajo que mi equipo tomaba cada vez que yo miraba para otro lado</h2>
+<p>Durante tres meses pensé que tenía un problema de disciplina. Cada vez que la cola pasaba de veinte tickets, al menos un agente cerraba un caso con una nota vaga en vez de la corrección real. Escribí una política. Volví a entrenar al equipo. El atraso bajaba, los atajos se detenían por una semana, y luego la cola volvía a subir y los mismos dos agentes lo hacían otra vez, en silencio.</p>
+<p>Finalmente me senté con Renata, mi agente más sólida, después de que ella también lo hizo. No le pedí que se defendiera. Le pregunté qué pasa en su cabeza cuando la cola cruza veinte. Me dijo: “Deja de sentirse como mi trabajo resolverlo bien. Se siente como mi trabajo hacer que el número baje antes de que tú lo veas.” La clave era el conteo de la cola. El anhelo era el alivio de no ser vista como la razón de que estuviera roja. La respuesta era un cierre rápido y delgado. La recompensa era que el número se moviera y que nadie le preguntara nada.</p>
+<p>Mi política había atacado la respuesta y dejado intactas las otras tres partes. Claro que regresó.</p>
+<p>La semana siguiente probamos algo distinto. Misma clave—cola sobre veinte. Mismo anhelo—ella seguía queriendo alivio de verse como el problema. Nueva respuesta: en vez de un cierre delgado, marca el ticket en un canal compartido con una línea, “cola sobre 20, necesito una segunda revisión,” y pasa al siguiente caso. Nueva recompensa: yo respondía cada marca en menos de diez minutos, en voz alta, para que el equipo viera que marcar hacía la cola <em>mi</em> problema también, no una marca en su contra.</p>
+<p>Los picos de atraso todavía ocurren. Los cierres delgados en su mayoría ya no, porque el bucle ahora compensa sin ellos. Dejé de preguntar por qué mi equipo “no sigue el proceso” y empecé a preguntar qué estaba entrenándolos a desear el proceso en silencio. Esa pregunta cambió más turnos que cualquier reentrenamiento.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Cómo manejas los bucles malos en tu piso?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Priya y el bucle de evasión de escalaciones</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Priya y el bucle de evasión de escalaciones</h2>
+<h3>Apertura</h3>
+<p>Priya supervisa a once agentes en un piso de soporte a clientes. Cada vez que la cola pasa de veinte tickets abiertos, ha notado el mismo patrón: al menos un agente cierra un caso difícil con una nota delgada y vaga en vez de la corrección documentada. Antes lo llamaba “atajarse.” Después de una capacitación sobre bucles de hábito, quiere nombrar qué está pasando realmente antes de corregir a alguien de nuevo.</p>
+<h3>Contexto</h3>
+<p>La clave es consistente: el conteo de la cola cruzando veinte, visible en el tablero compartido. Al hablar en privado con dos agentes, Priya escucha el mismo anhelo con distintas palabras—alivio de ser vista como la razón de que la cola esté roja. La respuesta, un cierre delgado, entrega ese alivio rápido: el conteo de tickets baja y nadie pregunta nada. La recompensa se refuerza a sí misma antes de que algún gerente note el problema de calidad, que usualmente aparece días después como un ticket reabierto por un cliente molesto.</p>
+<p>La corrección previa de Priya fue una política de notas de cierre más estricta con una advertencia por incumplimiento. Funcionó cuatro o cinco días después de cada reentrenamiento, y luego reapareció en silencio cuando la cola volvía a subir. Los agentes no lo veían como romper reglas—lo veían como sobrevivir diez minutos malos.</p>
+<h3>Punto de decisión</h3>
+<p>La cola está por subir otra vez esta tarde. Priya puede:</p>
+<ol>
+<li>Reemitir la política de notas de cierre con una advertencia más firme y vigilar de cerca hoy.</li>
+<li>Mantener la clave (cola sobre veinte) y el anhelo (alivio de no verse como el problema) iguales, pero diseñar una nueva respuesta—marcar el ticket en un canal compartido para una segunda revisión rápida—junto con una recompensa visible y veloz.</li>
+<li>Reasignar en silencio los tickets difíciles lejos de los agentes que ya lo han hecho, evitando la conversación por completo.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué estaba recompensando realmente el bucle original, y por qué la política sola falló en eliminarlo?</li>
+<li>¿Cómo debería Priya introducir la nueva respuesta para que los agentes la vivan como alivio, no como escrutinio adicional?</li>
+<li>Diseña el bucle rediseñado completo (clave, anhelo, respuesta, recompensa) para este piso, y nombra quién confirma que la recompensa ocurre en diez minutos.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Marcus y el bucle del atajo en la línea</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Marcus y el bucle del atajo en la línea</h2>
+<h3>Apertura</h3>
+<p>Marcus lidera una línea de ensamble de seis personas. Cuando el conteo por hora se atrasa del ritmo—visible en un contador digital rojo sobre la línea—los operadores a veces se saltan el paso de doble revisión pensado para detectar piezas desalineadas antes de que avancen. Marcus antes lo enmarcaba como “gente apresurándose cuando no debería.” Después de mapear el bucle, lo ve distinto: el contador rojo es la clave, ponerse al día antes de que termine el turno es el anhelo, saltarse la revisión es la respuesta, y la recompensa es que el contador se ponga verde más evitar una conversación con Marcus sobre estar atrasados.</p>
+<h3>Contexto</h3>
+<p>Los datos de la línea de las últimas cuatro semanas muestran el patrón con claridad:</p>
+<div class="table-wrap"><table>
+<tr><th>Semana</th><th>Incidentes de revisión saltada</th><th>Minutos en rojo del conteo por hora</th></tr>
+<tr><td>1</td><td>3</td><td>42</td></tr>
+<tr><td>2 (recordatorio publicado)</td><td>2</td><td>45</td></tr>
+<tr><td>3</td><td>5</td><td>61</td></tr>
+<tr><td>4</td><td>6</td><td>58</td></tr>
+</table></div>
+<p>Los recordatorios publicados en la línea redujeron los incidentes por una semana, y luego los incidentes subieron otra vez junto con los minutos en rojo—lo que sugiere que el disparador, no la conciencia, impulsa la conducta. Río abajo, las piezas desalineadas detectadas después cuestan más tiempo de retrabajo que los segundos ahorrados al saltarse la revisión.</p>
+<h3>Punto de decisión</h3>
+<p>El contador ha estado en rojo las últimas dos horas. Marcus puede:</p>
+<ol>
+<li>Caminar la línea y recordar personalmente a los operadores que bajen el ritmo y revisen bien.</li>
+<li>Mantener la clave (contador rojo) y el anhelo (evitar atrasarse más, evitar el seguimiento de Marcus), pero rediseñar la respuesta—una revisión visual de cinco segundos junto con un llamado de ayuda en el momento en que el conteo se resbala, recompensada por Marcus reasignando una mano de inmediato, no después del turno.</li>
+<li>Mover el paso de doble revisión a una estación de calidad separada para que los operadores de la línea nunca lo toquen.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué sugiere el patrón de incidentes y minutos en rojo sobre si esto es un problema de motivación o un problema de bucle?</li>
+<li>Si Marcus elige la opción 2, ¿qué recompensa específica tiene que llegar en minutos para competir con “el contador se pone verde”?</li>
+<li>¿Cómo debería Marcus explicar el rediseño a su propio gerente sin sonar como que está justificando las revisiones saltadas?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de rediseño del bucle de hábito del equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de rediseño del bucle de hábito del equipo</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Completa un lienzo por cada conducta no deseada que rediseñarás este mes.</p>
+<h3>1. Conducta objetivo</h3>
+<p>¿Qué conducta exacta quieres cambiar? (Observable, no un juicio de carácter.)</p>
+<h3>2. Mapea el bucle actual</h3>
+<div class="table-wrap"><table>
+<tr><th>Elemento</th><th>Bucle actual</th></tr>
+<tr><td>Clave (disparador específico y observable)</td><td></td></tr>
+<tr><td>Anhelo (el deseo que activa)</td><td></td></tr>
+<tr><td>Respuesta (conducta actual exacta)</td><td></td></tr>
+<tr><td>Recompensa (qué la refuerza hoy)</td><td></td></tr>
+</table></div>
+<h3>3. Qué se mantiene igual</h3>
+<p>¿Qué clave y anhelo mantendrás, porque eliminarlos no es realista en este piso?</p>
+<h3>4. Respuesta rediseñada</h3>
+<p>¿Qué nueva conducta satisface el mismo anhelo, atada a la misma clave, mientras sirve a la meta del equipo?</p>
+<h3>5. Recompensa rediseñada</h3>
+<p>¿Qué se activa rápido y de forma visible en el momento en que ocurre la nueva respuesta—lo bastante rápido para vencer a la vieja recompensa?</p>
+<h3>6. Fricción a quitar</h3>
+<p>¿Qué herramienta, script o paso de aprobación hace que la nueva respuesta sea más difícil que la vieja en este momento?</p>
+<h3>7. Dueño y visibilidad</h3>
+<p>¿Quién confirma que el nuevo bucle corrió hoy, y dónde es visible eso para el equipo?</p>
+<h3>8. Plan de recaída</h3>
+<p>Si la vieja respuesta reaparece una vez, ¿qué dirás y harás—sin reiniciar desde cero?</p>
+<h3>9. Revisión de dos semanas</h3>
+<p>Mantener / ajustar / soltar—y una línea a tu gerente en lenguaje de indicador adelantado, no de excusa:</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Coachear un bucle de hábito sin vergüenza</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Coachear un bucle de hábito sin vergüenza</h2>
+<p><strong>Duración:</strong> 25–35 minutos  </p>
+<p><strong>Propósito:</strong> Practicar nombrar juntos la clave, el anhelo, la respuesta y la recompensa de un miembro del equipo—sin sermonear ni disparar defensividad.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Coach de bucles)</strong>  </p>
+<p>Has notado un atajo repetido y quieres mapear su bucle con la persona, para luego acordar una respuesta rediseñada atada al mismo disparador. No debes abrir con una advertencia ni un recordatorio de regla.</p>
+<p><strong>Rol 2 — Miembro del equipo que repite el atajo</strong>  </p>
+<p>Sientes que viene la corrección y esperas que te culpen. Abrirás a la defensiva o algo cauteloso. Solo te comprometerás con honestidad si el coach pregunta por el disparador y la presión que sientes, no solo por la regla que rompiste.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el supervisor lograr que el miembro del equipo nombre el anhelo real detrás del atajo, y acepte probar una nueva respuesta por un ensayo corto—sin que la conversación se convierta en una advertencia?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el coach abre preguntando por el momento en que ocurre el atajo, no por el atajo mismo; el miembro del equipo resiste o minimiza.</li>
+<li>Ronda 2 (8 min): el coach y el miembro del equipo co-diseñan una nueva respuesta a la misma clave; el miembro del equipo propone la recompensa que haría que valiera la pena probarla.</li>
+<li>Cierre (10 min): ¿dónde se coló de nuevo el lenguaje de culpa? ¿qué hizo que el miembro del equipo estuviera dispuesto a nombrar el anhelo real?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Implementar un ritual de piso rediseñado</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Implementar un ritual de piso rediseñado</h2>
+<p><strong>Duración:</strong> 40–50 minutos  </p>
+<p><strong>Propósito:</strong> Practicar asegurar apoyo para un bucle de equipo rediseñado cuando los interesados quieren una solución más rápida y contundente.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para probar una respuesta rediseñada a un disparador de piso conocido, con un mecanismo de recompensa visible, durante dos semanas.</li>
+<li><strong>Líder de operaciones (antagonista):</strong> Quiere que la vieja conducta se detenga de inmediato mediante una aplicación más estricta y consecuencias; ve el lenguaje de bucles como lento y blando.</li>
+<li><strong>Analista de calidad (escéptico):</strong> Necesita una señal clara de antes/después y un punto definido en el que se juzgue que el ensayo falló.</li>
+<li><strong>Supervisor par (aliado o voto):</strong> Apoyará el ensayo si no traslada en silencio trabajo extra de revisión a un turno vecino.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger un rediseño de bucle que mantiene la misma clave y el mismo anhelo—en vez de solo prohibir la respuesta—sin parecer que está tolerando el atajo original?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Una clave, un anhelo, una respuesta y una recompensa claramente nombrados—no solo “dejaremos de hacer X”</li>
+<li>Una señal visible que el analista pueda revisar en dos semanas</li>
+<li>Un dueño nombrado para la recompensa en los turnos que el supervisor no trabaja</li>
+<li>Ninguna campaña de aplicación paralela que contradiga el bucle rediseñado</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento movió al líder de operaciones: el riesgo de aplicación, o un bucle de recompensa más rápido?</li>
+<li>¿Cómo respondió el supervisor a “por qué no simplemente les prohibimos hacerlo”?</li>
+<li>¿Qué haría que la vieja respuesta ganara otra vez en la semana dos, y quién es dueño de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Mapear y rediseñar el bucle de hábito del equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Mapear y rediseñar el bucle de hábito del equipo</h2>
+<p><strong>Meta de la unidad:</strong> Mapear el bucle detrás de una conducta no deseada del piso y rediseñarlo en algo alineado a la meta—uno que puedas coachear incluso cuando no estás observando.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>El bucle:</strong> Clave → anhelo → respuesta → recompensa. Las cuatro siempre están presentes, las hayas nombrado o no.</li>
+<li><strong>Clave:</strong> El disparador específico y observable ya presente en el turno (un número rojo, una llamada difícil, un atraso).</li>
+<li><strong>Anhelo:</strong> El deseo que la clave activa—a menudo alivio, pertenencia o verse competente, no la conducta misma.</li>
+<li><strong>La respuesta es la palanca más fácil de cambiar, pero nunca la única:</strong> bloquearla sin satisfacer el anhelo invita a una recaída o a un atajo peor.</li>
+<li><strong>La recompensa debe llegar rápido y de forma visible</strong>, o la respuesta rediseñada perderá ante la vieja por default.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Elige una conducta no deseada que puedas observar directamente esta semana.</li>
+<li>Escribe su bucle en una línea cada uno: clave, anhelo, respuesta, recompensa.</li>
+<li>Pregunta qué le está comprando la respuesta a la persona realmente—no qué regla rompe.</li>
+<li>Diseña una nueva respuesta atada a la <strong>misma clave</strong>, que satisfaga el <strong>mismo anhelo</strong>, y sirva a la meta del equipo.</li>
+<li>Ata una recompensa rápida y visible a la nueva respuesta antes de quitar la vieja.</li>
+<li>Espera que la vieja respuesta reaparezca una vez; trátalo como dato, no como desafío.</li>
+<li>Coachea el bucle con la persona, en voz alta, para que pueda correrlo sin ti presente.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué conducta no deseada en tu piso sigue “regresando” sin importar cuántas veces la has corregido—y qué está recompensando en silencio?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Un bucle que rediseñaré este mes</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Hábitos operativos y ejecución · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

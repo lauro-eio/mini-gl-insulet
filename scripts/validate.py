@@ -13,6 +13,8 @@ from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schemas" / "unit_manifest.schema.json"
+SIGNATURE_PATH = ROOT / "schemas" / "article_signature.yaml"
+ARTICLE_ASSET_IDS = frozenset({"research_article", "opinion_article"})
 
 
 def load_yaml(path: Path) -> dict:
@@ -32,6 +34,14 @@ def word_count(text: str) -> int:
     return len(re.findall(r"\b\w+\b", text))
 
 
+def expected_article_signature(locale: str) -> str:
+    cfg = load_yaml(SIGNATURE_PATH)
+    by_locale = cfg.get("by_locale") or {}
+    if locale not in by_locale:
+        raise KeyError(f"No article signature defined for locale '{locale}' in {SIGNATURE_PATH}")
+    return by_locale[locale]
+
+
 def validate_pack(program: str, unit: str, locale: str) -> list[str]:
     errors: list[str] = []
     pack_dir = ROOT / "content" / program / unit / locale
@@ -40,11 +50,9 @@ def validate_pack(program: str, unit: str, locale: str) -> list[str]:
         return [f"Missing manifest: {manifest_path}"]
 
     manifest = load_yaml(manifest_path)
-    schema = load_yaml(SCHEMA_PATH) if SCHEMA_PATH.suffix in {".yaml", ".yml"} else None
-    if SCHEMA_PATH.suffix == ".json":
-        import json
+    import json
 
-        schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
     Draft202012Validator(schema).validate(manifest)
 
@@ -58,8 +66,28 @@ def validate_pack(program: str, unit: str, locale: str) -> list[str]:
     if manifest.get("locale") != locale:
         errors.append(f"locale mismatch: {manifest.get('locale')} vs folder {locale}")
 
+    if "public_title" in manifest:
+        errors.append(
+            "public_title is retired; use program_title + lens_title "
+            "(see Notes/workshops-naming-convention.md)"
+        )
+
+    try:
+        expected_sig = expected_article_signature(locale)
+    except KeyError as exc:
+        errors.append(str(exc))
+        expected_sig = None
+
+    sig = manifest.get("article_signature")
+    if expected_sig is not None and sig != expected_sig:
+        errors.append(
+            f"article_signature must be {expected_sig!r} for locale '{locale}' (got {sig!r})"
+        )
+
     banned = [b.lower() for b in manifest.get("banned_phrases", [])]
     budgets = manifest.get("word_budgets", {})
+    sig_cfg = load_yaml(SIGNATURE_PATH)
+    required_article_ids = set(sig_cfg.get("required_asset_ids") or list(ARTICLE_ASSET_IDS))
 
     refs: list[dict] = []
     assets = manifest.get("assets", {})
@@ -68,6 +96,11 @@ def validate_pack(program: str, unit: str, locale: str) -> list[str]:
             refs.extend(val)
         elif isinstance(val, dict) and "path" in val:
             refs.append(val)
+
+    present_article_ids = {ref.get("asset_id") for ref in refs if ref.get("asset_id") in required_article_ids}
+    missing_articles = required_article_ids - present_article_ids
+    for asset_id in sorted(missing_articles):
+        errors.append(f"Article asset '{asset_id}' is required (signature rule applies)")
 
     for ref in refs:
         path = pack_dir / ref["path"]

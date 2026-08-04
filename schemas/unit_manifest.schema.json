@@ -9,7 +9,9 @@
     "unit_id",
     "audience_id",
     "locale",
-    "public_title",
+    "program_title",
+    "lens_title",
+    "article_signature",
     "assets",
     "banned_phrases",
     "word_budgets"
@@ -38,8 +40,37 @@
       "type": "string",
       "enum": ["en", "es"]
     },
-    "public_title": { "type": "string", "minLength": 1 },
+    "program_title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Client program brand line; stable per workshop code (locale variant only)."
+    },
+    "lens_title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Client hero H1; per (program × tier). Not a third orphan page title."
+    },
     "unit_goal": { "type": "string" },
+    "article_signature": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Required footer for research_article and opinion_article only (e.g. Curated by {E})."
+    },
+    "forms": {
+      "type": "object",
+      "description": "When present, render gates self_assessment and commitment_plan to Form CTAs (or coming-soon if URLs empty).",
+      "additionalProperties": false,
+      "properties": {
+        "self_assessment_url": {
+          "type": "string",
+          "description": "Google/MS Form URL. Empty string = coming-soon placeholder in HTML."
+        },
+        "commitment_plan_url": {
+          "type": "string",
+          "description": "Google/MS Form URL. Empty string = coming-soon placeholder in HTML."
+        }
+      }
+    },
     "assets": {
       "type": "object",
       "required": [

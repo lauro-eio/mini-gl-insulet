@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When starting a new habit, which part of the process excites you the most?
+ A. Spotting the cue that sets everything in motion  
+ B. Noticing the craving that drives your actions  
+ C. Planning the response that forms your routine  
+ D. Celebrating the reward that reinforces success
+
+Q2: How do you typically deal with unwanted behaviors?
+ A. I try to ignore the cue completely  
+ B. I identify the craving behind the behavior  
+ C. I consciously change my response when it arises  
+ D. I replace the reward with a positive alternative
+
+Q3: When reflecting on your daily routines, what factor do you think influences you the most?
+ A. The environment triggering my cues  
+ B. The inner urge or craving sparked by situations  
+ C. The deliberate actions I take as responses  
+ D. The satisfaction I gain from the reward
+
+Q4: What is your primary strategy for forming a new habit?
+ A. Recognizing the cue from my surroundings  
+ B. Creating a craving by aligning with my desires  
+ C. Establishing a routine response with small steps  
+ D. Rewarding myself to maintain consistency
+
+Q5: How do you prefer to keep track of your progress when trying to improve?
+ A. By noting when the cue appears each day  
+ B. By monitoring the intensity of my cravings  
+ C. By logging the responses I enact  
+ D. By celebrating each reward received
+
+Q6: When faced with a challenge in breaking a bad habit, you:
+ A. Work to avoid or change the triggering cues  
+ B. Reflect on what cravings are fueling the behavior  
+ C. Try to adjust your response with a new routine  
+ D. Focus on creating a more enticing reward for better behavior
+
+Q7: In designing your ideal environment for success, you focus on:
+ A. Minimizing external cues that lead to distractions  
+ B. Aligning internal cravings with your long-term goals  
+ C. Structuring daily actions that build the habit  
+ D. Arranging rewards that sustain motivation
+
+Q8: What role does consistency play in your habit-building process?
+ A. It helps me recognize recurring cues over time  
+ B. It reinforces the cravings that make me excited  
+ C. It solidifies the response until it becomes automatic  
+ D. It amplifies the impact of the rewards I secure
+
+Q9: How do you react when you successfully execute a desired behavior?
+ A. I analyze the cue that initiated the behavior  
+ B. I appreciate the craving that pushed me forward  
+ C. I note the effective response I made  
+ D. I relish the reward and plan for future successes
+
+Q10: When planning for self-improvement, which element do you find most crucial?
+ A. Identifying the situational cues that affect you  
+ B. Understanding what cravings drive your actions  
+ C. Deciding on the responses you want to change  
+ D. Establishing rewards that motivate consistent change
+
+Q11: How do your daily habits usually evolve over time?
+ A. They start with clear, identifiable cues  
+ B. They are fueled by strong, growing cravings  
+ C. They develop through repeated, deliberate responses  
+ D. They are maintained by satisfying and reinforcing rewards
+
+Q12: What best describes your approach towards long-term change?
+ A. Focusing on recognizing and modifying cues  
+ B. Emphasizing the role of cravings in your mindset  
+ C. Building consistent responses through atomic improvements  
+ D. Capitalizing on rewards to create a sustainable loop
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Habit Novice: (Score 12-21) — You’re just beginning your journey into the world of habit transformation. You may still be figuring out the basics of cues, cravings, responses, and rewards. Your approach is raw but full of potential. Embrace the process, and know that every great transformation starts with small steps. Keep experimenting and observing to unlock your full habit-forming power.
+
+2. The Emerging Habit Recycler: (Score 22-30) — You have a growing understanding of the habit loop and are making noticeable progress. You recognize the importance of minute changes and are gradually integrating new strategies into your routine. Your approach is pragmatic, and you’re beginning to see the cumulative effect of daily improvements. With continued focus and refinement, you’re on the path to sustainable change.
+
+3. The Habit Architect: (Score 31-39) — You are actively designing your environment, responses, and rewards for success. Your knowledge of the habit loop is well-integrated into your daily actions, and you strategize effectively against detrimental patterns. This thoughtful approach means you’re reshaping your identity through deliberate, atomic improvements. Your habits are becoming almost automatic—a testament to your strategic mindset and commitment to continuous progress.
+
+4. The Habit Mastermind: (Score 40-48) — You have mastered the art of the habit loop and consistently leverage cues, cravings, responses, and rewards to fuel success. Your strategic precision in forming beneficial habits and eliminating bad ones is inspiring. You turn even the smallest improvements into exponential breakthroughs and embody the principles of a true habit virtuoso. Your lifestyle reflects a deep understanding of habit engineering, proving that small changes can lead to extraordinary transformations.

@@ -1,8 +1,10 @@
-program_id: ATC
+﻿program_id: ATC
 unit_id: u01
 audience_id: tier_2_frontline_leader
 locale: es
-public_title: Sistemas de hábitos para líderes de primera línea
+program_title: Hábitos operativos y ejecución
+lens_title: Bucles de responsabilidad del equipo
+article_signature: "Curaduría de {E}"
 unit_goal: >
   Convertir grandes metas de equipo en acciones diarias acumulativas que un líder
   de primera línea pueda coachar, ver y sostener cuando no está en el piso.
@@ -24,6 +26,10 @@ word_budgets:
   commitment_plan: { max: 350, soft_max: 300 }
   live_roleplay_1v1: { max: 450, soft_max: 400 }
   live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
 assets:
   research_article:
     asset_id: research_article

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Accountability Loops — Operational Habits &amp; Execution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Operational Habits &amp; Execution</p>
+      <h1>Team Accountability Loops</h1>
+      <p class="hero-lead">Help frontline supervisors notice the cues that trigger team habits, score which floor habits help or hurt performance, and redesign the physical and social environment so good habits stick without constant willpower.</p>
+      <div class="hero-meta">
+        <span>ATC · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Why the Room Wins: Evidence for Cue Design and E</a>
+<a href="#opinion">The Day I Stopped Blaming My Team and Moved the </a>
+<a href="#assessment">Self-Assessment — How Well Do You See Your Team&#x27;</a>
+<a href="#case-1">Case 1 — Marta and the Blind-Corner Habit</a>
+<a href="#case-2">Case 2 — Priya’s Two Whiteboards</a>
+<a href="#framework">Framework — Frontline Cue &amp; Environment Redesign</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Naming a Harmful Habit Without S</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Redesigning the Floor Unde</a>
+<a href="#key-notes">Key Notes — See the Cue, Score the Habit, Redesi</a>
+<a href="#commitment">Commitment — One Cue I Will Redesign This Week</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Why the Room Wins: Evidence for Cue Design and Environment on the Frontline</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Why the Room Wins: Evidence for Cue Design and Environment on the Frontline</h2>
+<p>Frontline supervisors often try to fix a recurring team behavior with a reminder, a warning, or a sharper tone in stand-up. Behavioral research points somewhere else first: most repeated behavior is triggered by a cue already sitting in the environment, not chosen fresh each time.</p>
+<h3>Habits run on cues, not on willpower</h3>
+<p>Diary studies of daily behavior find that a large share of what people do is triggered automatically by a stable context—the same doorway, the same tool, the same face—rather than decided anew each time (Neal, Wood, &amp; Quinn, 2006). Once a habit is strong, the cue itself starts the behavior before conscious intention catches up (Wood &amp; Neal, 2007). For a supervisor, this means a motivational speech rarely changes a floor habit that is actually being triggered by a broken layout, a missing tool, or a well-worn walking path.</p>
+<h3>Choice architecture: make the safe path the easy path</h3>
+<p>Small, deliberate changes to the &quot;choice architecture&quot; around a decision—the order of steps, the default option, where an item physically sits—shift behavior more reliably than persuasion alone (Thaler &amp; Sunstein, 2003). On a shift floor, this looks like moving a scanner within arm&#x27;s reach, reordering a checklist so the safety step comes first by default, or placing a hazard marker at eye level instead of on a wall behind the operator.</p>
+<h3>Vigilant monitoring: naming the cue out loud</h3>
+<p>People who explicitly notice and name the moment a risky habit is about to fire—rather than relying on general self-control—are more successful at interrupting it (Quinn, Pascoe, Wood, &amp; Neal, 2010). This is the evidence behind practices like calling out a hazard aloud before crossing it: naming the cue out loud moves it from automatic to conscious for the one second that matters.</p>
+<h3>Environment shapes volume, not only choice</h3>
+<p>Research on everyday consumption found that people consistently underestimate how much layout, distance, and visibility change behavior—independent of stated intent (Wansink &amp; Sobal, 2007). The same logic applies to a shift floor: how far a tool sits from the workstation, or how visible a habits scorecard is, changes what people do even when nobody has discussed willpower at all.</p>
+<h3>What this means for supervisors</h3>
+<ol>
+<li>Before correcting a person, ask what cue in the room is triggering the habit.</li>
+<li>Change one piece of the environment—placement, default, or visibility—before adding a new rule.</li>
+<li>Teach your team to name a risky cue out loud in the moment it appears, and track which habits that practice helps or blocks.</li>
+</ol>
+<h3>Selected references</h3>
+<ul>
+<li>Neal, D. T., Wood, W., &amp; Quinn, J. M. (2006). Habits—A repeat performance. <em>Current Directions in Psychological Science, 15</em>(4), 198–202.</li>
+<li>Wood, W., &amp; Neal, D. T. (2007). A new look at habits and the habit–goal interface. <em>Psychological Review, 114</em>(4), 843–863.</li>
+<li>Thaler, R. H., &amp; Sunstein, C. R. (2003). Libertarian paternalism. <em>American Economic Review, 93</em>(2), 175–179.</li>
+<li>Quinn, J. M., Pascoe, A., Wood, W., &amp; Neal, D. T. (2010). Can&#x27;t control yourself? Monitor those bad habits. <em>Personality and Social Psychology Bulletin, 36</em>(4), 499–511.</li>
+<li>Wansink, B., &amp; Sobal, J. (2007). Mindless eating: The 200 daily food decisions we overlook. <em>Environment and Behavior, 39</em>(1), 106–123.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Day I Stopped Blaming My Team and Moved the Whiteboard</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Day I Stopped Blaming My Team and Moved the Whiteboard</h2>
+<p>For three weeks I wrote the same note in my shift log: &quot;Team skipping the lane check at the corner by receiving. Reminded again.&quot; I said it in stand-up. I put up a sign. Nothing changed, and I started assuming my people just did not care enough.</p>
+<p>Then a peer supervisor asked me a question I did not like: &quot;What&#x27;s actually sitting at that corner?&quot; I walked over. A pallet jack was parked exactly where the lane check should happen, blocking the sightline and making the &quot;quick squeeze-through&quot; the easiest path. My sign was taped to a pillar nobody faced while walking that route. I had been asking people to fight the room and calling it a discipline problem.</p>
+<p>I moved the jack&#x27;s parking spot ten feet away, taped a bright strip on the floor at the exact point where the check should happen, and asked one operator to call out &quot;clear&quot; out loud every time she did it—not for me, just so the moment became visible to herself and to whoever was near. Within two shifts, three other people were saying &quot;clear&quot; without being asked. Nobody got a lecture.</p>
+<p>I still track the habit—not with a dramatic new metric, just a tally mark on a card at the corner: checked or skipped. Some days it dips when we&#x27;re short-staffed and I move fast to fix the layout again, not the person.</p>
+<p>If your team keeps missing the same step, look at the floor before you look at the roster. The room is often the loudest thing coaching your people, and most of what it teaches, it teaches without saying a word.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — How Well Do You See Your Team&#x27;s Cues?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Marta and the Blind-Corner Habit</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Marta and the Blind-Corner Habit</h2>
+<h3>Opening</h3>
+<p>Marta supervises a receiving crew at a regional distribution center. For a month, operators have been &quot;squeezing through&quot; a blind corner near the dock instead of stopping for the required lane check. No incident yet, but two near-misses were logged. Marta has reminded the crew four times in stand-up. The habit persists.</p>
+<h3>Context</h3>
+<p>The corner in question has a parked pallet jack that blocks the sightline and narrows the walkway, which makes the quick squeeze-through the physically easiest option. The lane-check sign is taped to a pillar that faces away from the walking path. Marta&#x27;s manager, Devon, wants the near-misses at zero and has asked for &quot;a refresher training&quot; for the whole shift.</p>
+<p>Marta suspects training will not fix a habit that the layout itself is rewarding. She has never run a habits scorecard for her crew—problems get handled one complaint at a time, not tracked as a pattern.</p>
+<h3>Decision point</h3>
+<p>Devon wants the refresher scheduled for Friday. Marta can:</p>
+<ol>
+<li>Run the refresher training as requested and consider the issue closed.</li>
+<li>Start a habits scorecard, name the exact cue (jack placement, sign location, walkway width), and redesign the corner before training anyone.</li>
+<li>Do both: a short, honest stand-up about the real cause, paired with an immediate low-cost environment fix, and propose the scorecard as an ongoing practice.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What is the blind corner &quot;teaching&quot; the crew, regardless of what Marta says in stand-up?</li>
+<li>How should Marta talk to Devon so redesigning the environment does not sound like she is dodging accountability for training?</li>
+<li>Design the habits scorecard entry for this habit: is it helpful or harmful, what is the cue, and what single environment change would you make first?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Priya’s Two Whiteboards</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Priya’s Two Whiteboards</h2>
+<h3>Opening</h3>
+<p>Priya leads a six-person claims-processing pod. Above her desk hangs a whiteboard that lists every agent&#x27;s error count for the week, updated daily by her lead. Agents avoid looking at it. Error correction has flattened. A newer supervisor two pods over, Han, uses a different board: one line per shift where any agent can flag &quot;a step I almost skipped and why.&quot; Han&#x27;s pod has fewer repeat errors, though nobody is publicly ranked.</p>
+<h3>Context</h3>
+<p>Priya&#x27;s error board was inherited from her predecessor and never questioned—it is simply &quot;how the pod has always tracked things.&quot; Agents describe it as a habit they have learned to tune out rather than act on; a few admit they now hide small mistakes rather than flag them, since flagging adds a mark to a public tally. Priya has never separated &quot;habits that help the pod&quot; from &quot;habits the board itself is quietly encouraging.&quot;</p>
+<p>Priya&#x27;s manager likes the error board because it is easy to screenshot for weekly reports. Han&#x27;s &quot;almost-skipped&quot; board produces fewer clean numbers but more early warnings.</p>
+<h3>Decision point</h3>
+<p>Priya is due to present pod metrics this week. She can:</p>
+<ol>
+<li>Keep the error board exactly as inherited, since it is easy to report upward.</li>
+<li>Replace the error board with a version of Han&#x27;s cue-focused board and build her own habits scorecard to see what actually changes.</li>
+<li>Run both boards for two weeks, tracking which one produces more early flags versus more hidden mistakes, before deciding.</li>
+</ol>
+<h3>Exhibits (simplified)</h3>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Priya pod — errors flagged early</th><th>Han pod — errors flagged early</th></tr>
+<tr><td>1</td><td>2</td><td>6</td></tr>
+<tr><td>2</td><td>1</td><td>7</td></tr>
+<tr><td>3 (pilot)</td><td>5</td><td>6</td></tr>
+<tr><td>4 (pilot)</td><td>6</td><td>8</td></tr>
+</table></div>
+<h3>Discussion questions</h3>
+<ol>
+<li>What habit was Priya&#x27;s original whiteboard cueing, and was it the habit she actually wanted?</li>
+<li>How can Priya present a shift away from the error board to her manager without it sounding like she is hiding problems?</li>
+<li>Build the habits scorecard line for &quot;hiding a small mistake&quot;: cue, whether it is helpful or harmful, and one environment change that would flip it.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Frontline Cue &amp; Environment Redesign Canvas</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Frontline Cue &amp; Environment Redesign Canvas</h2>
+<p>Use in workshop or print for the floor. Run the scorecard first, then redesign one habit at a time.</p>
+<h3>1. Habits scorecard</h3>
+<p>List five current team or personal floor habits. Mark each Helpful (H) or Harmful (X).</p>
+<div class="table-wrap"><table>
+<tr><th>Habit</th><th>H / X</th><th>How often</th></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td></tr>
+</table></div>
+<h3>2. Pick one harmful habit</h3>
+<p>Which one habit will you redesign first, and why this one?</p>
+<h3>3. Name the cue</h3>
+<p>What exact thing triggers it—place, object, time of day, person, sound?</p>
+<h3>4. Make it conscious</h3>
+<p>What will someone say or point to out loud, right when the cue appears, so it stops being automatic?</p>
+<h3>5. Redesign the environment</h3>
+<p>What will you move, remove, relabel, or reorder so the helpful response becomes the easier path?</p>
+<h3>6. Visibility</h3>
+<p>Where will the scorecard and the change live so the team can see and reinforce it (board / shift card / checklist)?</p>
+<h3>7. Owner when you are absent</h3>
+<p>Name + backup:</p>
+<h3>8. Friday 10-minute review</h3>
+<p>Which habit moved from harmful to helpful? Which cue still needs a redesign next?</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Naming a Harmful Habit Without Shaming a Peer</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Naming a Harmful Habit Without Shaming a Peer</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice naming a harmful habit and its cue out loud, and proposing an environment fix, without the conversation turning into a personal callout.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Cue Coach)</strong></p>
+<p>You noticed a harmful habit and traced it to a specific cue in the environment. You want agreement on one visible redesign, not a promise to &quot;try harder.&quot;</p>
+<p><strong>Role 2 — Former peer, now direct report</strong></p>
+<p>You feel singled out the moment habits are discussed one-on-one. You believe the real problem is workload, not you. You will engage seriously only if the coach names the cue, not your character, and proposes a change to the room, not a lecture to you.</p>
+<h3>Conflict</h3>
+<p>Can the supervisor name the harmful habit and its cue clearly enough to get agreement on an environment redesign, without the peer hearing it as a personal attack?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Coach opens with the habit; peer gets defensive.</li>
+<li>Round 2 (8 min): Coach re-opens by naming the cue and environment, not the person, and proposes one visible change.</li>
+<li>Debrief (10 min): Where did the conversation slide from &quot;cue&quot; language into &quot;character&quot; language? What would make the redesign stick after this shift ends?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Redesigning the Floor Under Budget Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Redesigning the Floor Under Budget Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing approval for a low-cost environment redesign when stakeholders default to training or signage instead.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to redesign one cue in the physical layout, backed by the team&#x27;s habits scorecard.</li>
+<li><strong>Budget-conscious manager (antagonist):</strong> Prefers a cheap refresher training or a new sign over any physical change; calls redesign &quot;a facilities request, not a leadership fix.&quot;</li>
+<li><strong>Safety/ops analyst (skeptic):</strong> Wants evidence the cue, not the person, is causing the harmful habit, and a way to check the fix worked.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support if the redesign does not create a new bottleneck or cost for their own team.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor win approval for redesigning the environment—not just training the people in it—without sounding like they are avoiding accountability?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>A named cue and its evidence (near-misses, scorecard entries, repeat pattern)</li>
+<li>A low-cost first move, distinct from a bigger budget ask</li>
+<li>A way to check whether the redesign changed the habit</li>
+<li>No secret plan to just run more training instead</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument moved the budget-conscious manager: the scorecard, the cost comparison, or the safety framing?</li>
+<li>How did the supervisor separate &quot;the room caused this&quot; from &quot;nobody is responsible&quot;?</li>
+<li>What would the analyst need to see in two weeks to call the redesign a success?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — See the Cue, Score the Habit, Redesign the Room</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — See the Cue, Score the Habit, Redesign the Room</h2>
+<p><strong>Unit goal:</strong> Notice the cues that trigger team habits, score which floor habits help or hurt, and redesign the environment so good habits stick without constant willpower.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Cues run habits:</strong> most repeated behavior is triggered by something already in the room—layout, tool placement, a face, a sound—not a fresh decision each time.</li>
+<li><strong>Make it conscious:</strong> naming a cue out loud, right when it appears, turns an automatic moment into a choice for one critical second.</li>
+<li><strong>Habits scorecard:</strong> list current floor and team habits and mark each one helpful or harmful before trying to change anything.</li>
+<li><strong>Choice architecture:</strong> the easiest path wins. Change the default, the distance, or the visibility, and behavior shifts with less friction than a new rule.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Walk your floor and list five recurring habits—yours and the team&#x27;s. Mark each helpful (H) or harmful (X).</li>
+<li>For one harmful habit, name the exact cue that triggers it (place, time, object, person).</li>
+<li>Change one piece of the environment—move it, remove it, or relabel it—so the helpful response is the easy one.</li>
+<li>Pick one moment where a cue should be called out loud, and ask one person to practice it this week.</li>
+<li>Make the scorecard visible (board, shift card, checklist)—not just something in your head.</li>
+<li>Schedule a 10-minute review: which habit moved, which cue still needs a redesign.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which harmful habit on your floor is being caused by the room itself, not by the people in it?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — One Cue I Will Redesign This Week</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Operational Habits &amp; Execution · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

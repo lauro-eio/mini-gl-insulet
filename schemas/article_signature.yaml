@@ -1,0 +1,10 @@
+# Required signature for article assets only (research_article, opinion_article).
+# Render injects this; validate enforces manifest text matches locale defaults.
+
+required_asset_ids:
+  - research_article
+  - opinion_article
+
+by_locale:
+  en: "Curated by {E}"
+  es: "Curaduría de {E}"

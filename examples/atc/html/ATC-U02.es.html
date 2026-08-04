@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bucles de responsabilidad del equipo — Hábitos operativos y ejecución</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Hábitos operativos y ejecución</p>
+      <h1>Bucles de responsabilidad del equipo</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a construir la identidad del equipo, para que las acciones diarias refuercen en quién se está convirtiendo el equipo—no solo lo que logra esta semana.</p>
+      <div class="hero-meta">
+        <span>ATC · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Por qué la identidad dura más que la motivación:</a>
+<a href="#opinion">El día en que mi equipo dejó de esperar a que yo</a>
+<a href="#assessment">Autodiagnóstico — ¿Coacheas resultados o identid</a>
+<a href="#case-1">Caso 1 — Marisol y la brecha de inducción</a>
+<a href="#case-2">Caso 2 — Dos pods, la misma métrica, distinta id</a>
+<a href="#framework">Marco — Lienzo de identidad del equipo: Votos di</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender un ritual de identidad </a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger la identidad de</a>
+<a href="#key-notes">Puntos clave — Tres capas, una identidad</a>
+<a href="#commitment">Compromiso — Un voto de identidad, visible para </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Por qué la identidad dura más que la motivación: la evidencia detrás de &#x27;somos un equipo confiable&#x27;</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Por qué la identidad dura más que la motivación: la evidencia detrás de &#x27;somos un equipo confiable&#x27;</h2>
+<p>Los supervisores de primera línea suelen gestionar dos capas de cambio: el resultado (llegar al número) y el proceso (los pasos que lo producen). La ciencia del comportamiento señala una tercera capa, más silenciosa, que determina si las otras dos sobreviven una mala semana: la identidad—lo que la persona, o el equipo, cree que es.</p>
+<h3>Tres capas, un sistema</h3>
+<p>Los resultados describen logros: throughput, tasa de reapertura, exactitud. Los procesos describen los pasos que producen esos resultados: un checklist, un formato de traspaso, una cadencia de revisión. La identidad describe la creencia debajo de ambos: &quot;somos un equipo que revisa su propio trabajo&quot; o &quot;somos un equipo que espera a que le digan.&quot; El coaching que solo apunta a resultados y procesos tiende a erosionarse en el momento en que el supervisor está fuera de turno, porque nada sostiene la conducta cuando nadie está mirando.</p>
+<h3>La acción como evidencia sobre el yo</h3>
+<p>La teoría de la autopercepción (Bem, 1972) encontró que las personas infieren actitudes e identidad en parte observando su propia conducta, no solo al revés. Un operador que revisa dos veces un traspaso una y otra vez no solo está siguiendo una regla; cada repetición es una pequeña evidencia que la persona se presenta a sí misma sobre quién es. Aplicado a equipos, un supervisor que hace visible y repetible una conducta no solo está exigiendo cumplimiento—está dejando que la cuadrilla construya un caso a favor de su propia confiabilidad.</p>
+<h3>Yos posibles y motivación basada en identidad</h3>
+<p>Markus y Nurius (1986) describieron los &quot;yos posibles&quot;—las versiones de nosotros mismos que podemos imaginar llegar a ser—como impulsores poderosos de la acción presente, siempre que la identidad se sienta alcanzable en esta situación específica. La investigación de Oyserman sobre motivación basada en identidad (2007) extiende esto: las personas actúan de forma congruente con su identidad solo cuando esa identidad se siente relevante y alcanzable ahora, no como una aspiración lejana. Para un supervisor, esto significa que una declaración de identidad como &quot;somos el pod que nunca deja un ticket pendiente toda la noche&quot; solo motiva si el turno de hoy ofrece una forma obvia y realizable de ponerla en práctica. Un eslogan sin una acción siguiente no es trabajo de identidad; es decoración.</p>
+<h3>Los hábitos y la identidad se refuerzan entre sí</h3>
+<p>Verplanken y Sui (2019) revisaron evidencia de que los hábitos fuertes se vuelven autodefinitorios: una vez que una conducta se repite con suficiente frecuencia en un contexto estable, las personas empiezan a describirla como parte de quiénes son, y esa autodescripción entonces defiende el hábito frente a la disrupción, el cansancio o un mal día. Por eso un equipo que ha practicado un ritual el tiempo suficiente suele seguir corriéndolo incluso cuando el supervisor está ausente o con recursos limitados—la conducta migró de &quot;algo que hacemos&quot; a &quot;algo que somos.&quot;</p>
+<h3>Qué implica para los supervisores de primera línea</h3>
+<ol>
+<li>Acompaña cada instrucción de proceso con una frase de identidad que el equipo pueda decir sobre sí mismo, no solo una regla que seguir.</li>
+<li>Haz la identidad alcanzable hoy: elige una acción pequeña y visible que el equipo pueda completar este turno como evidencia de la identidad, no una transformación lejana.</li>
+<li>Audita las contradicciones. Si la gerencia elogia un número que el equipo sabe en privado que fue manipulado o inflado para verse bien, la historia de identidad se rompe más rápido que cualquier falla de proceso.</li>
+<li>Protege el ritual de identidad cuando un nuevo integrante, un pedido urgente o un turno difícil amenacen con saltárselo—la consistencia bajo presión es lo que convierte una buena idea en un autoconcepto que el equipo defiende por sí mismo.</li>
+</ol>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Bem, D. J. (1972). Self-perception theory. <em>Advances in Experimental Social Psychology, 6</em>, 1–62.</li>
+<li>Markus, H., &amp; Nurius, P. (1986). Possible selves. <em>American Psychologist, 41</em>(9), 954–969.</li>
+<li>Oyserman, D. (2007). Identity-based motivation and consumer behavior. <em>Journal of Consumer Psychology, 17</em>(4), 250–260.</li>
+<li>Verplanken, B., &amp; Sui, J. (2019). Habit and identity: Behavioral, cognitive, affective, and motivational facets of an integrated self. <em>Frontiers in Psychology, 10</em>, 1504.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El día en que mi equipo dejó de esperar a que yo dijera &#x27;buen trabajo&#x27;</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El día en que mi equipo dejó de esperar a que yo dijera &#x27;buen trabajo&#x27;</h2>
+<p>Durante dos años dirigí mi pod a base de elogios. Azulejo verde, yo decía &quot;excelente trabajo.&quot; Azulejo rojo, decía &quot;hay que esforzarse más.&quot; Pensaba que estaba coacheando. En realidad era la única batería en la sala—en el momento en que salía a una cita con el dentista, los elogios se detenían, y también el esfuerzo.</p>
+<p>El giro vino de un lugar inesperado: una nueva integrante llamada Priya me preguntó por qué revisábamos dos veces las etiquetas de salida cuando el sistema ya marcaba los errores. Le di la respuesta de proceso—menos devoluciones, auditoría más limpia. Ella asintió, sin convencerse del todo. Una semana después la escuché decirle a otra nueva integrante algo distinto: &quot;Somos la cuadrilla que no deja que un error salga de esta estación. Así somos aquí.&quot; Yo no le había enseñado esa frase. La absorbió de vernos hacer la revisión, turno tras turno, mucho antes de que yo la dijera en voz alta.</p>
+<p>Ahí entendí que había estado coacheando la capa equivocada. Estaba gestionando el tablero y el checklist, pero nunca nombrando la identidad debajo de ellos. Así que dejé de cerrar el stand-up con &quot;hay que llegar al número&quot; y empecé a cerrarlo con &quot;quiénes fuimos hoy&quot;—una sola frase, nada más. Algunos días la respuesta era pequeña: &quot;detectamos una mala etiqueta antes de que saliera del muelle.&quot; Otros días era directa: &quot;dejamos pasar una porque íbamos con prisa.&quot; De cualquier forma, la decíamos en voz alta, juntos, en cada turno.</p>
+<p>A las tres semanas, estuve fuera dos días por una emergencia familiar. Volví esperando el deslizamiento habitual. En cambio, el tablero blanco tenía una nota de Priya: &quot;atrapamos 4 de 4 esta semana—seguimos siendo esa cuadrilla.&quot; Nadie le dijo que la escribiera. La identidad se había vuelto algo que el equipo defendía por sí mismo, no algo que yo tenía que vigilar.</p>
+<p>No soy ingenuo respecto a esto. Un eslogan en la pared no hace nada. Lo que cambió mi piso fue algo más pequeño y más lento: una acción visible en cada turno que le daba al equipo evidencia de en quién se estaba convirtiendo, repetida el tiempo suficiente para que la historia empezara a escribirse sola. Si supervisas a personas que antes estaban junto a ti en la línea, no les entregues solo un checklist. Dales una frase que puedan decir sobre sí mismos y que el checklist demuestre verdadera. Esa frase seguirá dirigiendo el piso después de que tú te hayas ido a casa.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Coacheas resultados o identidad?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Marisol y la brecha de inducción</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Marisol y la brecha de inducción</h2>
+<h3>Apertura</h3>
+<p>Marisol supervisa una célula de ensamble de seis personas en una planta electrónica pequeña. Durante el último año, su célula construyó una reputación silenciosa: &quot;la estación que atrapa sus propios errores.&quot; Nadie enseñó esto formalmente—surgió de un hábito que Marisol empezó tras un incidente costoso de retrabajo: cada operador hace una autorrevisión de 30 segundos antes de pasar una unidad a la siguiente etapa, y dice en voz alta qué revisó. Los nuevos compañeros lo aprendieron observando, no leyendo un manual.</p>
+<h3>Contexto</h3>
+<p>Este mes, tres operadores con experiencia se transfirieron a otro turno, y tres nuevos integrantes cubrieron la célula en la misma semana. El ritual de autorrevisión ya se ha resbalado dos veces—una vez se saltó por completo durante un pedido urgente, otra vez se hizo en silencio en lugar de en voz alta, lo que significó que nadie más pudiera detectar un error. El gerente de Marisol solo rastrea el rendimiento de primer acierto y no sabe que el ritual existe como práctica nombrada; simplemente ve que el número fue fuerte el trimestre pasado y asume que se mantendrá.</p>
+<p>Marisol nota que los nuevos integrantes tratan la autorrevisión como una cortesía opcional en lugar de &quot;cómo trabajamos aquí.&quot; Uno de ellos, al que le pidieron apurarse durante un pedido urgente, se la saltó y dijo: &quot;nadie me dijo que era obligatoria.&quot; Técnicamente tenía razón—nunca quedó por escrito.</p>
+<h3>Punto de decisión</h3>
+<p>Los números de rendimiento todavía se ven bien esta semana, pero Marisol siente que el ritual se está debilitando. Puede:</p>
+<ol>
+<li>Escribir la autorrevisión en el SOP formal y tratarla como un ítem de cumplimiento que hay que exigir.</li>
+<li>Emparejar a cada nuevo integrante con un operador senior durante dos semanas, específicamente para narrar y modelar la identidad detrás de la revisión, no solo los pasos.</li>
+<li>Esperar y observar—el rendimiento sigue siendo aceptable, y no quiere parecer que está microgestionando a un equipo que antes se manejaba solo.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Cuál es la diferencia entre enseñar la autorrevisión como una regla y transferirla como una identidad—y por qué importa esa diferencia cuando rota gente con experiencia?</li>
+<li>¿Cómo debería responder Marisol al nuevo integrante que se saltó la revisión &quot;porque nadie le dijo que era obligatoria&quot;? ¿Qué le enseña su respuesta al resto de la célula?</li>
+<li>Diseña un momento visible y repetible esta semana en el que la célula pueda decir en voz alta &quot;así somos,&quot; incluso bajo un pedido urgente.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Dos pods, la misma métrica, distinta identidad</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Dos pods, la misma métrica, distinta identidad</h2>
+<h3>Apertura</h3>
+<p>Dos pods de soporte al cliente están en el mismo piso, medidos con la misma métrica principal: resolución de primer contacto. El pod A, liderado por Tomás, tuvo números fuertes durante dos meses consecutivos. El pod B, liderado por Ana, tuvo números un poco más bajos, pero la brecha se seguía cerrando. La gerencia planeaba mostrar al pod de Tomás como el modelo en un town hall de la empresa.</p>
+<h3>Contexto</h3>
+<p>Una mirada más de cerca, motivada por una auditoría de calidad no relacionada, mostró que los dos pods obtenían sus números de formas muy distintas. El equipo de Tomás, bajo presión por mantener viva la racha, había empezado a cerrar tickets como &quot;resueltos&quot; después de una sola respuesta, incluso cuando el problema del cliente seguía abierto—técnicamente cumpliendo la métrica, sin resolver realmente el problema. Nadie del equipo objetó en voz alta, pero dos agentes le dijeron en privado al auditor que se sentían incómodos con eso y dejaron de corregirse entre sí en los casos límite.</p>
+<p>El equipo de Ana resuelve menos tickets en el primer contacto, pero los agentes se coachean abiertamente entre sí a mitad de turno: &quot;¿cerrarías esto si fuera tu propia cuenta?&quot; Esa pregunta, repetida durante semanas, se convirtió en algo que la gente decía sin que nadie lo pidiera, incluso a la propia Ana cuando iba con prisa.</p>
+<h3>Punto de decisión</h3>
+<p>La auditoría llega al escritorio del gerente de Ana la misma semana que el correo de planeación del town hall. Ella puede:</p>
+<ol>
+<li>Pedirle en privado a Tomás que ajuste su forma de reportar y aun así destacar a su pod, ya que el número público es lo que la gerencia recuerda.</li>
+<li>Destacar al pod de Ana en su lugar y usar el hallazgo de la auditoría para explicar por qué un número más lento y honesto importa más que uno rápido.</li>
+<li>Cancelar por completo el reconocimiento del town hall y tratar ambos números como igualmente poco confiables hasta una revisión posterior.</li>
+</ol>
+<h3>Exhibición (simplificada)</h3>
+<div class="table-wrap"><table>
+<tr><th>Semana</th><th>Resolución de primer contacto pod A</th><th>Resolución de primer contacto pod B</th><th>Tasa de reapertura (cualquier pod)</th></tr>
+<tr><td>1</td><td>71%</td><td>66%</td><td>9%</td></tr>
+<tr><td>2</td><td>74%</td><td>68%</td><td>8%</td></tr>
+<tr><td>3</td><td>78%</td><td>70%</td><td>7%</td></tr>
+<tr><td>4 (auditoría)</td><td>80%</td><td>72%</td><td>Pod A: 21% · Pod B: 6%</td></tr>
+</table></div>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué revela la columna de tasa de reapertura que la métrica principal oculta—y por qué esa brecha es un problema de identidad, no solo de medición?</li>
+<li>¿Cómo debería hablar el gerente de Ana con el pod de Tomás sin avergonzar a los agentes individuales que se quedaron callados bajo presión?</li>
+<li>Escribe la frase de identidad que el pod de Ana realmente se ha ganado, basándote en lo que la gente se dice entre sí a mitad de turno—no en el tablero.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de identidad del equipo: Votos diarios</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de identidad del equipo: Votos diarios</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Completa un lienzo por cada identidad que quieras construir en tu equipo este mes.</p>
+<h3>1. Identidad aspiracional</h3>
+<p>&quot;Somos el tipo de equipo que ________.&quot;</p>
+<h3>2. Auditoría de evidencia</h3>
+<div class="table-wrap"><table>
+<tr><th>Pregunta</th><th>Tus notas</th></tr>
+<tr><td>¿Qué ya demuestra que esta identidad es cierta?</td><td></td></tr>
+<tr><td>¿Qué la contradice ahora mismo (un atajo, un número inflado, un paso saltado)?</td><td></td></tr>
+</table></div>
+<h3>3. El voto de hoy</h3>
+<p>¿Qué acción pequeña y visible este turno cuenta como evidencia de la identidad? (Menos de 5 minutos, hecha por el equipo, no solo descrita.)</p>
+<h3>4. Chequeo de capas</h3>
+<div class="table-wrap"><table>
+<tr><th>Capa</th><th>Tu diseño</th></tr>
+<tr><td>Resultado (lo que queremos lograr)</td><td></td></tr>
+<tr><td>Proceso (el paso que lo produce)</td><td></td></tr>
+<tr><td>Identidad (la frase que el proceso demuestra)</td><td></td></tr>
+</table></div>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve u oye el equipo que se refuerza la identidad (línea del stand-up, tablero, nota de traspaso)?</p>
+<h3>6. Inducción de un nuevo integrante</h3>
+<p>¿Cómo aprenderá un nuevo integrante esta identidad en la primera semana—quién la narra, y qué observa, no solo qué lee?</p>
+<h3>7. Prueba de presión</h3>
+<p>Nombra una situación este mes (pedido urgente, mal turno, falta de personal) que probablemente ponga a prueba esta identidad. ¿Qué coacharás al equipo para proteger primero?</p>
+<h3>8. Revisión de viernes</h3>
+<p>Mantener / ajustar / soltar el voto—y una frase para tu gerente que describa la identidad en lenguaje de resultado, no en lenguaje blando.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender un ritual de identidad ante un par escéptico</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender un ritual de identidad ante un par escéptico</h2>
+<p><strong>Duración:</strong> 25–35 minutos  </p>
+<p><strong>Propósito:</strong> Practicar cómo defender un ritual de identidad del equipo frente a un par que lo considera blando, lento o innecesario cuando los números se ven bien.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Coach de identidad)</strong>  </p>
+<p>Tu equipo tiene un ritual de identidad (una autorrevisión, una frase de traspaso, una línea de stand-up) que empieza a debilitarse porque el tablero todavía se ve aceptable. Debes conectar el ritual con un resultado concreto, no solo con un sentimiento.</p>
+<p><strong>Rol 2 — Excompañero escéptico</strong>  </p>
+<p>Respetas al supervisor pero crees que el ritual es &quot;charla de más&quot; que hace más lento el turno. Los números están bien, así que presionas para eliminarlo o acortarlo bajo presión de tiempo. Solo cederás si te muestran un momento específico en el que el ritual ya haya detectado algo que el número habría pasado por alto.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el supervisor proteger el ritual de identidad sin sonar como que defiende un sentimiento en lugar de un resultado?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona para recortar el ritual bajo presión de tiempo; el coach responde.</li>
+<li>Ronda 2 (8 min): el coach reencuadra el ritual usando un ejemplo concreto de algo que evitó o casi evitó.</li>
+<li>Cierre (10 min): ¿dónde cayó el coach en lenguaje vago de identidad sin evidencia? ¿qué ejemplo único habría convencido más rápido al escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger la identidad del equipo bajo presión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger la identidad del equipo bajo presión</h2>
+<p><strong>Duración:</strong> 40–50 minutos  </p>
+<p><strong>Propósito:</strong> Practicar cómo proteger el ritual de identidad de un equipo cuando un pedido urgente o una solicitud de atajo podría romperlo en silencio.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere mantener el ritual de identidad funcionando durante un pedido urgente sin frenar el turno lo suficiente como para generar quejas.</li>
+<li><strong>Líder senior de operaciones (antagonista):</strong> Quiere resolver el pedido urgente rápido y ve el ritual como un paso que se puede saltar &quot;solo esta vez.&quot;</li>
+<li><strong>Analista de calidad (escéptico):</strong> Necesita evidencia de que el ritual realmente previene defectos o retrabajo, no solo moral de equipo, antes de defenderlo hacia arriba.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará mantener el ritual solo si no crea un doble estándar injusto contra su propio pod.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger el ritual de identidad durante una presión real sin parecer inflexible—y sin dejar que &quot;solo esta vez&quot; se vuelva la nueva normalidad?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Un vínculo concreto entre el ritual y un defecto, retrabajo o reapertura que previene</li>
+<li>Una línea clara sobre qué no se salta ni siquiera bajo un pedido urgente</li>
+<li>Un estándar justo que no señala a un solo pod</li>
+<li>Ninguna segunda versión silenciosa del proceso que contradiga la pública</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al líder de operaciones—el lenguaje de identidad o el lenguaje de resultado?</li>
+<li>¿Qué le habría costado a la identidad del equipo si el ritual se hubiera saltado &quot;solo esta vez&quot;?</li>
+<li>¿Cómo se asegura el supervisor de que esta excepción no se vuelva la norma la próxima semana?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Tres capas, una identidad</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Tres capas, una identidad</h2>
+<p><strong>Meta de la unidad:</strong> Ayudar a los líderes de primera línea a construir la identidad del equipo, para que las acciones diarias refuercen en quién se está convirtiendo el equipo—no solo lo que logra esta semana.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Tres capas de cambio:</strong> Resultado (el logro), proceso (los pasos), identidad (la creencia debajo de ambos). Coachea las tres, no solo las primeras dos.</li>
+<li><strong>Votos por la identidad:</strong> Cada microacción completada es evidencia que el equipo se presenta a sí mismo sobre quién es—cada repetición es un pequeño voto por &quot;somos un equipo confiable.&quot;</li>
+<li><strong>La identidad debe ser alcanzable hoy:</strong> Una declaración como &quot;somos el pod que atrapa los errores&quot; solo motiva si hay una acción obvia y realizable este turno que lo demuestre.</li>
+<li><strong>Los hábitos se vuelven autodefinitorios:</strong> Una conducta repetida el tiempo suficiente en un contexto estable deja de sentirse como una regla y empieza a sentirse como identidad—por eso sobrevive cuando el supervisor está fuera de turno.</li>
+<li><strong>Las contradicciones rompen la identidad rápido:</strong> Un número inflado o un ritual saltado bajo presión daña la historia propia del equipo más rápido que cualquier meta incumplida.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Escribe una frase de identidad aspiracional para tu equipo: &quot;Somos el tipo de cuadrilla que ________.&quot;</li>
+<li>Elige una acción pequeña y visible este turno que cuente como evidencia de esa frase.</li>
+<li>Cierra el stand-up o el traspaso con &quot;quiénes fuimos hoy&quot;—una frase honesta, dicha en voz alta.</li>
+<li>Observa un momento esta semana en que se ponga a prueba la identidad (pedido urgente, nuevo integrante, turno difícil) y coachea al equipo para protegerla.</li>
+<li>Pide a un reportante directo que le narre la identidad a un compañero más nuevo, para que no dependa solo de tu voz.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>Si un nuevo integrante se uniera a tu equipo mañana sin ningún documento de inducción, ¿qué aprendería sobre &quot;quiénes somos&quot; solo con observar un turno?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Un voto de identidad, visible para el equipo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Hábitos operativos y ejecución · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

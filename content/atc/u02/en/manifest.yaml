@@ -1,0 +1,71 @@
+program_id: ATC
+unit_id: u02
+audience_id: tier_2_frontline_leader
+locale: en
+program_title: Operational Habits & Execution
+lens_title: Team Accountability Loops
+article_signature: "Curated by {E}"
+unit_goal: >
+  Help frontline leaders build team identity so daily actions reinforce who
+  the crew is becoming—not only what they hit this week.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Atomic Habits
+  - Habit Hacking for Breakthrough
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Why Identity Outlasts Motivation: The Evidence Behind 'We Are a Reliable Team'"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The Day My Team Stopped Waiting for Me to Say Good Job"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Three Layers, One Identity"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — Are You Coaching Outcomes or Identity?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — Team Identity Canvas: Daily Votes"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — One Identity Vote, Team-Visible"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Marisol and the Onboarding Gap"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Two Pods, Same Metric, Different Identity"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Defending an Identity Ritual to a Skeptical Peer"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Protecting Team Identity Under Pressure"
