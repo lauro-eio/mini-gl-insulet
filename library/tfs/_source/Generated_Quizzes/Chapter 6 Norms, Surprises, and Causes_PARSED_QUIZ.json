@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is defined as the automatic, associative processor that rapidly constructs a model of the world and detects anomalies without conscious effort.",
+    "options": [
+      "System 1",
+      "System 2",
+      "Associative Coherence",
+      "Illusion of Causality"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "The Moses Illusion refers to a cognitive error where a biblical question confuses Moses with Noah due to norm‐based processing.",
+    "options": [
+      "Norm Theory",
+      "Moses Illusion",
+      "Intentional Causality",
+      "Bias Toward Narrative Coherence"
+    ],
+    "correct_answer_text": "Moses Illusion",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept describes the integration of events into a coherent narrative through retrieval and linking of related memories?",
+    "options": [
+      "Spreading Activation",
+      "Surprise Mechanism",
+      "Associative Coherence",
+      "Causal Story Construction"
+    ],
+    "correct_answer_text": "Associative Coherence",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which mechanism involves System 1 automatically searching for cause–effect relationships to integrate observed events?",
+    "options": [
+      "Norm Recruitment",
+      "Causal Story Construction",
+      "System 2 Regulation",
+      "Updating Norms"
+    ],
+    "correct_answer_text": "Causal Story Construction",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2, as defined in the domain, functions automatically and unconsciously to detect anomalies.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Norm Theory explains how everyday events are judged as normal or abnormal based solely on immediate sensory input, without involving associative links.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Moses Illusion exemplifies a cognitive error that goes largely unnoticed because norm-based processing fails to detect the biblical inaccuracy.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Spreading Activation is the process by which System 1 automatically spreads activation across a network of associative ideas linking current events to stored memories.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

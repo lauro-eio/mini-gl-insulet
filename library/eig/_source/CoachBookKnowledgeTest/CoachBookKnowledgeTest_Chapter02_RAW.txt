@@ -1,0 +1,179 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which brain structure is described as the emotional sentinel in the chapter?",
+    "options": ["Amygdala", "Prefrontal Cortex", "Neocortex", "Limbic System"],
+    "correct_answer_text": "Amygdala",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What term describes the process by which immediate emotional responses bypass slower, rational cortical processing?",
+    "options": ["Emotional Regulation", "Neural Hijacking", "Cognitive Override", "Thought Suppression"],
+    "correct_answer_text": "Neural Hijacking",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which pathway is referred to as the “express lane” for rapid emotional reactions?",
+    "options": ["Prefrontal-Amygdala Pathway", "Thalamus-to-Amygdala Pathway", "Limbic-Express Pathway", "Cortico-Thalamic Pathway"],
+    "correct_answer_text": "Thalamus-to-Amygdala Pathway",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which brain region modulates and regulates emotional responses according to the chapter?",
+    "options": ["Neocortex", "Amygdala", "Prefrontal Cortex", "Thalamus"],
+    "correct_answer_text": "Prefrontal Cortex",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which early physical signs indicate amygdala activation during emotional hijacking?",
+    "options": ["Slowed heartbeat and relaxed muscles", "Rapid heartbeat, muscle tension, and heightened alertness", "Drowsiness and lowered alertness", "Increased digestive activity"],
+    "correct_answer_text": "Rapid heartbeat, muscle tension, and heightened alertness",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Which actionable step instructs one to pause momentarily when intense emotions arise?",
+    "options": ["Step 1", "Step 2", "Step 3", "Step 4"],
+    "correct_answer_text": "Step 2",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "In the chapter, which step advises activating the prefrontal cortex by asking clarifying questions to assess the reality of a threat?",
+    "options": ["Step 3", "Step 4", "Step 5", "Step 6"],
+    "correct_answer_text": "Step 3",
+    "correct_key": "A"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which technique is recommended to slow down the neural emergency response and allow rational analysis?",
+    "options": ["Reflecting on past emotions", "Deep breathing or mindfulness techniques", "Scenario-based training", "Physical activity"],
+    "correct_answer_text": "Deep breathing or mindfulness techniques",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Reflecting on past experiences stored as emotional memories to contextualize current responses corresponds to which step?",
+    "options": ["Step 1", "Step 3", "Step 5", "Step 6"],
+    "correct_answer_text": "Step 5",
+    "correct_key": "C"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "What core conflict is highlighted in the chapter?",
+    "options": ["Between two emotional memories", "Between raw emotional responses and slower rational cognition", "Between the prefrontal cortex and limbic system", "Between the amygdala and thalamus"],
+    "correct_answer_text": "Between raw emotional responses and slower rational cognition",
+    "correct_key": "B"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which structure is part of the limbic system and plays a key role in emotional processing?",
+    "options": ["Amygdala", "Prefrontal Cortex", "Cerebellum", "Neocortex"],
+    "correct_answer_text": "Amygdala",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "What is the purpose of practicing scenario-based training as mentioned in the chapter?",
+    "options": ["To develop technical skills", "To improve management of impulsive reactions and reinforce regulatory circuits", "To enhance creative problem-solving", "To increase physical endurance"],
+    "correct_answer_text": "To improve management of impulsive reactions and reinforce regulatory circuits",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "How is the term 'precognitive emotion' defined in the chapter?",
+    "options": ["Emotional responses after full sensory integration", "Cognitive emotions triggered by memory", "Unprocessed emotional reactions triggered before full sensory integration", "Emotional responses generated through rational evaluation"],
+    "correct_answer_text": "Unprocessed emotional reactions triggered before full sensory integration",
+    "correct_key": "C"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "According to the chapter, how does the amygdala interact with the neocortex during an emotional hijacking?",
+    "options": ["The amygdala waits for the neocortex to process the situation", "The amygdala triggers emotions before the neocortex can analyze the situation", "The neocortex and amygdala process emotions simultaneously", "The neocortex predominantly drives the emotional response"],
+    "correct_answer_text": "The amygdala triggers emotions before the neocortex can analyze the situation",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "Which aspect of the chapter sets the stage for later discussions on developing self-awareness and emotional intelligence?",
+    "options": ["Detailed personal anecdotes", "Functional dissection of emotional hijacking", "Statistical analysis of emotional reactions", "Historical evolution of brain functions"],
+    "correct_answer_text": "Functional dissection of emotional hijacking",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "True or False: Emotional hijacking occurs when the neocortex quickly triggers intense emotional reactions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "True or False: The chapter identifies the amygdala, an almond-shaped structure, as the emotional sentinel.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "True or False: The limbic system is comprised solely of the amygdala.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "True or False: Neural hijacking is the process by which immediate emotional responses bypass slower cortical processing.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "True or False: The thalamus-to-amygdala pathway is slower compared to cortical processing.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "True or False: Activating the prefrontal cortex by reappraising a situation is an actionable step in managing emotional hijacking.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "True or False: Deep breathing and mindfulness techniques are recommended to speed up the amygdala's response.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {

@@ -1,0 +1,93 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When receiving unexpected negative feedback, you:
+ A. Reflect and consider constructive improvements.
+ B. Feel deeply discouraged immediately.
+ C. Use it as fuel to enhance your performance.
+ D. Become defensive and withdraw.
+
+Q2: When under stress at work or study, your strategy is to:
+ A. Ignore the stress and hope it passes.
+ B. Acknowledge it and plan constructive steps.
+ C. Distract yourself with unrelated tasks.
+ D. Break it into manageable parts and stay focused.
+
+Q3: How do you approach impulse decisions?
+ A. Sometimes I act on impulse but try to catch myself.
+ B. I usually think through before acting.
+ C. I rarely consider consequences at all.
+ D. I always pause and consider longer-term outcomes.
+
+Q4: In group projects, your contribution is often:
+ A. Aiming to lead by inspiring and empathizing with others.
+ B. Occasionally contributing, but sometimes reserved.
+ C. Methodically completing assigned tasks with moderate engagement.
+ D. Minimal, as I prefer to avoid conflict.
+
+Q5: How would you describe your approach to learning from mistakes?
+ A. I tend to ignore them, hoping not to think about them.
+ B. I analyze them rationally to avoid repeats.
+ C. I embrace them as opportunities for growth.
+ D. I get frustrated and may dwell on negative emotions.
+
+Q6: When conflict arises in personal relationships, you usually:
+ A. Try to understand your own feelings first.
+ B. Allow the conflict to escalate due to uncontrolled emotion.
+ C. Look for solutions by calmly discussing the issue.
+ D. Take a moment to step back and approach it constructively.
+
+Q7: Your natural tendency in high-pressure situations is to:
+ A. Stay reasonably calm and think things through.
+ B. Enter a state of flow and focus intensely on the task.
+ C. Panic and struggle to manage your thoughts.
+ D. Withdraw and avoid confronting the challenge.
+
+Q8: To foster positive relationships at work, you:
+ A. Make a conscious effort to inspire and support your colleagues.
+ B. Attempt to collaborate and share ideas openly.
+ C. Sometimes get caught up in your own issues.
+ D. Rarely engage beyond basic work interactions.
+
+Q9: When tackling a complex problem, you:
+ A. Feel intimidated by the challenge.
+ B. Approach it with some caution but avoid risks.
+ C. Methodically work through it step by step.
+ D. Dive in passionately, sometimes losing track of time.
+
+Q10: How do you deal with failure?
+ A. Reflect quietly on the lessons learned.
+ B. Use it as motivation to perform even better.
+ C. Allow it to shake your confidence significantly.
+ D. Identify your emotions, quickly recalibrate, and forge ahead.
+
+Q11: How would you rate your ability to delay gratification?
+ A. I excel at setting long-term goals and am patient.
+ B. I often impulsively choose immediate comfort over effort.
+ C. I can wait, but it sometimes takes significant effort.
+ D. I try to balance my desires, managing them fairly well.
+
+Q12: In moments of intense emotion, you most often:
+ A. Acknowledge your feelings and steer them constructively.
+ B. Feel a slew of mixed emotions that confuse you.
+ C. Transform your energy into creative or productive outlets.
+ D. Retreat into yourself, making it hard to communicate.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 3, "B": 1, "C": 4, "D": 2},
+  {"Q": 2, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 3, "A": 2, "B": 3, "C": 1, "D": 4},
+  {"Q": 4, "A": 4, "B": 2, "C": 3, "D": 1},
+  {"Q": 5, "A": 1, "B": 3, "C": 4, "D": 2},
+  {"Q": 6, "A": 2, "B": 1, "C": 3, "D": 4},
+  {"Q": 7, "A": 3, "B": 4, "C": 1, "D": 2},
+  {"Q": 8, "A": 4, "B": 3, "C": 2, "D": 1},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 2, "B": 3, "C": 1, "D": 4},
+  {"Q": 11, "A": 4, "B": 1, "C": 2, "D": 3},
+  {"Q": 12, "A": 3, "B": 2, "C": 4, "D": 1}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Fully Misaligned: (Score 12-21) — Your emotional intelligence journey needs attention. You often find yourself overwhelmed by negative emotions with little regulation or constructive coping. Decisions are frequently reactive, and stress tends to hijack your focus. With some deliberate effort toward self-awareness and emotional management, you could unlock a smarter way to respond in challenges.
+
+2. The Emerging Navigator: (Score 22-30) — You show budding strength in managing your emotions, yet occasional impulses still lead the way. At times, you consciously engage in thoughtfulness and self-reflection, although inconsistency may hold you back.

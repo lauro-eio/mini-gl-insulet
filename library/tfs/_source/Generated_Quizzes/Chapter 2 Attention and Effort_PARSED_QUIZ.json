@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is defined as the automatic, intuitive processing system that detects simple relationships and operates quickly without effort. Which option best represents this description?",
+    "options": [
+      "A. System 1",
+      "B. System 2",
+      "C. Executive Control",
+      "D. Law of Least Effort"
+    ],
+    "correct_answer_text": "A. System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which system is described as the deliberate, effortful processing system responsible for self-control, rule-following, and managing multiple thoughts simultaneously?",
+    "options": [
+      "A. System 1",
+      "B. Add-1 Task",
+      "C. System 2",
+      "D. Cognitive Pupillometry"
+    ],
+    "correct_answer_text": "C. System 2",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which task is characterized by a digit transformation exercise wherein each digit is incremented by 3 following a steady metronome beat, thereby increasing cognitive load?",
+    "options": [
+      "A. Add-1 Task",
+      "B. Add-3 Task",
+      "C. Executive Control",
+      "D. Law of Least Effort"
+    ],
+    "correct_answer_text": "B. Add-3 Task",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What is the definition of Cognitive Pupillometry as given in the source material?",
+    "options": [
+      "A. Measuring digit transformation speed",
+      "B. Evaluating executive decision-making",
+      "C. Measuring pupil dilation as an index of mental effort",
+      "D. Assessing intuitive responses of System 1"
+    ],
+    "correct_answer_text": "C. Measuring pupil dilation as an index of mental effort",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 1 involves deliberate processing that requires active control.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Add-1 Task consists of incrementing each digit by 1 following a steady metronome beat.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Executive Control is defined as the cognitive process of adopting and terminating task sets to override habitual responses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Law of Least Effort asserts that among multiple ways to achieve a goal, individuals tend to select the option requiring the least energy expenditure.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

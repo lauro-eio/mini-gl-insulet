@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Cognitive Ease is best defined as the state characterized by effortless processing of information, often due to clear presentation or repetition.",
+    "options": [
+      "A state of mental fatigue from processing complex information",
+      "A state of mental comfort resulting from effortful analytical processing",
+      "A state of mental comfort indicated by effortless processing due to clarity or repetition",
+      "A state of unease caused by unfamiliar information"
+    ],
+    "correct_answer_text": "A state of mental comfort indicated by effortless processing due to clarity or repetition",
+    "correct_key": "C"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Cognitive Strain is described as the experience of mental effort that signals the need for extra analytical processing. Which option best captures this definition?",
+    "options": [
+      "The ease of processing information that leads to feelings of familiarity",
+      "The mental fatigue resulting from engaging System 2 for complex analysis",
+      "The automatic, intuitive response from System 1 in familiar situations",
+      "The delayed reaction due to insufficient cognitive cues"
+    ],
+    "correct_answer_text": "The mental fatigue resulting from engaging System 2 for complex analysis",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which of the following tests is designed specifically to measure the ability to override an intuitive (System 1) response in favor of a more deliberate, analytic (System 2) judgment?",
+    "options": [
+      "Remote Association Test (RAT)",
+      "Cognitive Reflection Test (CRT)",
+      "Intuition Index",
+      "Mere Exposure Effect"
+    ],
+    "correct_answer_text": "Cognitive Reflection Test (CRT)",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which test is intended to assess creative associative memory by linking seemingly unrelated words?",
+    "options": [
+      "Cognitive Reflection Test (CRT)",
+      "Intuition Index",
+      "Remote Association Test (RAT)",
+      "Cognitive Ease Measurement"
+    ],
+    "correct_answer_text": "Remote Association Test (RAT)",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Repeated exposure to a statement is unrelated to its perceived credibility according to the concept of Illusions of Truth.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Mere Exposure Effect refers to the tendency to develop a preference for stimuli simply because of their repeated presentation.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "System 1 is characterized as the slower, more analytic, and effortful processing mode compared to System 2.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Illusions of Remembering occur when an individual mistakenly interprets the ease of processing a stimulus as evidence of past familiarity.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

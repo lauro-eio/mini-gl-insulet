@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which system is described as the fast, automatic, and intuitive mental process that generates quick impressions and feelings?",
+    "options": [
+      "System 1",
+      "System 2",
+      "Heuristic",
+      "WYSIATI"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following best defines a Heuristic?",
+    "options": [
+      "A fast intuitive process",
+      "A simple procedure that produces adequate answers to difficult questions",
+      "A process of substituting one question for another",
+      "A numerical mapping of emotional intensity"
+    ],
+    "correct_answer_text": "A simple procedure that produces adequate answers to difficult questions",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Substitution is best described as the process by which System 1:",
+    "options": [
+      "Answers an easier, related question instead of the target question",
+      "Overrides System 2's analytical reasoning",
+      "Matches emotional intensity to numerical values",
+      "Creates a three-dimensional interpretation from a flat image"
+    ],
+    "correct_answer_text": "Answers an easier, related question instead of the target question",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What does the acronym WYSIATI stand for?",
+    "options": [
+      "What You See Is All There Is",
+      "When You See It, All Is True",
+      "What You Should Infer About Things Immediately",
+      "What You See Is Always Truthful"
+    ],
+    "correct_answer_text": "What You See Is All There Is",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 is characterized as a fast, automatic, and intuitive mental process.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Heuristic Question is a simplified version of the Target Question.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The 3-D Heuristic refers to a process where a flat image is automatically interpreted as a three-dimensional scene.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Affect Heuristic describes how one’s emotions can directly influence judgments about risks and benefits.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

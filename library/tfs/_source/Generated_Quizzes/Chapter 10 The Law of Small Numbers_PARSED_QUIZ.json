@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which definition best captures the Law of Small Numbers?",
+    "options": [
+      "The belief that small samples reflect the true characteristics of a population",
+      "The mistaken belief that the law of large numbers applies to small samples, yielding extreme outcomes",
+      "The principle that larger samples always produce extreme variations",
+      "The assumption that small samples eliminate errors in judgment"
+    ],
+    "correct_answer_text": "The mistaken belief that the law of large numbers applies to small samples, yielding extreme outcomes",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which option accurately describes System 1 thinking?",
+    "options": [
+      "A slow and methodical process requiring deliberate reasoning",
+      "An automatic, fast, intuitive mode that quickly identifies causal connections, even if spurious",
+      "A deliberate analytical process used for complex statistical reasoning",
+      "A reflective mode that challenges initial impressions through skepticism"
+    ],
+    "correct_answer_text": "An automatic, fast, intuitive mode that quickly identifies causal connections, even if spurious",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which statement correctly explains System 2 thinking?",
+    "options": [
+      "It operates automatically and is prone to quick, biased decisions",
+      "It is a fast, intuitive system that forms causal inferences without evidence",
+      "It is a deliberative, effortful mode that enables statistical reasoning and doubt",
+      "It relies solely on immediate perceptions without questioning context"
+    ],
+    "correct_answer_text": "It is a deliberative, effortful mode that enables statistical reasoning and doubt",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which description best defines WYSIATI (What You See Is All There Is)?",
+    "options": [
+      "The bias where judgments are enhanced by considering external, unseen information",
+      "The cognitive bias of making decisions based exclusively on available information while ignoring potential context gaps",
+      "The tendency to dismiss obvious data in favor of hidden variables",
+      "The belief that more information always leads to more accurate conclusions"
+    ],
+    "correct_answer_text": "The cognitive bias of making decisions based exclusively on available information while ignoring potential context gaps",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Hot Hand Illusion is the mistaken belief that a person's recent success in a random sequence predicts continued success.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "System 1 thinking is characterized by a slow, contemplative process that deliberately assesses all available evidence.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Law of Small Numbers correctly applies the statistical principles of the law of large numbers to both small and large samples.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "WYSIATI refers to the cognitive inclination to base judgments solely on immediately available information, disregarding the possibility of missing context.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

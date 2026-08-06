@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Endowment Effect is defined as the phenomenon where individuals assign a higher value to an object simply because they own it. Which option best captures this definition?",
+    "options": [
+      "Valuing an object only when it is new",
+      "Valuing an object more because of its unique features",
+      "Valuing an object more because it is owned",
+      "Valuing an object solely based on market price"
+    ],
+    "correct_answer_text": "Valuing an object more because it is owned",
+    "correct_key": "C"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following correctly describes an Indifference Curve?",
+    "options": [
+      "A curve showing increasing marginal utility of consumption",
+      "A graphical representation of combinations of goods yielding the same level of utility",
+      "A diagram illustrating price changes for two different goods",
+      "A line delineating profit maximization points in production"
+    ],
+    "correct_answer_text": "A graphical representation of combinations of goods yielding the same level of utility",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which statement best defines Loss Aversion as used in behavioral economics?",
+    "options": [
+      "The idea that individuals are equally sensitive to gains and losses",
+      "The notion that gains are often overestimated compared to losses",
+      "The principle that losses impact individuals more strongly than equivalent gains",
+      "The hypothesis that individuals ignore losses when making decisions"
+    ],
+    "correct_answer_text": "The principle that losses impact individuals more strongly than equivalent gains",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Prospect Theory incorporates several key aspects in decision making under risk. Which of the following is an essential component of Prospect Theory?",
+    "options": [
+      "The reliance solely on absolute outcomes in decision making",
+      "The integration of reference points and loss aversion in evaluating outcomes",
+      "The assumption that all individuals are risk neutral",
+      "The focus on long-term average returns rather than immediate outcomes"
+    ],
+    "correct_answer_text": "The integration of reference points and loss aversion in evaluating outcomes",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Status Quo Bias suggests that individuals prefer to maintain their current state rather than switch to alternatives.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Reference-Dependent Evaluation indicates that individuals assess gains and losses primarily based on their current allocation or status.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Asymmetry of Gains and Losses suggests that the impact of a loss is equivalent to the impact of an equivalent gain.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Influence of Ownership on Valuation means that owning an object leads an individual to set higher selling prices compared to what they would be willing to pay as a buyer.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

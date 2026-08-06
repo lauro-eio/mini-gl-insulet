@@ -1,0 +1,365 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "MC",
+      "question": "Which two abilities form the foundation for empathy as described in the chapter?",
+      "options": [
+        "Self-awareness and nonverbal communication",
+        "Cognitive reasoning and academic ability",
+        "Verbal articulation and memory recall",
+        "Attention to detail and logical reasoning"
+      ],
+      "correct_answer_text": "Self-awareness and nonverbal communication",
+      "correct_key": "A"
+    },
+    {
+      "id": 2,
+      "type": "MC",
+      "question": "According to the chapter, which factor is NOT mentioned as critical in shaping one’s capacity for empathy?",
+      "options": [
+        "Neural circuitry",
+        "Early childhood attunement",
+        "Academic intelligence",
+        "Nonverbal sensitivity"
+      ],
+      "correct_answer_text": "Academic intelligence",
+      "correct_key": "C"
+    },
+    {
+      "id": 3,
+      "type": "MC",
+      "question": "What term describes the inability to identify or describe one’s own emotions, thereby impairing empathy?",
+      "options": [
+        "Alexithymia",
+        "Motor Mimicry",
+        "Emotional Attunement",
+        "Perspective-Taking"
+      ],
+      "correct_answer_text": "Alexithymia",
+      "correct_key": "A"
+    },
+    {
+      "id": 4,
+      "type": "MC",
+      "question": "Which concept uses tone, gesture, facial expressions, and other cues as the primary mode of expressing and perceiving emotions?",
+      "options": [
+        "Emotional Attunement",
+        "Nonverbal Communication",
+        "Reparative Relationships",
+        "Neurobiology of Empathy"
+      ],
+      "correct_answer_text": "Nonverbal Communication",
+      "correct_key": "B"
+    },
+    {
+      "id": 5,
+      "type": "MC",
+      "question": "Which process involves a caregiver’s responsive behavior that helps an infant learn to recognize and regulate emotional states?",
+      "options": [
+        "Motor Mimicry",
+        "Emotional Attunement",
+        "Perspective-Taking",
+        "Alexithymia"
+      ],
+      "correct_answer_text": "Emotional Attunement",
+      "correct_key": "B"
+    },
+    {
+      "id": 6,
+      "type": "MC",
+      "question": "What term best describes the unconscious imitation of another’s emotional expressions?",
+      "options": [
+        "Motor Mimicry",
+        "Emotional Attunement",
+        "Nonverbal Communication",
+        "Alexithymia"
+      ],
+      "correct_answer_text": "Motor Mimicry",
+      "correct_key": "A"
+    },
+    {
+      "id": 7,
+      "type": "MC",
+      "question": "Which concept supports the idea that empathy is biologically preprogrammed involving the amygdala-cortical circuitry?",
+      "options": [
+        "Reparative Relationships",
+        "Perspective-Taking",
+        "Neurobiology of Empathy",
+        "Emotional Attunement"
+      ],
+      "correct_answer_text": "Neurobiology of Empathy",
+      "correct_key": "C"
+    },
+    {
+      "id": 8,
+      "type": "MC",
+      "question": "What ability, essential for moral reasoning and therapeutic processes, involves adopting another’s viewpoint?",
+      "options": [
+        "Nonverbal Communication",
+        "Motor Mimicry",
+        "Perspective-Taking",
+        "Alexithymia"
+      ],
+      "correct_answer_text": "Perspective-Taking",
+      "correct_key": "C"
+    },
+    {
+      "id": 9,
+      "type": "MC",
+      "question": "Which type of relationship is described as helping reshape maladaptive emotional models stemming from early misattunement?",
+      "options": [
+        "Reparative Relationships",
+        "Emotional Attunement",
+        "Neurobiology of Empathy",
+        "Motor Mimicry"
+      ],
+      "correct_answer_text": "Reparative Relationships",
+      "correct_key": "A"
+    },
+    {
+      "id": 10,
+      "type": "MC",
+      "question": "Which actionable step involves engaging in mindfulness or reflective practices to recognize and label one’s emotional states?",
+      "options": [
+        "Step 1: Develop Self-Awareness",
+        "Step 2: Train in Nonverbal Sensitivity",
+        "Step 3: Enhance Parent-Child Attunement",
+        "Step 4: Practice Perspective-Taking Exercises"
+      ],
+      "correct_answer_text": "Step 1: Develop Self-Awareness",
+      "correct_key": "A"
+    },
+    {
+      "id": 11,
+      "type": "MC",
+      "question": "The PONS test, mentioned in the chapter, is used primarily to improve which skill?",
+      "options": [
+        "Verbal communication",
+        "Nonverbal sensitivity",
+        "Cognitive reasoning",
+        "Memory retention"
+      ],
+      "correct_answer_text": "Nonverbal sensitivity",
+      "correct_key": "B"
+    },
+    {
+      "id": 12,
+      "type": "MC",
+      "question": "Which step instructs caregivers to mirror and validate infants’ emotional cues for reinforcing connectivity?",
+      "options": [
+        "Step 1: Develop Self-Awareness",
+        "Step 3: Enhance Parent-Child Attunement",
+        "Step 4: Practice Perspective-Taking Exercises",
+        "Step 5: Incorporate Empathic Feedback"
+      ],
+      "correct_answer_text": "Step 3: Enhance Parent-Child Attunement",
+      "correct_key": "B"
+    },
+    {
+      "id": 13,
+      "type": "MC",
+      "question": "Which actionable step involves role-playing scenarios to help individuals articulate and reflect on the emotions of others?",
+      "options": [
+        "Step 2: Train in Nonverbal Sensitivity",
+        "Step 4: Practice Perspective-Taking Exercises",
+        "Step 1: Develop Self-Awareness",
+        "Step 5: Incorporate Empathic Feedback"
+      ],
+      "correct_answer_text": "Step 4: Practice Perspective-Taking Exercises",
+      "correct_key": "B"
+    },
+    {
+      "id": 14,
+      "type": "MC",
+      "question": "Which step is designed to ensure alignment between verbal content and nonverbal expressions by using feedback mechanisms?",
+      "options": [
+        "Step 5: Incorporate Empathic Feedback",
+        "Step 3: Enhance Parent-Child Attunement",
+        "Step 1: Develop Self-Awareness",
+        "Step 2: Train in Nonverbal Sensitivity"
+      ],
+      "correct_answer_text": "Step 5: Incorporate Empathic Feedback",
+      "correct_key": "A"
+    },
+    {
+      "id": 15,
+      "type": "MC",
+      "question": "Which of the following statements is NOT a claim made in the chapter regarding empathy?",
+      "options": [
+        "Empathy is rooted in self-awareness and nonverbal cues",
+        "Biological and developmental factors shape empathy capacity",
+        "Empathy is directly correlated with academic or intellectual ability",
+        "Caregiver attunement plays a foundational role in empathy development"
+      ],
+      "correct_answer_text": "Empathy is directly correlated with academic or intellectual ability",
+      "correct_key": "C"
+    },
+    {
+      "id": 16,
+      "type": "TF",
+      "question": "True or False: The chapter asserts that empathy is fundamentally rooted in self-awareness and the ability to interpret nonverbal cues.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 17,
+      "type": "TF",
+      "question": "True or False: According to the chapter, alexithymia enhances a person’s ability to empathize with others.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 18,
+      "type": "TF",
+      "question": "True or False: Nonverbal Communication in the chapter is defined by the use of tone, gesture, and facial expressions.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 19,
+      "type": "TF",
+      "question": "True or False: Emotional Attunement refers to the process by which a caregiver helps an infant recognize and regulate emotional states.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 20,
+      "type": "TF",
+      "question": "True or False: Motor Mimicry is described as a conscious effort to imitate another’s emotional expressions.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 21,
+      "type": "TF",
+      "question": "True or False: The neurobiology of empathy involves the amygdala-cortical circuitry that responds to emotional stimuli.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 22,
+      "type": "TF",
+      "question": "True or False: Perspective-Taking is unnecessary for moral reasoning and therapeutic corrective processes according to the chapter.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 23,
+      "type": "TF",
+      "question": "True or False: Reparative Relationships are described as interpersonal interactions that may help reshape maladaptive emotional models.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 24,
+      "type": "TF",
+      "question": "True or False: Step 2 of the actionable steps recommends utilizing exercises modeled on the PONS test to enhance nonverbal sensitivity.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 25,
+      "type": "TF",
+      "question": "True or False: The chapter advises against developing self-awareness through mindfulness practices.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 26,
+      "type": "TF",
+      "question": "True or False: Enhanced parent-child attunement, as described in the chapter, involves responding to infants’ emotional cues immediately and appropriately.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 27,
+      "type": "TF",
+      "question": "True or False: Incorporating empathic feedback in communication ensures that verbal and nonverbal signals are misaligned.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 28,
+      "type": "TF",
+      "question": "True or False: The chapter supports the view that academic or intellectual ability is a reliable indicator of one’s empathetic capacity.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 29,
+      "type": "TF",
+      "question": "True or False: The chapter builds on earlier discussions of emotional hijackings to deepen the exploration of empathy.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 30,
+      "type": "TF",
+      "question": "True or False: According to the chapter, early childhood experiences and parental attunement are linked to later interpersonal dynamics.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    }
+  ],
+  "source_name": "07.-The Roots of Empathy (Emotional Intelligence).txt"
+}

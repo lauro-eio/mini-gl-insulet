@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which concept defines the principle that losses weigh more heavily on individuals than equivalent gains?",
+    "options": [
+      "Loss Aversion",
+      "Negativity Dominance",
+      "Reference Point",
+      "Dual Entitlements"
+    ],
+    "correct_answer_text": "Loss Aversion",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which term describes the baseline level against which changes are measured, making deviations feel like losses or gains?",
+    "options": [
+      "Dual Entitlements",
+      "Reference Point",
+      "Altruistic Punishment",
+      "Loss Aversion"
+    ],
+    "correct_answer_text": "Reference Point",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept signifies that negative stimuli and outcomes exert stronger psychological and behavioral effects than positive ones?",
+    "options": [
+      "Prospect Theory",
+      "Altruistic Punishment",
+      "Negativity Dominance",
+      "Reference Point"
+    ],
+    "correct_answer_text": "Negativity Dominance",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which term encapsulates the behavior of punishing perceived unfairness even at a personal cost because the act is intrinsically rewarding?",
+    "options": [
+      "Loss Aversion",
+      "Dual Entitlements",
+      "Altruistic Punishment",
+      "Prospect Theory"
+    ],
+    "correct_answer_text": "Altruistic Punishment",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "According to Prospect Theory, losses have a more significant emotional impact on individuals than equivalent gains.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Dual Entitlements exclusively apply to individuals rather than to firms.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The loss aversion mechanism in goal setting explains that individuals tend to reduce effort once a reference point is achieved.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Negativity Dominance suggests that negative outcomes are less influential in decision-making than positive outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

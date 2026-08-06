@@ -1,0 +1,356 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "According to the chapter, which definition best describes self-awareness?",
+    "options": [
+      "Actively observing and naming one's emotions",
+      "Ignoring one's internal feelings",
+      "Overanalyzing past experiences",
+      "Suppressing emotional responses"
+    ],
+    "correct_answer_text": "Actively observing and naming one's emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What term does the chapter use to discuss the process of thinking about one’s own emotional state?",
+    "options": [
+      "Metamood",
+      "Emotional hijacking",
+      "Cognitive reframing",
+      "Automatic response"
+    ],
+    "correct_answer_text": "Metamood",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept refers to the difficulty in identifying and verbalizing emotions?",
+    "options": [
+      "Alexithymia",
+      "Emotional sensitivity",
+      "Observing ego",
+      "Mindfulness"
+    ],
+    "correct_answer_text": "Alexithymia",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What key neurological interplay does the chapter highlight as important for emotional processing?",
+    "options": [
+      "Limbic system and neocortex",
+      "Brainstem and cerebellum",
+      "Hypothalamus and medulla",
+      "Spinal cord and amygdala"
+    ],
+    "correct_answer_text": "Limbic system and neocortex",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which term is used to describe the intuitive, bodily warning signals that guide decision-making?",
+    "options": [
+      "Somatic markers",
+      "Emotional blueprints",
+      "Visceral cues",
+      "Cognitive alerts"
+    ],
+    "correct_answer_text": "Somatic markers",
+    "correct_key": "A"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "According to the chapter, what practice involves pausing to internally note current emotions without judgment?",
+    "options": [
+      "Nonjudgmental self-observation",
+      "Emotional suppression",
+      "Reactive introspection",
+      "Critical self-analysis"
+    ],
+    "correct_answer_text": "Nonjudgmental self-observation",
+    "correct_key": "A"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What actionable step is suggested to translate inner feelings into precise language?",
+    "options": [
+      "Verbally labeling emotions",
+      "Journaling thoughts",
+      "Suppressing negative emotions",
+      "Engaging in spontaneous expression"
+    ],
+    "correct_answer_text": "Verbally labeling emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which method does the chapter propose for tracking triggers and the intensity of emotional responses?",
+    "options": [
+      "Reflective journaling",
+      "Daily meditation",
+      "Physical exercise",
+      "Group discussions"
+    ],
+    "correct_answer_text": "Reflective journaling",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Which internal observer is highlighted as playing a role in metacognition within the chapter?",
+    "options": [
+      "Observing ego",
+      "Inner critic",
+      "Conscious analyst",
+      "Emotional architect"
+    ],
+    "correct_answer_text": "Observing ego",
+    "correct_key": "A"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "In the chapter, which term is synonymous with self-awareness in the context of emotional management?",
+    "options": [
+      "Metamood",
+      "Alexithymia",
+      "Emotional hijacking",
+      "Somatic markers"
+    ],
+    "correct_answer_text": "Metamood",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "What practice does the chapter emphasize to cultivate an 'evenly hovering attention' during emotional events?",
+    "options": [
+      "Mindfulness exercises",
+      "Rapid decision-making",
+      "Distraction techniques",
+      "Suppression of feelings"
+    ],
+    "correct_answer_text": "Mindfulness exercises",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Which personal assessment is recommended by the chapter to understand habitual emotional reactions?",
+    "options": [
+      "Identifying emotional response patterns (self-aware, engulfed, or accepting)",
+      "Comparing emotions with others",
+      "Avoiding introspection",
+      "Relying solely on gut feelings"
+    ],
+    "correct_answer_text": "Identifying emotional response patterns (self-aware, engulfed, or accepting)",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "What misconception about emotions is challenged in the chapter?",
+    "options": [
+      "Emotions are self-evident and easy to grasp",
+      "Emotions require regulation",
+      "Emotions are expressed solely through language",
+      "Emotions are influenced by rational thought"
+    ],
+    "correct_answer_text": "Emotions are self-evident and easy to grasp",
+    "correct_key": "A"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "Which concept mentioned in the chapter involves monitoring gut feelings as early warning signals?",
+    "options": [
+      "Somatic markers",
+      "Emotional blueprints",
+      "Neural imprints",
+      "Cognitive alarms"
+    ],
+    "correct_answer_text": "Somatic markers",
+    "correct_key": "A"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "What foundational skill for managing emotions is established following the exploration of emotional hijackings?",
+    "options": [
+      "Self-awareness",
+      "Emotional suppression",
+      "External validation",
+      "Rapid decision-making"
+    ],
+    "correct_answer_text": "Self-awareness",
+    "correct_key": "A"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "Self-awareness, as defined in the chapter, involves the unconscious suppression of emotions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "The chapter emphasizes the importance of nonjudgmental self-observation as an actionable step for emotional management.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Alexithymia is described in the chapter as the ease of identifying and verbalizing one's emotions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "The interplay between the limbic system and the neocortex is highlighted as crucial for emotional processing in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "According to the chapter, self-awareness enables individuals to interrupt automatic, uncontrolled responses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Reflective journaling is recommended in the chapter as a tool to track triggers and the intensity of emotional responses over time.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "The chapter discourages the use of mindfulness exercises, including those that cultivate an 'evenly hovering attention.'",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "In the chapter, the concept of metacognition is closely linked to the idea of the 'observing ego.'",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "The chapter states that emotional sensitivity and intensity profiles do not influence an individual's decision-making process.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "A core conflict addressed in the chapter is the misconception that emotions are self-evident and easily managed.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Gut feelings, as discussed in the chapter, are irrelevant to guiding decision-making.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Identifying personal emotional response patterns such as being self-aware, engulfed, or accepting is recommended to better understand habitual reactions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "The 'observing ego' described in the chapter refers to an external critic monitoring others' emotions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "The text links the experience of alexithymia to challenges in managing personal emotions effectively.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "Engaging in nonjudgmental self-observation is portrayed as a method to interrupt automatic and uncontrolled emotional responses.",
+    "options

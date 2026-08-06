@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytical Deliberation — Cognitive Anchors &amp; Deliberation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Cognitive Anchors &amp; Deliberation</p>
+      <h1>Analytical Deliberation</h1>
+      <p class="hero-lead">Help frontline leaders read floor numbers without over-trusting small samples, expect regression after an outlier, weigh base rates against tidy causal stories, and prefer a simple checked rule over gut narrative on calls that repeat.</p>
+      <div class="hero-meta">
+        <span>TFS · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Small Samples, Big Stories: What the Evidence Sa</a>
+<a href="#opinion">The Week I Almost Reassigned My Best Operator</a>
+<a href="#assessment">Self-Assessment — Are You Reasoning With Numbers</a>
+<a href="#case-1">Case 1 — Renata and the Two-Defect Batch</a>
+<a href="#case-2">Case 2 — Diego&#x27;s Best Week and the Slump After</a>
+<a href="#framework">Framework — Base-Rate &amp; Sample-Check Canvas for </a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Sample Check to a Pe</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Numbers-Che</a>
+<a href="#key-notes">Key Notes — Reading Numbers Without Fooling Your</a>
+<a href="#commitment">Commitment — Protecting the Numbers-Check Before</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Small Samples, Big Stories: What the Evidence Says About Reading Noisy Floor Numbers</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Small Samples, Big Stories: What the Evidence Says About Reading Noisy Floor Numbers</h2>
+<p>Frontline leaders live inside numbers: defect counts on a spot check, attendance on a shift, output on a line after a change. Some of those numbers signal a real shift worth acting on. Many are just the ordinary wobble of a small count, dressed up as a trend. Decades of research on judgment under uncertainty explain why capable, experienced leaders still misread the difference—and what narrows the gap.</p>
+<h3>The law of small numbers</h3>
+<p>Tversky and Kahneman (1971) surveyed trained researchers and found that even people who understood statistics badly underestimated how much a small sample can swing by chance alone. They treated a result from a dozen observations as if it carried the same weight as a result from a thousand. On the floor, this shows up as a spot check of a handful of units driving the same size of reaction as a full-shift audit. The sample did not get more informative just because the number inside it looked dramatic.</p>
+<h3>Why extremes come back down</h3>
+<p>A second, related pattern compounds the first. Kahneman and Tversky (1973), building on a statistical regularity first documented by Galton (1886), showed that when a measure depends partly on skill and partly on chance, an unusually extreme result is mathematically likely to be followed by a result closer to average—not because anything changed, but because the lucky share of the extreme result rarely repeats. A leader who does not expect this will search for a cause (a slipping operator, a fading new ritual) where none exists, and may reward or punish people for what was mostly noise settling back down.</p>
+<h3>Causal stories beat base rates—unless you check</h3>
+<p>People do not weigh statistical and causal information equally. Kahneman and Tversky (1972) found that a number embedded in a story with a plausible mechanism—&quot;the new operator caused the defect spike&quot;—overwhelms a person&#x27;s sense of the underlying base rate, even when the base rate alone would produce a similar-looking spike some of the time by chance. The fix is not to distrust every story, but to check the base rate first: how often does a swing this size happen anyway, with no new cause at all?</p>
+<h3>Why a simple rule often beats a strong gut</h3>
+<p>When a decision repeats often enough to be measured, formula-based rules have a documented advantage over expert intuition. Meehl (1954) first showed that simple statistical prediction rules matched or beat clinical judgment across a wide range of recurring decisions; Dawes (1979) later found that even crude, equally weighted rules often outperformed both experts and more complex models, because rules apply the same weights every time and do not fatigue, get swayed by the most recent case, or overweight a vivid exception. Grove and Meehl (1996), reviewing decades of subsequent studies, confirmed the advantage held broadly, with one caveat: a rule should be overridden only for a genuinely decisive piece of information the rule could not have anticipated, not for a routine hunch.</p>
+<h3>What this means for frontline leaders</h3>
+<p>Three habits translate the research into floor practice:</p>
+<ol>
+<li><strong>Ask the sample-size question first.</strong> Before reacting to a defect rate, output swing, or attendance spike, ask how many observations it is based on and whether that count could produce this swing by chance.</li>
+<li><strong>Expect the pull-back.</strong> After an unusually good or bad result, plan for the next result to land closer to average, and resist assigning a cause to a swing that regression alone predicts.</li>
+<li><strong>Let a checked rule run recurring calls.</strong> For decisions you make often—escalate or not, quarantine or not—write the rule down, follow it by default, and log any override with the specific reason.</li>
+</ol>
+<p>None of this argues against instinct broadly. It argues for pairing instinct with one deliberate question—how big is the sample, and would this look the same by chance—on the calls that repeat and the calls that move a headline number.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1971). Belief in the law of small numbers. <em>Psychological Bulletin, 76</em>(2), 105–110.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1972). Subjective probability: A judgment of representativeness. <em>Cognitive Psychology, 3</em>(3), 430–454.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1973). On the psychology of prediction. <em>Psychological Review, 80</em>(4), 237–251.</li>
+<li>Galton, F. (1886). Regression towards mediocrity in hereditary stature. <em>Journal of the Anthropological Institute, 15</em>, 246–263.</li>
+<li>Meehl, P. E. (1954). <em>Clinical versus statistical prediction: A theoretical analysis and a review of the evidence</em>. University of Minnesota Press.</li>
+<li>Dawes, R. M. (1979). The robust beauty of improper linear models in decision making. <em>American Psychologist, 34</em>(7), 571–582.</li>
+<li>Grove, W. M., &amp; Meehl, P. E. (1996). Comparative efficiency of informal (subjective, impressionistic) and formal (mechanical, algorithmic) prediction procedures. <em>Psychology, Public Policy, and Law, 2</em>(2), 293–323.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Week I Almost Reassigned My Best Operator</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Week I Almost Reassigned My Best Operator</h2>
+<p>Tomasz ran the trickiest station on my line, and one week he posted zero defects across forty units. Zero. Our normal for that station is three or four. I was already drafting the note to pull him off the floor and put him on training duty for the rest of the team—if he had cracked something the rest of us hadn&#x27;t, everyone needed to learn it.</p>
+<p>I mentioned it to my shift lead before I sent the note, mostly looking for a thumbs-up. She asked one question instead: &quot;How many weeks has he run this exact volume at this defect rate before?&quot; The honest answer was none. This was the first time. One perfect week out of many ordinary ones does not automatically mean he found something new. It might just mean the coin came up heads.</p>
+<p>The next week, Tomasz&#x27;s count came back to three. Normal, by our own numbers. My first instinct was uncharitable—had he coasted, once the attention moved on? But that instinct was exactly backward. A record week is often partly skill and partly luck, and the luck rarely shows up twice in a row. The pull-back wasn&#x27;t him slipping. It was the number doing what numbers with any randomness in them do.</p>
+<p>I had almost made two mistakes off one data point: reward him for a result I couldn&#x27;t yet explain, then quietly doubt him when the result normalized on its own. Neither call was really about Tomasz. Both were about me reading a single, small sample as if it were the whole story.</p>
+<p>Since then I&#x27;ve added one question before I react to any standout week, high or low: how many times have I seen this pattern from this person or line before, and could this swing happen by chance alone even if nothing changed? If the answer is &quot;this is basically the first time,&quot; I wait for a second data point before I act, reward, or worry out loud.</p>
+<p>It costs me almost nothing—one question, thirty seconds, before the note goes out. What it saves me is the whiplash of praising and then quietly punishing the same person for what was mostly noise settling back to normal. Tomasz never knew how close he came to a reassignment he did nothing to earn. I&#x27;d rather learn that lesson on a good week than a bad one.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Are You Reasoning With Numbers or Reacting to Them?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Renata and the Two-Defect Batch</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Renata and the Two-Defect Batch</h2>
+<h3>Opening</h3>
+<p>Renata leads quality on a small-parts molding line. Her standard spot check pulls twelve units per lot for a visual and dimensional check. The plant&#x27;s trailing quarterly defect rate at her station sits around 3 percent. Renata has run this check for two years and knows the line&#x27;s rhythm well.</p>
+<h3>Context</h3>
+<p>This morning&#x27;s spot check on Lot 214 turns up two defective units out of twelve—a 16.7 percent rate, more than five times the plant average. The line lead is already asking whether to quarantine the full lot of 900 units, which would blow the shift&#x27;s ship schedule and require a rework crew on overtime. Renata pulls her last eight quarters of spot-check logs for this exact station to see how often a twelve-unit check has landed this high purely by the normal bounce of a small sample:</p>
+<div class="table-wrap"><table>
+<tr><th>Lots checked (12 units each)</th><th>Defects found in check</th><th>Resulting rate</th></tr>
+<tr><td>41 lots</td><td>0 defects</td><td>0%</td></tr>
+<tr><td>22 lots</td><td>1 defect</td><td>8.3%</td></tr>
+<tr><td>6 lots</td><td>2 defects</td><td>16.7%</td></tr>
+<tr><td>1 lot</td><td>3 defects</td><td>25%</td></tr>
+</table></div>
+<p>Two-defect checks—matching this morning&#x27;s result—have happened six times in seventy lots without the underlying process ever shifting; only once did a follow-up full-lot audit find a rate meaningfully above the 3 percent baseline.</p>
+<h3>Decision point</h3>
+<p>Renata can:</p>
+<ol>
+<li>Quarantine the full lot immediately based on the 16.7 percent spot-check rate, treating it as a confirmed process shift.</li>
+<li>Pull a second twelve-unit sample from a different section of the lot before deciding, buying twenty minutes to see if the rate holds.</li>
+<li>Release the lot for now based on the historical pattern, log the spot-check result, and flag the station for closer monitoring on the next lot rather than an immediate quarantine.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Given the eight-quarter table, how much should a single twelve-unit check move Renata&#x27;s belief that the process has actually shifted?</li>
+<li>What would change Renata&#x27;s answer—what additional evidence would turn this from &quot;probably noise&quot; into &quot;probably a real shift&quot;?</li>
+<li>How should Renata explain a decision to not quarantine to a line lead who only sees &quot;16.7 percent&quot; and a due-out schedule?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Diego&#x27;s Best Week and the Slump After</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Diego&#x27;s Best Week and the Slump After</h2>
+<h3>Opening</h3>
+<p>Diego supervises a nine-person packing team. Three weeks ago, he introduced a five-minute pre-shift huddle where the team calls out yesterday&#x27;s near-misses before starting. That same week, the team posted its best output-and-accuracy week on record. Diego told the plant manager the huddle was the reason and pushed to make it standard across all four packing teams starting immediately.</p>
+<h3>Context</h3>
+<p>The plant manager approved the rollout. One week later, Diego&#x27;s own team&#x27;s numbers came back down to their normal range—still solid, but nowhere near the record week. Two of the other three teams that adopted the huddle saw no change at all; one saw a slight dip. Diego&#x27;s team&#x27;s weekly output-and-accuracy composite score for the past six weeks looks like this:</p>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Composite score</th><th>Note</th></tr>
+<tr><td>1–4 (before huddle)</td><td>71, 74, 69, 73</td><td>Normal range</td></tr>
+<tr><td>5 (huddle introduced)</td><td>89</td><td>Record week</td></tr>
+<tr><td>6 (huddle continues)</td><td>72</td><td>Back to normal range</td></tr>
+</table></div>
+<p>The plant manager now wants a straight answer in tomorrow&#x27;s ops review: does the huddle work, and should the other teams keep running it?</p>
+<h3>Decision point</h3>
+<p>Diego can:</p>
+<ol>
+<li>Defend the huddle as the proven cause of week 5&#x27;s record score, since it is the only thing that changed that week.</li>
+<li>Tell the plant manager the single record week does not settle the question, and propose tracking the composite score across all four teams for eight more weeks before drawing a conclusion.</li>
+<li>Quietly keep running the huddle on his own team regardless of the data, since it costs little, while staying vague with the plant manager about whether it explains the record week.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What does the six-week table suggest about how much of week 5&#x27;s record score the huddle can actually explain, versus ordinary week-to-week variation?</li>
+<li>If Diego picks option 1, what is he likely to face when next month&#x27;s numbers normalize further, or when another team&#x27;s data disagrees?</li>
+<li>What would a fair test of &quot;does the huddle work&quot; look like, given that Diego cannot run his team twice under identical conditions?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Base-Rate &amp; Sample-Check Canvas for Floor Calls</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Base-Rate &amp; Sample-Check Canvas for Floor Calls</h2>
+<p>Use in workshop or print for the floor. Run one canvas per unusual number before you act on it or explain it.</p>
+<h3>1. The number (one sentence)</h3>
+<p>What result am I reacting to, and what decision does it drive?</p>
+<h3>2. Sample check</h3>
+<div class="table-wrap"><table>
+<tr><th>Trigger</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Small sample — is this based on a handful of units, one shift, or one person?</td><td></td><td></td></tr>
+<tr><td>Record result — is this the best or worst result on record for this line, person, or station?</td><td></td><td></td></tr>
+<tr><td>Ready-made story — does a cause already feel obvious before I have checked the baseline?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero triggers present:</strong> Act on the number. Note it and move on.</li>
+<li><strong>One trigger present:</strong> Run the structured check below before acting or explaining.</li>
+<li><strong>Two or more triggers present:</strong> Full check required; hold the verdict until you have a second data point or the baseline comparison.</li>
+</ul>
+<h3>4. Structured check (when required)</h3>
+<ol>
+<li>What is the trailing baseline or historical rate for this exact line, station, or person?</li>
+<li>Could a sample this size produce this result by chance alone, with no real change underneath it?</li>
+<li>If I expect a pull-back toward normal next period, what would that look like—and am I ready to not treat it as a new problem?</li>
+<li>Does the base rate for this kind of swing explain it, before I accept the first causal story offered?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see that the check happened (board, log entry, ops-review note)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the check does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>Did the next data point confirm a real shift, or a pull-back toward normal? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Sample Check to a Peer Who Wants a Verdict</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Sample Check to a Peer Who Wants a Verdict</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief baseline-and-sample check on a striking floor number without stalling the shift or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Check Owner)</strong></p>
+<p>A number just came in that looks dramatic—a spot-check defect rate, a record-good or record-bad week. You want to compare it to the baseline and sample size before giving a verdict. You must not skip the check just to avoid friction, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same deadline and believe &quot;the number is the number, act on it now.&quot; You push for an immediate verdict and treat the check as second-guessing or stalling. You will back off only if the Check Owner names the specific trigger (small sample, record result, or ready-made story) and proposes a concrete, time-boxed check.</p>
+<h3>Conflict</h3>
+<p>Can the Check Owner secure agreement for a short baseline comparison on one specific number without the peer escalating over their head or the decision window closing past recovery?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for the immediate verdict; Check Owner responds.</li>
+<li>Round 2 (8 min): Check Owner names the specific trigger and proposes a time-boxed baseline check.</li>
+<li>Debrief (10 min): Where did the Check Owner nearly fold and give the verdict anyway? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Numbers-Check Ritual Under Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Numbers-Check Ritual Under Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a standing baseline-and-sample check when multiple stakeholders want a fast verdict on every striking number.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval for a standing rule: any number that is a small sample, a record result, or paired with a ready-made causal story gets a short, time-boxed baseline check before it drives a decision or a plant-wide rollout.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and ship schedules; sees any pause on a numbers-based call as lost time and calls the ritual &quot;overthinking a simple number.&quot;</li>
+<li><strong>Quality or data analyst (skeptic):</strong> Supports the idea in principle but needs named triggers for when the check applies, plus a fixed time box, so it cannot be used to stall every decision indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down numbers that genuinely do not need a check, and if it does not get used to quietly dismiss inconvenient results.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed baseline check for genuinely ambiguous numbers without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (small sample, record result, ready-made story), not a blanket &quot;let&#x27;s not trust any number&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of when the check was used and whether it confirmed a real shift or a pull-back to normal</li>
+<li>No quiet exception where an inconvenient result skips the check while a convenient one does not</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;check the baseline&quot; into language that reads as risk control, not slowness?</li>
+<li>What would cause the ritual to quietly disappear during the next record week or crisis—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Reading Numbers Without Fooling Yourself</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Reading Numbers Without Fooling Yourself</h2>
+<p><strong>Unit goal:</strong> Read floor numbers without over-trusting small samples, expect a pull-back after an outlier, weigh base rates against tidy causal stories, and let a checked rule run recurring calls.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Small samples swing hard:</strong> a handful of observations can produce a dramatic-looking rate purely by chance—check the count before reacting to the number.</li>
+<li><strong>Regression to the mean:</strong> an unusually good or bad result tends to be followed by a result closer to average, with no cause required.</li>
+<li><strong>Base rate before story:</strong> a plausible cause-and-effect explanation can overwhelm the plainer explanation that this swing happens anyway some of the time.</li>
+<li><strong>Formula beats gut on repeats:</strong> for decisions you make often, a simple, consistently applied rule outperforms case-by-case intuition; override it only for a genuinely decisive new fact.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before reacting to a defect rate, output swing, or attendance spike, ask how many observations it is based on.</li>
+<li>After a record-setting good or bad result, expect the next result to land closer to normal—do not assign a cause to a swing regression alone predicts.</li>
+<li>Ask what the base rate for this kind of swing is before accepting the first causal story offered.</li>
+<li>For calls you make repeatedly, write the rule down and follow it by default; log any override with the specific reason.</li>
+<li>Protect the sample-size question when a teammate raises it, even under deadline pressure—it is a check, not a delay.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recent &quot;great week&quot; or &quot;bad week&quot; on your floor did you explain with a story, when a base rate or a small sample might explain it just as well?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Numbers-Check Before the Next Spike</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Cognitive Anchors &amp; Deliberation · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

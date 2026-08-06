@@ -1,0 +1,250 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which concept describes the overall atmosphere in a home that informs a child’s emotional development?",
+    "options": ["Parenting Styles", "Family Emotional Climate", "Emotional Modeling", "Emotional Learning Windows"],
+    "correct_answer_text": "Family Emotional Climate",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Family interactions are described as the foundational crucible for learning what key skill?",
+    "options": ["Social skills", "Academic achievement", "Emotional intelligence", "Physical strength"],
+    "correct_answer_text": "Emotional intelligence",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which parenting approach involves not addressing or acknowledging children’s feelings?",
+    "options": ["Contemptuous", "Emotionally coaching", "Ignoring feelings", "Laissez-faire"],
+    "correct_answer_text": "Ignoring feelings",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What term is used to describe the way parents manage their personal and interpersonal emotions as a blueprint for children?",
+    "options": ["Emotional Coaching", "Emotional Modeling", "Family Emotional Climate", "Basic Trust vs. Mistrust"],
+    "correct_answer_text": "Emotional Modeling",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which concept represents the early lesson of perceiving the world as safe and nurturing versus unpredictable and unsupportive?",
+    "options": ["Emotional Modeling", "Basic Trust vs. Mistrust", "Family Emotional Climate", "Emotional Learning Windows"],
+    "correct_answer_text": "Basic Trust vs. Mistrust",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What are the critical periods when a child's brain is most receptive to forming emotional patterns called?",
+    "options": ["Early Development Stages", "Emotional Learning Windows", "Neural Plasticity Phases", "Family Interaction Periods"],
+    "correct_answer_text": "Emotional Learning Windows",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which key concept addresses the lasting impact of abuse on a child’s neurological and behavioral growth?",
+    "options": ["Trauma and Brain Development", "Emotional Modeling", "Basic Trust vs. Mistrust", "Family Emotional Climate"],
+    "correct_answer_text": "Trauma and Brain Development",
+    "correct_key": "A"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which actionable step involves evaluating interactions to recognize parenting patterns that may be supportive or detrimental?",
+    "options": ["Assess and Identify Parenting Style", "Practice Responsive Emotional Coaching", "Model Calm and Focused Behavior", "Engage in Joint Emotional Reflection"],
+    "correct_answer_text": "Assess and Identify Parenting Style",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "When a child experiences distress, what is the recommended step that involves inquiring about the underlying feelings?",
+    "options": ["Model Calm and Focused Behavior", "Utilize Microanalysis Techniques", "Practice Responsive Emotional Coaching", "Initiate Early “Heart Start” Programs"],
+    "correct_answer_text": "Practice Responsive Emotional Coaching",
+    "correct_key": "C"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "What behavior should parents model during stressful situations to provide a live example for their children?",
+    "options": ["Model Calm and Focused Behavior", "Engage in Joint Emotional Reflection", "Practice Emotional Suppression", "Assess Parenting Style"],
+    "correct_answer_text": "Model Calm and Focused Behavior",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which actionable step involves establishing clear and predictable responses to reduce chaotic emotional signals?",
+    "options": ["Create a Consistent Emotional Environment", "Utilize Microanalysis Techniques", "Practice Responsive Emotional Coaching", "Assess and Identify Parenting Style"],
+    "correct_answer_text": "Create a Consistent Emotional Environment",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Which step uses daily interactions, such as play or learning activities, to discuss feelings and appropriate responses?",
+    "options": ["Engage in Joint Emotional Reflection", "Assess and Identify Parenting Style", "Model Calm and Focused Behavior", "Practice Responsive Emotional Coaching"],
+    "correct_answer_text": "Engage in Joint Emotional Reflection",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Which technique involves observing everyday interactions and adjusting parental responses to promote emotional growth?",
+    "options": ["Utilize Microanalysis Techniques", "Engage in Joint Emotional Reflection", "Practice Responsive Emotional Coaching", "Assess Parenting Style"],
+    "correct_answer_text": "Utilize Microanalysis Techniques",
+    "correct_key": "A"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "What early program is designed to boost confidence, curiosity, self-control, and relatedness in children?",
+    "options": ["Initiate Early “Heart Start” Programs", "Practice Responsive Emotional Coaching", "Create a Consistent Emotional Environment", "Model Calm and Focused Behavior"],
+    "correct_answer_text": "Initiate Early “Heart Start” Programs",
+    "correct_key": "A"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "What is identified as the core problem in the chapter regarding parenting practices?",
+    "options": ["Emotionally inept parenting that undermines a child’s trust and emotional development", "Overprotective parenting that stifles independence", "Strict academic focus neglecting play", "Excessively indulgent parenting leading to entitlement"],
+    "correct_answer_text": "Emotionally inept parenting that undermines a child’s trust and emotional development",
+    "correct_key": "A"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "True or False: The family emotional climate is solely determined by parents who ignore their children’s feelings.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "True or False: Emotional modeling refers to the way parents manage both their own and interpersonal emotions as examples for their children.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "True or False: Basic Trust vs. Mistrust is established during early childhood by how parents handle emotional interactions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "True or False: Emotional learning windows describe periods when a child's brain is less receptive to forming emotional patterns.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "True or False: Trauma and Brain Development explain the long-lasting impact of emotional and physical abuse on a child’s neurological growth.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "True or False: Assessing and identifying parenting style is an actionable step to evaluate current interaction patterns.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "True or False: Practice Responsive Emotional Coaching involves guiding children to identify and express their underlying feelings during distress.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "True or False: Modeling calm and focused behavior is recommended for parents during stressful situations.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "True or False: Creating a consistent emotional environment means responding unpredictably to children’s emotional needs.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "True or False: Engaging in joint emotional reflection uses everyday interactions to discuss feelings and appropriate responses.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "True or False: Utilizing microanalysis techniques involves observing daily interactions and adjusting parental responses accordingly.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "True or False: Initiating early 'Heart Start' programs is aimed at enhancing a child’s confidence, curiosity, self-control, and relatedness.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "True or False: The chapter suggests that academic success is completely independent of emotional health.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "True or False: Contemptuous parenting is mentioned as one of the distinct parenting styles in the chapter.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "True or False: Emotional coaching is considered an approach that supports and nurtures a child’s emotional development.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]
+--- END JSON DATA ---
+
+--- START REVIEW TEXT ---
+1. MC: The overall atmosphere influencing a child’s emotional development is termed "Family Emotional Climate."  
+2. MC: Family interactions form the crucible for learning "Emotional intelligence."  
+3. MC: The approach of not addressing children’s feelings is "Ignoring feelings."  
+4. MC: The way parents manage their emotions as a blueprint

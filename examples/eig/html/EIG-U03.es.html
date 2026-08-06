@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a nombrar con precisión su propio estado emocional antes y durante una conversación de coaching, para que la retroalimentación se mantenga centrada en el desempeño del colaborador directo—no en la reacción no examinada del líder.</p>
+      <div class="hero-meta">
+        <span>EIG · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Nombrarlo con precisión: qué dice la evidencia s</a>
+<a href="#opinion">La retroalimentación que casi di con rabia</a>
+<a href="#assessment">Autodiagnóstico — ¿Das coaching desde un estado </a>
+<a href="#case-1">Caso 1 — Marcus y la conversación de coaching po</a>
+<a href="#case-2">Caso 2 — Priya y el segundo error de calidad</a>
+<a href="#framework">Marco — Lienzo de verificación de estado: nombra</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender una pausa de estado nom</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger la práctica de </a>
+<a href="#key-notes">Puntos clave — Nombrar el estado antes de la con</a>
+<a href="#commitment">Compromiso — Proteger el hábito de nombrar antes</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Nombrarlo con precisión: qué dice la evidencia sobre etiquetar tu propio estado antes de dar coaching</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Nombrarlo con precisión: qué dice la evidencia sobre etiquetar tu propio estado antes de dar coaching</h2>
+<p>Un líder de primera línea se sienta a dar coaching por un plazo incumplido. Las palabras están preparadas. Lo que no está preparado es el propio estado del líder—que aún carga frustración de una reunión anterior, decepción genuina, o miedo a ser culpado él mismo. A menos que ese estado se nombre primero, no se queda fuera de la conversación: se filtra en el tono, la elección de palabras y el énfasis.</p>
+<h3>Los estados vagos regulan peor</h3>
+<p>Barrett y colegas estudiaron la diferenciación emocional—qué tan fino distingue una persona entre frustrado, decepcionado y ansioso, en lugar de agruparlos bajo &quot;molesto.&quot; Quienes diferencian con más precisión muestran respuestas mejor reguladas al activarse esos estados (Barrett, Gross, Christensen, &amp; Benvenuto, 2001). Kashdan, Barrett, y McKnight (2015) extendieron esto: nombrar un estado específico, no uno general, se asocia con respuestas más adaptativas—incluso cuando lo que está en juego le pertenece a otra persona, no solo a quien siente el estado.</p>
+<h3>Poner un sentimiento en palabras cambia lo que sigue</h3>
+<p>Lieberman y colegas encontraron que etiquetar un estado con palabras reducía la actividad de la amígdala—la región que impulsa la intensidad de la reacción—frente a observar el mismo estímulo sin etiquetarlo (Lieberman et al., 2007). Kircanski, Lieberman, y Craske (2012) probaron esto con un estímulo temido: quienes etiquetaron verbalmente su miedo mostraron una caída posterior mayor en reactividad fisiológica que quienes usaron distracción o ninguna estrategia. La etiqueta no es un agregado blando; tiene un efecto medible en lo que hace el cuerpo después.</p>
+<h3>La atención plena construye la capacidad de notar antes de nombrar</h3>
+<p>Nada de esto funciona si el líder no nota primero el estado con suficiente claridad para nombrarlo. Creswell, Way, Eisenberger, y Lieberman (2007) encontraron que las personas con mayor atención plena disposicional—notar la experiencia presente sin reaccionar de inmediato—mostraban mayor activación de regiones ligadas al etiquetado y menor reactividad de la amígdala en una tarea de etiquetado afectivo. Farb y colegas (2010) hallaron que un entrenamiento estructurado de atención cambiaba cómo se procesaba la tristeza, hacia algo más centrado en el presente y menos narrativo. En conjunto, esto señala una sola habilidad: notar la señal primero, y solo después asignarle una palabra precisa.</p>
+<h3>Por qué el coaching eleva lo que está en juego</h3>
+<p>La revisión de Gross (1998) plantea que el afecto no regulado es una entrada directa al juicio y la conducta posteriores, no un murmullo privado que queda contenido. En la mayoría de los intercambios, un estado no regulado le cuesta a quien lo siente. El coaching es distinto: el líder tiene más poder formal, así que su estado no nombrado no se queda solo con él. Un colaborador directo rara vez puede corregir el tono de un supervisor como un par corregiría a un colega. Si el estado del líder—no el desempeño real del colaborador—impulsa la elección de palabras, el colaborador no tiene una señal clara sobre la cual actuar. La retroalimentación deja de ser utilizable.</p>
+<h3>Tres condiciones que exigen una verificación de estado</h3>
+<p>No toda conversación de coaching necesita una pausa. La evidencia señala tres condiciones:</p>
+<ol>
+<li><strong>Arrastre</strong>—una carga de un momento anterior, no relacionado, sigue activa.</li>
+<li><strong>Registro asociado</strong>—la conversación se documentará, o afecta la calificación, el horario o la posición del colaborador.</li>
+<li><strong>Blanco confuso</strong>—el líder no puede decir aún si el sentimiento es sobre el desempeño de este colaborador o sobre algo distinto.</li>
+</ol>
+<p>Cuando ninguna aplica, la mayoría puede dar coaching directamente. Cuando una o más aplica con fuerza, la evidencia favorece nombrar el estado antes de que la conversación empiece o continúe.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>La meta no es suprimir el estado ni posponer la conversación—ambas opciones alejan al líder del intercambio en vez de prepararlo. La meta es notar el estado, nombrarlo con una palabra específica en vez de una vaga, y usar la breve ventana que eso compra para verificar si esa palabra le pertenece al desempeño de este colaborador antes de seguir.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Barrett, L. F., Gross, J., Christensen, T. C., &amp; Benvenuto, M. (2001). Knowing what you&#x27;re feeling and knowing what to do about it: Mapping the relation between emotion differentiation and emotion regulation. <em>Cognition &amp; Emotion, 15</em>(6), 713–724.</li>
+<li>Kashdan, T. B., Barrett, L. F., &amp; McKnight, P. E. (2015). Unpacking emotion differentiation: Transforming unpleasant experience by perceiving distinctions in negativity. <em>Current Directions in Psychological Science, 24</em>(1), 10–16.</li>
+<li>Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., &amp; Way, B. M. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. <em>Psychological Science, 18</em>(5), 421–428.</li>
+<li>Kircanski, K., Lieberman, M. D., &amp; Craske, M. G. (2012). Feeling better: Emotional expression and affect labeling reduce fear. <em>Psychological Science, 23</em>(10), 1086–1091.</li>
+<li>Creswell, J. D., Way, B. M., Eisenberger, N. I., &amp; Lieberman, M. D. (2007). Neural correlates of dispositional mindfulness during affect labeling. <em>Psychosomatic Medicine, 69</em>(6), 560–565.</li>
+<li>Farb, N. A. S., Anderson, A. K., Mayberg, H., Bean, J., McKeon, D., &amp; Segal, Z. V. (2010). Minding one&#x27;s emotions: Mindfulness training alters the neural expression of sadness. <em>Emotion, 10</em>(1), 25–33.</li>
+<li>Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. <em>Review of General Psychology, 2</em>(3), 271–299.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La retroalimentación que casi di con rabia</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La retroalimentación que casi di con rabia</h2>
+<p>Tenía un 1:1 agendado con uno de mis empacadores, Theo, por un conteo fallido en su línea por tercera semana consecutiva. Veinte minutos antes de la reunión, cayó sobre mí un problema distinto: mi propio líder de turno había fallado en un relevo y me dejó cubriendo dos estaciones con personal insuficiente durante una hora. Para cuando me senté frente a Theo, ya venía cargando algo.</p>
+<p>Casi lo descargué sobre él. Tenía toda una frase de apertura lista sobre &quot;que esta es la tercera vez&quot; y &quot;que necesito que esto se detenga,&quot; y el tono detrás de eso realmente no tenía que ver con el conteo de Theo. Tenía que ver con la hora que acababa de pasar con dos estaciones sin cobertura, sin que nadie me avisara que venía.</p>
+<p>Lo detuve porque he empezado a hacer algo antes de cualquier conversación de coaching que importe: nombrar el sentimiento específico, en voz alta dentro de mi cabeza, antes de abrir la boca. No &quot;estoy molesto.&quot; Algo más exacto. Me quedé ahí unos cinco segundos y llegué a esto: &quot;frustración residual, que realmente no es sobre Theo.&quot; En cuanto tuve la palabra exacta, pude notar cuánto de mi frase de apertura pertenecía al relevo, no al conteo.</p>
+<p>Así que cambié lo que dije. En lugar de &quot;esta es la tercera vez y necesito que esto se detenga,&quot; le pregunté qué había estado pasando realmente de su lado durante esa ventana. Resultó que había estado cubriendo a un compañero que estaba enfermo y no lo había reportado, asumiendo que se resolvería solo. Esa es una conversación de coaching real—sobre cobertura, sobre cuándo reportar un vacío—no una conversación sobre mi mañana.</p>
+<p>Si hubiera abierto con la versión enojada, Theo se habría ido defendiéndose de un tono que no tenía nada que ver con él, y yo habría perdido lo único que realmente valía la pena entrenar: que necesita reportar un vacío de cobertura en lugar de absorberlo en silencio. La retroalimentación técnicamente habría ocurrido. No habría sido utilizable.</p>
+<p>No estoy intentando llegar a cada 1:1 sin sentir nada. Eso no es realista, y no es la meta. Lo que cambió es lo que hago con cinco segundos antes de hablar: nombrar el sentimiento específico, verificar si realmente le pertenece a la persona que tengo enfrente, y solo entonces empezar la conversación. Mi cuadrilla no necesita un supervisor sin sentimientos entrando a una conversación de coaching. Necesitan uno que haya verificado de quién son realmente los sentimientos que están en la sala antes de abrir la boca.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Das coaching desde un estado nombrado o uno sin filtrar?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Marcus y la conversación de coaching por el plazo incumplido</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Marcus y la conversación de coaching por el plazo incumplido</h2>
+<h3>Apertura</h3>
+<p>Marcus supervisa una celda de ensamble de seis personas. Owen, uno de sus técnicos más experimentados, ha fallado su meta de fin de turno por tercera semana consecutiva. Marcus tiene un 1:1 agendado con él en quince minutos para abordarlo directamente.</p>
+<h3>Contexto</h3>
+<p>Veinte minutos antes del 1:1, el propio gerente de Marcus lo apartó y lo criticó, frente a un supervisor par, por una solicitud de mantenimiento que tomó dos días más de lo prometido—algo completamente fuera del control de Marcus. Todavía carga el escozor de ese intercambio cuando Owen se sienta frente a él. Nota que su mandíbula está tensa y que su frase de apertura ya se está formando: &quot;Esta es la tercera semana consecutiva, y necesito que esto se detenga.&quot; Tiene quizás cinco segundos antes de decirla.</p>
+<p>Owen, por su parte, no tiene idea de nada de esto. Está esperando una conversación sobre sus propios números.</p>
+<h3>Punto de decisión</h3>
+<p>Marcus puede:</p>
+<ol>
+<li>Abrir con la frase tal como está—&quot;tercera semana consecutiva, necesito que esto se detenga&quot;—y dejar que la conversación avance con el tono que salga.</li>
+<li>Tomarse cinco segundos, nombrar en silencio lo que realmente está sintiendo (&quot;ira residual hacia mi gerente, no hacia Owen&quot;), y luego abrir preguntándole a Owen qué ha sido diferente en sus turnos las últimas tres semanas.</li>
+<li>Reprogramar el 1:1 para más tarde en el día, diciéndole a Owen solo que surgió algo, sin nombrar por qué para sí mismo ni prepararse de forma distinta para la conversación reprogramada.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué le decía el cuerpo de Marcus que el sentimiento con el que entraba a la sala no le pertenecía a Owen, y cómo podría usar esa señal en lugar de dejar que impulsara su frase de apertura?</li>
+<li>Si Marcus elige la opción 2, ¿qué dice realmente en los primeros diez segundos, y en qué se diferencia de la frase que originalmente tenía lista?</li>
+<li>¿Qué se habría llevado Owen de la conversación si Marcus hubiera elegido la opción 1—y habría sido utilizable esa retroalimentación para él?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Priya y el segundo error de calidad</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Priya y el segundo error de calidad</h2>
+<h3>Apertura</h3>
+<p>Priya lidera un equipo de empaque de nueve personas en un centro de distribución. Una de sus empacadoras, Lena, tuvo un segundo error de calidad este trimestre—un envío mal etiquetado que llegó a un cliente. Esta vez, la conversación se documentará y se enviará a Recursos Humanos, ya que un segundo error dentro de noventa días activa una amonestación formal según la política de la empresa.</p>
+<h3>Contexto</h3>
+<p>A Priya le cae bien Lena y la ha respaldado antes. Al sentarse a preparar la conversación documentada, Priya se da cuenta de que no puede separar limpiamente dos sentimientos distintos: preocupación genuina por el error de etiquetado en sí, y una inquietud más silenciosa de que esta amonestación la haga ver como alguien que no puede gestionar a su propio equipo, frente al mismo gerente que la evalúa trimestralmente. No está segura, honestamente, de cuál sentimiento va a dominar la sala cuando Lena se siente. La reunión es en diez minutos, y la plantilla de la amonestación ya está abierta en su pantalla.</p>
+<h3>Punto de decisión</h3>
+<p>Priya puede:</p>
+<ol>
+<li>Continuar con la reunión según lo programado, tratando la incertidumbre sobre sus propios sentimientos como algo no relevante, ya que la amonestación en sí es procedimental y obligatoria de todos modos.</li>
+<li>Tomarse unos minutos antes de la reunión para nombrar ambos sentimientos por separado—preocupación por el error de etiquetado, e inquietud por cómo la hace ver a ella—de modo que pueda verificar cuál está realmente moldeando lo que planea decirle a Lena.</li>
+<li>Pedirle a un supervisor par que participe y dirija la parte documentada de la conversación, mientras Priya permanece en silencio, evitando el riesgo de que sus propios sentimientos mixtos aparezcan en absoluto.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Por qué una conversación con &quot;registro asociado&quot; eleva lo que está en juego con un sentimiento no nombrado o confuso más que una conversación informal?</li>
+<li>Si Priya elige la opción 2, ¿cómo podría separar los dos sentimientos cambiar lo que realmente le dice a Lena sobre el error de etiquetado en sí?</li>
+<li>¿Qué riesgo evita la opción 3, y qué deja sin resolver para Priya la próxima vez que surja una conversación documentada?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de verificación de estado: nombrar tu estado antes de dar coaching</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de verificación de estado: nombrar tu estado antes de dar coaching</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre un lienzo por cada conversación de coaching que sepas que va a importar, antes de empezarla.</p>
+<h3>1. La conversación (una frase)</h3>
+<p>¿A quién estoy por dar coaching, y cuál es el problema real que necesito plantear?</p>
+<h3>2. Verificación de estado</h3>
+<div class="table-wrap"><table>
+<tr><th>Disparador</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Arrastre — ¿una carga de un momento anterior, no relacionado, sigue activa?</td><td></td><td></td></tr>
+<tr><td>Registro asociado — ¿esta conversación se documentará, o afecta la calificación, el horario o la posición del colaborador?</td><td></td><td></td></tr>
+<tr><td>Blanco confuso — ¿puedo decir con claridad que este sentimiento tiene que ver con el desempeño de este colaborador, no con otra cosa?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero disparadores presentes:</strong> Avanza. Tu estado probablemente es proporcional a esta conversación.</li>
+<li><strong>Un disparador presente:</strong> Haz la etiqueta y verificación breve de abajo antes de empezar.</li>
+<li><strong>Dos o más disparadores presentes:</strong> Se requiere una verificación completa; reprograma diez minutos si no puedes tomarla ahora.</li>
+</ul>
+<h3>4. Etiqueta y verificación (cuando se requiere)</h3>
+<ol>
+<li>Nombra el sentimiento en una o dos palabras específicas (por ejemplo, &quot;frustración residual,&quot; &quot;decepción,&quot; &quot;preocupación de que me culpen&quot;)—no un vago &quot;molesto.&quot;</li>
+<li>¿Qué pasó realmente con este colaborador, aparte de lo que estoy sintiendo al respecto?</li>
+<li>¿Cuál es la única pregunta con la que podría abrir en lugar del veredicto que quiero dar?</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Cómo sabrás, en el momento, que tu frase de apertura coincide con el problema real y no con el ánimo con el que entraste?</p>
+<h3>6. Dueño cuando estás al límite</h3>
+<p>Nombre + respaldo, para que un par pueda avisar si tu coaching empieza a calentarse en un día difícil:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Tu frase de apertura le pertenecía a este colaborador o a otra cosa? Agrega una línea a tu registro de coaching en cualquiera de los dos casos.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender una pausa de estado nombrado ante un par que quiere retroalimentación más rápida</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender una pausa de estado nombrado ante un par que quiere retroalimentación más rápida</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger una verificación de estado breve antes de una conversación de coaching de alto riesgo sin paralizar el calendario ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño del estado)</strong></p>
+<p>Estás por dar coaching a un colaborador directo sobre un problema real, pero sabes que cargas un sentimiento de algo distinto que ocurrió antes ese mismo día. Quieres dos a tres minutos para nombrar el sentimiento específico y verificar si le pertenece a este colaborador antes de empezar. No debes saltarte la verificación solo para mantener el horario, y no debes convertirla en una demora abierta.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>También estás atrasado en tu propio calendario de coaching y crees que la retroalimentación debe ocurrir en el momento en que se nota un problema—&quot;dilo ya, sigue avanzando.&quot; Ves la pausa como sobrepensar los propios sentimientos en lugar de simplemente hacer el trabajo. Cederás solo si el Dueño del estado nombra el disparador específico y da un tiempo acotado concreto y breve para la verificación.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño del estado asegurar una demora breve para una conversación de coaching específica sin que el par escale por encima de ellos o lo trate como una excusa para evitar una conversación difícil?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona por retroalimentación inmediata; el Dueño del estado responde.</li>
+<li>Ronda 2 (8 min): el Dueño del estado nombra el disparador específico (arrastre, registro asociado o blanco confuso) y propone una verificación con tiempo acotado.</li>
+<li>Cierre (10 min): ¿dónde casi cedió el Dueño del estado bajo presión del horario? ¿qué lenguaje realmente convenció al par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger la práctica de nombrar antes de dar coaching bajo presión de plazos</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger la práctica de nombrar antes de dar coaching bajo presión de plazos</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar el respaldo para una práctica protegida de verificación de estado antes de conversaciones de coaching, cuando varios interesados quieren que la retroalimentación avance rápido.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para correr una regla permanente: cualquier conversación de coaching con arrastre, registro asociado o blanco confuso recibe una verificación de estado corta y nombrada antes de empezar.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por el tiempo de ciclo del coaching; ve cualquier pausa como tiempo perdido y llama a la práctica &quot;sobrepensar los propios sentimientos en horas de trabajo.&quot;</li>
+<li><strong>Analista de Recursos Humanos o de calidad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para cuándo aplica la verificación, además de un tiempo acotado claro para que no se use para evitar indefinidamente una conversación difícil y documentada.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará la práctica si no frena conversaciones que genuinamente no la necesitan, y si no traslada en silencio carga adicional de coaching a equipos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una verificación de estado nombrada y con tiempo acotado para conversaciones de coaching genuinamente de alto riesgo sin verse lento ante el gerente de operaciones ni vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Disparadores nombrados (arrastre, registro asociado, blanco confuso), no un genérico &quot;pausa cada vez que sienta algo&quot;</li>
+<li>Un tiempo acotado fijo para la verificación, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la verificación y qué cambió en la conversación</li>
+<li>Ningún segundo proceso secreto que contradiga la práctica acordada bajo presión de plazos</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;verificación de estado&quot; en un lenguaje que se lee como protección de retroalimentación utilizable, no como debilidad?</li>
+<li>¿Qué haría que la práctica desapareciera en silencio durante la próxima semana de crisis—y quién es dueño de prevenir eso?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Nombrar el estado antes de la conversación de coaching</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Nombrar el estado antes de la conversación de coaching</h2>
+<p><strong>Meta de la unidad:</strong> Nombrar con precisión tu propio estado emocional antes y durante una conversación de coaching, para que la retroalimentación se mantenga centrada en el desempeño del colaborador—no en tu reacción no examinada.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>La precisión supera a una etiqueta vaga:</strong> distinguir &quot;frustrado&quot; de &quot;decepcionado&quot; de &quot;ansioso&quot; está vinculado a respuestas mejor reguladas que agrupar todo estado bajo &quot;molesto&quot; (Barrett, Gross, Christensen, &amp; Benvenuto, 2001; Kashdan, Barrett, &amp; McKnight, 2015).</li>
+<li><strong>Nombrarlo cambia lo que sucede después:</strong> poner un sentimiento en palabras reduce, de forma medible, la intensidad de la reacción que lo impulsa (Lieberman et al., 2007; Kircanski, Lieberman, &amp; Craske, 2012).</li>
+<li><strong>Notar viene antes de nombrar:</strong> el hábito de prestar atención a las señales del momento presente—sin reaccionar a ellas de inmediato—hace posible un etiquetado preciso (Creswell, Way, Eisenberger, &amp; Lieberman, 2007; Farb et al., 2010).</li>
+<li><strong>El coaching eleva lo que está en juego:</strong> el líder tiene más poder en el intercambio, así que un estado no nombrado no se queda solo con él—se filtra en la retroalimentación del colaborador y la vuelve inutilizable (Gross, 1998).</li>
+<li><strong>Tres condiciones para una verificación de estado:</strong> un arrastre de un momento anterior, un registro asociado a esta conversación, o un blanco confuso entre el colaborador y otra cosa.</li>
+</ul>
+<h3>Lista de verificación para el líder de primera línea</h3>
+<ol>
+<li>Antes de una conversación de coaching que importe, nota qué estás cargando en el cuerpo—no solo qué planeas decir.</li>
+<li>Ponle una palabra específica: &quot;frustración residual,&quot; &quot;decepción,&quot; &quot;preocupación,&quot; no solo &quot;molesto.&quot;</li>
+<li>Pregúntate si esa palabra realmente pertenece al desempeño de este colaborador o a otra cosa que ocurrió antes.</li>
+<li>Si pertenece a otra parte, nómbralo en voz alta para ti mismo antes de hablar, y luego empieza con una pregunta sobre su versión, no con un veredicto sobre el patrón.</li>
+<li>Después de la conversación, anota si tu frase de apertura coincidió con el problema real—o con el ánimo con el que entraste.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué momento de coaching recurrente tiene más probabilidad de cargar un sentimiento que pertenece a otra cosa, y qué cambiaría nombrarlo con precisión en cómo abres esa conversación?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger el hábito de nombrar antes de dar coaching</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a reconocer un secuestro activo en tiempo real —no solo el impulso que lo precede— y a usar una breve interrupción para recuperar el juicio deliberado antes de que una decisión de piso fije la respuesta equivocada.</p>
+      <div class="hero-meta">
+        <span>EIG · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">El camino bajo y el camino alto: qué dice la evi</a>
+<a href="#opinion">El reinicio que casi forcé durante el secuestro</a>
+<a href="#assessment">Autodiagnóstico — ¿Atrapas el secuestro o solo l</a>
+<a href="#case-1">Caso 1 — Grant y la línea atascada que quiso for</a>
+<a href="#case-2">Caso 2 — Priya y la llamada que escalaba en la L</a>
+<a href="#framework">Marco — Tarjeta de interrupción del secuestro: r</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Interrumpir el secuestro de un p</a>
+<a href="#roleplay-strategic">Role-play estratégico — Conseguir respaldo para </a>
+<a href="#key-notes">Puntos clave — Atrapar el secuestro antes de que</a>
+<a href="#commitment">Compromiso — Proteger la interrupción del secues</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>El camino bajo y el camino alto: qué dice la evidencia sobre interrumpir un secuestro emocional</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El camino bajo y el camino alto: qué dice la evidencia sobre interrumpir un secuestro emocional</h2>
+<p>Un supervisor, a mitad de una llamada de radio, se queda fijo en un solo detalle de una línea atascada y no registra otras tres cosas que ocurren alrededor. Treinta segundos después, no puede recordar la instrucción que dio al inicio de la llamada. Ninguna de las dos fallas es un lapso de profesionalismo. Ambas son la firma de un estado cerebral específico y bien mapeado, y la evidencia señala una salida concreta.</p>
+<h3>Dos caminos hacia una respuesta</h3>
+<p>El mapeo de LeDoux sobre los circuitos de amenaza describe una vía rápida que llega directamente a la amígdala desde los sentidos, y una vía más lenta que enruta la misma información a través de la corteza para una lectura más completa de la situación antes de impulsar una respuesta (LeDoux, 2000). Bajo presión real, la vía rápida gana la carrera casi siempre. Eso no es una falla—es exactamente lo que el circuito fue diseñado para hacer cuando la velocidad importaba más que la precisión.</p>
+<h3>Por qué la vía rápida puede fijarse</h3>
+<p>La revisión de Phelps y LeDoux sobre la función de la amígdala muestra que, una vez que este circuito se activa, recluta la atención y la fisiología hacia lo que lo disparó y las aleja de todo lo demás en la sala (Phelps &amp; LeDoux, 2005). Por eso un supervisor puede fijarse en el único detalle que lo provocó y genuinamente no registrar las otras tres cosas que una versión más tranquila de sí mismo habría notado en esos mismos diez segundos.</p>
+<h3>La vía lenta no solo pierde la carrera—se desconecta</h3>
+<p>El trabajo de Arnsten sobre el estrés y la corteza prefrontal encontró que la misma activación que alimenta el circuito rápido deteriora activamente la región cerebral responsable de la memoria de trabajo y el juicio deliberado (Arnsten, 2009). Un líder en pleno secuestro no está simplemente distraído; está operando con una capacidad medible y reducida para retener la última instrucción en la mente. Esto explica un patrón que muchos supervisores reconocen en turno: olvidar la segunda mitad de un relevo que dieron hace menos de un minuto.</p>
+<h3>Tres marcadores que un secuestro activo muestra en el piso</h3>
+<p>La evidencia señala tres signos observables, útiles porque se pueden verificar en el momento en lugar de diagnosticarse después de los hechos:</p>
+<ol>
+<li><strong>Cae la memoria de trabajo</strong> — la persona no puede repetir el último paso o instrucción que acaba de dar o recibir.</li>
+<li><strong>Las opciones colapsan a una sola</strong> — surge el mismo movimiento reflejo sin importar los detalles, sin una ponderación real de alternativas.</li>
+<li><strong>Se rezaga la recuperación</strong> — la reacción supera visiblemente al disparador por minutos, no segundos.</li>
+</ol>
+<p>Un marcador puede ser ruido. Dos o más, especialmente la pérdida de memoria de trabajo, indica que el circuito rápido está dirigiendo la decisión en ese momento.</p>
+<h3>Nombrar interrumpe el circuito mismo, no solo el estado de ánimo</h3>
+<p>Lieberman y sus colegas encontraron que ponerle una palabra específica a lo que una persona siente reduce de forma medible la actividad de la amígdala mientras el sentimiento sigue activo—no después, sino durante (Lieberman et al., 2007). Una etiqueta breve no es un hábito blando de afrontamiento superpuesto al problema. Es una forma documentada de silenciar el circuito que en ese momento está dirigiendo la decisión.</p>
+<h3>Bajo presión, el comportamiento recurre al hábito</h3>
+<p>La investigación de Schwabe y Wolf sobre el estrés y los sistemas de memoria encontró que el estrés agudo aleja el comportamiento de las decisiones deliberadas y orientadas a metas, y lo acerca a la respuesta que resulte más habitual para esa persona—útil cuando el hábito es el correcto, costoso cuando no lo es (Schwabe &amp; Wolf, 2013). Esta es una razón por la que el mismo supervisor experimentado puede tomar una buena decisión en un día rutinario y una mala bajo presión real: la presión no borra la habilidad, enruta la decisión por un sistema distinto.</p>
+<h3>Qué significa esto para un líder de piso</h3>
+<p>Notar un impulso, la habilidad de la unidad anterior, compra unos segundos antes de que empiece una reacción. Una vez que el secuestro ya está en marcha—memoria de trabajo perdida, opciones colapsadas, sentimiento que supera al disparador—un líder necesita una interrupción activa, no una pausa: una etiqueta específica, y luego una pregunta de memoria de trabajo lo bastante deliberada para forzar que el circuito lento vuelva a estar en línea antes de que salga la siguiente palabra de su boca.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>LeDoux, J. E. (2000). Emotion circuits in the brain. <em>Annual Review of Neuroscience, 23</em>, 155–184.</li>
+<li>Phelps, E. A., &amp; LeDoux, J. E. (2005). Contributions of the amygdala to emotion processing: From animal models to human behavior. <em>Neuron, 48</em>(2), 175–187.</li>
+<li>Arnsten, A. F. T. (2009). Stress signalling pathways that impair prefrontal cortex structure and function. <em>Nature Reviews Neuroscience, 10</em>(6), 410–422.</li>
+<li>Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., &amp; Way, B. M. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. <em>Psychological Science, 18</em>(5), 421–428.</li>
+<li>Schwabe, L., &amp; Wolf, O. T. (2013). Stress and multiple memory systems: From &quot;thinking&quot; to &quot;doing.&quot; <em>Trends in Cognitive Sciences, 17</em>(2), 60–68.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El reinicio que casi forcé durante el secuestro</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El reinicio que casi forcé durante el secuestro</h2>
+<p>La línea se había atascado por tercera vez ese turno, mismo alimentador, mismo código de falla. Tenía un corte con el cliente en once minutos y un mecánico que ya me había dicho dos veces que estaba arreglado. Cuando se atascó por tercera vez, algo en mí simplemente se aplanó y se estrechó. Recuerdo caminar hacia el panel con un solo pensamiento: anular yo mismo el bloqueo de seguridad y forzar el reinicio. No era un plan. No era una decisión sopesada. Un solo movimiento, repitiéndose en mi cabeza como si fuera la única opción que existía.</p>
+<p>Tenía la mano en el panel antes de notar que algo estaba mal. Lo que me detuvo fue algo pequeño y casi vergonzoso: no podía recordar qué le había dicho al mecánico diez minutos antes, durante el briefing de seguridad, sobre ese mismo alimentador. Yo mismo había dirigido ese briefing esa mañana. No lograba recuperarlo. Ese vacío es lo que me hizo pausar—no fue buen juicio, solo la sensación incómoda de buscar un recuerdo que no llegaba.</p>
+<p>Lo dije en voz alta, sin dirigirme a nadie en particular: &quot;Estoy fijado en un solo movimiento aquí.&quot; Luego me obligué a responder una pregunta real antes de tocar cualquier otra cosa: cuáles habían sido las últimas dos verificaciones en ese alimentador, y si alguna de las dos se había confirmado realmente. No lo sabía. Eso solo debería haber terminado la conversación antes de que empezara.</p>
+<p>Resultó que la segunda reparación del mecánico no había sido firmada—estaba esperando una pieza, y yo había pasado junto a ese detalle exacto dos veces sin registrarlo. Si hubiera forzado el reinicio, habría ejecutado una anulación no confirmada del bloqueo de seguridad en una línea que ya se había atascado dos veces, para ahorrar quizás cuatro minutos, con un mecánico parado justo ahí que podría haberme dicho lo que necesitaba en diez segundos, si le hubiera preguntado en lugar de solo reaccionar.</p>
+<p>No creo que esa sensación aplanada y estrecha vaya a desaparecer, y no estoy seguro de querer que lo haga—aparece porque lo que está en juego es real. Lo que trato de cambiar es lo que pasa en los diez segundos después de que llega. Nombrarla en voz alta cuesta casi nada. Hacerme una pregunta que realmente tengo que responder, en lugar de una que puedo esquivar, cuesta unos segundos más y obliga a la parte más lenta de mi pensamiento a volver a la sala.</p>
+<p>Se lo dije al mecánico después, y le dije lo mismo a mi propia cuadrilla esa misma semana: si notas que no puedes recordar el último detalle real de una situación sobre la que estás a punto de actuar, esa es la señal, no la tensión en el pecho. Dilo. Hazte la pregunta que no puedes fingir responder. Luego decide.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Atrapas el secuestro o solo lo dejas correr?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Grant y la línea atascada que quiso forzar</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Grant y la línea atascada que quiso forzar</h2>
+<h3>Apertura</h3>
+<p>Grant supervisa una línea de empaque en una embotelladora de tamaño mediano. El alimentador de la Línea 2 ya se ha atascado dos veces en este turno con el mismo código de falla, y un mecánico llamado Osei lo ha &quot;arreglado&quot; ambas veces. Con el corte de cliente a once minutos, el alimentador se atasca por tercera vez. Grant siente que algo en él se aplana y se estrecha—un solo pensamiento, en bucle: anular él mismo el bloqueo de seguridad y forzar el reinicio.</p>
+<h3>Contexto</h3>
+<p>Grant ya está caminando hacia el panel antes de registrar que algo anda mal. Lo que lo detiene, brevemente, es más pequeño que el impulso mismo: no puede recordar qué le dijo a Osei diez minutos antes, durante el briefing de seguridad, sobre ese mismo alimentador. Él mismo dirigió ese briefing. El detalle no vuelve. Osei está a dos metros, sosteniendo una pieza que aún no ha instalado, esperando que Grant le pregunte cualquier cosa.</p>
+<h3>Punto de decisión</h3>
+<p>Grant puede:</p>
+<ol>
+<li>Anular él mismo el bloqueo de seguridad en este momento y forzar el reinicio, aceptando cualquier paso de confirmación que pueda estarse saltando para cumplir con el corte.</li>
+<li>Decir en voz alta que está fijado en un solo movimiento, preguntarse cuáles fueron realmente las últimas dos verificaciones en el alimentador, y actuar solo una vez que tenga una respuesta real—aunque le cueste el corte.</li>
+<li>Alejarse por completo del panel, entregar la decisión al líder de turno de la línea contigua, y lidiar con la conversación sobre el corte después.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Cuál de los tres marcadores—caída de memoria de trabajo, opciones colapsadas a una sola, o rezago de recuperación—aparece primero y de forma más clara en el momento de Grant frente al panel?</li>
+<li>¿Qué le dice a Grant el vacío en su memoria que la tensión en su pecho no le dice?</li>
+<li>Si Grant elige la opción 2, ¿qué pregunta exacta se hace en los diez segundos antes de tocar el panel, y qué cambia la respuesta de Osei sobre la decisión?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Priya y la llamada que escalaba en la Línea 3</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Priya y la llamada que escalaba en la Línea 3</h2>
+<h3>Apertura</h3>
+<p>Priya dirige una sala de control de despacho que coordina a once conductores de reparto para un distribuidor regional. Un cliente lleva seis minutos en espera con escalamiento por una ventana de entrega incumplida, y el despachador más nuevo de Priya, Tomas, está en la llamada con él. Priya nota que la voz de Tomas sube medio tono y lo escucha empezar a prometer una reentrega el mismo día que ella sabe que no es físicamente posible dadas las rutas que quedan en el tablero.</p>
+<h3>Contexto</h3>
+<p>El primer instinto de Priya es quitarle el auricular a Tomas en plena llamada y tomar el control ella misma—siente el mismo estrechamiento en su propio pecho que reconoce de sus secuestros pasados: un solo movimiento, repitiéndose, &quot;simplemente toma la llamada&quot;. También nota que en este momento no puede repetir cuáles dos rutas tienen capacidad realmente esta tarde, aunque revisó el tablero hace veinte minutos. Ese vacío es el marcador que ha aprendido a detectar.</p>
+<h3>Punto de decisión</h3>
+<p>Priya puede:</p>
+<ol>
+<li>Quitarle el auricular a Tomas de inmediato y atender al cliente ella misma, interrumpiéndolo a media frase frente al resto del piso.</li>
+<li>Silenciar su propio instinto durante diez segundos, verificar en silencio qué sabe realmente sobre la capacidad de rutas de hoy, y luego darle a Tomas una línea específica y precisa para decir en lugar de quitarle la llamada.</li>
+<li>Dejar que Tomas siga sin interrupción, bajo el supuesto de que intervenir en absoluto lo desautorizará frente al equipo, aunque la promesa que está por hacer no se pueda cumplir.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué marcador nota Priya en sí misma antes de notar algo en Tomas, y cómo cambia eso lo que hace después?</li>
+<li>Si Priya elige la opción 2, ¿qué le dice a Tomas en los diez segundos que se toma, y en qué se diferencia eso de simplemente tomar la llamada?</li>
+<li>¿Cómo debería Priya señalar el propio secuestro de Tomas—la voz que sube, la promesa que no puede cumplir—de una forma que lo ayude a atraparlo él mismo la próxima vez, en lugar de solo corregirlo esta vez?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Tarjeta de interrupción del secuestro: recuperar el camino alto antes de decidir</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Tarjeta de interrupción del secuestro: recuperar el camino alto antes de decidir</h2>
+<p>Úsala en el taller o imprímela para el piso. Ejecuta esta tarjeta en el momento en que sospeches que un secuestro ya está activo—no un impulso leve, sino una reacción ya fijada que te está dirigiendo.</p>
+<h3>1. El momento (una frase)</h3>
+<p>¿Qué está pasando en este momento, y qué estoy a punto de hacer por eso?</p>
+<h3>2. Verificación de marcadores</h3>
+<div class="table-wrap"><table>
+<tr><th>Marcador</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Caída de memoria de trabajo — ¿puedo repetir, palabra por palabra, la última instrucción o el último detalle real?</td><td></td><td></td></tr>
+<tr><td>Opciones colapsadas — ¿surge el mismo movimiento sin importar lo que realmente sé?</td><td></td><td></td></tr>
+<tr><td>Rezago de recuperación — ¿esta reacción ha superado a lo que la disparó por más de unos segundos?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero marcadores presentes:</strong> Avanza. Es una reacción proporcional, no un secuestro activo.</li>
+<li><strong>Un marcador presente:</strong> Ejecuta la interrupción de abajo antes de actuar.</li>
+<li><strong>Dos o más marcadores presentes:</strong> Se requiere una interrupción completa; entrega la siguiente decisión a otra persona si no puedes completarla primero.</li>
+</ul>
+<h3>4. La interrupción</h3>
+<ol>
+<li>Di el estado en voz alta: &quot;Estoy fijado en un solo movimiento aquí.&quot;</li>
+<li>Hazte una pregunta que no puedas fingir responder (por ejemplo, &quot;¿Cuáles fueron las últimas dos verificaciones sobre esto?&quot;).</li>
+<li>Si no puedes responderla, ese vacío es tu evidencia de que el secuestro sigue activo—consigue la respuesta antes de actuar.</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Cómo ve tu equipo que ejecutaste la interrupción (una frase, una pausa, una pregunta hecha en voz alta)?</p>
+<h3>6. Dueño cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que un par pueda señalar un secuestro en curso incluso cuando no estés ahí para atrapar el propio:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Qué marcador apareció primero, y la interrupción realmente cambió la decisión? Una línea en cualquier caso, en el registro de turno.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Interrumpir el secuestro de un par sin empeorarlo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Interrumpir el secuestro de un par sin empeorarlo</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar señalar el secuestro activo de un par—caída de memoria de trabajo, opciones colapsadas o rezago de recuperación—sin que la señal misma se lea como un desafío a su autoridad.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (en pleno secuestro)</strong></p>
+<p>Estás fijado en un solo movimiento respecto a un incidente de piso que está ocurriendo ahora mismo. Todavía no sabes que estás secuestrado; desde dentro se siente como claridad, no como estrechamiento. Te resistirás a que te digan que te detengas, a menos que el par nombre algo específico y concreto, no solo &quot;te ves alterado&quot;.</p>
+<p><strong>Rol 2 — Supervisor par (observador)</strong></p>
+<p>Has notado al menos un marcador en tu par—lo más útil, que no puede repetir un detalle que claramente sabía minutos antes. Debes nombrar lo que específicamente observaste, no una sensación vaga, y debes hacerlo sin usar tu jerarquía ni avergonzarlo frente a otros.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el observador lograr que el supervisor secuestrado se detenga el tiempo suficiente para verificar un vacío de memoria específico, sin que el supervisor descarte la señal como un cuestionamiento o pierda la cara por ello?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el supervisor avanza hacia el movimiento forzado; el observador intenta una primera señal.</li>
+<li>Ronda 2 (8 min): el observador nombra el marcador específico observado (por ejemplo, &quot;me acabas de decir dos cosas distintas sobre esa verificación&quot;) y hace una pregunta concreta.</li>
+<li>Cierre (10 min): ¿qué lenguaje realmente convenció frente a lo que se descartó? ¿cómo evitó el observador sonar como si estuviera usando su jerarquía?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Conseguir respaldo para un protocolo de interrupción del secuestro</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Conseguir respaldo para un protocolo de interrupción del secuestro</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar cómo conseguir respaldo para un protocolo permanente de interrupción del secuestro cuando varios interesados quieren que el piso siga avanzando a máxima velocidad sin excepción.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para una regla permanente: cualquier momento que muestre dos o más marcadores—caída de memoria de trabajo, opciones colapsadas, rezago de recuperación—activa una interrupción nombrada antes de la siguiente acción.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por rendimiento y tiempos de corte; ve cualquier interrupción como minutos perdidos y llama al protocolo una excusa para frenar bajo presión.</li>
+<li><strong>Analista de seguridad o calidad (escéptico):</strong> Apoya la idea en principio pero necesita marcadores nombrados y verificables, y un tiempo acotado fijo para la interrupción, para que no se use para posponer una decisión difícil indefinidamente.</li>
+<li><strong>Supervisor par (aliado u oscilante):</strong> Apoyará el protocolo si no frena momentos que genuinamente no lo necesitan, y si se aplica de forma pareja en lugar de señalar a un solo turno.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una interrupción nombrada y con tiempo acotado para momentos genuinamente de alto riesgo sin parecerle lento al gerente de operaciones ni vago al analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Marcadores nombrados (caída de memoria de trabajo, opciones colapsadas, rezago de recuperación), no una pausa genérica &quot;cuando algo se sienta raro&quot;</li>
+<li>Un tiempo acotado fijo para la interrupción, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la interrupción y si cambió el resultado</li>
+<li>Ninguna excepción silenciosa que permita saltarse la interrupción cuando la fecha límite está más apretada</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo enmarcó el supervisor la interrupción como control de riesgo en lugar de tiempo perdido?</li>
+<li>¿Qué haría que el protocolo desapareciera en silencio durante la próxima semana de crisis—y quién es responsable de evitarlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Atrapar el secuestro antes de que controle la decisión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Atrapar el secuestro antes de que controle la decisión</h2>
+<p><strong>Meta de la unidad:</strong> Reconocer un secuestro activo en tiempo real —no solo el impulso que lo precede— y usar una breve interrupción para recuperar el juicio deliberado antes de que una decisión de piso fije la respuesta equivocada.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Dos caminos, una sola carrera:</strong> una vía rápida llega directamente a la amígdala; una vía más lenta pasa por la corteza para una lectura más completa—bajo presión, la rápida suele ganar (LeDoux, 2000).</li>
+<li><strong>El circuito rápido estrecha la sala:</strong> una vez que se activa, la atención y la fisiología se fijan en el disparador y se alejan de todo lo demás cerca (Phelps &amp; LeDoux, 2005).</li>
+<li><strong>El circuito lento se desconecta, no solo se calla:</strong> la misma activación que impulsa la reacción rápida deteriora de forma medible la memoria de trabajo y el juicio deliberado (Arnsten, 2009).</li>
+<li><strong>Tres marcadores de un secuestro activo:</strong> cae la memoria de trabajo, las opciones colapsan a una sola, y la reacción supera al disparador.</li>
+<li><strong>Nombrar silencia el circuito en tiempo real:</strong> ponerle una palabra específica al sentimiento reduce la actividad de la amígdala mientras aún está activo, no después (Lieberman et al., 2007).</li>
+<li><strong>La presión recurre al hábito:</strong> el estrés dirige el comportamiento hacia la respuesta más automática, sea correcta o no (Schwabe &amp; Wolf, 2013).</li>
+</ul>
+<h3>Lista de verificación para líderes de primera línea</h3>
+<ol>
+<li>Verifica primero la memoria de trabajo: ¿puedes repetir, palabra por palabra, la última instrucción o el último detalle real?</li>
+<li>Si no puedes, dilo en voz alta: &quot;Estoy fijado en un solo movimiento aquí.&quot;</li>
+<li>Hazte una pregunta que no puedas fingir responder antes de tocar nada más.</li>
+<li>Da a un par permiso para nombrar tu secuestro sin que se lea como un desafío a tu autoridad.</li>
+<li>Registra qué marcador apareció primero hoy—eso agudiza qué tan rápido lo atrapas la próxima vez.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué situación de piso colapsa de forma más confiable tus opciones a un solo movimiento, y qué pregunta te obligaría a verificar tu memoria antes de actuar sobre ella?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger la interrupción del secuestro antes de la próxima crisis</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

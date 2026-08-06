@@ -50,11 +50,19 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
+# Import a unit source folder into library/ (raw + SOURCE map only)
+python scripts\ingest_unit.py --program tfs --unit u01 --src "D:\path\to\Unit 01"
+# Or folder picker:
+python scripts\ingest_unit.py --program tfs --unit u01 --browse
+# .\scripts\ingest_unit.browse.ps1 -Program tfs -Unit u01
+
 python scripts\validate.py --program atc --unit u01 --locale en
 python scripts\render.py --program atc --unit u01 --locale en
 ```
 
 Rendered output: `preview/atc/u01/en/index.html`
+
+Ingest contract: [Notes/ingest.md](Notes/ingest.md).
 
 ## Naming
 
@@ -66,11 +74,12 @@ Rendered output: `preview/atc/u01/en/index.html`
 | Audience | `audience_id` → T1–T4 in the handle |
 | Unit | `unit_id` + `unit_goal` (not a third brand title) |
 
-### Ingest checklist (new packs)
+### Ingest (new packs)
+
+Library-first — do **not** drop raw files into `content/`. See [Notes/ingest.md](Notes/ingest.md).
 
 1. Confirm code in the codebook (or add once).
-2. Path: `content/{code_lower}/{uNN}/{locale}/`.
-3. Manifest: `program_id`, `unit_id`, `audience_id`, `program_title`, `lens_title` from the naming note — no third title.
-4. Ban book/source names in `banned_phrases`.
-5. Asset titles stay on assets.
-6. Talk ID: `{CODE}-T{n}-U{nn}` only.
+2. Import to `library/{code}/u0N/en/` via `scripts/ingest_unit.py --program … --unit … --src …` (or `--browse` / `ingest_unit.browse.ps1`).
+3. Rewrite `content/{code}/u0N/{locale}/` with `program_title` + `lens_title` from the naming note — no third title.
+4. Ban book/source names; validate → render → catalogs → `global-leadership-preview`.
+5. Talk ID: `{CODE}-T{n}-U{nn}` only.

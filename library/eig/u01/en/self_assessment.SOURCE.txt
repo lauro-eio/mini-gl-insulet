@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: Which of the following best describes why our emotions are considered evolutionary adaptations?  
+A. They developed as an irrational by-product of brain activity.  
+B. They evolved to guide immediate, survival-enhancing responses.  
+C. They are solely products of cultural learning and socialization.  
+D. They only serve to complicate decision-making processes.
+
+Q2: When experiencing fear, what is the primary biological advantage of the emotional response?  
+A. To slow down bodily functions and encourage relaxation.  
+B. To prepare the body for rapid risk assessment and potential action.  
+C. To develop long-term strategic decision-making skills.  
+D. To trigger complex cognitive reasoning.
+
+Q3: How does the evolutionary perspective explain the intensity of a parental sacrifice?  
+A. It is a cultural construct without biological implications.  
+B. It emerged as an evolved mechanism for ensuring the survival of offspring.  
+C. It is incidental to other rational decision-making processes.  
+D. It is primarily driven by social expectations rather than biology.
+
+Q4: What role does the neocortex play in the context of our evolved emotional responses?  
+A. It completely overrides all emotional responses.  
+B. It functions independently from emotional and physiological reactions.  
+C. It integrates emotional signals with rational thought for complex decisions.  
+D. It is solely responsible for generating basic survival responses.
+
+Q5: Which statement best illustrates the duality of human cognition mentioned in the core thesis?  
+A. Emotion and reason are completely separate and never interact.  
+B. Emotions exist solely as irrational impulses.  
+C. Both emotional and rational systems complement each other in decision-making.  
+D. Rational thinking is irrelevant when compared to emotional responses.
+
+Q6: The concept of “emotional hijackings” refers to:
+A. The complete loss of emotional control during decision-making.  
+B. Situations where primed emotional responses override slower rational analysis.  
+C. The voluntary suppression of all emotional reactions.  
+D. The deliberate enhancement of rational thinking over emotions.
+
+Q7: Which example best supports the idea that emotions have helped in gene propagation over evolutionary time?  
+A. The rational planning of long-term financial investments.  
+B. The role of fear in deciding to avoid harmful situations.  
+C. The physiological responses associated with simple reflexes.  
+D. The development of abstract art and cultural symbols.
+
+Q8: What specific bodily change is most closely associated with the emotion of anger?  
+A. Reduced heart rate and calm breathing.  
+B. Increased blood flow and adrenaline release.  
+C. Sudden decrease in body temperature.  
+D. Activation of a parasympathetic response.
+
+Q9: Which mechanism describes the body’s response to the emotion of love according to evolutionary theory?  
+A. A parasympathetic arousal that promotes bonding and caretaking.  
+B. A stress-induced response that isolates individuals.  
+C. A heightened state of fear that prepares the body to flee.  
+D. A purely cognitive, non-physiological process.
+
+Q10: How can understanding the evolutionary basis of emotions help in modern decision-making?  
+A. By eliminating the influence of emotions entirely.  
+B. By recognizing and harnessing the power of automatic emotional responses.  
+C. By prioritizing rational thought and ignoring emotional signals.  
+D. By reinforcing the idea that emotions are outdated.
+
+Q11: What does “integrating emotional responses with rational processes” mean in everyday life?  
+A. Allowing gut reactions to solely drive decisions without reflection.  
+B. Ignoring emotional responses as they lead to errors.  
+C. Balancing instinctive feelings with thoughtful analysis to make effective decisions.  
+D. Prioritizing cultural norms over natural instincts.
+
+Q12: In the context of this quiz, what is the actionable takeaway regarding our emotional makeup?  
+A. Emotions are distractions that hinder modern performance.  
+B. Emotions are fixed traits that cannot be changed or improved.  
+C. Emotions are powerful, evolutionary tools that can be understood and regulated for better outcomes.  
+D. Emotions should be suppressed to enable rational thinking.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 2, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 3, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 4, "A": 1, "B": 2, "C": 4, "D": 3},
+  {"Q": 5, "A": 1, "B": 2, "C": 4, "D": 3},
+  {"Q": 6, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 7, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 8, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 9, "A": 4, "B": 1, "C": 2, "D": 3},
+  {"Q": 10, "A": 1, "B": 4, "C": 2, "D": 3},
+  {"Q": 11, "A": 1, "B": 2, "C": 4, "D": 3},
+  {"Q": 12, "A": 1, "B": 2, "C": 4, "D": 3}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Fully Misaligned (Score 12-21) — You might be experiencing a disconnect between instinct and analysis. At times, emotions may overwhelm your thought process without offering much guidance. You may struggle to discern which impulses serve you best in today's complex world. Embracing your emotional heritage more consciously could be your first step toward transformation.  
+
+2. The Evolving Insight (Score 22-30) — You demonstrate a budding understanding of how evolutionary forces shape your responses. While your decisions sometimes lean on instinct, there is a clear effort toward thoughtful reflection. You are beginning to see the value in balancing immediate gut feelings with deeper rational insights. With further self-awareness, you can sharpen your decision-making prowess.  
+
+3. The Balanced Mastery (Score 31-39) — You have achieved a harmonious integration of emotion and reason. Your responses are both instinctive and smartly considered, lending strength to your decision-making. You appreciate the evolutionary roots of your behaviors and work to harness them constructively. Your approach is both adaptive and insightful, ensuring balanced outcomes in challenging situations.  
+
+4. The Evolutionary Expert (Score 40-48) — You excel at leveraging your deep-seated emotional instincts while seamlessly integrating rational thought. Your mastery over your emotional responses empowers you to navigate life's challenges with precision and grace. You are adept at identifying which emotional cues serve your best interests and act on them strategically. This level of emotional literacy sets you apart as a leader in personal and professional resilience.

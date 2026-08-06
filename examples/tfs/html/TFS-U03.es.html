@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deliberación analítica — Anclaje cognitivo y deliberación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Anclaje cognitivo y deliberación</p>
+      <h1>Deliberación analítica</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a leer los números de piso sin confiar demasiado en muestras pequeñas, esperar la regresión después de un valor atípico, sopesar las tasas base frente a historias causales prolijas, y preferir una regla simple y verificada por encima de la narrativa instintiva en las decisiones que se repiten.</p>
+      <div class="hero-meta">
+        <span>TFS · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Muestras pequeñas, grandes historias: qué dice l</a>
+<a href="#opinion">La semana en que casi reasigné a mi mejor operad</a>
+<a href="#assessment">Autodiagnóstico — ¿Razonas con los números o rea</a>
+<a href="#case-1">Caso 1 — Renata y el lote con dos defectos</a>
+<a href="#case-2">Caso 2 — La mejor semana de Diego y la caída des</a>
+<a href="#framework">Marco — Lienzo de tasa base y verificación de mu</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender una verificación de mue</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de ve</a>
+<a href="#key-notes">Puntos clave — Leer los números sin engañarte a </a>
+<a href="#commitment">Compromiso — Proteger la verificación de números</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Muestras pequeñas, grandes historias: qué dice la evidencia sobre leer números de piso ruidosos</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Muestras pequeñas, grandes historias: qué dice la evidencia sobre leer números de piso ruidosos</h2>
+<p>Los líderes de primera línea viven dentro de los números: conteos de defectos en un chequeo puntual, asistencia en un turno, producción en una línea después de un cambio. Algunos de esos números señalan un cambio real que vale la pena atender. Muchos son solo el vaivén ordinario de un conteo pequeño, disfrazado de tendencia. Décadas de investigación sobre el juicio bajo incertidumbre explican por qué líderes capaces y experimentados aún leen mal la diferencia—y qué reduce esa brecha.</p>
+<h3>La ley de los números pequeños</h3>
+<p>Tversky y Kahneman (1971) encuestaron a investigadores capacitados y encontraron que incluso personas que entendían estadística subestimaban cuánto puede oscilar una muestra pequeña solo por azar. Trataban un resultado de una docena de observaciones como si tuviera el mismo peso que un resultado de mil. En el piso, esto se ve como un chequeo puntual de un puñado de unidades que provoca la misma reacción que una auditoría de turno completo. La muestra no se volvió más informativa solo porque el número dentro de ella se veía dramático.</p>
+<h3>Por qué los extremos regresan hacia abajo</h3>
+<p>Un segundo patrón, relacionado, agrava al primero. Kahneman y Tversky (1973), construyendo sobre una regularidad estadística documentada primero por Galton (1886), mostraron que cuando una medida depende en parte de la habilidad y en parte del azar, es matemáticamente probable que un resultado inusualmente extremo sea seguido por un resultado más cercano al promedio—no porque algo haya cambiado, sino porque la parte de suerte del resultado extremo rara vez se repite. Un líder que no espera esto buscará una causa (un operador que decae, un ritual nuevo que se desgasta) donde no existe ninguna, y puede premiar o castigar a la gente por lo que era mayormente ruido asentándose de nuevo.</p>
+<h3>Las historias causales vencen a las tasas base—a menos que verifiques</h3>
+<p>La gente no sopesa por igual la información estadística y la causal. Kahneman y Tversky (1972) encontraron que un número incrustado en una historia con un mecanismo plausible—&quot;el nuevo operador causó el pico de defectos&quot;—domina el sentido de una persona sobre la tasa base subyacente, incluso cuando la tasa base sola produciría un pico de apariencia similar algunas veces por azar. La solución no es desconfiar de toda historia, sino verificar primero la tasa base: ¿con qué frecuencia ocurre una oscilación de este tamaño de todos modos, sin ninguna causa nueva en absoluto?</p>
+<h3>Por qué una regla simple a menudo vence a un instinto fuerte</h3>
+<p>Cuando una decisión se repite con la frecuencia suficiente para ser medida, las reglas basadas en fórmulas tienen una ventaja documentada sobre el juicio experto. Meehl (1954) mostró primero que reglas de predicción estadística simples igualaban o superaban al juicio clínico en una amplia gama de decisiones recurrentes; Dawes (1979) encontró después que incluso reglas crudas, con pesos iguales, a menudo superaban tanto a expertos como a modelos más complejos, porque las reglas aplican los mismos pesos cada vez y no se fatigan, no se dejan influir por el caso más reciente ni sobreponderan una excepción vívida. Grove y Meehl (1996), al revisar décadas de estudios posteriores, confirmaron que la ventaja se sostenía de manera amplia, con una advertencia: una regla debe ser anulada solo por una pieza de información genuinamente decisiva que la regla no podía haber anticipado, no por una corazonada rutinaria.</p>
+<h3>Qué significa esto para los líderes de primera línea</h3>
+<p>Tres hábitos traducen la investigación en práctica de piso:</p>
+<ol>
+<li><strong>Pregunta primero por el tamaño de la muestra.</strong> Antes de reaccionar a una tasa de defectos, una oscilación de producción o un pico de asistencia, pregunta sobre cuántas observaciones se basa y si ese conteo podría producir esta oscilación por azar.</li>
+<li><strong>Espera el retroceso.</strong> Después de un resultado inusualmente bueno o malo, planea para que el próximo resultado se acerque al promedio, y resiste asignar una causa a una oscilación que la regresión sola predice.</li>
+<li><strong>Deja que una regla verificada maneje las decisiones recurrentes.</strong> Para decisiones que tomas a menudo—escalar o no, poner en cuarentena o no—escribe la regla, síguela por defecto, y registra cualquier anulación con la razón específica.</li>
+</ol>
+<p>Nada de esto argumenta contra el instinto en general. Argumenta a favor de emparejar el instinto con una pregunta deliberada—qué tan grande es la muestra, y si esto se vería igual por azar—en las decisiones que se repiten y las que mueven un número titular.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1971). Belief in the law of small numbers. <em>Psychological Bulletin, 76</em>(2), 105–110.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1972). Subjective probability: A judgment of representativeness. <em>Cognitive Psychology, 3</em>(3), 430–454.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1973). On the psychology of prediction. <em>Psychological Review, 80</em>(4), 237–251.</li>
+<li>Galton, F. (1886). Regression towards mediocrity in hereditary stature. <em>Journal of the Anthropological Institute, 15</em>, 246–263.</li>
+<li>Meehl, P. E. (1954). <em>Clinical versus statistical prediction: A theoretical analysis and a review of the evidence</em>. University of Minnesota Press.</li>
+<li>Dawes, R. M. (1979). The robust beauty of improper linear models in decision making. <em>American Psychologist, 34</em>(7), 571–582.</li>
+<li>Grove, W. M., &amp; Meehl, P. E. (1996). Comparative efficiency of informal (subjective, impressionistic) and formal (mechanical, algorithmic) prediction procedures. <em>Psychology, Public Policy, and Law, 2</em>(2), 293–323.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La semana en que casi reasigné a mi mejor operador</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La semana en que casi reasigné a mi mejor operador</h2>
+<p>Tomasz manejaba la estación más difícil de mi línea, y una semana registró cero defectos en cuarenta unidades. Cero. Nuestro normal para esa estación es tres o cuatro. Yo ya estaba redactando la nota para sacarlo del piso y ponerlo a capacitar al resto del equipo por el resto de la semana—si él había descubierto algo que el resto de nosotros no, todos necesitaban aprenderlo.</p>
+<p>Se lo mencioné a mi líder de turno antes de enviar la nota, buscando principalmente un visto bueno. Ella hizo una pregunta en su lugar: &quot;¿Cuántas semanas ha corrido este mismo volumen con esta tasa de defectos antes?&quot; La respuesta honesta era ninguna. Esta era la primera vez. Una semana perfecta entre muchas ordinarias no significa automáticamente que él haya encontrado algo nuevo. Podría simplemente significar que la moneda cayó en cara.</p>
+<p>La semana siguiente, el conteo de Tomasz regresó a tres. Normal, según nuestros propios números. Mi primer instinto fue poco caritativo—¿se habría relajado, una vez que la atención se movió a otro lado? Pero ese instinto estaba exactamente al revés. Una semana récord suele ser en parte habilidad y en parte suerte, y la suerte rara vez aparece dos veces seguidas. El retroceso no fue él fallando. Era el número haciendo lo que hacen los números con algo de azar dentro de ellos.</p>
+<p>Casi había cometido dos errores a partir de un solo dato: premiarlo por un resultado que aún no podía explicar, y luego dudar en silencio de él cuando el resultado se normalizó por sí solo. Ninguna de las dos decisiones era realmente sobre Tomasz. Ambas eran sobre mí leyendo una muestra única y pequeña como si fuera toda la historia.</p>
+<p>Desde entonces he agregado una pregunta antes de reaccionar a cualquier semana destacada, alta o baja: ¿cuántas veces he visto este patrón en esta persona o línea antes, y podría ocurrir esta oscilación solo por azar aunque nada haya cambiado? Si la respuesta es &quot;esta es básicamente la primera vez&quot;, espero un segundo dato antes de actuar, premiar o preocuparme en voz alta.</p>
+<p>Me cuesta casi nada—una pregunta, treinta segundos, antes de que salga la nota. Lo que me ahorra es el vaivén de elogiar y después castigar en silencio a la misma persona por lo que era mayormente ruido asentándose de nuevo a lo normal. Tomasz nunca supo lo cerca que estuvo de una reasignación que no hizo nada por merecer. Prefiero aprender esa lección en una buena semana que en una mala.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Razonas con los números o reaccionas a ellos?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Renata y el lote con dos defectos</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Renata y el lote con dos defectos</h2>
+<h3>Apertura</h3>
+<p>Renata lidera calidad en una línea de moldeo de piezas pequeñas. Su chequeo puntual estándar toma doce unidades por lote para una inspección visual y dimensional. La tasa de defectos trimestral histórica de la planta en su estación se ubica alrededor del 3 por ciento. Renata ha corrido este chequeo por dos años y conoce bien el ritmo de la línea.</p>
+<h3>Contexto</h3>
+<p>El chequeo puntual de esta mañana en el Lote 214 arroja dos unidades defectuosas de doce—una tasa del 16.7 por ciento, más de cinco veces el promedio de la planta. El líder de línea ya está preguntando si poner en cuarentena el lote completo de 900 unidades, lo cual arruinaría el programa de embarque del turno y requeriría una cuadrilla de reproceso en tiempo extra. Renata revisa sus registros de chequeo puntual de los últimos ocho trimestres para esta estación exacta, para ver con qué frecuencia un chequeo de doce unidades ha llegado tan alto solo por el rebote normal de una muestra pequeña:</p>
+<div class="table-wrap"><table>
+<tr><th>Lotes verificados (12 unidades cada uno)</th><th>Defectos encontrados en el chequeo</th><th>Tasa resultante</th></tr>
+<tr><td>41 lotes</td><td>0 defectos</td><td>0%</td></tr>
+<tr><td>22 lotes</td><td>1 defecto</td><td>8.3%</td></tr>
+<tr><td>6 lotes</td><td>2 defectos</td><td>16.7%</td></tr>
+<tr><td>1 lote</td><td>3 defectos</td><td>25%</td></tr>
+</table></div>
+<p>Los chequeos con dos defectos—que coinciden con el resultado de esta mañana—han ocurrido seis veces en setenta lotes sin que el proceso subyacente haya cambiado nunca; solo una vez una auditoría de seguimiento del lote completo encontró una tasa significativamente por encima de la línea base del 3 por ciento.</p>
+<h3>Punto de decisión</h3>
+<p>Renata puede:</p>
+<ol>
+<li>Poner en cuarentena el lote completo de inmediato con base en la tasa del 16.7 por ciento del chequeo puntual, tratándola como un cambio de proceso confirmado.</li>
+<li>Tomar una segunda muestra de doce unidades de una sección distinta del lote antes de decidir, comprando veinte minutos para ver si la tasa se mantiene.</li>
+<li>Liberar el lote por ahora con base en el patrón histórico, registrar el resultado del chequeo puntual, y marcar la estación para un monitoreo más cercano en el próximo lote en lugar de una cuarentena inmediata.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>Dada la tabla de ocho trimestres, ¿cuánto debería mover un solo chequeo de doce unidades la creencia de Renata de que el proceso realmente cambió?</li>
+<li>¿Qué cambiaría la respuesta de Renata—qué evidencia adicional convertiría esto de &quot;probablemente ruido&quot; a &quot;probablemente un cambio real&quot;?</li>
+<li>¿Cómo debería Renata explicar una decisión de no poner en cuarentena a un líder de línea que solo ve &quot;16.7 por ciento&quot; y un programa de entrega pendiente?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — La mejor semana de Diego y la caída después</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — La mejor semana de Diego y la caída después</h2>
+<h3>Apertura</h3>
+<p>Diego supervisa un equipo de empaque de nueve personas. Hace tres semanas introdujo una reunión breve de cinco minutos antes del turno, donde el equipo comenta los casi-accidentes del día anterior antes de comenzar. Esa misma semana, el equipo registró su mejor semana de producción y precisión en la historia. Diego le dijo al gerente de planta que la reunión fue la razón e impulsó para hacerla estándar en los cuatro equipos de empaque de inmediato.</p>
+<h3>Contexto</h3>
+<p>El gerente de planta aprobó la implementación. Una semana después, los números del propio equipo de Diego regresaron a su rango normal—todavía sólidos, pero lejos de la semana récord. Dos de los otros tres equipos que adoptaron la reunión no vieron ningún cambio; uno vio una ligera caída. El puntaje compuesto semanal de producción y precisión del equipo de Diego en las últimas seis semanas se ve así:</p>
+<div class="table-wrap"><table>
+<tr><th>Semana</th><th>Puntaje compuesto</th><th>Nota</th></tr>
+<tr><td>1–4 (antes de la reunión)</td><td>71, 74, 69, 73</td><td>Rango normal</td></tr>
+<tr><td>5 (se introduce la reunión)</td><td>89</td><td>Semana récord</td></tr>
+<tr><td>6 (la reunión continúa)</td><td>72</td><td>De vuelta al rango normal</td></tr>
+</table></div>
+<p>El gerente de planta ahora quiere una respuesta directa en la revisión de operaciones de mañana: ¿funciona la reunión, y deberían los otros equipos seguir corriéndola?</p>
+<h3>Punto de decisión</h3>
+<p>Diego puede:</p>
+<ol>
+<li>Defender la reunión como la causa comprobada del puntaje récord de la semana 5, ya que es lo único que cambió esa semana.</li>
+<li>Decirle al gerente de planta que la única semana récord no resuelve la pregunta, y proponer rastrear el puntaje compuesto en los cuatro equipos durante ocho semanas más antes de sacar una conclusión.</li>
+<li>Seguir corriendo la reunión en silencio con su propio equipo sin importar los datos, ya que cuesta poco, mientras se mantiene vago con el gerente de planta sobre si explica la semana récord.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué sugiere la tabla de seis semanas sobre cuánto del puntaje récord de la semana 5 puede explicar realmente la reunión, en comparación con la variación ordinaria semana a semana?</li>
+<li>Si Diego elige la opción 1, ¿qué es probable que enfrente cuando los números del próximo mes se normalicen aún más, o cuando los datos de otro equipo lo contradigan?</li>
+<li>¿Cómo se vería una prueba justa de &quot;¿funciona la reunión?&quot;, dado que Diego no puede correr a su equipo dos veces bajo condiciones idénticas?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de tasa base y verificación de muestra para decisiones de piso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de tasa base y verificación de muestra para decisiones de piso</h2>
+<p>Usa esto en el taller o impreso para el piso. Corre un lienzo por cada número inusual antes de actuar sobre él o explicarlo.</p>
+<h3>1. El número (una oración)</h3>
+<p>¿A qué resultado estoy reaccionando, y qué decisión impulsa?</p>
+<h3>2. Verificación de muestra</h3>
+<div class="table-wrap"><table>
+<tr><th>Disparador</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Muestra pequeña — ¿esto se basa en un puñado de unidades, un turno o una persona?</td><td></td><td></td></tr>
+<tr><td>Resultado récord — ¿este es el mejor o peor resultado registrado para esta línea, persona o estación?</td><td></td><td></td></tr>
+<tr><td>Historia ya lista — ¿una causa ya se siente obvia antes de haber verificado la línea base?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero disparadores presentes:</strong> Actúa sobre el número. Anótalo y sigue adelante.</li>
+<li><strong>Un disparador presente:</strong> Corre la verificación estructurada de abajo antes de actuar o explicar.</li>
+<li><strong>Dos o más disparadores presentes:</strong> Se requiere verificación completa; retén el veredicto hasta tener un segundo dato o la comparación de línea base.</li>
+</ul>
+<h3>4. Verificación estructurada (cuando se requiere)</h3>
+<ol>
+<li>¿Cuál es la línea base o tasa histórica para esta línea, estación o persona exacta?</li>
+<li>¿Podría una muestra de este tamaño producir este resultado solo por azar, sin ningún cambio real detrás?</li>
+<li>Si espero un retroceso hacia lo normal en el próximo periodo, ¿cómo se vería eso—y estoy listo para no tratarlo como un problema nuevo?</li>
+<li>¿La tasa base para este tipo de oscilación lo explica, antes de que acepte la primera historia causal ofrecida?</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que la verificación ocurrió (pizarra, entrada de registro, nota de revisión de operaciones)?</p>
+<h3>6. Responsable cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que la verificación no desaparezca cuando no estés presente:</p>
+<h3>7. Nota posterior a la acción</h3>
+<p>¿El siguiente dato confirmó un cambio real, o un retroceso hacia lo normal? Agrega una línea al registro de turno de cualquier manera.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender una verificación de muestra ante un par que quiere un veredicto</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender una verificación de muestra ante un par que quiere un veredicto</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger una verificación breve de línea base y muestra sobre un número de piso llamativo sin detener el turno ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Responsable de la verificación)</strong></p>
+<p>Acaba de llegar un número que se ve dramático—una tasa de defectos de un chequeo puntual, una semana récord buena o mala. Quieres compararlo con la línea base y el tamaño de muestra antes de dar un veredicto. No debes omitir la verificación solo para evitar friction, y no debes convertirla en una demora abierta.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo el mismo plazo y crees que &quot;el número es el número, actúa ahora&quot;. Presionas por un veredicto inmediato y tratas la verificación como cuestionamiento innecesario o demora. Solo cederás si el Responsable de la verificación nombra el disparador específico (muestra pequeña, resultado récord, o historia ya lista) y propone una verificación concreta y con tiempo límite.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Responsable de la verificación asegurar un acuerdo para una comparación breve de línea base sobre un número específico sin que el par escale por encima de ellos o sin que la ventana de decisión se cierre más allá de lo recuperable?</p>
+<h3>Notas para el facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): El par presiona por el veredicto inmediato; el Responsable de la verificación responde.</li>
+<li>Ronda 2 (8 min): El Responsable de la verificación nombra el disparador específico y propone una verificación de línea base con tiempo límite.</li>
+<li>Debrief (10 min): ¿Dónde estuvo el Responsable de la verificación cerca de ceder y dar el veredicto de todos modos? ¿Qué lenguaje realmente conectó con el par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de verificación de números bajo presión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de verificación de números bajo presión</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar cómo asegurar el respaldo para una regla permanente de verificación de línea base y muestra cuando múltiples interesados quieren un veredicto rápido sobre cada número llamativo.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para una regla permanente: cualquier número que sea una muestra pequeña, un resultado récord, o que venga emparejado con una historia causal ya lista recibe una verificación breve de línea base con tiempo límite antes de impulsar una decisión o una implementación en toda la planta.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Medido por producción y programas de embarque; ve cualquier pausa en una decisión basada en números como tiempo perdido y llama al ritual &quot;pensar de más un número simple&quot;.</li>
+<li><strong>Analista de calidad o de datos (escéptico):</strong> Apoya la idea en principio pero necesita disparadores nombrados para cuándo aplica la verificación, además de un tiempo límite fijo, para que no pueda usarse para demorar cada decisión indefinidamente.</li>
+<li><strong>Supervisor par (aliado o indeciso):</strong> Apoyará el ritual si no ralentiza números que genuinamente no necesitan verificación, y si no se usa para descartar en silencio resultados inconvenientes.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una verificación de línea base nombrada y con tiempo límite para números genuinamente ambiguos sin verse lento ante el gerente de operaciones o vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Disparadores nombrados (muestra pequeña, resultado récord, historia ya lista), no un &quot;no confiemos en ningún número&quot; general</li>
+<li>Un tiempo límite fijo para la verificación, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la verificación y si confirmó un cambio real o un retroceso a lo normal</li>
+<li>Ninguna excepción silenciosa donde un resultado inconveniente se salte la verificación mientras uno conveniente no lo haga</li>
+</ul>
+<h3>Preguntas de debrief</h3>
+<ol>
+<li>¿Qué argumento conectó con el gerente de operaciones en comparación con el analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;verificar la línea base&quot; en un lenguaje que se lee como control de riesgo, no como lentitud?</li>
+<li>¿Qué causaría que el ritual desaparezca en silencio durante la próxima semana récord o crisis—y quién es responsable de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Leer los números sin engañarte a ti mismo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Leer los números sin engañarte a ti mismo</h2>
+<p><strong>Meta de la unidad:</strong> Leer los números de piso sin confiar demasiado en muestras pequeñas, esperar un retroceso después de un valor atípico, sopesar las tasas base frente a historias causales prolijas, y dejar que una regla verificada maneje las decisiones recurrentes.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Las muestras pequeñas oscilan fuerte:</strong> un puñado de observaciones puede producir una tasa de apariencia dramática solo por azar—verifica el conteo antes de reaccionar al número.</li>
+<li><strong>Regresión a la media:</strong> un resultado inusualmente bueno o malo tiende a ser seguido por un resultado más cercano al promedio, sin que se requiera una causa.</li>
+<li><strong>Tasa base antes que historia:</strong> una explicación causal plausible puede dominar la explicación más simple de que esta oscilación ocurre de todos modos algunas veces.</li>
+<li><strong>La fórmula vence al instinto en lo que se repite:</strong> para decisiones que tomas a menudo, una regla simple y aplicada de manera consistente supera al juicio caso por caso; anúlala solo por un hecho nuevo genuinamente decisivo.</li>
+</ul>
+<h3>Lista de verificación para líderes de primera línea</h3>
+<ol>
+<li>Antes de reaccionar a una tasa de defectos, una oscilación de producción o un pico de asistencia, pregunta sobre cuántas observaciones se basa.</li>
+<li>Después de un resultado récord bueno o malo, espera que el próximo resultado se acerque a lo normal—no asignes una causa a una oscilación que la regresión sola predice.</li>
+<li>Pregunta cuál es la tasa base para este tipo de oscilación antes de aceptar la primera historia causal ofrecida.</li>
+<li>Para decisiones que tomas repetidamente, escribe la regla y síguela por defecto; registra cualquier anulación con la razón específica.</li>
+<li>Protege la pregunta sobre el tamaño de la muestra cuando un compañero la plantee, incluso bajo presión de plazos—es una verificación, no una demora.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué &quot;gran semana&quot; o &quot;mala semana&quot; reciente en tu piso explicaste con una historia, cuando una tasa base o una muestra pequeña podrían explicarla igual de bien?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger la verificación de números antes del próximo pico</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Anclaje cognitivo y deliberación · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

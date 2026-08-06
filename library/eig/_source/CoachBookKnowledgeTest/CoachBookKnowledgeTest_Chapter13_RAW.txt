@@ -1,0 +1,221 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which brain structure is primarily responsible for the overreactive fear responses observed in PTSD, as mentioned in the chapter?",
+    "options": ["Amygdala", "Prefrontal Cortex", "Cerebellum", "Basal Ganglia"],
+    "correct_answer_text": "Amygdala",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Emotional Hijacking is best defined as which of the following?",
+    "options": ["The process where rational memory is formed", "The imprinting of vivid, unyielding fear responses on memory", "A calm recollection of events", "A method used solely for children"],
+    "correct_answer_text": "The imprinting of vivid, unyielding fear responses on memory",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which neural structures are included in the limbic circuitry as described in the chapter?",
+    "options": ["Amygdala, Hippocampus, Locus Ceruleus", "Prefrontal Cortex, Thalamus, Occipital Lobe", "Cerebellum, Brainstem, Basal Ganglia", "Temporal Lobe, Parietal Lobe, Frontal Lobe"],
+    "correct_answer_text": "Amygdala, Hippocampus, Locus Ceruleus",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Cortical relearning involves the suppression of amygdala-driven responses by which brain region?",
+    "options": ["Amygdala", "Hippocampus", "Prefrontal Cortex", "Locus Ceruleus"],
+    "correct_answer_text": "Prefrontal Cortex",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which neurochemicals are specifically mentioned as being dysregulated in trauma-related symptoms?",
+    "options": ["Dopamine and Serotonin", "Catecholamines, CRF, and Endorphins", "Acetylcholine and GABA", "Glutamate and Glycine"],
+    "correct_answer_text": "Catecholamines, CRF, and Endorphins",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Therapeutic retraining, as described in the chapter, primarily involves which process?",
+    "options": ["Ignoring traumatic memories", "Immediate re-exposure to trauma cues", "Retelling, reconstructing, and gradually mastering traumatic memories", "Suppressing emotional memory entirely"],
+    "correct_answer_text": "Retelling, reconstructing, and gradually mastering traumatic memories",
+    "correct_key": "C"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Symbolic Expression in therapy is used to process trauma by utilizing which mediums?",
+    "options": ["Verbal debates", "Art and play", "Strict logical reasoning", "Mathematical exercises"],
+    "correct_answer_text": "Art and play",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which actionable step is recommended for establishing safety in trauma patients?",
+    "options": ["Increasing exposure to traumatic cues", "Educating patients about PTSD symptoms", "Isolating patients from social networks", "Suppressing discussions about trauma"],
+    "correct_answer_text": "Educating patients about PTSD symptoms",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "What is a key component of rebuilding control for patients dealing with trauma?",
+    "options": ["Mobilizing social support networks", "Avoiding all social interactions", "Exclusive reliance on medication", "Immediate high-intensity exposure"],
+    "correct_answer_text": "Mobilizing social support networks",
+    "correct_key": "A"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Facilitating Cognitive Relearning requires the controlled retelling of the traumatic event under which condition?",
+    "options": ["Under peer guidance", "In an unstructured environment", "Under professional guidance", "Without any guidance"],
+    "correct_answer_text": "Under professional guidance",
+    "correct_key": "C"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "What is the primary purpose of using pacing techniques during trauma therapy?",
+    "options": ["To accelerate trauma exposure", "To balance reimmersion with periods of respite", "To completely avoid re-exposure", "To increase the intensity of re-traumatization"],
+    "correct_answer_text": "To balance reimmersion with periods of respite",
+    "correct_key": "B"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Gradual reintegration in trauma therapy aims to replace trauma-driven responses with what?",
+    "options": ["Increased fear responses", "Healthy emotional patterns", "Unstructured emotional expression", "Overreactive physical responses"],
+    "correct_answer_text": "Healthy emotional patterns",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "According to the chapter, trauma-induced changes in brain circuitry primarily undermine the capacity for what?",
+    "options": ["Enhanced memory recall", "Logical reasoning", "Normal, adaptive emotional responses", "Mathematical problem solving"],
+    "correct_answer_text": "Normal, adaptive emotional responses",
+    "correct_key": "C"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "Fear extinction as discussed in the chapter is most closely associated with which process?",
+    "options": ["Motor skill relearning", "Cognitive relearning of non-fearful associations", "Suppression of all emotional memories", "Recall of detailed traumatic events"],
+    "correct_answer_text": "Cognitive relearning of non-fearful associations",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "Which actionable step involves the use of relaxation techniques and medication in trauma treatment?",
+    "options": ["Facilitating Cognitive Relearning", "Establishing Safety", "Rebuilding Control", "Utilizing Symbolic Expression"],
+    "correct_answer_text": "Establishing Safety",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The chapter states that a hyperactive amygdala is a hallmark of PTSD.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Emotional Hijacking leads to unemotional and balanced memory imprints.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Limbic Circuitry, as defined in the chapter, includes the amygdala, hippocampus, and locus ceruleus.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Cortical Relearning involves the prefrontal cortex helping to suppress responses initiated by the amygdala.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Neurochemical Dysregulation in trauma is solely about imbalances in dopamine levels.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Therapeutic Retraining in trauma therapy involves the gradual process of retelling and mastering traumatic memories.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Symbolic Expression as described in the chapter is used primarily for adults and is not appropriate for children.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Educating patients about PTSD symptoms is considered an important step in establishing safety.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Rebuilding Control does not involve mobilizing social support networks in the treatment process.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Facilitating Cognitive Relearning includes the controlled retelling of traumatic events under professional guidance.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Pacing techniques in trauma therapy are used to prevent overwhelming re-traumatization.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Gradual Reintegration aims to replace trauma-driven responses with unhealthy emotional patterns.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 28,
+    "type": "TF

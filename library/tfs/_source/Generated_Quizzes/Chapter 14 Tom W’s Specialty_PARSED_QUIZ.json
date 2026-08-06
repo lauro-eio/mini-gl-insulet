@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Base Rate is defined as the proportion of cases in a given population used as a foundational probability. Which option best describes this concept?",
+    "options": [
+      "The percentage of cases in a specific population used as a foundational probability",
+      "A mental shortcut based on stereotypes",
+      "The tendency to use immediately available information only",
+      "A statistical method for updating beliefs using evidence"
+    ],
+    "correct_answer_text": "The percentage of cases in a specific population used as a foundational probability",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following options most accurately describes the Representativeness Heuristic?",
+    "options": [
+      "A statistical method for updating probability using base rates and evidence",
+      "A mental shortcut where probabilities are judged by comparing similarities to a stereotype",
+      "The process of adjusting beliefs by anchoring on base rates",
+      "An approach that involves slow, analytical processing to assess similarities"
+    ],
+    "correct_answer_text": "A mental shortcut where probabilities are judged by comparing similarities to a stereotype",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Regarding the dual-process framework, which option correctly distinguishes System 1 from System 2?",
+    "options": [
+      "System 1 is slow and analytical while System 2 is fast and intuitive",
+      "System 1 is fast, automatic, and intuitive; System 2 is slow, deliberate, and analytical",
+      "Both System 1 and System 2 operate at the same speed but use different reasoning patterns",
+      "System 1 uses statistical reasoning whereas System 2 relies on heuristics and stereotypes"
+    ],
+    "correct_answer_text": "System 1 is fast, automatic, and intuitive; System 2 is slow, deliberate, and analytical",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "In the context of Bayesian Reasoning, which term refers to the degree to which a piece of evidence supports one hypothesis over alternative hypotheses?",
+    "options": [
+      "Base Rate",
+      "Representativeness",
+      "Diagnosticity",
+      "WYSIATI"
+    ],
+    "correct_answer_text": "Diagnosticity",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "WYSIATI stands for \"What You See Is All There Is\" and indicates that decision-makers rely solely on the information immediately available to them.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Base-Rate Neglect refers to the proper utilization and incorporation of statistical base rate information in probability judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "In the dual-process interaction model, System 2 is characterized by fast, automatic, and intuitive thinking.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Relying on Base Rates implies that in the absence of specific evidence, the probability estimate of an outcome should be based on the known proportions within the relevant population.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

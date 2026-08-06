@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is known for its fast, automatic operations that require minimal effort. Which option describes this system?",
+    "options": [
+      "System 1",
+      "System 2",
+      "Cognitive Illusions",
+      "Müller-Lyer Illusion"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which system is characterized by a slow, deliberate approach that demands effort, attention, and conscious control?",
+    "options": [
+      "System 1",
+      "System 2",
+      "Müller-Lyer Illusion",
+      "Cognitive Illusions"
+    ],
+    "correct_answer_text": "System 2",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "The Müller-Lyer Illusion is best described as:",
+    "options": [
+      "A phenomenon where contextual fins cause lines of equal length to appear different",
+      "An error in intuitive judgment despite contradictory evidence",
+      "A representation of automatic emotional responses",
+      "A depiction of slow, deliberate processing steps"
+    ],
+    "correct_answer_text": "A phenomenon where contextual fins cause lines of equal length to appear different",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which statement best encapsulates the concept of Cognitive Illusions?",
+    "options": [
+      "They are errors in intuitive judgments that persist even in the face of contradictory evidence",
+      "They describe the visual distortions seen in optical illusions",
+      "They refer to the rapid, effortless decisions made by System 1",
+      "They exemplify the controlled analysis conducted by System 2"
+    ],
+    "correct_answer_text": "They are errors in intuitive judgments that persist even in the face of contradictory evidence",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 operates automatically and requires little effort.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Müller-Lyer Illusion demonstrates that lines of identical length can appear different due to the orientation of fins.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Cognitive Illusions refer to thought errors where intuitive judgments result in persistent mistakes even when contradictory evidence is available.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "According to the Division of Labor principle, routine and effortless tasks are managed by System 1 while tasks that require focused attention are handled by System 2.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which of the following best describes the Planning Fallacy?",
+    "options": [
+      "Overestimating the risks in a project",
+      "Underestimating the time, cost, and effort to complete a task due to overly optimistic bias",
+      "Relying on historical data for planning",
+      "Overestimating competitors' capabilities"
+    ],
+    "correct_answer_text": "Underestimating the time, cost, and effort to complete a task due to overly optimistic bias",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Optimistic Bias is best defined as:",
+    "options": [
+      "The tendency to undervalue one’s abilities when planning",
+      "A systematic error leading individuals to view their abilities and the attainability of goals more favorably than is realistic",
+      "Relying solely on immediately available information for decision making",
+      "A proactive technique used to identify potential project failures"
+    ],
+    "correct_answer_text": "A systematic error leading individuals to view their abilities and the attainability of goals more favorably than is realistic",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "The term WYSIATI (\"What You See Is All There Is\") refers to:",
+    "options": [
+      "A process where decision-makers consider all possible variables in decision-making",
+      "A System 1 process focusing solely on readily available information, neglecting unavailable data",
+      "An approach that emphasizes long-term forecasting and risk assessment",
+      "A bias that leads to an underestimation of one’s own abilities"
+    ],
+    "correct_answer_text": "A System 1 process focusing solely on readily available information, neglecting unavailable data",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Regarding the Hubris Hypothesis, which statement is most accurate?",
+    "options": [
+      "It suggests that leaders underestimate their ability to control outcomes",
+      "It indicates that overconfident CEOs overestimate their competence, sometimes making value-destroying decisions",
+      "It is primarily about the tendency to over-plan in project management",
+      "It asserts that decision-making should rely entirely on available data"
+    ],
+    "correct_answer_text": "It indicates that overconfident CEOs overestimate their competence, sometimes making value-destroying decisions",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Planning Fallacy is characterized by underestimating the resources required to complete tasks.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Optimistic Bias leads individuals to assess their capabilities and the attainability of goals more realistically.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "WYSIATI refers to the tendency of decision-makers to rely exclusively on information that is immediately available.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "A premortem is a proactive decision-making technique where a team envisions a future failure and works backward to identify potential risks.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

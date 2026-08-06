@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1. When faced with a sudden stressful event, how do you react?
+ A. I immediately react without thinking.
+ B. I feel overwhelmed for a moment.
+ C. I take a brief pause to check in with my feelings.
+ D. I calmly assess the situation before responding.
+
+Q2. When your emotions surge unexpectedly, what is your first thought?
+ A. “I can’t control this; it just happens.”
+ B. “I must act right away before it escalates.”
+ C. “Maybe I should take a moment to breathe.”
+ D. “I’ll process these feelings and choose the best response.”
+
+Q3. How do you usually handle constructive criticism?
+ A. I react defensively and impulsively.
+ B. I feel hurt and dwell on the negatives.
+ C. I reflect privately on the feedback.
+ D. I use it as fuel for self-improvement.
+
+Q4. When unexpected praise comes your way, you tend to:
+ A. Burst out with unfiltered joy immediately.
+ B. Enjoy it momentarily, then shrug it off.
+ C. Savor it briefly while thinking about its meaning.
+ D. Reflect deeply to let it fuel balanced growth.
+
+Q5. In tense team meetings when conflict arises, you:
+ A. Jump in with a confrontational reaction.
+ B. Internalize the stress and withdraw.
+ C. Pause and consider the best way forward.
+ D. Calmly mediate by regulating your response.
+
+Q6. At the sight of a potential threat, your response is to:
+ A. Let fear immediately take over.
+ B. Feel anxious but remain mostly silent.
+ C. Notice your feelings and try a measured reaction.
+ D. Quickly activate coping strategies to stay composed.
+
+Q7. Under pressure at work or in life, how do you manage your emotions?
+ A. I lose control and act on impulse.
+ B. I sometimes let stress get the better of me.
+ C. I try to pause for a moment, though it’s not always easy.
+ D. I use effective techniques to maintain calm and clarity.
+
+Q8. After making a significant decision, you usually:
+ A. Rarely think about it, having acted on impulse.
+ B. Dwell on it with regret or doubt.
+ C. Reflect on it and consider what could be improved.
+ D. Analyze the outcome to refine future choices.
+
+Q9. In the midst of a conflict, your immediate action is to:
+ A. Lash out before rational thought can intervene.
+ B. Allow anger to surge uncontrollably.
+ C. Take a pause to determine the best approach.
+ D. Temper your reaction swiftly with diplomacy.
+
+Q10. Faced with challenging news that stirs strong emotions, you:
+ A. Instantly resort to an emotional outburst.
+ B. Internalize the shock without fully understanding it.
+ C. Acknowledge your feelings and slowly seek clarity.
+ D. Use it as an opportunity to practice and enhance your regulation skills.
+
+Q11. When you notice your “gut reaction” has taken hold, you:
+ A. Stay stuck in that initial impulse.
+ B. Struggle with it and later feel remorse.
+ C. Recognize it and work to adjust your response.
+ D. Confront it head-on using mindfulness techniques.
+
+Q12. In your daily life, which statement best describes how you handle surprise challenges?
+ A. I tend to be reactive and impulsive.
+ B. I often feel overwhelmed by sudden changes.
+ C. I make an effort to pause and reflect.
+ D. I consistently take a mindful, strategic approach to surprises.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Emotionally Hijacked: (Score 12-21) — You often find yourself at the mercy of your ancient emotional wiring, reacting impulsively before reason gets a chance to step in. Your responses can be unpredictable, sometimes leading to conflict or missed opportunities for clarity. It might feel as though your emotions are in the driver’s seat most of the time. Don’t worry, though—recognition is the first step toward change!
+
+2. The Emerging Realist: (Score 22-30) — You’re beginning to notice the tug-of-war between gut reactions and thoughtful responses. At times, you manage to pause and reflect, but there's still room to build stronger emotional regulation habits. Your journey toward a balanced mind is underway, with small victories showing that you can harness those instinctive impulses. Keep nurturing your growing awareness for even greater control!
+
+3. The Balanced Navigator: (Score 31-39) — You show a commendable balance between feeling and thinking. You’re frequently able to detect when your amygdala is about to hijack your rational mind, and you take steps to maintain calm and clarity. This awareness empowers you to navigate conflict and uncertainty with poise, enhancing both personal and professional relationships. With continued practice, your resilience will only strengthen further!
+
+4. The Mastery Level: (Score 40-48) — You exemplify emotional mastery by skillfully balancing instinct with thoughtful regulation. Your ability to recognize, reflect, and respond mindfully means that challenges rarely derail you. You leverage your deep understanding of the ancient neural system to make decisions that are both swift and well-considered. Your approach not only enhances your own performance but also inspires those around you to aim for similar excellence!

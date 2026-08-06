@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytical Deliberation — Cognitive Anchors &amp; Deliberation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Cognitive Anchors &amp; Deliberation</p>
+      <h1>Analytical Deliberation</h1>
+      <p class="hero-lead">Help frontline leaders notice when snap judgment is driving floor decisions and deliberately engage slower analysis when stakes or ambiguity are high.</p>
+      <div class="hero-meta">
+        <span>TFS · U01</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Two Speeds of Judgment: What the Evidence Says A</a>
+<a href="#opinion">The Ticket I Almost Closed by Instinct</a>
+<a href="#assessment">Self-Assessment — Are You Running on Autopilot o</a>
+<a href="#case-1">Case 1 — Marcus and the Line Stoppage Call</a>
+<a href="#case-2">Case 2 — Aisha&#x27;s Snap Call on a Safety Override</a>
+<a href="#framework">Framework — Fast vs. Slow Decision Check Canvas</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Pause to a Peer Who </a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Check Ritua</a>
+<a href="#key-notes">Key Notes — Two Speeds of Floor Judgment</a>
+<a href="#commitment">Commitment — Naming the Pause Before It&#x27;s Needed</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Two Speeds of Judgment: What the Evidence Says About Snap Calls and Slow Checks</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Two Speeds of Judgment: What the Evidence Says About Snap Calls and Slow Checks</h2>
+<p>Frontline leaders make dozens of calls a shift: pull a picker off task, wave a shipment through, escalate a jam versus clear it themselves. Most of these calls are made fast, and most of the time fast is right. Cognitive science has spent decades mapping when fast judgment holds up and when it quietly fails.</p>
+<h3>Two systems, one brain</h3>
+<p>Researchers describe two broad modes of thinking. One is automatic, associative, and nearly effortless: it recognizes a familiar pattern and answers before a person has consciously &quot;decided&quot; anything. The other is slower, deliberate, and effortful: it checks assumptions, weighs alternatives, and can override the first answer. Psychologists label these System 1 and System 2 processing (Kahneman &amp; Tversky, 1974; Evans, 2008). Neither system is superior. Each fits different conditions.</p>
+<h3>When fast is right</h3>
+<p>Gary Klein&#x27;s field studies of firefighters, nurses, and other high-stakes operators found that experienced practitioners often make strong snap decisions by matching a live situation to patterns they have seen before—a process called recognition-primed decision-making (Klein, 1993). Kahneman and Klein (2009), in a paper written jointly to resolve their long-standing disagreement on this point, concluded that fast intuition earns trust when two conditions hold: the environment is regular enough to contain learnable patterns, and the person has had enough repeated practice with feedback to learn them. A supervisor who has run hundreds of similar shift handoffs has earned fast judgment on shift handoffs specifically.</p>
+<h3>When fast fails</h3>
+<p>The same regularity that makes intuition reliable in familiar territory makes it unreliable outside it. Kahneman and Tversky&#x27;s foundational research catalogued specific ways fast judgment misfires under uncertainty: anchoring on the first number offered, overweighting a vivid recent case, and mistaking a confident feeling for an accurate one (Kahneman &amp; Tversky, 1974). Stanovich and West (2000) found these errors persist even among capable, motivated people—the issue is rarely intelligence; it is which system got engaged. Croskerry&#x27;s work on diagnostic reasoning in medicine, a field where fast pattern-matching and rare, costly misses coexist daily, found that practitioners who ran a brief structured second pass caught errors that intuition alone missed, particularly on atypical or high-stakes cases (Croskerry, 2009).</p>
+<h3>The floor version of the switch</h3>
+<p>For a frontline leader, the practical question is not &quot;should I trust my gut,&quot; but &quot;does this situation match the conditions under which my gut has actually been trained.&quot; Three conditions predict when a deliberate check earns back its cost in time:</p>
+<ol>
+<li><strong>Novelty</strong>—this scenario does not closely match ones handled repeatedly before.</li>
+<li><strong>Stakes</strong>—a wrong call is costly, hard to reverse, or touches safety.</li>
+<li><strong>Conflicting signals</strong>—instinct and the data in front of a person disagree.</li>
+</ol>
+<p>When none of the three are present, fast judgment is typically efficient and correct. When even one is strongly present, the evidence favors a brief, structured pause—not paralysis, but a deliberate second pass before committing.</p>
+<h3>What this means for supervisors</h3>
+<p>Build a habit of naming which system is driving a call, out loud when useful, before acting on high-novelty or high-stakes decisions. The goal is not to slow every decision down; that would make a leader the bottleneck. The goal is to protect deliberate checking specifically for the calls where fast judgment has not yet earned trust.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Kahneman, D., &amp; Tversky, A. (1974). Judgment under uncertainty: Heuristics and biases. <em>Science, 185</em>(4157), 1124–1131.</li>
+<li>Kahneman, D., &amp; Klein, G. (2009). Conditions for intuitive expertise: A failure to disagree. <em>American Psychologist, 64</em>(6), 515–526.</li>
+<li>Klein, G. (1993). A recognition-primed decision (RPD) model of rapid decision making. In G. A. Klein, J. Orasanu, R. Calderwood, &amp; C. E. Zsambok (Eds.), <em>Decision Making in Action: Models and Methods</em>. Ablex.</li>
+<li>Evans, J. St. B. T. (2008). Dual-processing accounts of reasoning, judgment, and social cognition. <em>Annual Review of Psychology, 59</em>, 255–278.</li>
+<li>Stanovich, K. E., &amp; West, R. F. (2000). Individual differences in reasoning: Implications for the rationality debate. <em>Behavioral and Brain Sciences, 23</em>(5), 645–665.</li>
+<li>Croskerry, P. (2009). A universal model of diagnostic reasoning. <em>Academic Medicine, 84</em>(8), 1022–1028.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Ticket I Almost Closed by Instinct</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Ticket I Almost Closed by Instinct</h2>
+<p>I have closed thousands of tickets by feel. Most of the time feel is right—that is what years on this floor bought me. But last month feel almost cost us a recall.</p>
+<p>A pallet came through with a label mismatch, the kind we see weekly, always the same fix: repull, relabel, move on. My hand was on the &quot;resolved&quot; button in maybe ten seconds. Then Priya, who had been on the line two months, said, &quot;Wait, this SKU is on the hold list from Tuesday&#x27;s memo.&quot;</p>
+<p>I did not remember a hold list. My gut said &quot;same problem, same fix&quot; because the pattern looked identical. It was not. The batch carried a supplier defect flag that only showed up if you opened the second tab in the tracking system, invisible on the label itself.</p>
+<p>That is the moment I started paying attention to which speed I am running on. Most of my calls are the fast kind, and they should stay fast. I have made this exact call correctly hundreds of times, and slowing every one down would just make me the bottleneck everyone waits on. But a few calls a week do not match anything I have truly practiced, or the cost of being wrong is high, or something in front of me quietly disagrees with my gut. Those are the calls where fast is a liability, not a skill.</p>
+<p>Now, before I resolve anything unfamiliar or costly, I ask myself one question: have I actually handled this exact pattern before, or does it just look like something I have handled before? If the honest answer is &quot;it just looks similar,&quot; I take the extra ninety seconds the slow pass requires: the second tab, the hold list, the shift log, whatever applies.</p>
+<p>Priya&#x27;s catch did not feel like a compliment at the time. It felt like she had caught me being careless. She had not. She had caught me being fast on a call that needed slow. I told the team that afternoon: the goal is not to double-check everything, that would grind the floor to a halt. The goal is to notice the handful of moments each shift where instinct is guessing, not remembering, and to buy the ninety seconds before the button, not after.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Are You Running on Autopilot or Analysis?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Marcus and the Line Stoppage Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Marcus and the Line Stoppage Call</h2>
+<h3>Opening</h3>
+<p>Marcus supervises the second shift on a small-parts assembly line at a mid-sized manufacturer. He has run this line for three years and can diagnose most jams by sound alone. Ninety percent of stoppages trace back to one cause: a sensor at station 4 drifting out of alignment. His fix takes ninety seconds and he has done it hundreds of times without needing to check anything else.</p>
+<h3>Context</h3>
+<p>Tonight the line stops at 11:40 p.m. with the same alarm code Marcus has seen a hundred times before. His hand is already reaching for the sensor reset. A newer technician, Devon, mentions that maintenance swapped a different component upstream two nights ago—something Marcus was off-shift for and never heard about. The alarm looks identical to the usual sensor drift, but the underlying cause this time could be entirely different: a mounting bracket from the new component, not the sensor at all.</p>
+<p>Resetting the sensor when the real problem is the bracket would clear the alarm temporarily and let the line restart—then fail again within the hour, likely during the busiest stretch of the shift, and with a small chance of a part misalignment reaching packout undetected.</p>
+<h3>Decision point</h3>
+<p>Marcus can:</p>
+<ol>
+<li>Reset the sensor immediately, the way he always does, and get the line moving in ninety seconds.</li>
+<li>Take four extra minutes to check the maintenance log and inspect the new component before touching anything.</li>
+<li>Reset the sensor now to restart the line, and quietly schedule a bracket inspection for the next scheduled pause—accepting the small risk of a repeat stoppage or an undetected defect in between.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What made tonight&#x27;s alarm look identical to the usual case, and what evidence actually distinguishes them?</li>
+<li>Which of the three conditions—novelty, stakes, or conflicting signals—applies here, and how strongly?</li>
+<li>If Marcus chooses option 2, how should he explain the four-minute delay to a shift lead who is watching the line-down clock?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Aisha&#x27;s Snap Call on a Safety Override</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Aisha&#x27;s Snap Call on a Safety Override</h2>
+<h3>Opening</h3>
+<p>Aisha coordinates a warehouse dock crew of nine. A recurring nuisance alarm on dock door 3 trips whenever a pallet jack passes too close to the sensor, even with no real obstruction. Crew members routinely override it and move on—Aisha has approved that override herself at least twice a week for a year with no incident.</p>
+<h3>Context</h3>
+<p>A rush truck is loading against a hard cutoff. Dock door 3 trips again. The crew lead radios Aisha for the override, the same request she has granted without hesitation dozens of times. This time, the alarm log on her handheld shows a slightly different error code than the usual nuisance trip—one she has not seen paired with this door before. She has forty seconds before the crew moves ahead on habit alone, override or not, because they have learned that Aisha always says yes.</p>
+<p>Her floor&#x27;s overrides over the past quarter, tracked in the shift log, look like this:</p>
+<div class="table-wrap"><table>
+<tr><th>Week</th><th>Overrides granted</th><th>Overrides later found to mask a real fault</th></tr>
+<tr><td>1–8</td><td>15 total</td><td>0</td></tr>
+<tr><td>9</td><td>2</td><td>0</td></tr>
+<tr><td>10</td><td>2</td><td>1 (different error code, same door)</td></tr>
+</table></div>
+<h3>Decision point</h3>
+<p>Aisha can:</p>
+<ol>
+<li>Approve the override immediately, consistent with a year of correct calls on this exact door.</li>
+<li>Radio a hold, walk to the door, and read the sensor housing herself before deciding—delaying the load by a few minutes.</li>
+<li>Approve the override for now to protect the cutoff, and flag the door for an inspection before the next shift, accepting the risk in between.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What single detail turned a routine override into a case worth a second look, and would the crew have noticed it without Aisha?</li>
+<li>How should Aisha weigh a rush cutoff against a low-probability, high-consequence safety risk?</li>
+<li>Design a floor cue that would let any crew member flag &quot;this override looks slightly different&quot; without slowing down every normal override.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Fast vs. Slow Decision Check Canvas</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Fast vs. Slow Decision Check Canvas</h2>
+<p>Use in workshop or print for the floor. Run one canvas per decision you are unsure about before you act.</p>
+<h3>1. The call (one sentence)</h3>
+<p>What decision am I about to make, right now?</p>
+<h3>2. Speed check</h3>
+<div class="table-wrap"><table>
+<tr><th>Trigger</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Novelty — does this differ from cases I have truly handled before?</td><td></td><td></td></tr>
+<tr><td>Stakes — is a wrong call costly, hard to reverse, or safety-related?</td><td></td><td></td></tr>
+<tr><td>Conflicting signals — does my instinct disagree with the data in front of me?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero triggers present:</strong> Proceed on fast judgment. Note it and move on.</li>
+<li><strong>One trigger present:</strong> Take the short structured check below before acting.</li>
+<li><strong>Two or more triggers present:</strong> Full check required; escalate if you cannot resolve it in the time available.</li>
+</ul>
+<h3>4. Structured check (when required)</h3>
+<ol>
+<li>What specific evidence would confirm this matches a pattern I have handled before?</li>
+<li>What is the one source I have not looked at yet (log, second tab, prior shift note)?</li>
+<li>Who else has seen this exact situation, and what did they see?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see that a check happened (board, radio call, log entry)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the check does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>What made this call fast-worthy or slow-worthy? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Pause to a Peer Who Wants Speed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Pause to a Peer Who Wants Speed</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief structured check on a high-stakes or unfamiliar call without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Pause Owner)</strong></p>
+<p>You have flagged a call as novel, high-stakes, or conflicting with the data, and you want a short check before committing. You must not skip the check just to avoid friction, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same deadline and believe &quot;we&#x27;ve done this a hundred times, just call it.&quot; You push for the fast path and treat the pause as second-guessing. You will back off only if the Pause Owner names a specific trigger and gives a concrete time-boxed check.</p>
+<h3>Conflict</h3>
+<p>Can the Pause Owner secure agreement for a two-to-four-minute check on one specific call without the peer escalating over their head or the deadline slipping past recovery?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for the fast call; Pause Owner responds.</li>
+<li>Round 2 (8 min): Pause Owner names the specific trigger (novelty, stakes, or conflict) and proposes a time-boxed check.</li>
+<li>Debrief (10 min): Where did the Pause Owner nearly fold under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Check Ritual Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Check Ritual Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected pause-and-check ritual when multiple stakeholders want the floor to keep moving at full speed.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any call with novelty, high stakes, or conflicting signals gets a short, time-boxed check before action.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any pause as lost minutes and calls the ritual &quot;second-guessing the team.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when the check applies, plus a clear time box so it cannot be used to stall indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down calls that genuinely do not need it, and if it does not quietly shift extra work onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed check for genuinely risky calls without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (novelty, stakes, conflicting signals), not a blanket &quot;when in doubt, pause&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of when the check was used and what it caught or ruled out</li>
+<li>No secret second process that contradicts the agreed ritual under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;pause&quot; into language that reads as risk control, not hesitation?</li>
+<li>What would cause the ritual to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Two Speeds of Floor Judgment</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Two Speeds of Floor Judgment</h2>
+<p><strong>Unit goal:</strong> Notice when snap judgment is driving a floor decision and deliberately engage slower analysis when stakes or ambiguity are high.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Two systems:</strong> automatic, fast pattern-matching versus deliberate, slow checking—each fits different conditions, neither is &quot;better.&quot;</li>
+<li><strong>Earned trust:</strong> fast judgment is reliable only on patterns you have handled repeatedly with feedback, not on general experience.</li>
+<li><strong>Three triggers for slow:</strong> novelty, high stakes, and conflicting signals between instinct and the data in front of you.</li>
+<li><strong>A brief structured pause beats both extremes:</strong> never checking, and checking everything.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before acting fast on an unfamiliar or costly call, ask: have I truly handled this exact pattern, or does it just resemble one I have?</li>
+<li>Name which system is driving the call—fast recognition or slow check—out loud when it helps the team.</li>
+<li>Keep one visible cue on the floor for &quot;this needs the slow pass&quot; (checklist, hold list, second-tab lookup).</li>
+<li>Protect the pause when a teammate flags a mismatch; do not let time pressure shrink it to zero.</li>
+<li>After the shift, note one call you got right fast and one where slow saved you—both sharpen the boundary.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recurring floor decision have you been treating as routine that actually varies enough to deserve the slow pass?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Naming the Pause Before It&#x27;s Needed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Cognitive Anchors &amp; Deliberation · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

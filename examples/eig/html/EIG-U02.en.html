@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders recognize an active hijack in real time — not just the surge before it — and use a brief interrupt to get deliberate judgment back before a floor call locks in the wrong response.</p>
+      <div class="hero-meta">
+        <span>EIG · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">The Low Road and the High Road: What the Evidenc</a>
+<a href="#opinion">The Restart I Almost Forced During the Hijack</a>
+<a href="#assessment">Self-Assessment — Do You Catch the Hijack or Jus</a>
+<a href="#case-1">Case 1 — Grant and the Jammed Line He Wanted to </a>
+<a href="#case-2">Case 2 — Priya and the Escalating Line 3 Call</a>
+<a href="#framework">Framework — Hijack Interrupt Card: Getting the H</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Interrupting a Peer&#x27;s Hijack Wit</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Securing Buy-In for a Hija</a>
+<a href="#key-notes">Key Notes — Catching the Hijack Before It Runs t</a>
+<a href="#commitment">Commitment — Protecting the Hijack Interrupt Bef</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>The Low Road and the High Road: What the Evidence Says About Interrupting a Hijack</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Low Road and the High Road: What the Evidence Says About Interrupting a Hijack</h2>
+<p>A supervisor mid-radio-call stares at one detail on a jammed line and misses three others happening around it. Thirty seconds later, they cannot recall the instruction they gave at the start of the call. Neither failure is a lapse in professionalism. Both are the signature of a specific, well-mapped brain state, and the evidence points to a specific way out of it.</p>
+<h3>Two roads to a response</h3>
+<p>LeDoux&#x27;s mapping of threat circuits describes a fast pathway that reaches the amygdala directly from the senses, and a slower pathway that routes the same input through the cortex for a fuller read of the situation before it drives a response (LeDoux, 2000). Under real pressure, the fast pathway wins the race almost every time. That is not malfunction — it is exactly what the circuit was built to do when speed mattered more than accuracy.</p>
+<h3>Why the fast pathway can lock in</h3>
+<p>Phelps and LeDoux&#x27;s review of amygdala function shows that once this circuit fires, it recruits attention and physiology toward whatever triggered it and away from everything else in the room (Phelps &amp; LeDoux, 2005). This is why a supervisor can fixate on the one detail that provoked them and genuinely not register the other three things a calmer version of themselves would have caught in the same ten seconds.</p>
+<h3>The slower pathway does not just lose the race — it goes offline</h3>
+<p>Arnsten&#x27;s work on stress and the prefrontal cortex found that the same arousal fueling the fast circuit actively impairs the brain region responsible for working memory and deliberate judgment (Arnsten, 2009). A leader mid-hijack is not simply distracted; they are running with measurably reduced capacity to hold the last instruction in mind. This explains a pattern many supervisors recognize on shift: forgetting the second half of a handoff they gave less than a minute earlier.</p>
+<h3>Three markers an active hijack shows on the floor</h3>
+<p>The evidence points to three observable signs, useful because they can be checked in the moment rather than diagnosed after the fact:</p>
+<ol>
+<li><strong>Working memory drops</strong> — the person cannot restate the last step or instruction they just gave or received.</li>
+<li><strong>Options collapse to one</strong> — the same reflexive move surfaces regardless of the specifics, with no real weighing of alternatives.</li>
+<li><strong>Recovery lags</strong> — the reaction visibly outlasts the trigger by minutes, not seconds.</li>
+</ol>
+<p>One marker may be noise. Two or more, especially working memory loss, indicates the fast circuit is currently running the call.</p>
+<h3>Naming interrupts the circuit itself, not just the mood</h3>
+<p>Lieberman and colleagues found that putting a specific word to what a person is feeling measurably reduces amygdala activity while the feeling is still active — not afterward, during (Lieberman et al., 2007). A short label is not a soft coping habit layered on top of the problem. It is a documented way to quiet the circuit that is currently steering the call.</p>
+<h3>Under pressure, behavior defaults to habit</h3>
+<p>Schwabe and Wolf&#x27;s research on stress and memory systems found that acute stress shifts behavior away from deliberate, goal-directed choices and toward whichever response is most habitual for that person — useful when the habit happens to be the right one, costly when it is not (Schwabe &amp; Wolf, 2013). This is one reason the same experienced supervisor can make a sound call on a routine day and a poor one under real pressure: pressure does not erase skill, it routes the decision through a different system.</p>
+<h3>What this means for a floor leader</h3>
+<p>Noticing a surge, the skill from the prior unit, buys a few seconds before a reaction starts. Once a hijack is already running — working memory gone, options collapsed, feeling outlasting the trigger — a leader needs an active interrupt, not a pause: a specific label, then a working-memory question deliberate enough to force the slower circuit back online before the next word leaves their mouth.</p>
+<h3>Selected references</h3>
+<ul>
+<li>LeDoux, J. E. (2000). Emotion circuits in the brain. <em>Annual Review of Neuroscience, 23</em>, 155–184.</li>
+<li>Phelps, E. A., &amp; LeDoux, J. E. (2005). Contributions of the amygdala to emotion processing: From animal models to human behavior. <em>Neuron, 48</em>(2), 175–187.</li>
+<li>Arnsten, A. F. T. (2009). Stress signalling pathways that impair prefrontal cortex structure and function. <em>Nature Reviews Neuroscience, 10</em>(6), 410–422.</li>
+<li>Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., &amp; Way, B. M. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. <em>Psychological Science, 18</em>(5), 421–428.</li>
+<li>Schwabe, L., &amp; Wolf, O. T. (2013). Stress and multiple memory systems: From &quot;thinking&quot; to &quot;doing.&quot; <em>Trends in Cognitive Sciences, 17</em>(2), 60–68.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Restart I Almost Forced During the Hijack</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Restart I Almost Forced During the Hijack</h2>
+<p>The line had jammed for the third time that shift, same feeder, same fault code. I had a customer cutoff in eleven minutes and a mechanic who had already told me twice that it was fixed. When it jammed a third time, something in me just went flat and narrow. I remember walking toward the panel with one thought only: override the interlock myself and force the restart. Not a plan. Not a weighed decision. One move, repeating in my head like it was the only option that existed.</p>
+<p>I had my hand on the panel before I noticed anything was wrong. What stopped me was small and almost embarrassing: I could not remember what I had told the mechanic ten minutes earlier during the safety briefing about that exact feeder. I had run it that morning. I could not get it back. That gap is what made me pause — not good judgment, just the unsettling feeling of reaching for a memory that would not come.</p>
+<p>I said it out loud, to nobody in particular: &quot;I&#x27;m locked on one move here.&quot; Then I made myself answer a real question before touching anything else: what were the last two checks on that feeder, and had either one actually been confirmed. I did not know. That alone should have ended the conversation before it started.</p>
+<p>It turned out the mechanic&#x27;s second fix had not been signed off — he was waiting on a part, and I had walked past that exact detail twice without registering it. If I had forced the restart, I would have run an unconfirmed interlock override on a line that had already jammed twice, to save maybe four minutes, with a mechanic standing right there who could have told me in ten seconds if I had asked instead of reached.</p>
+<p>I do not think the flat, narrow feeling is going away, and I am not sure I would want it to — it shows up because the stakes are real. What I am trying to change is what happens in the ten seconds after it lands. Naming it out loud costs almost nothing. Asking myself a question I actually have to answer, instead of a question I can wave off, costs a few more seconds and forces the slower part of my thinking back into the room.</p>
+<p>I told the mechanic afterward, and I told my own crew the same week: if you notice you cannot recall the last real detail of a situation you are about to act on, that is the signal, not the tightness in your chest. Say it. Ask yourself the question you cannot fake an answer to. Then decide.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Catch the Hijack or Just Ride It Out?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Grant and the Jammed Line He Wanted to Force</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Grant and the Jammed Line He Wanted to Force</h2>
+<h3>Opening</h3>
+<p>Grant supervises a packaging line at a mid-sized bottling plant. The feeder on Line 2 has jammed twice already this shift on the same fault code, and a mechanic named Osei has &quot;fixed&quot; it both times. With a customer cutoff eleven minutes away, the feeder jams a third time. Grant feels something in him go flat and narrow — one thought, on a loop: override the interlock himself and force the restart.</p>
+<h3>Context</h3>
+<p>Grant is already walking toward the panel before he registers anything unusual. What stops him, briefly, is smaller than the urge itself: he cannot recall what he told Osei ten minutes earlier during the safety briefing about this exact feeder. He ran that briefing himself. The detail will not come back. Osei is standing six feet away, holding a part he has not yet installed, waiting for Grant to ask him anything at all.</p>
+<h3>Decision point</h3>
+<p>Grant can:</p>
+<ol>
+<li>Override the interlock himself right now and force the restart, accepting whatever confirmation step he may be skipping in order to hit the cutoff.</li>
+<li>Say out loud that he is locked on one move, ask himself what the last two checks on the feeder actually were, and only act once he has a real answer — even if it costs the cutoff.</li>
+<li>Walk away from the panel entirely, hand the decision to the shift lead on the next line over, and deal with the cutoff conversation afterward.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Which of the three markers — working memory drop, options collapsed to one, or recovery lag — shows up first and most clearly in Grant&#x27;s moment at the panel?</li>
+<li>What does the gap in Grant&#x27;s memory tell him that the tightness in his chest does not?</li>
+<li>If Grant chooses option 2, what exact question does he ask himself in the ten seconds before touching the panel, and what does Osei&#x27;s answer change about the decision?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Priya and the Escalating Line 3 Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Priya and the Escalating Line 3 Call</h2>
+<h3>Opening</h3>
+<p>Priya runs a dispatch control room coordinating eleven delivery drivers for a regional distributor. A customer has been on hold-and-escalate for six minutes over a missed delivery window, and Priya&#x27;s newest dispatcher, Tomas, is on the call with them. Priya notices Tomas&#x27;s voice climb half an octave and hears him start to promise a same-day redelivery that she knows is not physically possible given the routes still on the board.</p>
+<h3>Context</h3>
+<p>Priya&#x27;s first instinct is to grab the headset from Tomas mid-call and take over herself — she can feel the same narrowing in her own chest that she recognizes from her own past hijacks: one move, repeating, &quot;just take the call.&quot; She also notices she cannot restate, right now, which two routes actually have capacity this afternoon, even though she reviewed the board twenty minutes ago. That gap is the marker she has learned to catch.</p>
+<h3>Decision point</h3>
+<p>Priya can:</p>
+<ol>
+<li>Take the headset from Tomas immediately and handle the customer herself, cutting him off mid-sentence in front of the rest of the floor.</li>
+<li>Mute her own instinct for ten seconds, silently check what she actually knows about today&#x27;s route capacity, then hand Tomas a specific, accurate line to say instead of taking the call from him.</li>
+<li>Let Tomas keep going uninterrupted, on the assumption that stepping in at all will undermine him in front of the team, even if the promise he is about to make cannot be kept.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What marker does Priya notice in herself before she notices anything about Tomas, and how does that change what she does next?</li>
+<li>If Priya chooses option 2, what does she say to Tomas in the ten seconds she takes, and how is that different from simply taking over the call?</li>
+<li>How should Priya flag Tomas&#x27;s own hijack — the climbing voice, the promise he cannot keep — in a way that helps him catch it himself next time rather than just correcting him this time?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Hijack Interrupt Card: Getting the High Road Back Before You Decide</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Hijack Interrupt Card: Getting the High Road Back Before You Decide</h2>
+<p>Use in workshop or print for the floor. Run this card the moment you suspect a hijack is already active — not a mild surge, but a locked-in reaction already steering you.</p>
+<h3>1. The moment (one sentence)</h3>
+<p>What is happening right now, and what am I about to do because of it?</p>
+<h3>2. Marker check</h3>
+<div class="table-wrap"><table>
+<tr><th>Marker</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Working memory drop — can I restate the last real instruction or detail, word for word?</td><td></td><td></td></tr>
+<tr><td>Options collapsed — is the same one move surfacing regardless of what I actually know?</td><td></td><td></td></tr>
+<tr><td>Recovery lag — has this reaction outlasted whatever triggered it by more than a few seconds?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero markers present:</strong> Proceed. This is a proportionate reaction, not an active hijack.</li>
+<li><strong>One marker present:</strong> Run the interrupt below before you act.</li>
+<li><strong>Two or more markers present:</strong> Full interrupt required; hand the next decision to someone else if you cannot complete it first.</li>
+</ul>
+<h3>4. The interrupt</h3>
+<ol>
+<li>Say the state out loud: &quot;I&#x27;m locked on one move here.&quot;</li>
+<li>Ask yourself one question you cannot fake an answer to (e.g., &quot;What were the last two checks on this?&quot;).</li>
+<li>If you cannot answer it, that gap is your evidence the hijack is still running — get the answer before acting.</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>How does your team see that you ran the interrupt (a phrase, a pause, a question asked out loud)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so a peer can flag a hijack in progress even when you are not there to catch your own:</p>
+<h3>7. After-action note</h3>
+<p>Which marker showed first, and did the interrupt actually change the call? One line either way, in the shift log.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Interrupting a Peer&#x27;s Hijack Without Making It Worse</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Interrupting a Peer&#x27;s Hijack Without Making It Worse</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice flagging a peer&#x27;s active hijack — working memory drop, collapsed options, or recovery lag — without the flag itself reading as a challenge to their authority.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (mid-hijack)</strong></p>
+<p>You are locked on one move regarding a floor incident happening right now. You are not aware yet that you are hijacked; from the inside it feels like clarity, not narrowing. You will resist being told to stop unless the peer names something specific and concrete, not just &quot;you seem upset.&quot;</p>
+<p><strong>Role 2 — Peer supervisor (spotter)</strong></p>
+<p>You have noticed at least one marker in your peer — most usefully, that they cannot restate a detail they clearly knew minutes ago. You must name what you specifically observed, not a vague feeling, and you must do it without pulling rank or embarrassing them in front of others.</p>
+<h3>Conflict</h3>
+<p>Can the spotter get the hijacked supervisor to pause long enough to check a specific memory gap, without the supervisor dismissing the flag as second-guessing or losing face over it?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Supervisor pushes toward the forced move; spotter attempts a first flag.</li>
+<li>Round 2 (8 min): Spotter names the specific marker observed (e.g., &quot;You just told me two different things about that check&quot;) and asks one concrete question.</li>
+<li>Debrief (10 min): What language actually landed versus what got waved off? How did the spotter avoid sounding like they were pulling rank?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Securing Buy-In for a Hijack Interrupt Protocol</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Securing Buy-In for a Hijack Interrupt Protocol</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a standing hijack-interrupt protocol when multiple stakeholders want the floor to keep moving at full speed regardless.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval for a standing rule: any moment showing two or more markers — working memory drop, collapsed options, recovery lag — triggers a named interrupt before the next action.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any interrupt as lost minutes and calls the protocol an excuse to slow down under pressure.</li>
+<li><strong>Safety or quality analyst (skeptic):</strong> Supports the idea in principle but needs named, checkable markers and a fixed time box for the interrupt, so it cannot be used to stall a hard call indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the protocol if it does not slow down moments that genuinely do not need it, and if it applies evenly rather than singling out one shift.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed hijack interrupt for genuinely high-stakes moments without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named markers (working memory drop, collapsed options, recovery lag), not a blanket &quot;pause whenever something feels off&quot;</li>
+<li>A fixed time box for the interrupt, agreed in advance</li>
+<li>A visible log of when the interrupt was used and whether it changed the outcome</li>
+<li>No quiet exception that lets the interrupt get skipped whenever the deadline is tightest</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor frame the interrupt as risk control rather than lost time?</li>
+<li>What would cause the protocol to quietly disappear during the next crunch week — and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Catching the Hijack Before It Runs the Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Catching the Hijack Before It Runs the Call</h2>
+<p><strong>Unit goal:</strong> Recognize an active hijack in real time — not just the surge before it — and use a brief interrupt to get deliberate judgment back before a floor call locks in the wrong response.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Two roads, one race:</strong> a fast pathway reaches the amygdala directly; a slower pathway routes through the cortex for a fuller read — under pressure, the fast one usually wins (LeDoux, 2000).</li>
+<li><strong>The fast circuit narrows the room:</strong> once it fires, attention and physiology lock onto the trigger and away from everything else nearby (Phelps &amp; LeDoux, 2005).</li>
+<li><strong>The slow circuit goes offline, not just quiet:</strong> the same arousal that powers the fast reaction measurably impairs working memory and deliberate judgment (Arnsten, 2009).</li>
+<li><strong>Three markers of an active hijack:</strong> working memory drops, options collapse to one, and the reaction outlasts the trigger.</li>
+<li><strong>Naming quiets the circuit in real time:</strong> putting a specific word on the feeling reduces amygdala activity while it is still active, not after (Lieberman et al., 2007).</li>
+<li><strong>Pressure defaults to habit:</strong> stress shifts behavior toward whatever response is most automatic, right or wrong (Schwabe &amp; Wolf, 2013).</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Check working memory first: can you restate the last real instruction or detail, word for word?</li>
+<li>If you cannot, say the state out loud: &quot;I&#x27;m locked on one move here.&quot;</li>
+<li>Ask yourself one question you cannot fake an answer to before touching anything.</li>
+<li>Give a peer permission to name your hijack without it reading as a challenge to your authority.</li>
+<li>Log which marker showed up first today — it sharpens how fast you catch it next time.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which floor situation most reliably collapses your options down to one move, and what question would force you to check your memory before you act on it?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Hijack Interrupt Before the Next Crisis</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

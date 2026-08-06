@@ -1,0 +1,365 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "MC",
+      "question": "What term in the chapter represents the ancient ideal of balanced emotional expression?",
+      "options": [
+        "Self-Awareness",
+        "Cognitive Reappraisal",
+        "Sophrosyne/Temperance",
+        "Distraction Techniques"
+      ],
+      "correct_answer_text": "Sophrosyne/Temperance",
+      "correct_key": "C"
+    },
+    {
+      "id": 2,
+      "type": "MC",
+      "question": "According to the chapter, what is essential to avoid being enslaved by intense passions?",
+      "options": [
+        "Full Expression of Emotions",
+        "Self-Mastery of Emotions",
+        "Emotional Suppression",
+        "Indifference"
+      ],
+      "correct_answer_text": "Self-Mastery of Emotions",
+      "correct_key": "B"
+    },
+    {
+      "id": 3,
+      "type": "MC",
+      "question": "Which concept describes the loss of control when emotions become excessively intense?",
+      "options": [
+        "Emotional Hijacking",
+        "Cognitive Distraction",
+        "Anger Escalation",
+        "Physiological Arousal"
+      ],
+      "correct_answer_text": "Emotional Hijacking",
+      "correct_key": "A"
+    },
+    {
+      "id": 4,
+      "type": "MC",
+      "question": "Which physiological components are mentioned as sustaining high levels of emotional arousal?",
+      "options": [
+        "Cortisol only",
+        "Dopaminergic pathways",
+        "The limbic system, catecholamine surges, and adrenocortical activation",
+        "Serotonin levels"
+      ],
+      "correct_answer_text": "The limbic system, catecholamine surges, and adrenocortical activation",
+      "correct_key": "C"
+    },
+    {
+      "id": 5,
+      "type": "MC",
+      "question": "Which actionable step involves activities like reading, exercise, or taking a walk to counteract negative emotions?",
+      "options": [
+        "Cognitive Reappraisal",
+        "Professional Intervention",
+        "Distraction Techniques",
+        "Thought Recording"
+      ],
+      "correct_answer_text": "Distraction Techniques",
+      "correct_key": "C"
+    },
+    {
+      "id": 6,
+      "type": "MC",
+      "question": "Which key concept refers to a self-reinforcing cycle of negative thought patterns that extend anxiety?",
+      "options": [
+        "Chronic Worry and Rumination",
+        "Emotional Hijacking",
+        "Anger Escalation",
+        "Sophrosyne/Temperance"
+      ],
+      "correct_answer_text": "Chronic Worry and Rumination",
+      "correct_key": "A"
+    },
+    {
+      "id": 7,
+      "type": "MC",
+      "question": "What misconception does the chapter identify regarding the venting of anger?",
+      "options": [
+        "Venting always reduces emotional intensity",
+        "Venting is a form of self-awareness",
+        "Venting does not change emotions",
+        "Venting can intensify anger (Catharsis Fallacy)"
+      ],
+      "correct_answer_text": "Venting can intensify anger (Catharsis Fallacy)",
+      "correct_key": "D"
+    },
+    {
+      "id": 8,
+      "type": "MC",
+      "question": "Which actionable step advises challenging and reframing initial negative appraisals by considering alternative perspectives?",
+      "options": [
+        "Self-Awareness",
+        "Cognitive Reappraisal",
+        "Relaxation Methods",
+        "Scheduled Pleasant Activities"
+      ],
+      "correct_answer_text": "Cognitive Reappraisal",
+      "correct_key": "B"
+    },
+    {
+      "id": 9,
+      "type": "MC",
+      "question": "Which step involves writing down distressing thoughts to evaluate and counteract their intensity?",
+      "options": [
+        "Thought Recording",
+        "Cognitive Reappraisal",
+        "Distraction Techniques",
+        "Professional Intervention"
+      ],
+      "correct_answer_text": "Thought Recording",
+      "correct_key": "A"
+    },
+    {
+      "id": 10,
+      "type": "MC",
+      "question": "What method is recommended for use at the onset of emotional escalation to promote relaxation?",
+      "options": [
+        "Engaging in exercise",
+        "Deep breathing, muscle relaxation, or mindfulness",
+        "Thought Recording",
+        "Cognitive Reappraisal"
+      ],
+      "correct_answer_text": "Deep breathing, muscle relaxation, or mindfulness",
+      "correct_key": "B"
+    },
+    {
+      "id": 11,
+      "type": "MC",
+      "question": "Which actionable step is designed to rebalance emotional states through deliberately uplifting events?",
+      "options": [
+        "Distraction Techniques",
+        "Scheduled Pleasant Activities",
+        "Self-Awareness",
+        "Cognitive Reappraisal"
+      ],
+      "correct_answer_text": "Scheduled Pleasant Activities",
+      "correct_key": "B"
+    },
+    {
+      "id": 12,
+      "type": "MC",
+      "question": "When does the chapter suggest considering professional intervention, such as medication or psychotherapy?",
+      "options": [
+        "At the first sign of anger",
+        "When emotional arousal has reached an intractable level",
+        "Only during a crisis",
+        "After all other steps fail"
+      ],
+      "correct_answer_text": "When emotional arousal has reached an intractable level",
+      "correct_key": "B"
+    },
+    {
+      "id": 13,
+      "type": "MC",
+      "question": "Which part of the physiological system is explicitly mentioned as playing a role in emotional arousal?",
+      "options": [
+        "The prefrontal cortex",
+        "The limbic system",
+        "The brainstem",
+        "The cerebellum"
+      ],
+      "correct_answer_text": "The limbic system",
+      "correct_key": "B"
+    },
+    {
+      "id": 14,
+      "type": "MC",
+      "question": "What do cognitive distraction techniques primarily accomplish during emotional distress?",
+      "options": [
+        "Enhancing emotional intensity",
+        "Providing insight into past behaviors",
+        "Shifting focus to break the cycle of escalating emotions",
+        "Suppressing all emotional expression"
+      ],
+      "correct_answer_text": "Shifting focus to break the cycle of escalating emotions",
+      "correct_key": "C"
+    },
+    {
+      "id": 15,
+      "type": "MC",
+      "question": "What misconception about emotions does the chapter directly address?",
+      "options": [
+        "That emotions are solely physiological responses",
+        "That emotions should either be fully expressed or completely suppressed",
+        "That emotions are irrelevant to decision-making",
+        "That emotions can only be mitigated by professional intervention"
+      ],
+      "correct_answer_text": "That emotions should either be fully expressed or completely suppressed",
+      "correct_key": "B"
+    },
+    {
+      "id": 16,
+      "type": "TF",
+      "question": "True or False: The chapter claims that complete emotional suppression is ideal for maintaining emotional balance.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 17,
+      "type": "TF",
+      "question": "True or False: Emotional hijacking refers to a state where emotions temporarily enhance self-control.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 18,
+      "type": "TF",
+      "question": "True or False: The process of anger escalation can be mitigated by using cognitive reappraisal to consider alternative perspectives.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 19,
+      "type": "TF",
+      "question": "True or False: Chronic worry and rumination are described as cycles that ultimately reduce anxiety levels.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 20,
+      "type": "TF",
+      "question": "True or False: Physiological arousal in emotions involves catecholamine surges and adrenocortical activation.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 21,
+      "type": "TF",
+      "question": "True or False: Distraction techniques such as taking a walk are recommended to interrupt escalating negative emotions.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 22,
+      "type": "TF",
+      "question": "True or False: Practicing mindfulness is considered a valid relaxation method in the chapter’s recommendations.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 23,
+      "type": "TF",
+      "question": "True or False: The catharsis fallacy implies that venting anger typically resolves it.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 24,
+      "type": "TF",
+      "question": "True or False: The chapter emphasizes the importance of self-awareness for monitoring early indicators of high-arousal emotions.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 25,
+      "type": "TF",
+      "question": "True or False: Cognitive reappraisal involves affirming the initial negative appraisals without question.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "FALSE",
+      "correct_key": "FALSE"
+    },
+    {
+      "id": 26,
+      "type": "TF",
+      "question": "True or False: The chapter underscores that emotional mastery is crucial to prevent harmful behaviors and impaired decision-making.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 27,
+      "type": "TF",
+      "question": "True or False: According to the chapter, the concept of Sophrosyne is central to balanced emotional expression.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 28,
+      "type": "TF",
+      "question": "True or False: The chapter indicates that unchecked passion can lead to impaired decision-making.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 29,
+      "type": "TF",
+      "question": "True or False: Thought recording is suggested as a strategy to objectively evaluate and counteract distressing thoughts.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    },
+    {
+      "id": 30,
+      "type": "TF",
+      "question": "True or False: The chapter argues that unregulated passion can transform from a virtue into a liability.",
+      "options": [
+        "TRUE",
+        "FALSE"
+      ],
+      "correct_answer_text": "TRUE",
+      "correct_key": "TRUE"
+    }
+  ],
+  "source_name": "05.-Passion’s Slaves (Emotional Intelligence).txt"
+}

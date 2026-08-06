@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is best defined as which of the following?",
+    "options": [
+      "Fast, automatic, and intuitive thinking based on associative memory and immediate impressions",
+      "Slow, analytical thinking designed to overcome biases",
+      "A deliberate, effortful mode of reasoning to compute predictions",
+      "A process of statistical correction toward the average"
+    ],
+    "correct_answer_text": "Fast, automatic, and intuitive thinking based on associative memory and immediate impressions",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What does the acronym WYSIATI stand for?",
+    "options": [
+      "What You See Is All There Is",
+      "What You Say Is All That Exists",
+      "When You See It, All Tells",
+      "Where You Stand In A True Insight"
+    ],
+    "correct_answer_text": "What You See Is All There Is",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Regression to the Mean most accurately describes which phenomenon?",
+    "options": [
+      "The process of using intuitive evidence without adjustment for uncertainty",
+      "A statistical principle where extreme values tend to move closer to the average in subsequent measurements",
+      "The mechanism by which a simpler judgment replaces a complex evaluation",
+      "The act of aligning a qualitative measure with a quantitative prediction"
+    ],
+    "correct_answer_text": "A statistical principle where extreme values tend to move closer to the average in subsequent measurements",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which term refers to converting an overall qualitative impression (such as a percentile rank) into a numerical prediction like a GPA?",
+    "options": [
+      "Base Rate",
+      "System 2 Analysis",
+      "Intensity Matching",
+      "Substitution"
+    ],
+    "correct_answer_text": "Intensity Matching",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 1 is characterized as fast, automatic, and intuitive thinking based on immediate impressions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "System 2 is defined as the mode of thinking that relies on associative memory and immediate impressions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The term Base Rate refers to the typical value used as a starting point for predictions when no specific additional information is available.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Substitution is the cognitive mechanism in which a complex question is replaced with a simpler one based on current evidence.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

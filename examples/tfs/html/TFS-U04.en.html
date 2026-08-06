@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytical Deliberation — Cognitive Anchors &amp; Deliberation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Cognitive Anchors &amp; Deliberation</p>
+      <h1>Analytical Deliberation</h1>
+      <p class="hero-lead">Help frontline leaders recognize when a coherent after-the-fact story is quietly replacing what the log and the moment actually showed, and protect a fact-based debrief ritual against hindsight and memory shortcuts.</p>
+      <div class="hero-meta">
+        <span>TFS · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">The Story We Tell After the Shift: What the Evid</a>
+<a href="#opinion">The Debrief Where Our Story Didn&#x27;t Match the Log</a>
+<a href="#assessment">Self-Assessment — Are You Debriefing the Shift o</a>
+<a href="#case-1">Case 1 — The Shipment Save That Wasn&#x27;t What We R</a>
+<a href="#case-2">Case 2 — &#x27;We Should Have Seen It Coming&#x27;: Hindsi</a>
+<a href="#framework">Framework — Narrative Integrity &amp; Memory-Check C</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending the Fact-Based Debrief</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Debrief Rit</a>
+<a href="#key-notes">Key Notes — Memory, Hindsight, and the Story of </a>
+<a href="#commitment">Commitment — Protecting the Contemporaneous Log </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>The Story We Tell After the Shift: What the Evidence Says About Memory, Hindsight, and Coherent Narratives</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Story We Tell After the Shift: What the Evidence Says About Memory, Hindsight, and Coherent Narratives</h2>
+<p>Frontline leaders run debriefs constantly: end of shift, after a near-miss, after a save. The account that survives the debrief becomes &quot;what happened,&quot; even when it quietly diverges from what the log, sensors, or timestamps recorded in the moment. Decades of memory and judgment research explain why the story so often outruns the record.</p>
+<h3>Why a good story feels like the truth</h3>
+<p>People do not store raw sequences of events; they reconstruct them, and each reconstruction tends toward a version that feels coherent. Kahneman and Miller&#x27;s norm theory (1986) describes how a known outcome becomes the automatic backdrop against which the preceding events are re-read, so the sequence that led to it starts to feel like the only one that made sense. Nisbett and Wilson (1977) showed something related: people confidently narrate the causes of their own judgments even when the actual causes were inaccessible to them, because a plausible story is easier to produce than an accurate one. Neither finding means people are lying. It means coherence and accuracy are separate qualities, and a story can have plenty of the first with very little of the second.</p>
+<h3>Hindsight rewrites the &quot;knowable&quot;</h3>
+<p>Once an outcome is known, memory of what was believed beforehand shifts to match it. Fischhoff (1975) demonstrated this directly: after participants learned an event&#x27;s actual result, they systematically overestimated how predictable it had been, and often could not accurately recall their own prior uncertainty. Roese and Vohs (2012), reviewing decades of follow-up work, found this hindsight effect to be one of the most consistently replicated distortions in judgment research, and strongest precisely when a review is trying hardest to learn from an outcome — in other words, during the incident and after-action reviews leaders rely on most.</p>
+<h3>Judging the call by the outcome, not the reasoning</h3>
+<p>A related distortion is outcome bias. Baron and Hershey (1988) held the information available to a decision-maker constant and varied only the eventual result; participants still rated the identical decision as better or worse purely based on how it turned out. On a floor, this means a defensible call that ran into bad luck gets treated as a poor decision, while a careless call that happened to land well gets treated as vindicated — teaching the wrong lesson either way.</p>
+<h3>Two selves rating the same shift differently</h3>
+<p>Memory does not weigh an experience evenly across its duration. Kahneman, Fredrickson, Schreiber, and Redelmeier (1993) found that retrospective ratings track an experience&#x27;s most intense moment and its ending far more than its length or average quality — the peak-end rule — while largely discounting how long a good or bad stretch actually lasted, a pattern they called duration neglect. Redelmeier and Kahneman (1996) confirmed the same effect outside the lab, in patients&#x27; memories of medical procedures. Applied to a shift: a mostly smooth shift that ends badly is often remembered as &quot;a bad shift,&quot; and a chaotic shift rescued at the very end is remembered as &quot;a good one,&quot; regardless of what the hour-by-hour log shows.</p>
+<h3>What this means for supervisors</h3>
+<p>None of this makes narrative or memory useless — a debrief that produces no story teaches the team nothing. It means the story should be built from a contemporaneous record, not substitute for one. Three checks protect a debrief from these distortions:</p>
+<ol>
+<li><strong>Fix the facts before the story is told</strong> — read timestamps and log entries first, and build the narrative to match them, not the other way around.</li>
+<li><strong>Separate decision quality from result</strong> — ask what was knowable at the moment the call was made, not what is obvious now that the outcome is known.</li>
+<li><strong>Weight the whole record, not just the ending</strong> — a dramatic peak or a strong finish should not silently stand in for the full shift.</li>
+</ol>
+<h3>Selected references</h3>
+<ul>
+<li>Fischhoff, B. (1975). Hindsight is not equal to foresight: The effect of outcome knowledge on judgment under uncertainty. <em>Journal of Experimental Psychology: Human Perception and Performance, 1</em>(3), 288–299.</li>
+<li>Roese, N. J., &amp; Vohs, K. D. (2012). Hindsight bias. <em>Perspectives on Psychological Science, 7</em>(5), 411–426.</li>
+<li>Baron, J., &amp; Hershey, J. C. (1988). Outcome bias in decision evaluation. <em>Journal of Personality and Social Psychology, 54</em>(4), 569–579.</li>
+<li>Kahneman, D., &amp; Miller, D. T. (1986). Norm theory: Comparing reality to its alternatives. <em>Psychological Review, 93</em>(2), 136–153.</li>
+<li>Nisbett, R. E., &amp; Wilson, T. D. (1977). Telling more than we can know: Verbal reports on mental processes. <em>Psychological Review, 84</em>(3), 231–259.</li>
+<li>Kahneman, D., Fredrickson, B. L., Schreiber, C. A., &amp; Redelmeier, D. A. (1993). When more pain is preferred to less: Adding a better end. <em>Psychological Science, 4</em>(6), 401–405.</li>
+<li>Redelmeier, D. A., &amp; Kahneman, D. (1996). Patients&#x27; memories of painful medical treatments: Real-time and retrospective evaluations of two minimally invasive procedures. <em>Pain, 66</em>(1), 3–8.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Debrief Where Our Story Didn&#x27;t Match the Log</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Debrief Where Our Story Didn&#x27;t Match the Log</h2>
+<p>I have run the Friday debrief the same way for years: gather the crew, ask &quot;what happened this week,&quot; let the clearest voice tell the story, nod, move on. Last Friday the story was a good one — maybe too good.</p>
+<p>Marcus told it like this: the line 3 belt started slipping around 2 p.m., he caught the smell before anyone flagged it, called it in himself, and had a spare part on the way before the line even stopped. Everyone nodded. It was the kind of story that makes a shift feel like it was under control the whole time.</p>
+<p>Then Dana, who keeps the shift log because nobody else wants to, read the timestamps out loud. The belt alarm fired at 1:41. Marcus&#x27;s first call to maintenance was logged at 2:09 — twenty-eight minutes later, not &quot;right away.&quot; And the person who actually flagged the smell first was a temp worker whose name nobody in the room could remember.</p>
+<p>Nobody was lying. Marcus genuinely remembered it the way he told it. The ending — the part rescued in time — was so clear in everyone&#x27;s mind that it quietly edited the messier middle: the twenty-eight minutes, the temp worker&#x27;s catch, the fact that the line partially stalled before the fix landed. The story was coherent. The log was accurate. They were not the same thing.</p>
+<p>I used to think a good debrief was one where the room agreed on a clean version of events fast. Now I think that speed is the warning sign. If everyone&#x27;s story lines up perfectly and effortlessly, we have probably already smoothed over the parts that would have been useful to examine — who actually caught it, how long it really took, what we did not know until it was over.</p>
+<p>So the debrief runs differently now. Before anyone tells the story, Dana reads the timestamps first. Only after the room has the raw sequence do we build the narrative — and we build it to match the log, not the other way around. It takes four extra minutes. It has already changed two conversations about who gets credit, and surfaced one gap we would have missed entirely if the first telling had stood unchallenged.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Are You Debriefing the Shift or Editing Its Story?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — The Shipment Save That Wasn&#x27;t What We Remembered</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — The Shipment Save That Wasn&#x27;t What We Remembered</h2>
+<h3>Opening</h3>
+<p>Renata supervises a receiving dock crew of twelve. Every Friday she runs a fifteen-minute debrief where the crew retells the week&#x27;s hardest moment, mostly to build morale and catch anything worth flagging upward. The stories are usually close enough to what happened that nobody has ever felt the need to check them against the log.</p>
+<h3>Context</h3>
+<p>This week&#x27;s story is about a mislabeled pallet that nearly shipped to the wrong distribution center. Two senior leads tell it the same way: they spotted the label mismatch during a routine walk, held the pallet, and caught it with two hours to spare before the truck&#x27;s cutoff. It is a clean story, and the crew is proud of it.</p>
+<p>Renata pulls the dock log before finalizing the weekly report, mostly out of habit. The timestamps show something different: the mismatch was actually flagged by a scanner alert forty minutes before either lead walked past the pallet, and the alert was first acknowledged by a part-time loader who has been on the team six weeks. The two-hour cushion the leads remember was closer to forty minutes by the time the hold was actually confirmed.</p>
+<p>Nobody invented anything. The leads genuinely remember catching it themselves, because their walk-past is the last and most vivid part of the sequence they personally witnessed — the part that became the story&#x27;s peak. The scanner alert and the loader&#x27;s acknowledgment happened earlier and less dramatically, and neither made it into the retelling.</p>
+<h3>Decision point</h3>
+<p>Renata can:</p>
+<ol>
+<li>Let this week&#x27;s story stand as told — correcting it would embarrass two respected leads over a pallet that got caught either way.</li>
+<li>Quietly fix the written weekly report to match the log, without raising it in front of the crew, and say nothing about the gap between story and record.</li>
+<li>Bring the timestamps into next week&#x27;s debrief before any story is told, credit the loader by name, and use the moment to reset how the team builds its after-action stories going forward.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What made the leads&#x27; account feel completely true to them, even though the log shows a different sequence?</li>
+<li>Which distortion is most at work here — hindsight, outcome bias, or peak-end memory — and how can you tell?</li>
+<li>If Renata chooses option 3, how should she raise the gap without making the two leads defensive or the loader uncomfortable?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — &#x27;We Should Have Seen It Coming&#x27;: Hindsight in the Incident Review</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — &quot;We Should Have Seen It Coming&quot;: Hindsight in the Incident Review</h2>
+<h3>Opening</h3>
+<p>Tomás leads a shift on a packaging line. A near-miss last week — a guard panel left unlatched for about ten minutes before someone noticed — triggered a formal incident review. The review panel includes his ops manager and a safety analyst, neither of whom was on shift that night.</p>
+<h3>Context</h3>
+<p>The review&#x27;s early conclusion, stated in the first five minutes: &quot;the warning signs were there — this should have been caught sooner.&quot; The panel points to a maintenance note from three days earlier that mentioned the same panel&#x27;s latch &quot;feeling loose.&quot;</p>
+<p>Tomás pulls the shift log for the ten minutes in question. It shows two routine safety walks were completed in that window, both logged as clear, and the maintenance note in question was one of forty-one similar minor notes filed that same week across the line, none flagged as urgent by the maintenance lead who reviewed them.</p>
+<div class="table-wrap"><table>
+<tr><th>Signal</th><th>Known before the incident?</th><th>How it looked at the time</th></tr>
+<tr><td>Maintenance note on panel latch</td><td>Yes, 3 days prior</td><td>1 of 41 minor notes that week; not flagged urgent</td></tr>
+<tr><td>Safety walk during the 10-minute window</td><td>Yes, logged twice</td><td>Both walks logged the panel as latched and clear</td></tr>
+<tr><td>Guard panel actually unlatched</td><td>No — only visible after the fact</td><td>Not visible on either walk&#x27;s checklist item</td></tr>
+</table></div>
+<p>Once the panel is told the outcome, the maintenance note reads like an obvious red flag. Before the outcome, it was one ordinary note among dozens, and two separate checks during the exact window in question came back clear.</p>
+<h3>Decision point</h3>
+<p>Tomás can:</p>
+<ol>
+<li>Accept the panel&#x27;s &quot;should have been caught sooner&quot; framing to close the review quickly and avoid conflict with his ops manager.</li>
+<li>Push back only verbally, without documentation, and hope the point lands without escalating tension.</li>
+<li>Present the safety-walk logs and the note-volume data before the review concludes, explicitly separating what was knowable during the window from what is obvious now that the outcome is known.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What turned an ordinary maintenance note into a &quot;warning sign&quot; only after the incident, and would the panel have flagged it the same way beforehand?</li>
+<li>How should a review credit or fault a decision based on what was knowable at the time, versus what the outcome later revealed?</li>
+<li>Design a review-opening step that would keep a panel from reaching a hindsight-driven conclusion before checking the contemporaneous record.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Narrative Integrity &amp; Memory-Check Canvas</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Narrative Integrity &amp; Memory-Check Canvas</h2>
+<p>Use in a debrief or incident review, before the room&#x27;s story is treated as final.</p>
+<h3>1. The event (one sentence)</h3>
+<p>What are we debriefing or reviewing, right now?</p>
+<h3>2. Contemporaneous record first</h3>
+<div class="table-wrap"><table>
+<tr><th>Source</th><th>What it shows</th><th>Logged before or after the outcome was known?</th></tr>
+<tr><td>Timestamps / system log</td><td></td><td></td></tr>
+<tr><td>Checklist or safety-walk entries</td><td></td><td></td></tr>
+<tr><td>First person to flag it (name)</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Memory-check</h3>
+<ul>
+<li><strong>Hindsight check:</strong> Does any part of the story sound &quot;obvious&quot; only because we now know how it ended?</li>
+<li><strong>Outcome check:</strong> Are we rating the decision on the reasoning available at the time, or on the result?</li>
+<li><strong>Peak-end check:</strong> Is this account weighted by the most dramatic moment or the ending, more than the full record?</li>
+</ul>
+<h3>4. Gap</h3>
+<p>Where does the room&#x27;s story diverge from the record above? Name the gap plainly.</p>
+<h3>5. Credit</h3>
+<p>Who actually caught, flagged, or acted first, per the record — not per who tells the story loudest?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the log-first order does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>One line for the shift log: what did the record show that the first telling of the story missed?</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending the Fact-Based Debrief to a Peer Who Wants the Quick Story</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending the Fact-Based Debrief to a Peer Who Wants the Quick Story</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a log-first debrief order on a real incident or shift wrap-up without freezing the room or making a peer feel doubted.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Debrief Owner)</strong></p>
+<p>You want the shift log or timestamps read before the team&#x27;s story of what happened is treated as final. You must not skip the log-check just to keep the room moving, and you must not turn it into a drawn-out audit that embarrasses anyone.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are ready to wrap up and believe &quot;we all know what happened, let&#x27;s just agree on the story and move on.&quot; You see the log-check as second-guessing the team&#x27;s memory and a waste of the room&#x27;s time. You will back off only if the Debrief Owner names a specific reason the log matters here and keeps the check short.</p>
+<h3>Conflict</h3>
+<p>Can the Debrief Owner secure a two-to-three-minute log read before the story is finalized, without the peer dismissing it as unnecessary or the room losing patience?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes to skip straight to the story; Debrief Owner responds.</li>
+<li>Round 2 (8 min): Debrief Owner names the specific risk (hindsight, outcome bias, or peak-end memory) and proposes a short, time-boxed log read.</li>
+<li>Debrief (10 min): Where did the Debrief Owner nearly skip the log to avoid friction? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Debrief Ritual Under Pressure to Move On</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Debrief Ritual Under Pressure to Move On</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a log-first, story-second debrief ritual when multiple stakeholders want to close the review quickly.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval for a standing rule: any incident review or shift debrief reads the contemporaneous log before any narrative is treated as the final account.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on how fast reviews close and shifts turn over; sees the log-first step as delay and calls it &quot;relitigating what everyone already agrees happened.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs a clear, short time box so the log-check cannot be used to drag reviews out indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down debriefs that genuinely have nothing in dispute, and if it credits whoever the record shows caught something — not just whoever tells the story.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a short, log-first step for reviews and debriefs without looking slow to the ops manager or open-ended to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>A named, short time box for reading the log before the story—not an open-ended audit</li>
+<li>Explicit checks for hindsight, outcome bias, or peak-end memory, not just &quot;let&#x27;s be careful&quot;</li>
+<li>Credit assigned per the record, including quieter or newer voices</li>
+<li>No quiet reversion to &quot;let&#x27;s just agree on the story&quot; under the next deadline</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor frame &quot;read the log first&quot; as protecting accurate learning, not distrust of the team?</li>
+<li>What would cause this ritual to quietly disappear during the next crunch review — and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Memory, Hindsight, and the Story of the Shift</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Memory, Hindsight, and the Story of the Shift</h2>
+<p><strong>Unit goal:</strong> Recognize when a coherent after-the-fact story is quietly replacing what the log and the moment actually showed, and protect a fact-based debrief ritual against hindsight and memory shortcuts.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Narrative construction:</strong> minds build coherent, confident-feeling stories after the fact — coherence is not evidence.</li>
+<li><strong>Hindsight bias:</strong> knowing the outcome quietly rewrites memory of what was actually knowable beforehand.</li>
+<li><strong>Outcome bias:</strong> judging a decision by how it turned out, not by the reasoning available at the time it was made.</li>
+<li><strong>Two selves:</strong> memory of a shift tracks its peak moment and its ending far more than its length — not the same record the log shows.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Read timestamps or log entries before any story is told, or reconstruct them from the record, not memory.</li>
+<li>In any review, ask &quot;what was knowable at that moment,&quot; separate from what looks obvious now.</li>
+<li>Let the person who actually caught something say so before the room&#x27;s consensus story forms.</li>
+<li>Watch for a shift or incident being rated on its ending or most dramatic moment rather than its full record.</li>
+<li>If everyone agrees on a clean version instantly, treat that as a signal to check the log, not a sign the debrief is done.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recent shift or incident story have you retold so often that you no longer remember whether it came from the log or from the retelling?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Contemporaneous Log Before the Story Sets</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Cognitive Anchors &amp; Deliberation · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

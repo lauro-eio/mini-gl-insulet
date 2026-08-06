@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deliberación analítica — Anclaje cognitivo y deliberación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Anclaje cognitivo y deliberación</p>
+      <h1>Deliberación analítica</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a notar cuándo la facilidad cognitiva, el anclaje, la disponibilidad o el juicio basado en semejanza están dirigiendo en silencio una decisión de piso, y a verificar el número real, la fuente o la tasa base antes de comprometerse con decisiones costosas o difíciles de revertir.</p>
+      <div class="hero-meta">
+        <span>TFS · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Cuatro atajos de la mente: qué dice la evidencia</a>
+<a href="#opinion">El número que ancló a toda la sala</a>
+<a href="#assessment">Autodiagnóstico — ¿Cuánto te están dirigiendo la</a>
+<a href="#case-1">Caso 1 — El ancla en la estimación de merma</a>
+<a href="#case-2">Caso 2 — Jamal y la devolución que parecía fraud</a>
+<a href="#framework">Marco — Lienzo de verificación de sesgos para de</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender la verificación de sesg</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de ve</a>
+<a href="#key-notes">Puntos clave — Cuatro atajos que dirigen en sile</a>
+<a href="#commitment">Compromiso — Nombrar el sesgo antes de que te no</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Cuatro atajos de la mente: qué dice la evidencia sobre facilidad, anclaje, disponibilidad y semejanza</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Cuatro atajos de la mente: qué dice la evidencia sobre facilidad, anclaje, disponibilidad y semejanza</h2>
+<p>Los líderes de primera línea toman decisiones de juicio durante todo el turno: si esta estimación suena razonable, si este caso coincide con un patrón que vale la pena señalar, qué tan preocupante debería ser un defecto raro para el equipo. Décadas de investigación cognitiva han mapeado cuatro atajos que la mente usa para responder estas preguntas con rapidez — y las condiciones específicas bajo las cuales cada uno engaña en silencio incluso a un líder cuidadoso y experimentado.</p>
+<h3>Facilidad cognitiva: la fluidez se siente como verdad</h3>
+<p>La mente registra qué tan fluidamente está procesando la información, y esa fluidez — la facilidad cognitiva — moldea el juicio sin anunciarse. Una frase familiar, un gráfico limpio o un reporte redactado con sencillez se sienten más creíbles que el mismo contenido presentado de forma torpe, independientemente de su exactitud (Reber &amp; Schwarz, 1999; Alter &amp; Oppenheimer, 2009). En el piso, el reporte que se lee con fluidez no es automáticamente el correcto; un líder puede terminar más persuadido por un resumen prolijo que por uno más tosco que en realidad señala el problema real.</p>
+<h3>Anclaje: el primer número se queda pegado</h3>
+<p>Una vez que se dice un número, atrae hacia sí cada estimación posterior, incluso cuando todos en la sala saben que el número fue solo una suposición. Tversky y Kahneman (1974) documentaron por primera vez este efecto de anclaje en condiciones controladas; Englich, Mussweiler y Strack (2006) encontraron después que profesionales legales capacitados recomendaban sentencias mensurablemente más duras tras estar expuestos a un número alto irrelevante, mientras negaban cualquier influencia. En el piso, la primera estimación de merma lanzada en una reunión breve, la primera causa nombrada para una detención, o la primera cifra escrita en un pizarrón blanco puede anclar el conteo posterior de todo un equipo, sea correcto o no.</p>
+<h3>Disponibilidad: fácil de recordar no es lo mismo que común</h3>
+<p>Las personas juzgan qué tan frecuente o riesgoso es algo según qué tan fácilmente les vienen a la mente ejemplos, no según la tasa real (Tversky &amp; Kahneman, 1973). Un solo incidente vívido y reciente — una lesión grave, una queja viral, un casi-accidente dramático — puede dominar la percepción de riesgo de un equipo mucho después de que la probabilidad de repetición haya vuelto a su nivel base (Slovic, Finucane, Peters, &amp; MacGregor, 2007). Esto no es ruido aleatorio; es una sobreponderación sistemática de lo que es más reciente o emocionalmente intenso, lo cual puede desviar la atención y los recursos del problema más silencioso y frecuente.</p>
+<h3>Representatividad: una buena coincidencia no es una buena tasa base</h3>
+<p>Cuando un caso se parece a un tipo conocido, las personas estiman su probabilidad a partir de esa semejanza y a menudo se saltan por completo la tasa base real. Kahneman y Tversky (1973) mostraron que incluso las personas que conocen las estadísticas subyacentes las anulan en cuanto una descripción vívida y específica &quot;se siente como&quot; una categoría conocida. Una devolución que se parece a un patrón de fraude conocido, o un nuevo empleado que le recuerda a un supervisor a un exempleado problemático, puede desencadenar un juicio basado únicamente en la semejanza — incluso cuando la tasa base real de esa categoría en este piso es mucho más baja de lo que la semejanza sugiere.</p>
+<h3>Qué tienen en común los cuatro</h3>
+<p>Ninguno de estos atajos requiere descuido; operan por defecto en personas cuidadosas y experimentadas, porque son rápidos y por lo general suficientemente buenos. Cada uno se vuelve un riesgo específicamente cuando lo fluido, lo primero-escuchado, lo memorable o el caso que coincide por semejanza está silenciosamente equivocado — y la solución documentada es la misma para los cuatro: pausar lo suficiente para nombrar el atajo y verificarlo contra el número real, la fuente o la tasa base que tienes enfrente, no contra la sensación asociada a él.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>Una verificación breve y estructurada detecta la mayor parte del daño: ¿qué número escuché primero, y es la cifra de la fuente? ¿Estoy recordando esto porque es común, o porque es memorable? ¿Este caso coincide con la categoría, o solo se parece a ella? Nombrar cuál de los cuatro comportamientos por defecto podría estar activo suele bastar para impedir que anule en silencio un instinto rápido y bien ganado.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. <em>Science, 185</em>(4157), 1124–1131.</li>
+<li>Tversky, A., &amp; Kahneman, D. (1973). Availability: A heuristic for judging frequency and probability. <em>Cognitive Psychology, 5</em>(2), 207–232.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1973). On the psychology of prediction. <em>Psychological Review, 80</em>(4), 237–251.</li>
+<li>Reber, R., &amp; Schwarz, N. (1999). Effects of perceptual fluency on judgments of truth. <em>Consciousness and Cognition, 8</em>(3), 338–342.</li>
+<li>Alter, A. L., &amp; Oppenheimer, D. M. (2009). Uniting the tribes of fluency to form a metacognitive nation. <em>Personality and Social Psychology Review, 13</em>(3), 219–235.</li>
+<li>Englich, B., Mussweiler, T., &amp; Strack, F. (2006). Playing dice with criminal sentences: The influence of irrelevant anchors on experts&#x27; judicial decision making. <em>Personality and Social Psychology Bulletin, 32</em>(2), 188–200.</li>
+<li>Slovic, P., Finucane, M. L., Peters, E., &amp; MacGregor, D. G. (2007). The affect heuristic. <em>European Journal of Operational Research, 177</em>(3), 1333–1352.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El número que ancló a toda la sala</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El número que ancló a toda la sala</h2>
+<p>Convoqué la reunión breve del lunes para revisar el conteo de merma de la semana pasada. Antes de tener abierto el reporte real, dije en voz alta: &quot;siento que andamos como quinientas unidades cortos esta semana&quot; — solo una revisión de estómago mientras buscaba el archivo. Me equivoqué por casi la mitad; el número real resultó más cercano a doscientos ochenta. Pero durante los siguientes veinte minutos, cada suposición que ofreció mi equipo orbitó alrededor de quinientos. Alguien dijo seiscientos. Otro partió la diferencia en cuatrocientos cincuenta. Nadie adivinó por debajo. Yo había plantado el número, y toda la sala construyó sobre él sin darse cuenta.</p>
+<p>No me consideraba alguien a quien pudiera mover una suposición casual. He dirigido este piso durante años; confío en mi lectura sobre la merma, sobre el personal, sobre qué línea se ralentiza después del almuerzo. Pero esa reunión no fue realmente instinto. La sala estaba reaccionando al primer número dicho — el mío — sin importar si estaba cerca de ser correcto.</p>
+<p>En cuanto saqué el conteo real y lo leí en seco, sin repetir antes mi suposición anterior, la conversación cambió de inmediato. La gente empezó a hacer preguntas más agudas: qué zona lo estaba impulsando, si coincidía con el patrón del mes pasado. La solución no fue complicada. Fue negarme a dejar que una suposición se convirtiera en el punto de partida antes de que el número real estuviera en la sala.</p>
+<p>Desde entonces trato de notar el momento en que se dice un número antes de que alguien lo haya verificado — en una reunión breve, en una llamada, garabateado en el pizarrón antes del cambio de turno. Me pregunto: ¿esta es la cifra real, o es solo lo primero que alguien dijo? Si es lo primero que se dijo, me abstengo de repetirla y busco la fuente real antes de que alguien se ancle en ella, incluyéndome a mí.</p>
+<p>Es un hábito pequeño, tal vez noventa segundos la mayoría de los días. Pero aquel primer lunes nos costó casi toda una reunión persiguiendo un número que yo había inventado en el momento, y nadie — incluyéndome — lo notó hasta que llegó el conteo real. Ahora la regla en mi piso es simple: ningún número en voz alta hasta que la fuente esté abierta en la pantalla. Las suposiciones pueden venir después, nunca antes.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Cuánto te están dirigiendo la facilidad, el anclaje y la disponibilidad?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — El ancla en la estimación de merma</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — El ancla en la estimación de merma</h2>
+<h3>Apertura</h3>
+<p>Corinne dirige el equipo de recepción del turno nocturno en un centro de distribución. Cada viernes corre una reunión breve de quince minutos sobre variaciones antes de que el reporte semanal vaya al director de operaciones. El trabajo del equipo en esa reunión es simple: acordar la merma estimada de esta semana antes de que el conteo del sistema termine de procesarse, para que Corinne pueda señalar temprano cualquier cosa inusual.</p>
+<h3>Contexto</h3>
+<p>Este viernes, el conteo del sistema va con retraso. Para mantener la reunión en marcha, el líder asistente abre con: &quot;una suposición rápida, siento que son como ochocientas unidades esta semana — eso fue más o menos lo que se veía al caminar el piso.&quot; Nadie ha visto todavía el reporte real. Durante los siguientes diez minutos, otros tres miembros del equipo ofrecen estimaciones: 750, 850 y 900. Cada número se ubica cerca de la suposición inicial del líder asistente. Corinne tiene que enviar una estimación preliminar al director de operaciones en cinco minutos, antes de que el conteo del sistema esté listo, y el director usa ese número para decidir si trae un equipo de inspección adicional para el lunes — una decisión costosa de revertir una vez que los inspectores están programados.</p>
+<p>Corinne no tiene un instinto propio fuerte; caminar el piso esta semana no le resaltó nada en un sentido u otro. Solo tiene las suposiciones convergentes de la sala, todas ancladas cerca del primer número dicho, y una fecha límite de reporte que no esperará al conteo del sistema.</p>
+<h3>Punto de decisión</h3>
+<p>Corinne puede:</p>
+<ol>
+<li>Enviar la estimación de consenso del equipo (aproximadamente 800) al director de operaciones ahora, ya que la sala convergió y la fecha límite está cerca.</li>
+<li>Decirle al director que la estimación está pendiente del conteo del sistema y entregarla en veinte minutos una vez que la cifra real esté lista, aunque esto retrase su decisión del lunes sobre el equipo de inspección.</li>
+<li>Enviar un rango amplio (600–1,000) con una nota de que la estimación puntual aún no está confirmada por la fuente, dándole al director un número defendible sin pretender que la suposición de la reunión sea sólida.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué hizo que las estimaciones de la sala convergieran tan estrechamente alrededor del número inicial del líder asistente, y qué evidencia respaldaba realmente ese número?</li>
+<li>¿Cuál de los cuatro atajos — facilidad, anclaje, disponibilidad o semejanza — está más claramente en juego aquí, y cómo podría Corinne demostrárselo a un compañero escéptico?</li>
+<li>Si Corinne elige la opción 3, ¿cómo debería explicar un rango amplio y no confirmado a un director que quiere un solo número limpio para su propio reporte?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Jamal y la devolución que parecía fraude</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Jamal y la devolución que parecía fraude</h2>
+<h3>Apertura</h3>
+<p>Jamal supervisa el mostrador de devoluciones en un centro de cumplimiento regional. Hace seis semanas, su equipo descubrió una red de fraude genuina: cajas devueltas que estaban vacías, reselladas, y enviadas de vuelta bajo un conjunto rotativo de nombres, todas señaladas por una combinación distintiva — electrónica de alto valor, notas de &quot;dañado en tránsito&quot; sin foto, y recompra del mismo artículo al día siguiente. Fue el caso más grande que su mostrador había visto en años, y la historia todavía surge en casi cada reunión breve de turno.</p>
+<h3>Contexto</h3>
+<p>Esta mañana llega una devolución que coincide con tres de esos mismos detalles superficiales: un artículo de electrónica de gama media, una nota de &quot;dañado en tránsito&quot; sin foto adjunta, y una recompra del mismo SKU dos días después. La reacción instintiva de Jamal es inmediata — esto se ve exactamente como el patrón de fraude de hace seis semanas. Pero el propio seguimiento del mostrador muestra que las devoluciones &quot;dañado, sin foto&quot; sin una señal de tiempo de recompra ocurren aproximadamente 40 veces al mes en esta categoría de SKU, y solo una en los últimos dos años resultó ser parte de un patrón de fraude real. Esta devolución también tiene un detalle que los casos de fraude nunca tuvieron: una llamada del cliente, hecha incluso antes de que el artículo llegara de vuelta al almacén, preguntando cómo obtener un reemplazo enviado el mismo día.</p>
+<p>Retener la devolución para una investigación de fraude retrasa el reemplazo de un cliente legítimo hasta dos semanas y activa una revisión de escalación que aparta a un especialista de otros casos. Liberarla sin retención, si de hecho es fraude, permite que un patrón repetido continúe sin ser señalado.</p>
+<h3>Punto de decisión</h3>
+<p>Jamal puede:</p>
+<ol>
+<li>Retener la devolución para una investigación completa de fraude, ya que coincide visiblemente con el patrón que su equipo detectó hace seis semanas.</li>
+<li>Liberar la devolución y procesar el reemplazo de inmediato, ya que la coincidencia superficial con un caso memorable no es evidencia por sí sola.</li>
+<li>Liberar el reemplazo para proteger el tiempo del cliente, pero marcar la cuenta para una verificación de seguimiento ligera contra la tasa base real de este tipo de devolución, sin una retención completa de investigación.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué está pesando más en la reacción instintiva de Jamal — la semejanza con el caso de hace seis semanas, o la tasa base real para esta combinación exacta de detalles?</li>
+<li>¿Cómo debería la llamada temprana del cliente cambiar la lectura, y el equipo de Jamal la habría registrado con la misma fuerza si el caso vívido de fraude no estuviera todavía fresco en la memoria?</li>
+<li>Diseña una señal de piso que permita a cualquier miembro del equipo marcar &quot;esto coincide con un patrón conocido&quot; sin que active automáticamente el proceso completo de investigación antes de verificar la tasa base.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de verificación de sesgos para decisiones de piso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de verificación de sesgos para decisiones de piso</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre un lienzo por cada decisión sobre la que tengas dudas antes de comprometerte.</p>
+<h3>1. La decisión (una frase)</h3>
+<p>¿Qué decisión estoy por tomar, en este momento?</p>
+<h3>2. Verificación de sesgos</h3>
+<div class="table-wrap"><table>
+<tr><th>Atajo</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Facilidad — ¿confío en esto porque se lee con fluidez, no porque lo verifiqué?</td><td></td><td></td></tr>
+<tr><td>Anclaje — ¿un número o afirmación que escuché primero está arrastrando mi estimación, sin importar su fuente?</td><td></td><td></td></tr>
+<tr><td>Disponibilidad — ¿un caso vívido o reciente está haciendo que esto se sienta más común de lo que realmente es?</td><td></td><td></td></tr>
+<tr><td>Representatividad — ¿este caso solo se parece a un patrón conocido, sin una tasa base que lo respalde?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero atajos presentes:</strong> Avanza con tu lectura. Anótalo y sigue adelante.</li>
+<li><strong>Un atajo presente:</strong> Corre la verificación estructurada correspondiente de abajo antes de actuar.</li>
+<li><strong>Dos o más presentes:</strong> Se requiere verificación completa; escala si no puedes resolverla en el tiempo disponible.</li>
+</ul>
+<h3>4. Verificación estructurada (cuando se requiere)</h3>
+<ol>
+<li><strong>Facilidad:</strong> ¿qué evidencia respalda esto más allá de lo limpio o familiar que se ve?</li>
+<li><strong>Anclaje:</strong> ¿cuál es la cifra real de la fuente, separada del primer número dicho?</li>
+<li><strong>Disponibilidad:</strong> ¿cuál es la tasa real de los últimos meses, no solo lo que viene más rápido a la mente?</li>
+<li><strong>Representatividad:</strong> ¿cuál es la tasa base para esta categoría, y este caso realmente coincide con ella o solo se le parece?</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que la verificación ocurrió (tablero, llamada de radio, entrada de bitácora)?</p>
+<h3>6. Dueño cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que la verificación no desaparezca cuando no estés ahí:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Cuál atajo estaba realmente en juego aquí, y qué lo habría detectado más rápido? Agrega una línea al registro de turno en cualquier caso.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender la verificación de sesgos ante un par que quiere velocidad</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender la verificación de sesgos ante un par que quiere velocidad</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger una verificación breve de fuente, tasa base o hecho en una decisión que muestra una señal de facilidad, anclaje, disponibilidad o semejanza—sin paralizar el piso ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño de la verificación)</strong></p>
+<p>Has marcado una decisión donde un primer número, un caso vívido reciente, o una semejanza con un patrón conocido parece estar dirigiendo a la sala, y quieres una verificación corta antes de comprometerte. No debes saltarte la verificación solo para evitar fricción, ni convertirla en una demora abierta.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo la misma fecha límite y crees que &quot;obviamente es lo mismo que la última vez, solo decide.&quot; Empujas por el camino rápido y tratas la verificación como un cuestionamiento o una forma de frenar al equipo. Cederás solo si el Dueño de la verificación nombra el atajo específico en juego y propone una verificación concreta con tiempo acotado.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño de la verificación asegurar el acuerdo para una verificación de fuente o tasa base de dos a cuatro minutos en una decisión específica sin que el par escale por encima de ellos o que la fecha límite se pierda sin remedio?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona por la decisión rápida; el Dueño de la verificación responde.</li>
+<li>Ronda 2 (8 min): el Dueño de la verificación nombra el atajo específico (facilidad, anclaje, disponibilidad o representatividad) y propone una verificación con tiempo acotado.</li>
+<li>Cierre (10 min): ¿dónde casi cedió el Dueño de la verificación bajo presión? ¿qué lenguaje realmente convenció al par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de verificación de sesgos bajo presión de tiempo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de verificación de sesgos bajo presión de tiempo</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar apoyo para un ritual protegido de verificación de sesgos cuando varios interesados quieren que el piso siga avanzando a toda velocidad.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para correr una regla permanente: cualquier decisión que muestre una señal de facilidad, anclaje, disponibilidad o semejanza recibe una verificación corta y con tiempo acotado de fuente o tasa base antes de actuar.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por throughput y tiempos límite; ve cualquier pausa como minutos perdidos y llama al ritual &quot;cuestionar la lectura del equipo.&quot;</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para cuándo aplica la verificación, además de un tiempo acotado claro para que no se use para estancar indefinidamente.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará el ritual si no frena decisiones que genuinamente no muestran un atajo, y si no traslada en silencio trabajo extra a turnos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una verificación nombrada y con tiempo acotado para decisiones que muestran una señal real de sesgo sin verse lento ante el gerente de operaciones ni vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Atajos nombrados (facilidad, anclaje, disponibilidad, representatividad), no un genérico &quot;ante la duda, verifica&quot;</li>
+<li>Un tiempo acotado fijo para la verificación, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la verificación y qué detectó o descartó</li>
+<li>Ningún segundo proceso secreto que contradiga el ritual acordado bajo presión</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;verificación de sesgos&quot; en un lenguaje que se lee como control de riesgo, no como duda?</li>
+<li>¿Qué haría que el ritual desapareciera en silencio durante la próxima semana de crisis—y quién es dueño de prevenir eso?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Cuatro atajos que dirigen en silencio las decisiones de piso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Cuatro atajos que dirigen en silencio las decisiones de piso</h2>
+<p><strong>Meta de la unidad:</strong> Notar cuándo la facilidad cognitiva, el anclaje, la disponibilidad o el juicio basado en semejanza está dirigiendo en silencio una decisión de piso, y verificar el número real, la fuente o la tasa base antes de comprometerte con una decisión costosa o difícil de revertir.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Facilidad cognitiva:</strong> la información fluida y de apariencia familiar se siente verdadera, lo sea o no.</li>
+<li><strong>Anclaje:</strong> el primer número dicho atrae hacia sí cada estimación posterior, incluso cuando todos saben que fue una suposición.</li>
+<li><strong>Disponibilidad:</strong> qué tan fácilmente viene a la mente un ejemplo no es lo mismo que qué tan a menudo ocurre en realidad.</li>
+<li><strong>Representatividad:</strong> un caso que se parece a un patrón conocido se juzga por la semejanza, no por la tasa base real.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Antes de repetir un número en voz alta, pregúntate: ¿es esta la cifra de la fuente, o solo la primera suposición que hizo alguien?</li>
+<li>Cuando un reporte o explicación se siente inusualmente fluido o convincente, pregunta qué evidencia lo respalda más allá de qué tan bien se lee.</li>
+<li>Cuando un incidente reciente y vívido está impulsando una decisión, verifícalo contra la tasa real de los últimos meses, no solo contra qué tan memorable es.</li>
+<li>Cuando un caso &quot;se parece&quot; a un tipo conocido, verifica la tasa base de ese tipo en este piso antes de actuar solo por semejanza.</li>
+<li>Nombra cuál de los cuatro atajos podría estar activo antes de comprometerte con una decisión costosa o difícil de revertir.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Cuál de los cuatro — facilidad, anclaje, disponibilidad o semejanza — ha dirigido en silencio una de tus decisiones este mes, y cómo la detectarías más rápido la próxima vez?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Nombrar el sesgo antes de que te nombre a ti</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Anclaje cognitivo y deliberación · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

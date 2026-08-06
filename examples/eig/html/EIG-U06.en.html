@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders tell a task disagreement from a trust break on the floor, and repair the right one on purpose—so one hard call does not quietly cost the crew&#x27;s trust.</p>
+      <div class="hero-meta">
+        <span>EIG · U06</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Task or Trust: What the Evidence Says About Conf</a>
+<a href="#opinion">The Apology That Didn&#x27;t Land</a>
+<a href="#assessment">Self-Assessment — Do You Fight the Task or Fight</a>
+<a href="#case-1">Case 1 — Priya and the Missed Count</a>
+<a href="#case-2">Case 2 — Dario and the Covered Defect</a>
+<a href="#framework">Framework — Trust Repair Canvas: Naming the Brea</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Naming a Task Disagreement Befor</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Securing a Trust-Repair No</a>
+<a href="#key-notes">Key Notes — Naming the Break Before You Patch It</a>
+<a href="#commitment">Commitment — Protecting the Repair Conversation </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Task or Trust: What the Evidence Says About Conflict and Repair on a Floor Team</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Task or Trust: What the Evidence Says About Conflict and Repair on a Floor Team</h2>
+<p>Two supervisors disagree about how to sequence a rush order. Thirty seconds later, one of them is not just defending a schedule—she is defending whether her judgment can be trusted at all. Decades of research on conflict and trust in teams explain why that shift happens so fast, and what actually repairs it once it does.</p>
+<h3>Two conflicts, not one</h3>
+<p>Jehn (1995) draws a sharp line between task conflict—disagreement about what to do, how to sequence work, which method is right—and relationship conflict—friction about who someone is, personal tension, distrust. A later meta-analysis by De Dreu and Weingart (2003) found that task conflict, kept at a moderate level, does not reliably hurt team performance; relationship conflict consistently does, dragging down both performance and satisfaction. The problem on a floor is not that disagreement exists. It is that a disagreement about the work routinely slides into a disagreement about the person inside the same exchange, without anyone naming that the subject just changed.</p>
+<h3>Trust rests on three legs</h3>
+<p>Mayer, Davis, and Schoorman&#x27;s (1995) integrative model of trust describes it as resting on three separate judgments one person makes about another: <strong>ability</strong> (can they actually do this job), <strong>benevolence</strong> (do they mean well toward me, or are they out for themselves), and <strong>integrity</strong> (do they keep their word and tell the truth, even when it costs them). A supervisor who snaps &quot;I don&#x27;t trust your count&quot; after a scheduling disagreement may be reacting to any one of these three—and treating them as interchangeable is exactly where repair attempts go wrong.</p>
+<h3>Which leg wobbled changes the repair</h3>
+<p>Kim, Ferrin, Cooper, and Dirks (2004) tested how people respond to two different kinds of trust violations. For a <strong>competence-based</strong> violation—an honest mistake, a missed defect, a misjudged deadline—an apology paired with a concrete fix tends to restore trust reasonably well; people forgive a capability gap once it is named and addressed. For an <strong>integrity-based</strong> violation—someone hid a mistake, broke a promise, or was caught in a lie—an apology alone tends to land far weaker than the person offering it expects. Rebuilding that kind of trust requires consistent, verifiable behavior sustained over time, not a well-worded conversation in the moment. Treating a lie like a slip, or a slip like a lie, wastes the repair attempt on the wrong problem.</p>
+<h3>Psychological safety keeps task conflict from turning personal</h3>
+<p>Edmondson (1999) found that teams with higher psychological safety—where members believe they can speak up, disagree, or admit an error without being punished for it—show more learning behavior: more error reporting, more open disagreement about the work, faster correction. That safety is what allows a genuine task disagreement to be raised and settled without either party reading it as a character attack, and what allows a real mistake to surface early, while it is still small and cheap to fix.</p>
+<h3>What this means for a floor leader</h3>
+<p>Two moves, before responding to a heated moment: first, name whether the friction in front of you is actually about the task—the count, the sequence, the call—or whether it has already become a question of trust. Second, if it is trust, name which leg is wobbling: ability, benevolence, or integrity. A supervisor who treats every disagreement as a personal attack will provoke relationship conflict where none needed to exist. A supervisor who treats every trust break as a training gap—apologizing and moving on when the real issue was honesty—will find the apology does not hold, and the crew notices that it didn&#x27;t.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Jehn, K. A. (1995). A multimethod examination of the benefits and detriments of intragroup conflict. <em>Administrative Science Quarterly, 40</em>(2), 256–282.</li>
+<li>De Dreu, C. K. W., &amp; Weingart, L. R. (2003). Task versus relationship conflict, team performance, and team member satisfaction: A meta-analysis. <em>Journal of Applied Psychology, 88</em>(4), 741–749.</li>
+<li>Mayer, R. C., Davis, J. H., &amp; Schoorman, F. D. (1995). An integrative model of organizational trust. <em>Academy of Management Review, 20</em>(3), 709–734.</li>
+<li>Kim, P. H., Ferrin, D. L., Cooper, C. D., &amp; Dirks, K. T. (2004). Removing the shadow of suspicion: The effects of apology versus denial for repairing competence- versus integrity-based trust violations. <em>Journal of Applied Psychology, 89</em>(1), 104–118.</li>
+<li>Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(2), 350–383.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Apology That Didn&#x27;t Land</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Apology That Didn&#x27;t Land</h2>
+<p>I came up one pallet short on a count last quarter, and it cost the next shift forty minutes untangling a shipment. When my counterpart on second shift found out, I did what I thought was the right thing: I apologized fast, owned the miscount, and walked him through exactly how it happened. He nodded, said it was fine, and then spent the next two weeks double-checking every number I sent him.</p>
+<p>That told me the apology hadn&#x27;t actually landed, and it took me a while to figure out why.</p>
+<p>I kept assuming the problem was the miscount itself—that if I explained the mistake clearly enough, and it didn&#x27;t happen again, the tension would fade on its own. But when I finally asked him directly what was still bothering him, it wasn&#x27;t the number. He said, &quot;You knew before the end of your shift and I didn&#x27;t hear about it until morning.&quot; That was the actual break: not that I made an error, but that he felt I sat on it. To him, that read less like a mistake and more like something closer to being kept in the dark.</p>
+<p>I had apologized for the wrong thing. I was treating a question about my honesty as if it were a question about my counting, and no amount of walking through the math was going to fix that. What he needed wasn&#x27;t another explanation—it was proof, over several shifts, that he&#x27;d hear from me the moment something looked off, not after I&#x27;d had time to think about how to frame it.</p>
+<p>So I changed what I did, not just what I said. For the next month, if anything on my shift looked even slightly off, I texted him before I clocked out—sometimes about things that turned out to be nothing. It felt like overcorrecting. It wasn&#x27;t. Somewhere around the third or fourth message, he stopped re-checking my numbers.</p>
+<p>I used to think an apology was an apology—say the right words, mean them, move on. Now I ask myself one question before I open my mouth: is this person questioning whether I can do the job, or whether they can believe what I tell them? Those are not the same repair. A skills gap closes with a fix and a demonstration. A trust gap closes with a track record, and there is no shortcut through it with better words.</p>
+<p>I still tell new supervisors on my crew: if someone stays cold after you&#x27;ve said sorry, you probably apologized for the wrong thing. Ask what actually broke before you try to fix it again.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Fight the Task or Fight the Person?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Priya and the Missed Count</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Priya and the Missed Count</h2>
+<h3>Opening</h3>
+<p>Priya leads inventory close-out on the evening shift at a distribution center. She has run the close-out process for two years without a serious error and is known for catching other people&#x27;s mistakes before they leave the building. Tonight, rushing to finish before a truck cutoff, she signs off a count that is one pallet short.</p>
+<h3>Context</h3>
+<p>The shortfall is not discovered until the morning shift&#x27;s receiving lead, Jordan, tries to reconcile the manifest and comes up short by exactly the amount Priya&#x27;s count missed. Jordan has to hold a truck for forty minutes while the floor searches for the missing pallet, which turns out to have been mis-scanned, not lost. Jordan is frustrated and says, in front of two other leads, &quot;I don&#x27;t know if I can trust your counts anymore.&quot; Priya feels the accusation as bigger than the mistake—she has never missed a count like this before, and Jordan&#x27;s comment sounds like it is about more than one bad night.</p>
+<h3>Decision point</h3>
+<p>Priya can:</p>
+<ol>
+<li>Apologize immediately and explain exactly how the miscount happened, assuming the explanation itself will settle Jordan&#x27;s concern.</li>
+<li>Ask Jordan directly what specifically is making him unsure—the mistake itself, or something about how it played out—before deciding what kind of repair to offer.</li>
+<li>Downplay it as a one-off and point out her two-year track record, expecting the record to speak for itself without further conversation.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Is Jordan&#x27;s comment most likely about Priya&#x27;s ability to count correctly, or something else entirely—and how would Priya know which one it is without asking?</li>
+<li>If this is a competence-based trust question, what repair actually rebuilds it, beyond an apology?</li>
+<li>What would change about Priya&#x27;s response if Jordan had said &quot;I don&#x27;t know if I can trust what you tell me&quot; instead of &quot;trust your counts&quot;?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Dario and the Covered Defect</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Dario and the Covered Defect</h2>
+<h3>Opening</h3>
+<p>Dario operates a press station on an assembly line supervised by Renee. Midway through a shift, he notices a defect on a run he already packed and sealed for shipment. Reporting it would mean stopping the line, reopening a sealed batch, and missing the shift&#x27;s output target. Dario decides not to say anything, hoping the defect is minor enough not to matter.</p>
+<h3>Context</h3>
+<p>The defect surfaces a week later when the customer returns the batch. Renee traces it back to Dario&#x27;s station and confirms, from timestamped logs, that he clocked the run as clean well after he would have seen the flaw. When she raises it with him, Dario apologizes and says he &quot;didn&#x27;t think it was a big deal.&quot; Renee finds herself more unsettled by the silence than by the defect itself—she now reads every report Dario submits with the assumption there may be something he chose not to mention.</p>
+<h3>Decision point</h3>
+<p>Renee can:</p>
+<ol>
+<li>Accept the apology, remind Dario of the reporting standard, and treat it as resolved once the conversation is over.</li>
+<li>Name directly that the issue is not the defect but the choice not to report it, and set a specific, time-boxed way for Dario to rebuild that his reports can be trusted without double-checking.</li>
+<li>Say nothing further, but quietly start re-verifying Dario&#x27;s output herself going forward, without telling him that is what changed.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Why does an apology that would likely resolve an honest mistake fall short here—what is actually broken, and what would prove it is fixed?</li>
+<li>What is the cost to Renee, and to the rest of the line, of choosing option 3 instead of naming the issue directly?</li>
+<li>Design a floor norm that would make it safer for someone in Dario&#x27;s position to report a defect immediately, even when it costs the shift&#x27;s output target.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Trust Repair Canvas: Naming the Break Before You Patch It</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Trust Repair Canvas: Naming the Break Before You Patch It</h2>
+<p>Use in workshop or print for the floor. Run one canvas per moment of friction before you respond to it.</p>
+<h3>1. The friction (one sentence)</h3>
+<p>What just happened, and what is the tension right now?</p>
+<h3>2. Diagnose: task or trust?</h3>
+<ul>
+<li><strong>Task only:</strong> Proceed—address the work disagreement directly; no repair needed beyond resolving the point.</li>
+<li><strong>Trust involved:</strong> Continue to step 3.</li>
+</ul>
+<h3>3. Which leg wobbled?</h3>
+<div class="table-wrap"><table>
+<tr><th>Leg</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Ability — do they doubt this person (or you) can do the job?</td><td></td><td></td></tr>
+<tr><td>Benevolence — do they doubt this person means well toward them?</td><td></td><td></td></tr>
+<tr><td>Integrity — do they doubt this person told the truth or kept their word?</td><td></td><td></td></tr>
+</table></div>
+<h3>4. Repair route</h3>
+<ul>
+<li><strong>Ability wobble:</strong> Apology plus a concrete fix, then one demonstrated rep with visible support.</li>
+<li><strong>Benevolence wobble:</strong> Name the intent question directly and ask what would show you actually cared.</li>
+<li><strong>Integrity wobble:</strong> An apology alone will not close this. Commit to a specific, verifiable behavior, sustained over a set number of shifts.</li>
+</ul>
+<h3>5. Visibility</h3>
+<p>Where does the crew see that the repair happened—not just hear that it was discussed?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the repair does not stall when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>What would have surfaced this friction earlier—before it needed a repair at all? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Naming a Task Disagreement Before a Peer Reads It as Distrust</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Naming a Task Disagreement Before a Peer Reads It as Distrust</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice raising a genuine disagreement about the work without letting a peer read it as a judgment on their ability—and repairing that read if it happens anyway.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Diagnoser)</strong></p>
+<p>You disagree with a peer&#x27;s call on a scheduling or sequencing decision that affects your crew. You believe the disagreement is entirely about the work, not about the peer&#x27;s competence, and you need to say so clearly without softening the actual point.</p>
+<p><strong>Role 2 — Peer supervisor (Guarded)</strong></p>
+<p>You had a rough incident recently where a call of yours was second-guessed publicly, and it stung. You now hear any disagreement about your calls as a question about whether you can be trusted to make them. You will only de-escalate if the Diagnoser explicitly separates the task point from any judgment about you.</p>
+<h3>Conflict</h3>
+<p>Can the Diagnoser make the task disagreement clearly and get it heard as a task disagreement—not back off the actual point, and not leave the peer&#x27;s guardedness unaddressed?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Diagnoser raises the task disagreement; Guarded peer reads it personally and pushes back.</li>
+<li>Round 2 (8 min): Diagnoser explicitly names the difference between the task point and any question of trust, and checks which one the peer is actually reacting to.</li>
+<li>Debrief (10 min): Where did the Diagnoser almost soften the real point to avoid the personal read? What specific language separated the two?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Securing a Trust-Repair Norm After a Public Mistake</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Securing a Trust-Repair Norm After a Public Mistake</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a named, criteria-based trust-repair practice after a mistake became visible to more than one shift.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval for a standing practice: any trust break gets diagnosed by which leg wobbled—ability, benevolence, or integrity—before a repair is chosen and logged.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput; sees repair conversations as lost time and calls the practice &quot;overthinking a mistake that&#x27;s already fixed.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for what counts as a trust break versus routine friction, plus a clear time box for how long a repair should take.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the practice if it does not turn every small disagreement into a formal repair process, and if it does not quietly become a way to avoid direct conversations.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, diagnosis-first repair practice for genuine trust breaks without looking soft to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named legs of trust (ability, benevolence, integrity), not a blanket &quot;let&#x27;s talk about feelings&quot;</li>
+<li>A clear line between routine task friction and an actual trust break</li>
+<li>A fixed time box for repair, agreed in advance</li>
+<li>A visible record of when the practice was used and what it changed</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;diagnose before repairing&quot; into language that reads as risk control, not softness?</li>
+<li>What would cause the practice to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Naming the Break Before You Patch It</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Naming the Break Before You Patch It</h2>
+<p><strong>Unit goal:</strong> Tell a task disagreement from a trust break on the floor, and repair the right one on purpose—so one hard call does not quietly cost the crew&#x27;s trust.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Two conflicts, not one:</strong> disagreement about the work (task conflict) and friction about the person (relationship conflict) behave differently—task conflict at a moderate level is not automatically harmful; relationship conflict reliably is (Jehn, 1995; De Dreu &amp; Weingart, 2003).</li>
+<li><strong>Trust has three legs:</strong> ability, benevolence, and integrity (Mayer, Davis &amp; Schoorman, 1995). A trust break is almost always about one specific leg, not &quot;trust&quot; in general.</li>
+<li><strong>The leg that wobbled decides the repair:</strong> a competence break responds to apology plus a concrete fix; an integrity break needs consistent, verified behavior over time—an apology alone tends to fall short (Kim, Ferrin, Cooper &amp; Dirks, 2004).</li>
+<li><strong>Psychological safety keeps disagreement from turning personal:</strong> teams where people can speak up and admit error without punishment show more open task conflict and faster correction, not less (Edmondson, 1999).</li>
+<li><strong>Diagnosis comes before repair:</strong> apologizing for a mistake when the real issue is honesty—or vice versa—wastes the attempt and the crew notices.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before responding to floor friction, name whether it is about the task or about trust.</li>
+<li>If it is trust, name which leg wobbled: ability, benevolence, or integrity.</li>
+<li>Match the repair—competence break gets apology plus a fix; integrity break gets a sustained, visible track record.</li>
+<li>Protect a team norm where disagreeing about the work is safe and does not automatically read as a personal attack.</li>
+<li>Log the friction and the repair somewhere the crew can see it happened, not just remembers it.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Think of a recurring floor conflict you tend to treat the same way every time. Is it actually a task disagreement you&#x27;re reading as personal, or a trust break you&#x27;re treating as just a training gap?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Repair Conversation Before It&#x27;s Needed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which forecasting approach is characterized by relying on a project's current details and progress while often ignoring broader statistical data?",
+    "options": [
+      "It uses the project’s current progress exclusively",
+      "It incorporates extensive historical data",
+      "It relies on collective team predictions",
+      "It depends on confidential expert opinions"
+    ],
+    "correct_answer_text": "It uses the project’s current progress exclusively",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which definition best captures the essence of the Outside View in forecasting?",
+    "options": [
+      "It focuses solely on current internal project metrics",
+      "It uses base-rate information derived from similar cases or reference classes",
+      "It emphasizes personal judgment over historical trends",
+      "It avoids statistical methods in planning"
+    ],
+    "correct_answer_text": "It uses base-rate information derived from similar cases or reference classes",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What does the Planning Fallacy primarily refer to in project forecasting?",
+    "options": [
+      "The cognitive bias of underestimating costs and timelines while overlooking potential challenges",
+      "The method of comparing project details with similar historical cases",
+      "The approach of relying exclusively on confidential team estimates",
+      "The tendency to continue investing in a failing project because of prior investments"
+    ],
+    "correct_answer_text": "The cognitive bias of underestimating costs and timelines while overlooking potential challenges",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which of the following best distinguishes Reference Class Forecasting from other forecasting methods?",
+    "options": [
+      "It involves gathering confidential predictions from team members",
+      "It requires identifying a relevant reference class and using its historical data for baseline predictions",
+      "It focuses on the project’s specific details to estimate outcomes",
+      "It is based on continuing investments regardless of past failures"
+    ],
+    "correct_answer_text": "It requires identifying a relevant reference class and using its historical data for baseline predictions",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "An Inside View approach incorporates a wide range of historical data from similar projects into its forecasts.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Sunk-Cost Fallacy is defined as the inclination to keep investing in a failing project because of the resources already spent, rather than assessing future outcomes objectively.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Outside View in forecasting fundamentally relies on base-rate information from comparable cases to predict future outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Planning Fallacy results in overly pessimistic forecasts because it overestimates costs and timelines.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

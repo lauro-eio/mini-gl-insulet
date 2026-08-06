@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which description best characterizes System 1 thinking?",
+    "options": [
+      "Slow and deliberate reasoning",
+      "Fast and automatic processing of impressions, judgments, and actions",
+      "Methodical and analytical reasoning",
+      "Deliberate and controlled thought processes"
+    ],
+    "correct_answer_text": "Fast and automatic processing of impressions, judgments, and actions",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What is the primary process described by Associative Activation?",
+    "options": [
+      "Conscious planning of linked ideas",
+      "Automatically triggering a cascade of related ideas",
+      "Sequential reasoning through memory recall",
+      "Intentional association of unrelated thoughts"
+    ],
+    "correct_answer_text": "Automatically triggering a cascade of related ideas",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "How is \"Associatively Coherent\" best defined?",
+    "options": [
+      "Isolated cognitive processing without emotional or physical integration",
+      "Random activation of unrelated neural responses",
+      "Self-reinforcing integration of cognitive, emotional, and physical responses through associations",
+      "Strict logical sequencing of ideas without emotional input"
+    ],
+    "correct_answer_text": "Self-reinforcing integration of cognitive, emotional, and physical responses through associations",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which option best encapsulates Hume’s Principles of Association?",
+    "options": [
+      "Resemblance, contiguity in time and place, and causality",
+      "Frequency, emotional intensity, and associative strength",
+      "Priming, ideomotor effect, and unconscious influence",
+      "Logical deduction, rational analysis, and sequential order"
+    ],
+    "correct_answer_text": "Resemblance, contiguity in time and place, and causality",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Ideomotor Effect refers to the influence of unconsciously activated ideas on subsequent behavior.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Lady Macbeth Effect describes the impulse to physically cleanse oneself as a response to a feeling of moral impurity.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Associative Memory is defined as a network model where ideas operate in isolation without interconnections.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Priming Effect involves exposing individuals to a stimulus that subconsciously makes related ideas easier to access.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a integrar las habilidades de alfabetización emocional del equipo—notar un pico, nombrarlo, elegir una respuesta—en tres puntos de contacto que superan un solo taller: la inducción de nuevos integrantes, el coaching en el huddle previo al turno, y los check-ins entre pares después de un incidente.</p>
+      <div class="hero-meta">
+        <span>EIG · U07</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Por qué se desvanece la capacitación: qué dice l</a>
+<a href="#opinion">El nuevo integrante al que casi condené al fraca</a>
+<a href="#assessment">Autodiagnóstico — ¿Capacitas la habilidad o la i</a>
+<a href="#case-1">Caso 1 — Marisol y el nuevo integrante que se co</a>
+<a href="#case-2">Caso 2 — Grant y el check-in entre pares después</a>
+<a href="#framework">Marco — Mapa de integración: los tres puntos de </a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender el check-in entre pares</a>
+<a href="#roleplay-strategic">Role-play estratégico — Asegurar el respaldo par</a>
+<a href="#key-notes">Puntos clave — Integrar la habilidad al trabajo,</a>
+<a href="#commitment">Compromiso — Integrar el check-in de dos minutos</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Por qué se desvanece la capacitación: qué dice la evidencia sobre cómo lograr que una habilidad se quede</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Por qué se desvanece la capacitación: qué dice la evidencia sobre cómo lograr que una habilidad se quede</h2>
+<p>Los líderes de primera línea envían a una cuadrilla a un taller, ven a la sala asentir durante todo el día, y luego ven las mismas reacciones de siempre reaparecer en el piso tres semanas después—como si el día nunca hubiera pasado. Eso no es un problema de capacitación específico de ningún programa en particular. Es uno de los hallazgos mejor documentados en la ciencia del aprendizaje en el trabajo.</p>
+<h3>El problema de la transferencia tiene un nombre</h3>
+<p>Baldwin y Ford (1988) revisaron décadas de investigación y le dieron un nombre a este patrón: el problema de la transferencia. Una habilidad aprendida en una sala no se generaliza automáticamente al trabajo ni sobrevive con el tiempo. Lo que determina si lo hace no es cuán bien se sintió el día de capacitación, sino tres cosas que actúan juntas después: la motivación propia de la persona para usarla, cómo fue diseñada la capacitación, y—de forma crítica—qué hace el entorno de trabajo con ella una vez que la persona vuelve a su turno.</p>
+<h3>Lo que realmente predice si se queda</h3>
+<p>Grossman y Salas (2011), revisando la literatura sobre transferencia desde Baldwin y Ford, redujeron esto aún más: los predictores más fuertes de que una habilidad sobreviva el contacto con el trabajo son un entorno laboral de apoyo, una oportunidad real de practicarla, y un seguimiento después de la capacitación inicial. Salas, Tannenbaum, Kraiger y Smith-Jentsch (2012) llegan a una conclusión similar desde otro ángulo: la capacitación no es un evento único, es un sistema, y lo que ocurre antes y después de la sesión importa tanto como la sesión misma. Ninguna de las dos revisiones encontró que un taller bien impartido, por sí solo, produzca de forma confiable un cambio duradero en el piso.</p>
+<h3>La inducción es el momento de mayor apalancamiento, no un pendiente</h3>
+<p>Bauer (2010), resumiendo la investigación sobre inducción para la SHRM Foundation, encontró que los nuevos integrantes que solo reciben capacitación de cumplimiento y de tareas—sin atención deliberada a la cultura y la conexión del equipo—se adaptan más lento y son más propensos a irse durante el primer año. Los hábitos que un nuevo integrante construye en las primeras semanas son desproporcionadamente duraderos. Una habilidad introducida más tarde, cuando alguien ya tiene una forma de manejar la presión que funciona, aunque sea incompleta, tiene que competir con hábitos que ya están fijados.</p>
+<h3>La habilidad solo sobrevive si es seguro nombrarla en voz alta</h3>
+<p>Edmondson (1999), estudiando la conducta de aprendizaje en cincuenta y un equipos de trabajo, encontró que la seguridad psicológica del equipo—la creencia compartida de que hablar no será castigado—era el predictor más fuerte de si un equipo se involucraba en las pequeñas conductas de aprendizaje visibles que permiten que una habilidad se acumule con el tiempo: hacer una pregunta, nombrar un error, señalar una preocupación. Un líder puede enseñar una habilidad perfectamente y aun así perderla si nombrar un pico en voz alta se lee como debilidad en ese piso en particular.</p>
+<h3>Check-ins entre pares, probados donde importa</h3>
+<p>Greenberg, Langston, Iversen y Wessely (2010) realizaron un ensayo aleatorizado por clústeres de un programa de check-in entre pares en doce embarcaciones de la Marina Real, después de eventos potencialmente traumáticos. El programa no cambió de forma significativa los puntajes medidos de salud psicológica durante el periodo de estudio—las tasas de incidentes fueron bajas en todo el ensayo—pero el funcionamiento organizacional fue modestamente mejor donde se implementó, y los autores no encontraron evidencia de daño. La lectura honesta no es que los check-ins entre pares sean una solución garantizada; es que una conversación breve, entre pares, no clínica, después de un momento difícil, es una forma de bajo riesgo de evitar que la cultura de un equipo se apague.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>En conjunto, esta investigación apunta a la misma conclusión desde cuatro direcciones: una habilidad enseñada una vez en una sala se desvanece a menos que se integre deliberadamente en los momentos que el equipo ya atraviesa—cómo se recibe a un nuevo integrante, qué se modela en el huddle diario, y cómo el equipo se cuida entre sí después de que algo sale mal. Ninguno de esos momentos requiere un currículo especial. Requieren un líder que decida, de antemano, que ahí es donde vive la habilidad ahora.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Baldwin, T. T., &amp; Ford, J. K. (1988). Transfer of training: A review and directions for future research. <em>Personnel Psychology, 41</em>(1), 63–105.</li>
+<li>Grossman, R., &amp; Salas, E. (2011). The transfer of training: What really matters. <em>International Journal of Training and Development, 15</em>(2), 103–120.</li>
+<li>Salas, E., Tannenbaum, S. I., Kraiger, K., &amp; Smith-Jentsch, K. A. (2012). The science of training and development in organizations: What matters in practice. <em>Psychological Science in the Public Interest, 13</em>(2), 74–101.</li>
+<li>Bauer, T. N. (2010). <em>Onboarding new employees: Maximizing success</em>. SHRM Foundation.</li>
+<li>Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(2), 350–383.</li>
+<li>Greenberg, N., Langston, V., Iversen, A., &amp; Wessely, S. (2010). A cluster randomized controlled trial to determine the efficacy of Trauma Risk Management (TRiM) in a military population. <em>Journal of Traumatic Stress, 23</em>(4), 430–436.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El nuevo integrante al que casi condené al fracaso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El nuevo integrante al que casi condené al fracaso</h2>
+<p>Capacité a Teo como capacito a todos: dos días siguiendo a un veterano, una lista de verificación de procedimientos, la firma de conformidad en el equipo, listo. Para su segunda semana podía operar la línea tan bien como cualquiera con tres meses en el puesto. Estaba orgulloso de ese progreso. No pensé en lo que no le había enseñado hasta que casi nos costó caro.</p>
+<p>Un problema con un proveedor provocó un paro no planeado en la línea de Teo durante su tercera semana. Nada peligroso—solo un alimentador atascado y una luz roja de la que nadie le había hablado. Pero Teo se congeló, luego entró en pánico, presionando botones que empeoraron las cosas antes de que un compañero lo detuviera. Después me contó, en voz baja, que había sentido el corazón acelerado y las manos temblando, y que no tenía idea qué hacer con esa sensación excepto seguir presionando botones hasta que algo funcionara.</p>
+<p>Me di cuenta de que le había entregado a Teo una lista de verificación para la máquina y nada para él mismo. Todos los demás en mi cuadrilla habían aprendido, de manera informal, durante meses, alguna versión de notar un pico y tomarse medio segundo antes de reaccionar. Teo llevaba tres semanas en el piso. Nadie lo había nombrado nunca frente a él, así que no tenía nada a lo que recurrir cuando su cuerpo hizo exactamente lo que los cuerpos hacen ante una alarma repentina.</p>
+<p>Ahora cambié cómo hago la inducción. Cada nuevo integrante se empareja con un compañero guía durante las primeras dos semanas, y el trabajo del guía no es solo mostrarle la máquina—es un check-in de dos minutos al final de cada turno: qué surgió hoy que se sintió más grande que el momento, y qué hiciste con eso. Yo hago lo mismo en el huddle previo al turno una vez por semana, nombrando en voz alta un momento de mi propia semana para que la persona más nueva de la cuadrilla vea que no es una habilidad especial reservada para veteranos.</p>
+<p>Sigo usando la misma lista de verificación del equipo. No he suavizado nada sobre qué tan rápido espero que un nuevo integrante sea productivo. Lo que cambió es que dejé de tratar el lado emocional del trabajo como algo que la gente aprendería tarde o temprano por sí sola, como me pasó a mí, por accidente, durante años. Teo no falló ese día porque le faltara habilidad con la máquina. Falló porque nadie había integrado la otra mitad de la inducción—la parte donde aprendes qué hacer con la sacudida—en sus primeras tres semanas. Esa brecha es responsabilidad de quien capacita, no de quien es capacitado, y es una brecha que cualquier supervisor puede cerrar antes de que el primer momento difícil de su próximo nuevo integrante la encuentre por ellos.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Capacitas la habilidad o la integras?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Marisol y el nuevo integrante que se congeló</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Marisol y el nuevo integrante que se congeló</h2>
+<h3>Apertura</h3>
+<p>Marisol supervisa una cuadrilla de recepción de seis personas en un centro de distribución. Tiene fama de convertir a nuevos integrantes en operadores competentes rápido—usualmente en dos semanas, una persona nueva puede manejar el escáner, el montacargas y la fila de recepción sin supervisión. Nunca ha tenido un incidente serio con un nuevo integrante, y lo atribuye a su inducción estricta y basada en listas de verificación.</p>
+<h3>Contexto</h3>
+<p>En su tercera semana, un nuevo integrante llamado Deshawn está trabajando en la fila de recepción cuando llega una tarima marcada para retención de seguridad—envoltura rota, contenido visiblemente desplazado, genuinamente inestable. La respuesta correcta es simple: detenerse, etiquetarla, reportarla. Deshawn ha sido capacitado en el procedimiento exacto. Pero cuando el momento realmente llega, le empiezan a temblar las manos, su mente se queda en blanco, y en lugar de detenerse intenta reapilar la tarima en silencio para que &quot;se vea bien,&quot; casi provocando exactamente el tipo de caída que el procedimiento de retención existe para prevenir. Un compañero lo detiene a tiempo.</p>
+<p>Después, Deshawn le dice a Marisol que conocía el procedimiento a la perfección. Simplemente no recuerda haber decidido saltárselo—un segundo estaba leyendo la etiqueta, al siguiente ya estaba reapilando, con las manos moviéndose más rápido que su pensamiento. Marisol se da cuenta de que en dos semanas de inducción, le enseñó a Deshawn exactamente qué hacer y nunca le enseñó qué hacer con la sacudida que aparece justo cuando el procedimiento más importa.</p>
+<h3>Punto de decisión</h3>
+<p>Marisol puede:</p>
+<ol>
+<li>Volver a capacitar a Deshawn en el procedimiento de retención, con más firmeza, y tratar esto como una brecha de cumplimiento que se cierra con repetición.</li>
+<li>Agregar un check-in fijo de dos minutos a su emparejamiento de compañero guía en la inducción—preguntándole a cada nuevo integrante, en cada turno durante dos semanas, qué surgió hoy que se sintió más grande que el momento—empezando con Deshawn ahora y con cada nuevo integrante después de él.</li>
+<li>Mover a Deshawn en silencio a una estación de menor riesgo por unos meses hasta que &quot;se acomode,&quot; sin cambiar cómo hace la inducción con nadie más.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué le faltó realmente a Deshawn—conocimiento del procedimiento, o algo más—y cómo cambia eso lo que Marisol debería corregir?</li>
+<li>Si Marisol elige la opción 2, ¿qué hace diferente a un check-in de dos minutos de simplemente volver a capacitar en el procedimiento?</li>
+<li>¿Qué le diría a Marisol, un mes después, si el nuevo check-in realmente está ocurriendo con cada nuevo integrante, o se ha convertido silenciosamente en algo que solo recuerda hacer con los integrantes que le agradan?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Grant y el check-in entre pares después del casi accidente</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Grant y el check-in entre pares después del casi accidente</h2>
+<h3>Apertura</h3>
+<p>Grant dirige una cuadrilla de mantenimiento de nueve personas en una planta mediana. Hace dos días, una compañera, Priya, tuvo un momento crítico—una guarda se soltó en una máquina que estaba reparando, y por medio segundo pensó que iba a perder un dedo. No se lastimó. Casi no ha dicho nada desde entonces, y ha estado inusualmente callada en el piso.</p>
+<h3>Contexto</h3>
+<p>La planta de Grant tiene un proceso formal de reporte de incidentes, que Priya completó el mismo día, y una sesión obligatoria de seguridad donde se discutió el casi accidente como una falla de procedimiento—el diseño del seguro de la guarda—con una acción para inspeccionar las demás. Nadie le ha preguntado a Priya, directa y privadamente, cómo está con lo que le pasó a ella, en contraste con lo que le pasó a la máquina. Grant nota que dejó de unirse a las bromas habituales de la cuadrilla en el almuerzo, y no está seguro de si debería mencionarlo, preocupado por hacerlo más grande de lo que ella quisiera, o peor, dar a entender que no puede con su trabajo.</p>
+<h3>Punto de decisión</h3>
+<p>Grant puede:</p>
+<ol>
+<li>No decir nada directamente—confiar en que el reporte formal de incidente y la sesión de seguridad ya lo cubrieron, y dejar que Priya se acerque a él si lo necesita.</li>
+<li>Apartar a Priya para un check-in breve y discreto—no un análisis del incidente, solo preguntarle cómo ha estado desde el martes—y convertir esto en una práctica fija para cualquiera involucrado en un casi accidente de ahora en adelante.</li>
+<li>Sacarlo como tema en el próximo huddle de toda la cuadrilla, preguntando al grupo en general cómo se sienten últimamente respecto a los casi accidentes, sin nombrar a Priya específicamente.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Cuál es la diferencia entre el reporte formal de incidente que Priya ya presentó y el tipo de check-in que describe la opción 2—y por qué podrían ser necesarios ambos?</li>
+<li>¿Cuál es el riesgo si Grant no hace nada, frente al riesgo si su check-in se siente como una evaluación de si Priya todavía puede hacer su trabajo?</li>
+<li>Si Grant construye una práctica fija de check-in entre pares, ¿quién debería ser responsable cuando Grant sea quien esté involucrado en el próximo casi accidente?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Mapa de integración: los tres puntos de contacto donde la habilidad se queda o se desvanece</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Mapa de integración: los tres puntos de contacto donde la habilidad se queda o se desvanece</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre esto una vez por cada punto de contacto que quieras construir o reparar.</p>
+<h3>1. El punto de contacto (elige uno)</h3>
+<p>¿En qué momento estoy integrando la habilidad: la inducción de nuevos integrantes, el coaching en el huddle previo al turno, o un check-in entre pares después de un incidente?</p>
+<h3>2. Verificación del estado actual</h3>
+<div class="table-wrap"><table>
+<tr><th>Pregunta</th><th>Sí/No</th><th>Por qué</th></tr>
+<tr><td>¿Este punto de contacto ocurre actualmente, aunque sea de forma informal?</td><td></td><td></td></tr>
+<tr><td>¿Ocurre de la misma manera esté yo en turno o no?</td><td></td><td></td></tr>
+<tr><td>¿Un nuevo integrante o compañero lo describiría como normal, no como remedial?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de diseño</h3>
+<ul>
+<li><strong>No está ocurriendo en absoluto:</strong> Diseña la versión más pequeña que podría correr esta semana (un check-in de dos minutos, una frase modelada en el huddle, una conversación entre pares opcional).</li>
+<li><strong>Ocurre pero depende de mí:</strong> Nombra un segundo responsable y delega una instancia este mes.</li>
+<li><strong>Ocurre y tiene responsable:</strong> Fija una fecha de revisión y verifica si sigue aterrizando como se pretendía.</li>
+</ul>
+<h3>4. Constrúyelo (llena esto para el punto de contacto que elegiste)</h3>
+<ol>
+<li>¿Qué pasa exactamente, en una frase (quién dice o hace qué, y cuándo)?</li>
+<li>¿Quién es responsable si estoy fuera de turno?</li>
+<li>¿Cómo aprende un nuevo integrante o compañero que esto es normal, no un programa especial?</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que este punto de contacto ocurre—para que se lea como práctica estándar, no como un anuncio de una sola vez?</p>
+<h3>6. Salvaguarda</h3>
+<p>¿Qué haría que este punto de contacto se detuviera en silencio durante la próxima temporada de mucha carga, y qué lo protege cuando eso pasa?</p>
+<h3>7. Nota de cierre</h3>
+<p>Un mes a partir de ahora: ¿este punto de contacto funcionó como se diseñó, se desvió, o desapareció? Agrega una línea a tu registro en cualquiera de los casos.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender el check-in entre pares ante un veterano que lo llama blando</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender el check-in entre pares ante un veterano que lo llama blando</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar defender un check-in entre pares fijo después de un casi accidente o incidente, sin ceder bajo presión de un veterano respetado y escéptico.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño de la práctica)</strong></p>
+<p>Quieres convertir en práctica estándar un check-in breve y opcional entre pares después de cualquier casi accidente o incidente en tu equipo—no un análisis formal, solo una conversación privada y discreta dentro de uno o dos días. No debes permitir que la práctica se diluya en &quot;solo avísale a RH&quot; ni que se abandone por completo para evitar fricción.</p>
+<p><strong>Rol 2 — Compañero veterano escéptico</strong></p>
+<p>Has trabajado el piso durante quince años sin nada parecido a esto y lo ves como una sobreprotección innecesaria que da a entender que la cuadrilla no puede manejar su propio trabajo. Cederás solo si el supervisor puede explicar, de manera concreta, qué agrega esto más allá del reporte de incidente y la sesión de seguridad ya existentes.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño de la práctica asegurar el respaldo del veterano—o al menos que no interfiera—para el check-in entre pares sin que se le descarte como blando, o se sabotee en silencio en cuanto el supervisor no esté mirando?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el veterano cuestiona la práctica como innecesaria; el Dueño de la práctica responde.</li>
+<li>Ronda 2 (8 min): el Dueño de la práctica distingue el check-in entre pares del reporte formal de incidente y propone cómo funcionaría en realidad.</li>
+<li>Cierre (10 min): ¿dónde estuvo el Dueño de la práctica cerca de cederle demasiado al veterano? ¿qué lenguaje realmente convenció?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Asegurar el respaldo para integrar el check-in en la inducción y los huddles</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Asegurar el respaldo para integrar el check-in en la inducción y los huddles</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar la aprobación para construir una práctica de check-in en la inducción, el coaching en el huddle y el apoyo entre pares cuando varios interesados tienen prioridades distintas.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para construir formalmente un check-in de dos minutos en la inducción de nuevos integrantes, el modelaje semanal en el huddle, y un check-in entre pares fijo después de cualquier incidente.</li>
+<li><strong>Gerente de operaciones enfocado en throughput (antagonista):</strong> Se le mide por producción y velocidad de arranque de nuevos integrantes; ve cualquiera de estas prácticas como tiempo restado a la capacitación en tareas.</li>
+<li><strong>Analista de seguridad o RH (escéptico):</strong> Apoya la idea en principio pero quiere un responsable concreto, un costo de tiempo fijo, y una forma de saber si realmente está ocurriendo antes de aprobarla.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará la práctica si no ralentiza la inducción en su propia cuadrilla, y si no se convierte en otro punto de la lista de verificación que nadie realmente sigue.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor asegurar la aprobación para integrar los tres puntos de contacto sin perder el argumento de velocidad ante el gerente de operaciones, ni la credibilidad de seguimiento ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Un costo de tiempo concreto y mínimo nombrado para cada punto de contacto (no abierto)</li>
+<li>Un responsable nombrado para cada punto de contacto, incluyendo un respaldo</li>
+<li>Una forma sencilla de verificar si cada punto de contacto realmente está ocurriendo, no solo aprobado en papel</li>
+<li>Ningún acuerdo para construir los tres a la vez si eso arriesga que ninguno se quede</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;check-in de dos minutos&quot; en un lenguaje que se lee como proteger el desempeño, no como carga adicional?</li>
+<li>¿Qué haría que uno de los tres puntos de contacto desapareciera en silencio primero durante la próxima crisis, y quién es responsable de prevenir eso?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Integrar la habilidad al trabajo, no solo al taller</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Integrar la habilidad al trabajo, no solo al taller</h2>
+<p><strong>Meta de la unidad:</strong> Integrar las habilidades de alfabetización emocional del equipo—notar un pico, nombrarlo, elegir una respuesta—en tres puntos de contacto que superan un solo taller: la inducción de nuevos integrantes, el coaching en el huddle previo al turno, y los check-ins entre pares después de un incidente.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Una habilidad aprendida una vez se desvanece:</strong> lo que enseña una sesión no se transfiere al trabajo ni sobrevive sin refuerzo en el entorno laboral después (Baldwin &amp; Ford, 1988).</li>
+<li><strong>Los predictores más fuertes están fuera de la sala de capacitación:</strong> un entorno de apoyo, práctica real y seguimiento deliberado importan más que la sesión misma (Grossman &amp; Salas, 2011; Salas et al., 2012).</li>
+<li><strong>La inducción fija hábitos difíciles de deshacer después:</strong> los nuevos integrantes con solo capacitación de tareas, sin cultura ni conexión, se adaptan más lento y son más propensos a irse (Bauer, 2010).</li>
+<li><strong>La habilidad solo sobrevive si es seguro decirla en voz alta:</strong> los equipos con mayor seguridad psicológica nombran más errores y preocupaciones, lo que permite que una habilidad se acumule (Edmondson, 1999).</li>
+<li><strong>Los check-ins entre pares mantienen al equipo hablando, con bajo riesgo:</strong> una conversación breve y no clínica tras un momento difícil no mostró evidencia de daño, y mejoró modestamente el funcionamiento del equipo en un ensayo controlado (Greenberg et al., 2010).</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Integra un check-in breve en las primeras dos semanas de cada nuevo integrante—no solo una lista de verificación de máquina o de tareas.</li>
+<li>Modela tú mismo, al menos una vez por semana, nombrar un pico reciente en el huddle, para que se lea como normal, no remedial.</li>
+<li>Establece un check-in entre pares fijo y opcional después de cualquier casi accidente o incidente, dentro de uno o dos días.</li>
+<li>Nombra a un responsable para cada uno de los tres puntos de contacto, para que la práctica no dependa de que tú estés en turno.</li>
+<li>Revisa un punto de contacto al mes: ¿de verdad ocurrió, o se detuvo en silencio cuando el calendario se apretó?</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Cuál de los tres puntos de contacto—inducción, huddle, o check-in entre pares—es más probable que desaparezca en silencio en tu equipo bajo la próxima fecha límite, y qué haría falta para protegerlo?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Integrar el check-in de dos minutos en la inducción, los huddles y el apoyo entre pares</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

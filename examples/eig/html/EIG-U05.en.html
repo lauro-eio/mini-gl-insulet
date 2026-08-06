@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders convert a fast read of a teammate&#x27;s tone or words into a checked one—through a brief reflect-and-check—so floor decisions register what is actually happening, not just what is quickest to assume.</p>
+      <div class="hero-meta">
+        <span>EIG · U05</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Fast Reads, Wrong Reads: What the Evidence Says </a>
+<a href="#opinion">The Write-Up I Almost Started Before I Asked</a>
+<a href="#assessment">Self-Assessment — Do You Check Your Read or Just</a>
+<a href="#case-1">Case 1 — Naomi and the Changeover Tech Who Went </a>
+<a href="#case-2">Case 2 — Miguel and the Snap on the Dock</a>
+<a href="#framework">Framework — Reflect-Back Canvas: Checking the Re</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Reflect-and-Check to</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Reflect-and</a>
+<a href="#key-notes">Key Notes — Checking the Read Before the Call</a>
+<a href="#commitment">Commitment — Protecting the Reflect-and-Check Be</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Fast Reads, Wrong Reads: What the Evidence Says About Checking an Empathic Guess Under Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Fast Reads, Wrong Reads: What the Evidence Says About Checking an Empathic Guess Under Pressure</h2>
+<p>Frontline leaders read a teammate&#x27;s tone in half a second—a flat voice, a clipped answer, a look held a beat too long—and act on that read before checking it. Decades of research on how accurately people read one another explain why the fast read is useful, why it is less reliable than it feels, and what actually improves it.</p>
+<h3>Empathy as a shared circuit, not a soft skill</h3>
+<p>Preston and de Waal&#x27;s perception-action model treats empathy as built on a basic mechanism: perceiving another person&#x27;s state automatically activates a matching representation in the observer&#x27;s own body and brain, the same circuitry used when acting yourself (Preston &amp; de Waal, 2002). This is not sentiment layered on top of supervision. It is closer to a shared wiring your body already uses to track a teammate&#x27;s state, whether you intend to notice it or not.</p>
+<h3>The read is automatic—and often wrong</h3>
+<p>Ickes named the accuracy of that read &quot;empathic accuracy&quot;: how well one person&#x27;s guess about another&#x27;s thoughts or feelings matches what that person actually reports (Ickes, 1993). Accuracy in his studies varies widely across people and situations, and perceivers routinely feel confident in a read that turns out to be off. Zaki and Ochsner&#x27;s review of the underlying science separates the automatic sensing of another&#x27;s state from the effortful, resource-limited work of correctly interpreting what that state means—two different processes, and only one of them runs on autopilot (Zaki &amp; Ochsner, 2012).</p>
+<h3>Pressure narrows the channel</h3>
+<p>Kraus found, counterintuitively, that stripping away the visual channel and listening to voice alone improved empathic accuracy compared with face-to-face conditions, because vocal tone carries more diagnostic emotional information than perceivers expect—and a busy visual scene can crowd it out (Kraus, 2017). On a floor with alarms, radios, and six things happening at once, the visual and situational noise competing for attention is exactly what degrades a leader&#x27;s read, even while confidence in that read stays high.</p>
+<h3>Checking the read outperforms defending it</h3>
+<p>Rogers and Farson described active listening as restating the content and feeling of what someone said back to them, in the listener&#x27;s own words, as a way to verify understanding before responding (Rogers &amp; Farson, 1957). Weger and colleagues tested this directly: speakers who received a paraphrase of what they had said felt more understood than speakers who received simple acknowledgment or immediate advice, in first-time interactions between strangers (Weger, Castle Bell, Minei, &amp; Robinson, 2014). The mechanism is not comfort. It is correction—paraphrasing exposes a wrong read before it drives a decision.</p>
+<h3>Three conditions when a read needs a check</h3>
+<p>Not every read needs a check. Evidence on when a perceiver&#x27;s confidence outruns their accuracy points to three conditions:</p>
+<ol>
+<li><strong>Ambiguous signal</strong>—tone, words, and body language do not obviously agree.</li>
+<li><strong>A decision is riding on the guess</strong>—you are about to instruct, correct, or escalate based on what you assume is happening.</li>
+<li><strong>Someone else carries the consequence</strong>—the read affects a person who cannot correct it later because you have already acted.</li>
+</ol>
+<p>When none apply, a fast read is usually good enough. When one or more strongly applies, the evidence favors a brief reflect-and-check before deciding.</p>
+<h3>What this means for supervisors</h3>
+<p>The goal is not to distrust every read or slow down every conversation—both cost more than they protect. The goal is to notice when confidence in a guess about a teammate is running ahead of the evidence for it, and to spend ten seconds confirming the read before it drives an instruction, a write-up, or a call the team will remember.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Preston, S. D., &amp; de Waal, F. B. M. (2002). Empathy: Its ultimate and proximate bases. <em>Behavioral and Brain Sciences, 25</em>(1), 1–20.</li>
+<li>Ickes, W. (1993). Empathic accuracy. <em>Journal of Personality, 61</em>(4), 587–610.</li>
+<li>Zaki, J., &amp; Ochsner, K. N. (2012). The neuroscience of empathy: Progress, pitfalls and promise. <em>Nature Neuroscience, 15</em>(5), 675–680.</li>
+<li>Kraus, M. W. (2017). Voice-only communication enhances empathic accuracy. <em>American Psychologist, 72</em>(7), 644–654.</li>
+<li>Rogers, C. R., &amp; Farson, R. E. (1957). <em>Active listening</em>. Industrial Relations Center, University of Chicago.</li>
+<li>Weger, H., Castle Bell, G., Minei, E. M., &amp; Robinson, M. C. (2014). The relative effectiveness of active listening in initial interactions. <em>International Journal of Listening, 28</em>(1), 13–31.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Write-Up I Almost Started Before I Asked</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Write-Up I Almost Started Before I Asked</h2>
+<p>I have started composing a write-up in my head before a shift even ended more times than I would like to admit. Usually it does not matter—I cool off, the moment passes. Two weeks ago it almost cost me a good technician who was already having the worst week of her year.</p>
+<p>Priya had missed a torque check on a sub-assembly for the second time that shift. When I asked about it, she gave one-word answers, would not look up from the bench, and shrugged when I asked if something was wrong. My first read was immediate: she has checked out, she does not care, and if I do not document this now it will happen again tomorrow. I had the incident report half-written in my head before I walked back to my office.</p>
+<p>I did not send it. Not because I do not believe in documentation—I do—but because something about the read did not sit right. Her voice was flat, not defiant. She was not avoiding the torque check out of carelessness; she looked like she was somewhere else entirely.</p>
+<p>So I did something small: I told her what I noticed instead of what I had decided about it. &quot;You seem pretty far off today, and this is the second miss—is that fair to say?&quot; Then I waited instead of finishing the sentence with a warning.</p>
+<p>It turned out her father had gone into the hospital the night before and she had worked the shift anyway rather than leave the line short-handed. She was not checked out. She was running on no sleep and trying not to fall apart at a workbench in front of six coworkers. If I had sent the write-up, I would have turned someone showing up under real strain into a disciplinary case, and I would have taught her that asking for help costs more than hiding it.</p>
+<p>I used to think checking a read before acting on it was slower than just calling it. It is not. Writing up Priya and having it come apart in a grievance meeting a week later would have cost hours, plus a technician who no longer trusted me with anything real. Asking one question and waiting for the answer cost less than a minute.</p>
+<p>I am not trying to stop forming a fast read of my team—that instinct is useful, and I do not think it should disappear. What changed is what I do in the ten seconds after I form it. I say what I noticed, out loud, before I decide what it means.</p>
+<p>I told my shift lead about this afterward, not as an excuse for skipping paperwork but as a standing rule: if a read is about to turn into an instruction, a warning, or a write-up, say what you noticed and ask one question before you act on what you assumed. It is not about going soft on standards. It is about making sure the version of the story you act on is the one the other person actually confirmed, not just the one that was fastest to believe.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Check Your Read or Just Run With It?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Naomi and the Changeover Tech Who Went Quiet</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Naomi and the Changeover Tech Who Went Quiet</h2>
+<h3>Opening</h3>
+<p>Naomi supervises a bottling-line changeover crew at a mid-sized packaging plant. She has run changeovers for three years and prides herself on reading a crew fast—who is sharp, who is dragging, who needs a task swapped before it becomes a problem. She rarely feels the need to double-check a first impression.</p>
+<h3>Context</h3>
+<p>Twelve minutes into a hard restart window, Trevor—normally her fastest tech—is unusually quiet, answering questions with single words and avoiding eye contact. Naomi&#x27;s first read is immediate: he is sulking about being passed over for a lead role last week, and if she calls it out now it will only slow the restart further. She is ready to quietly reassign him to a simpler station for the rest of the shift and deal with the attitude afterward.</p>
+<p>A newer tech, Sam, mentions in passing that Trevor seemed fine at the start of shift and only went quiet after checking his phone during the last break.</p>
+<h3>Decision point</h3>
+<p>Naomi can:</p>
+<ol>
+<li>Act on her read: reassign Trevor to a simpler station now, address what she assumes is attitude in a one-on-one after the shift.</li>
+<li>Say what she noticed instead of what she concluded, ask Trevor one open question, and wait for his answer before deciding anything about his role for the restart.</li>
+<li>Say nothing for now, keep Trevor on his current station, and only revisit it if his output actually drops.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What evidence did Naomi actually have for her read of &quot;sulking about the lead role,&quot; versus what she assumed based on the timing?</li>
+<li>Which of the three conditions—ambiguous signal, a decision riding on the guess, or someone else carrying the consequence—applies most strongly here?</li>
+<li>If Naomi chooses option 2, what does she say in the first ten seconds, and how does that differ from the reassignment she was ready to make?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Miguel and the Snap on the Dock</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Miguel and the Snap on the Dock</h2>
+<h3>Opening</h3>
+<p>Miguel coordinates a warehouse dock crew of ten. He has built a reputation for reading people well and rarely feels he needs to ask what is going on—he prides himself on already knowing.</p>
+<h3>Context</h3>
+<p>A new scheduling system just cut Ashley&#x27;s requested days off for next month without warning. Mid-shift, Ashley snaps at a coworker over a minor mis-scan, sharper than her usual tone. Miguel&#x27;s first read is immediate: she is upset about the schedule and taking it out on the team. He is ready to pull her aside, remind her the scheduling call was not his, and close the conversation quickly so the shift can keep moving.</p>
+<p>A peer supervisor mentions that Ashley has been picking up extra shifts for weeks to cover a sick relative&#x27;s care costs, on top of her regular load.</p>
+<h3>Decision point</h3>
+<p>Miguel can:</p>
+<ol>
+<li>Deliver the &quot;the schedule wasn&#x27;t my call&quot; line now, close the conversation, and get back to the floor.</li>
+<li>Say what he noticed—the snap, the timing—and ask Ashley one open question about what is actually going on before deciding what she needs.</li>
+<li>Say nothing about the snap beyond a quick check that the mis-scan is fixed, and note it for a one-on-one later in the week.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What was Miguel&#x27;s read actually based on—what he saw in the moment, or what he assumed given the schedule change?</li>
+<li>How should Miguel weigh the ambiguous signal (the snap) against the possibility that a decision (his response) could land on someone already carrying more than he knows?</li>
+<li>Design one open question Miguel could ask that invites Ashley to correct his read without putting her on the spot in front of the crew.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Reflect-Back Canvas: Checking the Read Before You Decide</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Reflect-Back Canvas: Checking the Read Before You Decide</h2>
+<p>Use in workshop or print for the floor. Run one canvas per moment you form a strong read of a teammate before you act on it.</p>
+<h3>1. The moment (one sentence)</h3>
+<p>What did I just notice, and what am I assuming it means?</p>
+<h3>2. Signal check</h3>
+<div class="table-wrap"><table>
+<tr><th>Trigger</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Ambiguous signal — do tone, words, and body language disagree?</td><td></td><td></td></tr>
+<tr><td>Decision riding on the guess — am I about to instruct, correct, or escalate based on this read?</td><td></td><td></td></tr>
+<tr><td>Someone else carries the consequence — will this land on a person who cannot correct it later?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero triggers present:</strong> Proceed. The read is likely good enough; act and move on.</li>
+<li><strong>One trigger present:</strong> Take the short reflect-and-check below before speaking or deciding.</li>
+<li><strong>Two or more triggers present:</strong> Full check required; hand off the instruction or conversation if you cannot take it.</li>
+</ul>
+<h3>4. Reflect-and-check (when required)</h3>
+<ol>
+<li>Say what you noticed, not what you concluded (&quot;You seem far off today,&quot; not &quot;You don&#x27;t care&quot;).</li>
+<li>Ask one open question instead of stating your conclusion.</li>
+<li>Wait for the answer before you decide what happens next.</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see that you took the check (a pause, a phrase, a follow-up question)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the habit does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>What made this moment worth checking, or not? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Reflect-and-Check to a Peer Who Wants a Quick Read</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Reflect-and-Check to a Peer Who Wants a Quick Read</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief reflect-and-check on a high-stakes read without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Read Owner)</strong></p>
+<p>You have formed a strong read of a teammate—distraction, defiance, distress—tied to a decision the team is watching. You want ten to thirty seconds to say what you noticed and ask one question before you act. You must not skip the check just to avoid friction, and you must not turn it into an open-ended interrogation.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same pressure and believe a floor leader should trust their first read—&quot;you know your people, just call it.&quot; You see the check as overthinking or second-guessing a call that should be obvious. You will back off only if the Read Owner names the specific trigger and gives a concrete, short time box for the check.</p>
+<h3>Conflict</h3>
+<p>Can the Read Owner secure agreement for a short reflect-and-check on one specific moment without the peer escalating over their head or the tension curdling into a grudge?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for an immediate call based on the obvious read; Read Owner responds.</li>
+<li>Round 2 (8 min): Read Owner names the specific trigger (ambiguous signal, decision riding on it, or stakes for someone else) and proposes a time-boxed check.</li>
+<li>Debrief (10 min): Where did the Read Owner nearly fold under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Reflect-and-Check Ritual Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Reflect-and-Check Ritual Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected reflect-and-check ritual when multiple stakeholders want the floor to read fast and move at full speed.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any moment with an ambiguous signal, a decision riding on the guess, or stakes for someone else gets a short, named check before a response.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any check as lost minutes and calls the ritual &quot;getting soft on the floor.&quot;</li>
+<li><strong>HR or quality analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when the check applies, plus a clear time box so it cannot be used to avoid a hard conversation indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down moments that genuinely do not need it, and if it does not quietly shift extra tension onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed reflect-and-check for genuinely ambiguous, high-stakes moments without looking soft to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (ambiguous signal, decision riding on the guess, stakes for someone else), not a blanket &quot;check whenever something feels off&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of when the check was used and what it changed</li>
+<li>No secret second process that contradicts the agreed ritual under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;check the read&quot; into language that reads as risk control, not softness?</li>
+<li>What would cause the ritual to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Checking the Read Before the Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Checking the Read Before the Call</h2>
+<p><strong>Unit goal:</strong> Convert a fast read of a teammate&#x27;s tone or words into a checked one—through a brief reflect-and-check—so floor decisions register what is actually happening, not just what is quickest to assume.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Empathy runs on a shared circuit:</strong> perceiving a teammate&#x27;s state automatically activates a matching response in your own body and brain—not a soft skill layered on top of supervision (Preston &amp; de Waal, 2002).</li>
+<li><strong>The read is automatic, not automatically accurate:</strong> confidence in a guess about someone&#x27;s state and the actual accuracy of that guess are two different things, and they often diverge (Ickes, 1993).</li>
+<li><strong>Pressure narrows the channel:</strong> a busy, noisy floor can crowd out the cues—especially vocal tone—that carry the most reliable information about what a teammate is actually feeling (Kraus, 2017).</li>
+<li><strong>Checking beats guessing:</strong> paraphrasing what someone said back to them, in your own words, catches a wrong read before it drives a decision (Rogers &amp; Farson, 1957; Weger et al., 2014).</li>
+<li><strong>Three conditions for a reflect-and-check:</strong> an ambiguous signal, a decision riding on the guess, and someone else carrying the consequence.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Notice the read you just formed about a teammate before you notice what you want to do about it.</li>
+<li>Say what you noticed, not what you concluded: &quot;You seem off today&quot; beats &quot;You don&#x27;t care.&quot;</li>
+<li>Ask one open question and wait for the answer before you instruct, correct, or escalate.</li>
+<li>Reserve the full reflect-and-check for moments with a decision attached—not every exchange needs it.</li>
+<li>After the shift, note one read you checked and one you acted on unchecked—both sharpen the skill.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recurring floor moment do you usually read fastest, and what would one reflect-and-check change about what you do next?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Reflect-and-Check Before It&#x27;s Needed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

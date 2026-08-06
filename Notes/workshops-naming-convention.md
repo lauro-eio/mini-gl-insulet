@@ -92,9 +92,11 @@ Folder slug = lowercase code (`ATC` → `content/atc/`).
 
 ## Ingest checklist (future packs)
 
+Full workflow (library-first, no drops into `content/`): [ingest.md](ingest.md).
+
 1. Confirm code exists in the codebook (or add it once).
-2. Path: `content/{code_lower}/{uNN}/{locale}/`.
-3. Manifest: `program_id`, `unit_id`, `audience_id`, `program_title`, `lens_title` from this note — **do not invent a third title**.
+2. Import source → `library/{code}/u0N/en/` (script or agent) — **not** straight into `content/`.
+3. Rewrite pack at `content/{code}/u0N/{locale}/` with `program_id`, `unit_id`, `audience_id`, `program_title`, `lens_title` from this note — **do not invent a third title**.
 4. Ban book/source names in `banned_phrases`.
 5. Asset titles stay on assets; they are not program/lens brands.
 6. Internal talk: `{CODE}-T{n}-U{nn}` only.

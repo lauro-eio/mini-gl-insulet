@@ -1,0 +1,93 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1. When someone expresses a difficult emotion, how do you typically respond?  
+ A. I quickly dismiss it, believing feelings are just noise.  
+ B. I feel awkward and often change the topic.  
+ C. I listen attentively and ask clarifying questions.  
+ D. I actively validate their feelings and offer supportive reflections.
+
+Q2. In conversations, what is your main focus?  
+ A. Making sure my point comes across clearly.  
+ B. Noticing nonverbal cues even if I don’t comment on them.  
+ C. Balancing what is said with what is felt.  
+ D. Engaging deeply by echoing and expanding on the emotions shared.
+
+Q3. How do you process unexpected emotional news?  
+ A. I overreact immediately without reflection.  
+ B. I acknowledge the emotion but then quickly move on.  
+ C. I take time afterward to reflect on the feelings involved.  
+ D. I engage in a mindful dialogue to understand the deeper message.
+
+Q4. Which best describes your interest in understanding the science behind emotions?  
+ A. I find it mildly curious and rarely dive deep.  
+ B. I’m fascinated and eagerly explore research findings.  
+ C. I prefer relying on instincts over scientific details.  
+ D. I enjoy reading summaries to grasp the basics, though I’m open to more.
+
+Q5. When someone is speaking about a personal experience, how do you ensure you truly understand their feelings?  
+ A. I simply nod, not really engaging with their emotions.  
+ B. I wait until they finish before asking a follow-up if needed.  
+ C. I reflect back what I heard to ensure clarity.  
+ D. I ask thoughtful, probing questions to explore their emotional depth.
+
+Q6. How do you handle discussions about personal challenges?  
+ A. I tend to change the topic quickly to avoid discomfort.  
+ B. I listen but rarely offer a deep response.  
+ C. I offer support after briefly processing my own feelings.  
+ D. I fully engage by empathizing and asking insightful questions.
+
+Q7. During a team meeting when someone appears upset, which of these best describes your approach?  
+ A. I avoid the emotional topic altogether.  
+ B. I try to lighten the mood with a joke.  
+ C. I offer a listening ear if invited to contribute.  
+ D. I proactively create a space where everyone feels safe to share and process.
+
+Q8. When you notice nonverbal cues indicating someone’s distress, what is your reaction?  
+ A. I ignore the cues unless they explicitly mention their feelings.  
+ B. I feel concerned and check in later when appropriate.  
+ C. I gently ask if they are okay in the moment.  
+ D. I immediately acknowledge both their words and unspoken signals with empathy.
+
+Q9. How often do you reflect on your own emotional patterns?  
+ A. Almost never—I rely solely on my gut instincts.  
+ B. Occasionally, especially after memorable events.  
+ C. Often, as I value personal growth and self-awareness.  
+ D. Regularly, it’s a cornerstone of my journey towards emotional mastery.
+
+Q10. When mentoring someone, how do you address their emotional experiences?  
+ A. I focus strictly on practical, goal-oriented advice.  
+ B. I briefly acknowledge their feelings before moving to problem-solving.  
+ C. I invite them to explore their emotions alongside actionable steps.  
+ D. I create a safe space for deep emotional exploration and growth.
+
+Q11. How do you cope when you feel emotionally overwhelmed?  
+ A. I tend to suppress my feelings and push forward.  
+ B. I look for distractions to steer clear of the emotions.  
+ C. I give myself time for reflection, sometimes seeking help.  
+ D. I practice mindfulness and use techniques to actively regulate my emotions.
+
+Q12. In social settings, how do you build deeper connections with others?  
+ A. I stick to small talk and surface-level conversations.  
+ B. I listen carefully but rarely reveal much about myself.  
+ C. I share selectively, gradually building trust over time.  
+ D. I actively encourage open dialogue by sharing experiences and fostering empathy.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 2, "B": 4, "C": 1, "D": 3},
+  {"Q": 5, "A": 1, "B": 2, "C": 4, "D": 3},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Emotionally Disconnected (Score 12-21) — You often struggle with connecting to the emotional world around you. Your reactions might be driven by instinct rather than reflection, hindering deep interpersonal connections. Consider embracing small, mindful practices like active listening to foster empathy. With time and practice, you can transform your approach to emotion and communication.
+
+2. The Emerging Empath (Score 22-30) — You are beginning to recognize the importance of emotional insight and genuine connection. At times, you show thoughtful empathy, although there remains an opportunity to delve deeper into self

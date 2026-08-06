@@ -6,4 +6,8 @@ Self-assessment & Commitment (Google Forms)
 
 ATC program
     - T2 EN+ES units 01–04 complete (see Notes/atc-program.md).
-    - Later: other tiers; Vercel publish repo per html-index.md.
+    - Later: other tiers.
+
+Ingest tooling
+    - Done: Notes/ingest.md + scripts/ingest_unit.py (--src / --browse / --force) + ingest_unit.browse.ps1.
+    - Extend SOURCE prefix map when a new program uses different source filenames.

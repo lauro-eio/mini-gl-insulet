@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the primary focus of Naturalistic Decision Making (NDM)?",
+    "options": [
+      "Studying decision making in controlled laboratory settings",
+      "Investigating decision making in abstract theoretical environments",
+      "Examining expert decision making in realistic, real-world settings",
+      "Analyzing decision making solely through simulations"
+    ],
+    "correct_answer_text": "Examining expert decision making in realistic, real-world settings",
+    "correct_key": "C"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "According to the Recognition-Primed Decision (RPD) Model, how do experts primarily make decisions?",
+    "options": [
+      "By relying exclusively on analytical data processing",
+      "Through random guesswork in uncertain situations",
+      "By recognizing patterns from experience and mentally simulating outcomes",
+      "By strictly following standardized decision protocols"
+    ],
+    "correct_answer_text": "By recognizing patterns from experience and mentally simulating outcomes",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which best describes the differences between System 1 and System 2 cognitive processes?",
+    "options": [
+      "System 1 is deliberative and slow, while System 2 is fast and intuitive",
+      "System 1 generates initial intuitive responses rapidly, while System 2 provides more deliberate evaluation and simulation",
+      "Both systems operate at high speed but use different types of information",
+      "Neither system is involved in expert decision making"
+    ],
+    "correct_answer_text": "System 1 generates initial intuitive responses rapidly, while System 2 provides more deliberate evaluation and simulation",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What does the term WYSIATI (What You See Is All There Is) imply about decision making?",
+    "options": [
+      "Decisions are based on comprehensive, multi-source information gathering",
+      "Judgments rely solely on the information that is immediately available",
+      "One must seek additional information beyond what is visible",
+      "Decision making is purely random without any bias"
+    ],
+    "correct_answer_text": "Judgments rely solely on the information that is immediately available",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Recognition-Primed Decision (RPD) Model involves both automatic intuitive processes and deliberate analytical simulation.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "System 1 is characterized by fast, automatic, and associative cognitive processing.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "WYSIATI suggests that decision makers usually incorporate extensive external data beyond their immediate perceptions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Illusion of Validity refers to a cognitive bias where individuals maintain excessive confidence in their judgments despite weak or absent accuracy cues.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

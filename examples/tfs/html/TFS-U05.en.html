@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytical Deliberation — Cognitive Anchors &amp; Deliberation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Cognitive Anchors &amp; Deliberation</p>
+      <h1>Analytical Deliberation</h1>
+      <p class="hero-lead">Help frontline leaders notice how a safety, quality, or scheduling call is framed before they act on it, and deliberately check that frame against the facts when emotion, loss language, or a vivid recent incident may be driving the decision.</p>
+      <div class="hero-meta">
+        <span>TFS · U05</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Same Facts, Different Choice: What the Evidence </a>
+<a href="#opinion">The Overtime Announcement I Rewrote Before I Hit</a>
+<a href="#assessment">Self-Assessment — Is Your Floor Call Framed by F</a>
+<a href="#case-1">Case 1 — Renata and the Quality Hold Announcemen</a>
+<a href="#case-2">Case 2 — Diego&#x27;s Overtime Ask and the Override T</a>
+<a href="#framework">Framework — Framing-Check Canvas for Floor Polic</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Reframe Test to a Pe</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Framing-Che</a>
+<a href="#key-notes">Key Notes — Framing the Call Before the Call Fra</a>
+<a href="#commitment">Commitment — Naming the Frame Before You Send It</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Same Facts, Different Choice: What the Evidence Says About Framing and Risk</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Same Facts, Different Choice: What the Evidence Says About Framing and Risk</h2>
+<p>Frontline leaders do not just make calls—they announce them. A quality hold, an overtime ask, a safety override: the same decision can be described in more than one way, and the wording is rarely neutral. Decades of research show that how a call is worded can shift what people choose, even when the underlying facts have not changed at all.</p>
+<h3>The same outcome, two descriptions</h3>
+<p>Tversky and Kahneman&#x27;s classic framing studies asked people to choose between identical outcomes described in different terms—once as a &quot;gain,&quot; once as a &quot;loss&quot;—and found that the wording alone reliably flipped people&#x27;s preferences, even among trained decision-makers (Tversky &amp; Kahneman, 1981). A later review confirmed this is not one narrow effect: framing shapes choices through several distinct mechanisms, including which outcome is treated as the reference point and which details are made salient (Levin, Schneider, &amp; Gaeth, 1998). The floor version is familiar: &quot;you&#x27;ll lose the incentive if we miss the cutoff&quot; and &quot;you&#x27;ll keep the incentive if we hit it&quot; can describe the exact same shift, yet pull a crew toward different levels of risk-taking to get there.</p>
+<h3>Why loss language moves people harder</h3>
+<p>Kahneman and Tversky&#x27;s prospect theory explains why. People do not evaluate outcomes against total wealth or absolute safety; they evaluate them against a reference point, and losses relative to that point are felt roughly twice as strongly as equivalent gains (Kahneman &amp; Tversky, 1979). This produces a consistent pattern: people tend to play it safe when a choice is framed as protecting a gain, and take on more risk when the same choice is framed as avoiding a loss. A supervisor who frames an override as &quot;avoid losing the shipment&quot; is nudging the team toward the riskier option, whether or not that is the intended message.</p>
+<h3>When a vivid case outweighs the data</h3>
+<p>A second force compounds framing: the availability and affect heuristics. Vivid, emotionally charged incidents are recalled more easily and weighed more heavily than dry base-rate data, so a single recent near-miss can dominate a risk judgment far out of proportion to how often it actually happens (Slovic, Finucane, Peters, &amp; MacGregor, 2004). Loewenstein, Weber, Hsee, and Welch (2001) found that this &quot;risk as feelings&quot; response often overrides a person&#x27;s own stated probability estimate—people can know the odds are low and still act as if the odds are high, because the memory is fresh and the fear is real.</p>
+<h3>Three floor triggers for a frame check</h3>
+<p>Three conditions signal that a call&#x27;s framing deserves a second look before acting on it:</p>
+<ol>
+<li><strong>Loss language on a risk decision</strong>—the ask is worded around avoiding a loss, which tends to push toward risk-seeking.</li>
+<li><strong>A vivid recent incident</strong>—an emotionally available case, rather than the actual pattern of outcomes, is driving the read.</li>
+<li><strong>The reframe test fails</strong>—stating the identical facts in the opposite frame (gain instead of loss, or vice versa) would change the decision.</li>
+</ol>
+<h3>The floor version of the fix</h3>
+<p>Thaler and Kahneman&#x27;s broader work on decision-making under risk points to a practical remedy: evaluate a recurring call as a standing policy applied consistently, not as a one-off judgment made fresh—and fresh vulnerable to whichever frame arrived first—each time (Kahneman, 2003). A framing check does not require slowing every announcement down. It requires naming the frame out loud before it drives a decision, restating the facts the other way, and checking the emotional read against the actual pattern rather than the most recent story.</p>
+<h3>What this means for supervisors</h3>
+<p>Before locking in how you will announce a hold, an override, or a mandatory shift, ask which frame you reached for first and why. If the wording is built around avoiding a loss, or a recent incident is doing more work than the data supports, restate the same facts the opposite way and see if the call still holds.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1981). The framing of decisions and the psychology of choice. <em>Science, 211</em>(4481), 453–458.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1979). Prospect theory: An analysis of decision under risk. <em>Econometrica, 47</em>(2), 263–291.</li>
+<li>Levin, I. P., Schneider, S. L., &amp; Gaeth, G. J. (1998). All frames are not created equal: A typology and critical analysis of framing effects. <em>Organizational Behavior and Human Decision Processes, 76</em>(2), 149–188.</li>
+<li>Slovic, P., Finucane, M. L., Peters, E., &amp; MacGregor, D. G. (2004). Risk as analysis and risk as feelings: Some thoughts about affect, reason, risk, and rationality. <em>Risk Analysis, 24</em>(2), 311–322.</li>
+<li>Loewenstein, G. F., Weber, E. U., Hsee, C. K., &amp; Welch, N. (2001). Risk as feelings. <em>Psychological Bulletin, 127</em>(2), 267–286.</li>
+<li>Kahneman, D. (2003). Maps of bounded rationality: Psychology for behavioral economics. <em>American Economic Review, 93</em>(5), 1449–1475.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Overtime Announcement I Rewrote Before I Hit Send</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Overtime Announcement I Rewrote Before I Hit Send</h2>
+<p>I had the message half-typed before I&#x27;d thought it through: &quot;If we don&#x27;t cover this shift, we lose the whole week&#x27;s incentive.&quot; True, technically. It would also have worked—my crew hates losing something they already feel is theirs more than they like earning something new. That&#x27;s exactly why I stopped typing.</p>
+<p>Two nights earlier, a different call had gone sideways because of the same instinct. A door sensor on dock 3 had tripped twice in an hour, an unusual pattern for that door. I told the crew lead, &quot;if we hold the truck to check it, we lose the cutoff for sure.&quot; Loss language, said fast, under pressure. He overrode the sensor and moved the truck. Nothing went wrong that night. But when I replayed it, I realized I had framed a safety check as a guaranteed loss and an override as the only way to avoid it—when the honest frame was closer to &quot;a small, checkable risk against a cutoff we could probably still make with four extra minutes.&quot; I had picked the frame that got the fastest yes, not the one that matched the facts.</p>
+<p>So before sending the overtime message, I made myself do one thing: say the same facts the other way. Instead of &quot;you&#x27;ll lose the incentive,&quot; I wrote &quot;everyone keeps the incentive if we cover this together.&quot; Same shift, same pay, same deadline. But now I noticed something—stated as a gain, the ask felt smaller to me, less urgent, more like something I&#x27;d actually explain rather than push. That gap told me the loss version had been doing work the facts alone didn&#x27;t justify.</p>
+<p>I sent the gain-framed version. I also went back to the dock 3 override from two nights before and did the reframe test on that one, late, after the fact: &quot;hold four minutes to check a sensor with an unusual pattern&quot; versus &quot;guarantee we lose the cutoff.&quot; Once I said it the second way, it was obvious the first frame had been the honest one, and fear of the deadline had picked the second frame for me in the moment.</p>
+<p>Now, before I announce any call that involves risk, loss, or overtime, I ask myself which frame I reached for first and whether I would still choose it if I stated the same facts the opposite way. I am not trying to slow every announcement down or hedge every message into mush—the crew needs clear, fast direction most shifts. I am trying to catch the handful of calls where the wording, not the situation, was about to make the decision for me.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Is Your Floor Call Framed by Facts or by Fear?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Renata and the Quality Hold Announcement</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Renata and the Quality Hold Announcement</h2>
+<h3>Opening</h3>
+<p>Renata leads a packing line at a mid-sized food distributor. A random check flags a small batch with a labeling defect that could, in rare cases, mask an allergen warning. She has to decide whether to hold the batch for a full recheck and how to announce that decision to her line and to her shift lead before the delivery window closes.</p>
+<h3>Context</h3>
+<p>Three weeks ago, a different line had a near-miss with a mislabeled batch that made it almost to the loading dock before someone caught it by chance. The story spread fast and is still the first thing anyone on shift mentions when labeling comes up. Renata&#x27;s honest read of today&#x27;s batch, based on the actual defect log, is that this kind of labeling slip happens on roughly one batch in several hundred and is almost always caught at this same checkpoint—today&#x27;s catch is the checkpoint working, not a sign of a bigger problem. But with the near-miss story fresh in everyone&#x27;s mind, her first draft of the announcement reads: &quot;If we ship this without a full recheck, we could be the batch that causes a recall.&quot; That framing is technically possible. It is also the loss-framed version that will guarantee the crew backs a lengthy hold, whether or not the actual risk here calls for one.</p>
+<h3>Decision point</h3>
+<p>Renata can:</p>
+<ol>
+<li>Send the loss-framed announcement as drafted, and let the vivid near-miss story carry the room toward the longer, safer-feeling hold.</li>
+<li>Restate the same facts as a protected gain—&quot;catching this now protects the checkpoint that&#x27;s already working&quot;—and separately check the decision against the actual defect log, not the recent story.</li>
+<li>Skip a written frame entirely, hold the batch by default without explaining the reasoning, and let the crew assume the worst about why.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Which detail in Renata&#x27;s first draft was doing more emotional work than the actual data justified, and why did the near-miss story make that framing feel obviously correct in the moment?</li>
+<li>Run the reframe test on Renata&#x27;s original wording: restate it as a gain instead of a loss. Does the hold decision still make sense once it is framed that way?</li>
+<li>If Renata chooses option 2, what should she say to a shift lead who assumes any hold means &quot;we found something serious,&quot; so the team does not overcorrect on the next unrelated call?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Diego&#x27;s Overtime Ask and the Override That Rode Along</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Diego&#x27;s Overtime Ask and the Override That Rode Along</h2>
+<h3>Opening</h3>
+<p>Diego coordinates a warehouse crew of eleven. A late truck means the crew needs to stay two extra hours to hit tonight&#x27;s cutoff, or the shipment slips to tomorrow and the week&#x27;s incentive is at risk for the whole team. Diego also needs the crew to accept an equipment override on a scanner that has been flagging intermittently, so the extra hours are not wasted waiting on a slow workaround.</p>
+<h3>Context</h3>
+<p>Diego drafts the overtime ask as a loss: &quot;If we don&#x27;t stay, everyone loses this week&#x27;s incentive.&quot; It works—the crew agrees fast. But the same loss framing rides along into the override conversation a few minutes later, when the crew lead radios about the flagging scanner: &quot;if we stop to check it, we lose the cutoff we just fought for.&quot; Diego&#x27;s shift log shows the scanner has flagged eleven times this quarter; ten were confirmed false alarms cleared in under two minutes, and one flagged a real jam that would have damaged product if overridden. Tonight&#x27;s flag pattern looks like the ten, but Diego cannot tell that from the radio call alone, and the loss frame from the overtime conversation is already pulling the room toward &quot;override and keep moving.&quot;</p>
+<div class="table-wrap"><table>
+<tr><th>This quarter</th><th>Overrides on this scanner</th><th>Later confirmed real fault</th></tr>
+<tr><td>Weeks 1–10</td><td>9</td><td>0</td></tr>
+<tr><td>Weeks 11–12</td><td>2</td><td>1 (different flag pattern)</td></tr>
+</table></div>
+<h3>Decision point</h3>
+<p>Diego can:</p>
+<ol>
+<li>Approve the override immediately, carrying the same loss frame from the overtime ask straight into the equipment decision.</li>
+<li>Separate the two decisions: keep the overtime ask as is, but decide the override on its own terms—a ninety-second check against the flag pattern, independent of the cutoff framing.</li>
+<li>Approve the override to protect tonight&#x27;s cutoff, and add a standing rule afterward that scanner overrides always get checked against the flag pattern regardless of what else is happening that shift.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>How did the loss frame Diego chose for the overtime ask spill over into a decision it was never meant to influence?</li>
+<li>Using the table, is tonight&#x27;s override decision a case for narrow, one-off judgment or for a standing risk policy applied the same way every time? What is the difference in practice?</li>
+<li>Design a floor phrase or cue that would let a crew member separate &quot;this is the overtime frame talking&quot; from &quot;this is the actual override risk&quot; without slowing down every normal shift extension.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Framing-Check Canvas for Floor Policy and Call Design</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Framing-Check Canvas for Floor Policy and Call Design</h2>
+<p>Use in workshop or print for the floor. Run one canvas per risky call or policy announcement before you send it.</p>
+<h3>1. The call (one sentence)</h3>
+<p>What am I about to announce or decide, right now?</p>
+<h3>2. Frame audit</h3>
+<div class="table-wrap"><table>
+<tr><th>Question</th><th>Answer</th><th>Why</th></tr>
+<tr><td>Is this worded around a loss (&quot;avoid losing...&quot;) or a gain (&quot;protect/earn...&quot;)?</td><td></td><td></td></tr>
+<tr><td>Is a specific vivid, recent incident driving today&#x27;s emotional read?</td><td></td><td></td></tr>
+<tr><td>Would the decision change if I stated the identical facts the opposite way?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Reframe test</h3>
+<p>Write the same facts as a loss, then as a gain, in one sentence each:</p>
+<ul>
+<li>Loss version:</li>
+<li>Gain version:</li>
+<li>Does the decision hold up under both? If not, which one matches the actual facts, not just the fastest yes?</li>
+</ul>
+<h3>4. Route decision</h3>
+<ul>
+<li><strong>Reframe test passes, no vivid incident driving it:</strong> Proceed with the frame that matches the facts. Note it and move on.</li>
+<li><strong>One trigger present (loss language or a vivid incident):</strong> Check the actual pattern (log, defect rate, prior flags) before sending the announcement.</li>
+<li><strong>Reframe test fails, or two triggers present:</strong> Hold the announcement; resolve which frame is honest before it goes to the team.</li>
+</ul>
+<h3>5. One-off or standing policy?</h3>
+<p>Does this type of call repeat often enough that it should be a fixed rule, decided once and applied the same way every time, rather than reframed fresh under each shift&#x27;s pressure?</p>
+<h3>6. Visibility</h3>
+<p>Where does the team see the frame you chose and why (board, radio call, log entry)?</p>
+<h3>7. Owner when you are off-shift</h3>
+<p>Name + backup, so the framing check does not disappear when you are not there:</p>
+<h3>8. After-action note</h3>
+<p>Which frame did you actually use, and did it match the facts or just get the fastest agreement? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Reframe Test to a Peer Who Wants the Quick Ask</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Reframe Test to a Peer Who Wants the Quick Ask</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief reframe test on a risky or loss-worded call without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Frame Owner)</strong></p>
+<p>You have drafted a risky announcement (override, hold, overtime ask) and noticed it is worded around a loss or leaning on a vivid recent incident. You want ninety seconds to restate it the other way before sending it. You must not skip the check just to avoid friction, and you must not turn it into an open-ended rewrite session.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same deadline and believe &quot;just send the message that gets the fastest yes.&quot; You push for the loss-framed version because it works, and you treat the reframe test as overthinking. You will back off only if the Frame Owner names the specific trigger (loss language, a vivid incident, or a failed reframe test) and gives a concrete, time-boxed check.</p>
+<h3>Conflict</h3>
+<p>Can the Frame Owner secure agreement for a ninety-second reframe test on one specific announcement without the peer escalating over their head or the deadline slipping past recovery?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for the fast, loss-framed send; Frame Owner responds.</li>
+<li>Round 2 (8 min): Frame Owner names the specific trigger and proposes a time-boxed reframe test.</li>
+<li>Debrief (10 min): Where did the Frame Owner nearly fold under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Framing-Check Ritual Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Framing-Check Ritual Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected framing-check ritual when multiple stakeholders want the floor to keep moving on whichever wording gets fastest agreement.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any risky announcement worded around a loss, or leaning on a vivid recent incident, gets a short, time-boxed reframe test before it goes out.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees the reframe test as lost minutes and calls it &quot;wordsmithing when we should be moving.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named triggers for when the check applies, plus a clear time box so it cannot be used to stall every announcement.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down calls that genuinely do not need it, and if it does not quietly shift extra explaining onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed reframe check for genuinely risky or loss-worded calls without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (loss language, vivid recent incident, failed reframe test), not a blanket &quot;reword everything&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of which frame was used and whether it matched the facts</li>
+<li>No secret second wording that contradicts the agreed ritual under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;reframe test&quot; into language that reads as risk control, not hesitation or wordplay?</li>
+<li>What would cause the ritual to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Framing the Call Before the Call Frames You</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Framing the Call Before the Call Frames You</h2>
+<p><strong>Unit goal:</strong> Notice how a safety, quality, or scheduling call is framed before acting on it, and check that frame against the facts when emotion or a vivid incident may be driving the decision.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Same facts, different wording, different choice:</strong> identical outcomes described as a gain versus a loss can flip what people choose, even when nothing about the situation changed.</li>
+<li><strong>Loss language pushes toward risk-taking:</strong> losses relative to a reference point are felt more strongly than equivalent gains, so &quot;avoid losing X&quot; tends to invite riskier calls than &quot;protect X.&quot;</li>
+<li><strong>Vivid cases outweigh the data:</strong> a recent, emotionally charged incident can dominate a risk judgment far more than the actual pattern of outcomes supports.</li>
+<li><strong>The reframe test:</strong> restate the identical facts the opposite way (gain instead of loss); if the decision changes, the wording—not the situation—was driving it.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before announcing a risk-related call, notice which frame you reached for first: gain or loss.</li>
+<li>Run the reframe test—state the same facts the other way and see if the call still holds.</li>
+<li>Ask whether a specific recent incident, rather than the actual pattern, is driving today&#x27;s emotional read.</li>
+<li>Where a call repeats often, treat it as a standing policy applied consistently, not a fresh judgment reframed each time.</li>
+<li>Make the frame visible to your team (say it out loud, log it) so a teammate can flag it before it becomes the decision.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recurring floor announcement have you been wording around avoiding a loss—and would you still make the same call if you framed it as protecting a gain instead?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Naming the Frame Before You Send It</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Cognitive Anchors &amp; Deliberation · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

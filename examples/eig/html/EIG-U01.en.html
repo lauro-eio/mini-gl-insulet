@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders treat emotional surges as evolved signals to notice and regulate—not ignore—so team calls stay deliberate under pressure.</p>
+      <div class="hero-meta">
+        <span>EIG · U01</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Old Alarms, New Floor: What the Evidence Says Ab</a>
+<a href="#opinion">The Radio Call I Almost Made Angry</a>
+<a href="#assessment">Self-Assessment — Do You Notice the Surge or Jus</a>
+<a href="#case-1">Case 1 — Renata and the Line Handoff Confrontati</a>
+<a href="#case-2">Case 2 — Devon and the Near-Miss on the Dock</a>
+<a href="#framework">Framework — Signal Check Canvas: Naming the Surg</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Pause-and-Label to a</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Pause-and-L</a>
+<a href="#key-notes">Key Notes — Reading the Signal Before the Call</a>
+<a href="#commitment">Commitment — Protecting the Pause-and-Label Befo</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Old Alarms, New Floor: What the Evidence Says About Emotions as Adaptive Signals</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Old Alarms, New Floor: What the Evidence Says About Emotions as Adaptive Signals</h2>
+<p>Frontline leaders feel a spike of anger when a peer second-guesses a call in front of the team. They feel a jolt of fear when an alarm sounds near a walkway. Both reactions arrive before any conscious decision is made. Evolutionary and cognitive science has spent well over a century studying why these responses exist and what they are actually for.</p>
+<h3>Emotions as inherited signal systems</h3>
+<p>Darwin&#x27;s early comparative work argued that emotional expressions—a bared jaw, raised brows, a dropped stance—are not learned decoration but shared, recognizable signals across species, shaped because they once helped an animal survive or coordinate with others (Darwin, 1872). A century later, Ekman and Friesen (1971) tested this claim directly: they found that people across widely different cultures, with no shared media exposure, read the same facial configurations as fear, anger, disgust, and joy. The signal is not a personal quirk. It is closer to a shared language your body already knows how to speak—and one your crew already knows how to read, whether you intend to send it or not.</p>
+<h3>Built to solve a recurring problem</h3>
+<p>Evolutionary psychologists Tooby and Cosmides (1990) describe emotions as coordinated response programs: each one reorganizes attention, physiology, memory retrieval, and priorities all at once, tuned to a specific recurring problem ancestors faced repeatedly—fear for sudden danger, anger for a boundary violation, disgust for contamination. Nesse (1990) frames this as emotions tracking a situation&#x27;s demands with enough speed that deliberate reasoning alone would be too slow to matter. The mechanism is not broken when it fires on a line or a dock; it is doing exactly what it was built to do, in a setting it was never designed for.</p>
+<h3>The circuit that fires before you decide</h3>
+<p>LeDoux&#x27;s research on threat processing mapped a fast neural pathway that can trigger a bodily response—a spike in heart rate, tensed muscles, narrowed attention—before the slower, more deliberate pathway has finished evaluating what actually happened (LeDoux, 2000). This is why a supervisor can feel the surge of a reaction in the body a full second or more before being able to explain, in words, why they feel it. The feeling is not a failure of professionalism. It is the older, faster circuit doing its job before the newer, slower one has caught up.</p>
+<h3>Why this matters on a floor, not just in a lab</h3>
+<p>Two consequences follow directly from this evidence. First, since the fast circuit fires before the slow one reports in, a leader cannot out-think the initial spike—but they can decide what happens in the next several seconds, because a brief window exists between the spike and the response it drives (LeDoux, 2000; Ekman, 1992). Second, because facial and vocal signals are visible to a team the moment they appear (Ekman &amp; Friesen, 1971), a leader who ignores their own surge does not get privacy—the crew is already reading it, and reacting to it, often before the leader has named it to themselves.</p>
+<h3>Three conditions when the surge needs a deliberate beat</h3>
+<p>Not every surge needs a pause. Evidence on when a reaction runs ahead of a situation points to three conditions:</p>
+<ol>
+<li><strong>Intensity mismatch</strong>—the reaction feels bigger than what just happened warrants.</li>
+<li><strong>A call is attached</strong>—a decision affecting the team is about to be made while the surge is still running.</li>
+<li><strong>Visible spread</strong>—your state is already showing on your face or in your voice, and the team is picking it up.</li>
+</ol>
+<p>When none apply, the fast response is usually proportionate and does not need managing. When one or more strongly applies, the evidence favors naming the signal before acting on it.</p>
+<h3>What this means for supervisors</h3>
+<p>The goal is not to suppress a signal or wait it out in silence—both strategies fight biology and tend to fail under pressure. The goal is to notice the signal, put a brief label on it, and use the several-second window that noticing buys before it drives a call the team will remember.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Darwin, C. (1872). <em>The Expression of the Emotions in Man and Animals</em>. John Murray.</li>
+<li>Ekman, P., &amp; Friesen, W. V. (1971). Constants across cultures in the face and emotion. <em>Journal of Personality and Social Psychology, 17</em>(2), 124–129.</li>
+<li>Ekman, P. (1992). An argument for basic emotions. <em>Cognition &amp; Emotion, 6</em>(3–4), 169–200.</li>
+<li>Tooby, J., &amp; Cosmides, L. (1990). The past explains the present: Emotional adaptations and the structure of ancestral environments. <em>Ethology and Sociobiology, 11</em>(4–5), 375–424.</li>
+<li>Nesse, R. M. (1990). Evolutionary explanations of emotions. <em>Human Nature, 1</em>(3), 261–289.</li>
+<li>LeDoux, J. E. (2000). Emotion circuits in the brain. <em>Annual Review of Neuroscience, 23</em>, 155–184.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Radio Call I Almost Made Angry</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Radio Call I Almost Made Angry</h2>
+<p>I have keyed the radio angry more times than I would like to admit. Most of the time it costs nothing—the moment passes, the shift moves on. Last month it almost cost me a working relationship with a peer I need for the next six months.</p>
+<p>A quality hold got called on my line during a peer&#x27;s handoff. He came over the radio and said, in front of both our crews, that my team had &quot;let another one through.&quot; My jaw tightened before he finished the sentence. My hand was already reaching for the radio to fire back that his crew had missed two the week before and nobody said a word.</p>
+<p>I did not key the radio. Not because I am naturally calm—I am not—but because I have started paying attention to what is happening in my body before I decide what comes out of my mouth. My chest was tight, my voice was already loud in my head, and I could feel the shape of the sentence I wanted to say. That is usually my sign that the reaction is bigger than the moment, and that whatever I say next will be remembered by two crews, not just resolved with one.</p>
+<p>So I did something small: I named it, silently, as &quot;defensive anger, not really about the hold.&quot; Then I asked one question instead of making one statement: &quot;What did you actually see on the line?&quot; That is it. Ten seconds, maybe less.</p>
+<p>It turned out the hold was real, but it was a supplier defect that showed up on our line and his line both—not a miss by either crew. If I had keyed the radio angry, I would have started a blame fight over something neither of us caused, in front of both teams, on an open channel.</p>
+<p>I used to think noticing the surge before reacting to it was slower. It is not. Reacting immediately would have felt fast, but it would have cost twenty minutes of two crews untangling a fight that never needed to happen, plus a strained handoff for weeks after. Naming the signal cost ten seconds.</p>
+<p>I am not trying to stop feeling the jolt when someone challenges my team in front of others. That reaction is not going away, and I do not think it should—it tells me something matters. What changed is what I do in the few seconds after I feel it. I put a name on it before I let it pick my words for me.</p>
+<p>I told my crew about this afterward, not as a confession but as a standing rule: if you feel the jolt and a call is about to leave your mouth, name the feeling first, out loud if you can, silently if you cannot. It is not about going soft on the floor. It is about making sure the version of you that speaks is the one actually looking at what happened, not the one still reacting to the tone of a radio call.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Notice the Surge or Just React to It?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Renata and the Line Handoff Confrontation</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Renata and the Line Handoff Confrontation</h2>
+<h3>Opening</h3>
+<p>Renata supervises the day shift on a small-parts assembly line at a mid-sized manufacturer. She has run this line for four years and prides herself on a clean handoff to the next shift—no surprises, no blame. She knows her jaw tightens fast when she feels accused in front of a crew.</p>
+<h3>Context</h3>
+<p>At shift change, the incoming supervisor, Callum, radios in front of both crews that a quality hold just got called on a batch Renata&#x27;s team packed an hour earlier—&quot;another one from your line,&quot; he says, loud enough for six people to hear. Renata feels the jolt immediately: heat in her face, a sentence already forming about the two holds his crew let through last week. She has maybe forty-five seconds before both crews start drawing their own conclusions about who is at fault.</p>
+<p>A newer packer on Renata&#x27;s crew, Dara, quietly mentions that the same defect code showed up on a supplier alert posted that morning—one Renata has not read yet.</p>
+<h3>Decision point</h3>
+<p>Renata can:</p>
+<ol>
+<li>Respond immediately, matching Callum&#x27;s tone and defending her crew on the radio in front of everyone.</li>
+<li>Say nothing for several seconds, silently name what she is feeling, then ask Callum one question about what he actually saw before responding.</li>
+<li>Wave Callum off for now, tell both crews to keep moving, and address the hold and the tone privately after the floor clears—accepting that the public accusation sits unanswered in the meantime.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What in Renata&#x27;s body told her the reaction was bigger than the moment warranted, and how could she use that signal instead of ignoring it?</li>
+<li>Which of the three conditions—intensity mismatch, a call attached, or visible spread—applies most strongly here?</li>
+<li>If Renata chooses option 2, what does she say in the ten seconds after noticing the jolt, and how does that differ from what she originally wanted to say?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Devon and the Near-Miss on the Dock</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Devon and the Near-Miss on the Dock</h2>
+<h3>Opening</h3>
+<p>Devon coordinates a warehouse dock crew of eight. A forklift operator clips a stack of pallets while backing up near a walkway; nobody is hurt, but a crew member had been standing two feet from where the pallets fell. Devon feels the fear spike hit before he has even finished turning around—tight chest, narrowed focus, an urge to shout at the operator right now, in front of everyone.</p>
+<h3>Context</h3>
+<p>The operator, visibly rattled, is waiting for Devon&#x27;s reaction. The rest of the crew has stopped moving and is watching. A truck at the dock has a hard cutoff in eighteen minutes, and the crew lead is already asking whether they can resume loading. Devon&#x27;s instinct pulls two ways at once: explode at the operator to underline how serious this was, or wave it off fast to protect the cutoff and keep morale from cratering.</p>
+<p>Neither instinct, acted on immediately, addresses what actually needs to happen: checking the operator, checking the walkway sightline, and deciding what the crew needs to hear in the next two minutes.</p>
+<h3>Decision point</h3>
+<p>Devon can:</p>
+<ol>
+<li>React immediately—raise his voice at the operator on the spot to underline the severity, then get back to loading.</li>
+<li>Take thirty seconds of visible silence, name the fear spike to himself, check the operator and the crew member, then decide what to say.</li>
+<li>Say nothing about the near-miss beyond &quot;everyone okay?&quot;, resume loading to protect the cutoff, and address it fully at the end of the shift.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What would Devon&#x27;s face and voice already be broadcasting to the crew in the first ten seconds, whether he intends it or not?</li>
+<li>How should Devon weigh the visible spread of his own fear response against the crew&#x27;s need for a steady voice right now?</li>
+<li>Design a floor cue Devon&#x27;s crew could use so that anyone—operator included—can signal &quot;give me a beat&quot; after a near-miss, without it reading as blame.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Signal Check Canvas: Naming the Surge Before You Decide</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Signal Check Canvas: Naming the Surge Before You Decide</h2>
+<p>Use in workshop or print for the floor. Run one canvas per moment you notice a strong emotional surge before you act on it.</p>
+<h3>1. The moment (one sentence)</h3>
+<p>What just happened, and what am I feeling right now?</p>
+<h3>2. Signal check</h3>
+<div class="table-wrap"><table>
+<tr><th>Trigger</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Intensity mismatch — does this feeling seem bigger than the situation warrants?</td><td></td><td></td></tr>
+<tr><td>Call attached — is a decision affecting the team about to leave my mouth?</td><td></td><td></td></tr>
+<tr><td>Visible spread — is my face, voice, or posture already showing this to others?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero triggers present:</strong> Proceed. The signal is proportionate; act and move on.</li>
+<li><strong>One trigger present:</strong> Take the short label-and-check below before speaking or acting.</li>
+<li><strong>Two or more triggers present:</strong> Full beat required; hand off the next radio call or instruction if you cannot take it.</li>
+</ul>
+<h3>4. Label-and-check (when required)</h3>
+<ol>
+<li>Name the feeling in one or two words (e.g., &quot;defensive anger,&quot; &quot;startle fear&quot;).</li>
+<li>What actually happened, separate from what I am currently feeling about it?</li>
+<li>What is the one question I could ask instead of the statement I want to make?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see that you took the beat (a pause, a phrase, a radio call)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the ritual does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>What made this moment surge-worthy or routine? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Pause-and-Label to a Peer Who Wants a Reaction</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Pause-and-Label to a Peer Who Wants a Reaction</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief pause-and-label on a high-intensity moment without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Signal Owner)</strong></p>
+<p>You have felt a strong emotional surge—anger, fear, frustration—tied to a call the team is watching. You want ten to thirty seconds to name the feeling and check what actually happened before you respond. You must not skip the beat just to avoid friction, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same pressure and believe reactions on the floor should be immediate—&quot;say what you see, move on.&quot; You see the pause as overthinking or oversharing feelings on the job. You will back off only if the Signal Owner names the specific trigger and gives a concrete, short time box for the beat.</p>
+<h3>Conflict</h3>
+<p>Can the Signal Owner secure agreement for a short pause-and-label on one specific moment without the peer escalating over their head or the tension curdling into a grudge?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for an immediate reaction; Signal Owner responds.</li>
+<li>Round 2 (8 min): Signal Owner names the specific trigger (intensity mismatch, call attached, or visible spread) and proposes a time-boxed beat.</li>
+<li>Debrief (10 min): Where did the Signal Owner nearly fold under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Pause-and-Label Ritual Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Pause-and-Label Ritual Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected pause-and-label ritual when multiple stakeholders want the floor to react and move at full speed.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any moment with intensity mismatch, a call attached, or visible spread gets a short, named pause before a response.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any pause as lost minutes and calls the ritual &quot;getting soft on the floor.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when the pause applies, plus a clear time box so it cannot be used to avoid a hard conversation indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down moments that genuinely do not need it, and if it does not quietly shift extra tension onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed pause for genuinely high-intensity moments without looking soft to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (intensity mismatch, call attached, visible spread), not a blanket &quot;pause whenever you feel something&quot;</li>
+<li>A fixed time box for the pause, agreed in advance</li>
+<li>A visible record of when the pause was used and what it changed</li>
+<li>No secret second process that contradicts the agreed ritual under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;pause&quot; into language that reads as risk control, not softness?</li>
+<li>What would cause the ritual to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Reading the Signal Before the Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Reading the Signal Before the Call</h2>
+<p><strong>Unit goal:</strong> Treat emotional surges as evolved signals to notice and regulate—not ignore—so team calls stay deliberate under pressure.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Signals, not glitches:</strong> anger, fear, and other surges are inherited response programs, shaped to solve recurring problems fast—not personal failures of professionalism (Tooby &amp; Cosmides, 1990; Nesse, 1990).</li>
+<li><strong>The fast circuit fires first:</strong> a bodily reaction can arrive before the slower, deliberate part of the brain has finished evaluating what happened (LeDoux, 2000). You cannot out-think the first spike—but you can decide what happens next.</li>
+<li><strong>Your team already reads it:</strong> facial and vocal signals are visible the moment they appear, across cultures (Ekman &amp; Friesen, 1971). Ignoring your own surge does not hide it from the crew.</li>
+<li><strong>Three conditions for a deliberate beat:</strong> intensity mismatch, a call attached to the moment, and visible spread to the team.</li>
+<li><strong>A brief label beats both extremes:</strong> neither suppressing the signal nor reacting on it immediately serves a floor call well.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Notice the physical signal (tight chest, raised voice, clenched jaw) before you notice the thought.</li>
+<li>Put one word on it—silently or out loud—before you speak or act: &quot;defensive anger,&quot; &quot;startle fear,&quot; &quot;frustration.&quot;</li>
+<li>Ask one question instead of making one statement when the surge is running.</li>
+<li>Keep a visible team cue for &quot;give me a beat&quot; that does not read as weakness.</li>
+<li>After the shift, note one surge you named well and one you missed—both sharpen the skill.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recurring floor moment reliably triggers a surge in you, and what would naming it one beat earlier change about what you say next?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Pause-and-Label Before It&#x27;s Needed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which concept refers to the natural, biologically influenced mood and emotional range present from birth?",
+    "options": ["Temperament", "Behavioral Inhibition", "Amygdala Excitability", "Prefrontal Cortex Balance"],
+    "correct_answer_text": "Temperament",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What term describes the tendency toward shyness and avoidance of unfamiliar situations linked to an overactive amygdala?",
+    "options": ["Prefrontal Cortex Balance", "Temperament", "Behavioral Inhibition", "Brain Plasticity"],
+    "correct_answer_text": "Behavioral Inhibition",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which neural property predisposes individuals to heightened sensitivity and anxiety?",
+    "options": ["Amygdala Excitability", "Prefrontal Cortex Balance", "Synaptic Pruning", "Critical Periods"],
+    "correct_answer_text": "Amygdala Excitability",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What does Prefrontal Cortex Balance refer to in the context of emotional processing?",
+    "options": ["The interplay between left (cheerful) and right (melancholic) frontal brain activity", "The balance between the amygdala and hippocampus", "The equal development of neural circuitry in childhood", "The regulatory effect of parental guidance on emotions"],
+    "correct_answer_text": "The interplay between left (cheerful) and right (melancholic) frontal brain activity",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which process describes how childhood experiences shape and refine neural circuitry?",
+    "options": ["Neural networking", "Brain Plasticity and Synaptic Pruning", "Emotional Hijacking", "Critical Period Modulation"],
+    "correct_answer_text": "Brain Plasticity and Synaptic Pruning",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What are Critical Periods as defined in the chapter?",
+    "options": ["Developmental windows where emotional patterns are highly susceptible to environmental modulation", "Phases when genetic factors dominate over environment", "Short-term learning intervals in adolescence", "Periods when environmental influences are minimal"],
+    "correct_answer_text": "Developmental windows where emotional patterns are highly susceptible to environmental modulation",
+    "correct_key": "A"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which actionable step involves gradually introducing timid children to increasingly challenging situations to build their confidence?",
+    "options": ["Behavior Therapy", "Gradual Exposure Interventions", "Emotional Coaching", "Structured Play"],
+    "correct_answer_text": "Gradual Exposure Interventions",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "What technique is recommended for training parents to help children learn self-soothing and resilience?",
+    "options": ["Overprotective parenting", "Permissive guidance", "Emotional Coaching Techniques", "Hands-off observation"],
+    "correct_answer_text": "Emotional Coaching Techniques",
+    "correct_key": "C"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Which intervention step focuses on boosting social competence and recalibrating emotional responses through regular positive interactions?",
+    "options": ["Gradual Exposure Interventions", "Structured Play and Social Interaction", "Behavior Therapy Methods", "Enriched Environmental Programs"],
+    "correct_answer_text": "Structured Play and Social Interaction",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "What is the main objective of implementing early childhood programs as described in the chapter?",
+    "options": ["To enhance academic skills exclusively", "To foster enriched environments that offer diverse sensory and cognitive stimuli", "To provide strict behavioral control", "To emphasize innate genetic traits"],
+    "correct_answer_text": "To foster enriched environments that offer diverse sensory and cognitive stimuli",
+    "correct_key": "B"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which method facilitates controlled exposure to stressors, enabling children to learn self-regulation in a safe setting?",
+    "options": ["Gradual Exposure Interventions", "Behavior Therapy Methods", "Emotional Coaching Techniques", "Critical Period Management"],
+    "correct_answer_text": "Behavior Therapy Methods",
+    "correct_key": "B"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "How do caregiver training modules aim to reduce overreactivity in children predisposed to timidity?",
+    "options": ["By encouraging permissiveness", "By promoting overprotectiveness", "By highlighting the importance of firm, empathetic discipline", "By minimizing parental involvement"],
+    "correct_answer_text": "By highlighting the importance of firm, empathetic discipline",
+    "correct_key": "C"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Which statement best encapsulates the chapter's primary thesis?",
+    "options": ["Temperament is entirely fixed by genetics", "Early experiences cannot modify innate emotional responses", "Early experiences and environmental influences can significantly reshape innate emotional responses", "Genetics solely determine emotional outcomes"],
+    "correct_answer_text": "Early experiences and environmental influences can significantly reshape innate emotional responses",
+    "correct_key": "C"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "This chapter builds upon which two previous topics?",
+    "options": ["Genetic predisposition and behavioral inhibition", "Emotional hijacking and the foundations of emotional intelligence", "Parental influence and social interaction", "Synaptic pruning and brain plasticity"],
+    "correct_answer_text": "Emotional hijacking and the foundations of emotional intelligence",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "What misconception regarding temperament is addressed in the chapter?",
+    "options": ["That early experiences can modify innate predispositions", "That temperament is solely determined by genetics and is unchangeable", "That behavioral inhibition has environmental influences", "That neural plasticity is irrelevant to emotional development"],
+    "correct_answer_text": "That temperament is solely determined by genetics and is unchangeable",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "Temperament is solely determined by genetics and cannot be reshaped by early experiences.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Behavioral Inhibition is linked to an overactive amygdala.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Amygdala Excitability increases neural responsiveness, predisposing individuals to sensitivity and anxiety.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Prefrontal Cortex Balance has no influence on a person's emotional outlook.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Brain Plasticity and Synaptic Pruning refer to the process by which childhood experiences shape neural circuitry.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Critical Periods are developmental windows in which emotional and cognitive patterns are highly susceptible to environmental modulation.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Gradual exposure interventions aim to introduce timid children to increasingly challenging situations gradually.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Emotional coaching techniques discourage the use of direct commands and consistent, firm guidance.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Structured play and social interaction are promoted to boost social competence and recalibrate emotional responses.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Early childhood programs should offer diverse sensory and cognitive stimuli to enhance neural connectivity.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Behavior therapy methods in the chapter are designed to facilitate uncontrolled exposure to stressors.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Caregiver training modules emphasize the importance of firm, empathetic discipline to reduce overreactivity in children predisposed to timidity.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "Early and ongoing experiences cannot modify innate predispositions, according to the chapter.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "The chapter suggests that genetic predispositions irrevocably determine lifelong emotional responses.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question

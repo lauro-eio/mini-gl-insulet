@@ -34,4 +34,4 @@ mini-GL (factory)  →  validate / render  →  copy HTML into global-leadership
 
 ## Status
 
-ATC T2 U01–U04 EN+ES published at `/atc/u0N/{en,es}/`. Locale catalogs at `/en/` and `/es/`. Connect Vercel when ready.
+ATC T2 U01–U04 EN+ES published at `/atc/u0N/{en,es}/`. TFS T2 U01–U05 EN+ES at `/tfs/u0N/{en,es}/`. EIG T2 U01–U07 EN+ES at `/eig/u0N/{en,es}/`. Locale catalogs at `/en/` and `/es/`. Connect Vercel when ready.

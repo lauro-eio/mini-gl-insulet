@@ -1,0 +1,76 @@
+program_id: TFS
+unit_id: u05
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Anclaje cognitivo y deliberación
+lens_title: Deliberación analítica
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a notar cómo está encuadrada una decisión
+  de seguridad, calidad o programación antes de actuar sobre ella, y a verificar
+  deliberadamente ese encuadre contra los hechos cuando la emoción, el lenguaje
+  de pérdida o un incidente reciente y vívido puedan estar impulsando la decisión.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - Atomic Habits
+  - In our modern age
+  - In a fast-paced world
+  - Pensar rápido, pensar despacio
+  - Hábitos Atómicos
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Los mismos hechos, otra decisión: qué dice la evidencia sobre el encuadre y el riesgo"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "El anuncio de horas extra que reescribí antes de enviarlo"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Encuadrar la decisión antes de que la decisión te encuadre a ti"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Tu decisión de piso está encuadrada por los hechos o por el miedo?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo de verificación de encuadre para políticas de piso y diseño de decisiones"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Nombrar el encuadre antes de enviarlo"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Renata y el anuncio de retención por calidad"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — La solicitud de horas extra de Diego y la anulación que llegó de paso"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender una prueba de reencuadre ante un par que quiere la vía rápida"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger el ritual de verificación de encuadre bajo presión de tiempo"

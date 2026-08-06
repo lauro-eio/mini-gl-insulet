@@ -1,0 +1,257 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the master aptitude described in the chapter that governs and enhances all other cognitive abilities?",
+    "options": ["Emotional intelligence", "Cognitive capacity", "IQ", "Memory retention"],
+    "correct_answer_text": "Emotional intelligence",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which cognitive capacity is specifically noted as being adversely affected by disruptive emotions?",
+    "options": ["Long-term memory", "Working memory", "Problem solving", "Verbal reasoning"],
+    "correct_answer_text": "Working memory",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "The marshmallow test is used in the chapter as an example of which concept?",
+    "options": ["Social skills", "Impulse Control and Delay of Gratification", "Focused Attention", "Flow"],
+    "correct_answer_text": "Impulse Control and Delay of Gratification",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which emotional drivers are described as motivating persistent effort and adaptive responses to setbacks?",
+    "options": ["Fear and anger", "Hope and Optimism", "Joy and surprise", "Sadness and regret"],
+    "correct_answer_text": "Hope and Optimism",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "What belief in one’s ability to master challenges reinforces emotional self-regulation?",
+    "options": ["Self-esteem", "Self-efficacy", "Self-awareness", "Self-confidence"],
+    "correct_answer_text": "Self-efficacy",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What is the state of optimal performance, characterized by deep, focused engagement, as defined in the chapter?",
+    "options": ["Mindfulness", "Flow", "Peak performance", "Attentiveness"],
+    "correct_answer_text": "Flow",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which of the following techniques is recommended for managing anxiety and channeling emotions toward productive ends?",
+    "options": ["Emotional self-regulation", "Cognitive restructuring", "Time management", "Immediate gratification"],
+    "correct_answer_text": "Emotional self-regulation",
+    "correct_key": "A"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which actionable step involves developing routines such as mindful breathing?",
+    "options": ["Practice Focused Attention", "Implement Delay Techniques", "Set Incremental Goals", "Monitor Emotional States"],
+    "correct_answer_text": "Practice Focused Attention",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Which actionable step involves structured activities like using distraction methods or self-talk to postpone gratification?",
+    "options": ["Practice Focused Attention", "Implement Delay Techniques", "Cultivate Optimistic Explanatory Styles", "Foster Flow Conditions"],
+    "correct_answer_text": "Implement Delay Techniques",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "What is the actionable step that involves breaking down larger challenges into smaller, manageable tasks?",
+    "options": ["Set Incremental Goals", "Practice Focused Attention", "Monitor Emotional States", "Foster Flow Conditions"],
+    "correct_answer_text": "Set Incremental Goals",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which strategy is recommended for reframing setbacks as opportunities for change?",
+    "options": ["Cultivate Optimistic Explanatory Styles", "Implement Delay Techniques", "Monitor Emotional States", "Practice Focused Attention"],
+    "correct_answer_text": "Cultivate Optimistic Explanatory Styles",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Which actionable step entails aligning personal skills with task challenges while minimizing distractions?",
+    "options": ["Foster Flow Conditions", "Set Incremental Goals", "Practice Focused Attention", "Emotional Self-Regulation"],
+    "correct_answer_text": "Foster Flow Conditions",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Which step involves regularly assessing mood and stress levels and applying relaxation techniques to prevent cognitive overload?",
+    "options": ["Monitor Emotional States", "Implement Delay Techniques", "Foster Flow Conditions", "Cultivate Optimistic Explanatory Styles"],
+    "correct_answer_text": "Monitor Emotional States",
+    "correct_key": "A"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "What misconception about intelligence does the chapter directly confront?",
+    "options": ["That emotional intelligence is synonymous with social skills", "That intelligence is only about cognitive capacity (IQ)", "That emotions are irrelevant to academic success", "That IQ is the sole measure of creativity"],
+    "correct_answer_text": "That intelligence is only about cognitive capacity (IQ)",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "This chapter builds on insights discussed in which prior chapter regarding unchecked passion and emotional hijacking?",
+    "options": ["Chapter 5", "Chapter 6", "Chapter 7", "Chapter 8"],
+    "correct_answer_text": "Chapter 5",
+    "correct_key": "A"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "Emotional intelligence enhances all other cognitive abilities by harnessing and regulating emotions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Disruptive emotions do not affect working memory according to the chapter.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "The marshmallow test is presented as an example of impulse control and delay of gratification.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Hope and Optimism are described in the chapter as factors that demotivate persistent effort.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Self-efficacy is defined as the belief in one's ability to master challenges.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Flow is defined as a state of distracted performance.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Techniques for emotional self-regulation include managing anxiety and channeling emotions productively.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Practicing focused attention through routines like mindful breathing does not improve working memory during tasks.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Delay Techniques involve structured activities such as distraction methods and self-talk to postpone gratification.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Setting Incremental Goals helps build hope and enhance self-efficacy.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Cultivating Optimistic Explanatory Styles involves viewing setbacks solely as failures.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Fostering Flow Conditions requires aligning personal skills with the challenges of a task.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "Monitoring Emotional States includes assessing mood and stress levels before high-pressure tasks.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "The chapter implies that emotional regulation is secondary to IQ when it comes to learning and performance.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "The chapter builds on previous insights regarding unchecked passion and emotional hijacking from an earlier discussion.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]
+--- END JSON DATA ---
+
+--- START REVIEW TEXT ---
+1. (MC) What is the master aptitude described in the chapter that governs and enhances all other cognitive abilities?
+   Answer: Emotional intelligence.
+2. (MC) Which cognitive capacity is specifically noted as being adversely affected by disruptive emotions?
+   Answer: Working memory.
+3. (MC) The marshmallow test is used in the chapter as an example of which concept?
+   Answer: Impulse Control and Delay of Gratification.
+4. (MC) Which emotional drivers are described as motivating persistent effort and adaptive responses to setbacks?
+   Answer: Hope and Optimism.
+5. (MC) What belief in one’s ability to master challenges reinforces emotional self-regulation?
+   Answer: Self-efficacy.
+6. (

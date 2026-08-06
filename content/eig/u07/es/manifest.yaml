@@ -1,0 +1,80 @@
+program_id: EIG
+unit_id: u07
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Resiliencia y resonancia emocional
+lens_title: Liderazgo empático de equipos
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a integrar las habilidades de
+  alfabetización emocional del equipo—notar un pico, nombrarlo, elegir una
+  respuesta—en tres puntos de contacto que superan un solo taller: la
+  inducción de nuevos integrantes, el coaching en el huddle previo al turno,
+  y los check-ins entre pares después de un incidente.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+  - Inteligencia emocional
+  - Hábitos Atómicos
+  - Pensar rápido, pensar despacio
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Por qué se desvanece la capacitación: qué dice la evidencia sobre cómo lograr que una habilidad se quede"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "El nuevo integrante al que casi condené al fracaso"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Integrar la habilidad al trabajo, no solo al taller"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Capacitas la habilidad o la integras?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Mapa de integración: los tres puntos de contacto donde la habilidad se queda o se desvanece"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Integrar el check-in de dos minutos en la inducción, los huddles y el apoyo entre pares"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Marisol y el nuevo integrante que se congeló"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — Grant y el check-in entre pares después del casi accidente"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender el check-in entre pares ante un veterano que lo llama blando"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Asegurar el respaldo para integrar el check-in en la inducción y los huddles"

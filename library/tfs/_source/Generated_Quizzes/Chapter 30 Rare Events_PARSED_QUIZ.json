@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which of the following best describes the Availability Cascade?",
+    "options": [
+      "A process in which common events are repeated without emotional significance",
+      "A process by which vivid, emotionally charged images, reinforced by media and conversation, make a rare event more top-of-mind",
+      "A method for aggregating statistical data on rare events",
+      "A structured analytical technique for risk assessment"
+    ],
+    "correct_answer_text": "A process by which vivid, emotionally charged images, reinforced by media and conversation, make a rare event more top-of-mind",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which system is characterized by fast, automatic, and emotional processing?",
+    "options": [
+      "System 2",
+      "Availability Cascade",
+      "System 1",
+      "Prospect Theory"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Prospect Theory is best defined as:",
+    "options": [
+      "A theory that describes how people use analytical reasoning to evaluate common outcomes",
+      "A behavioral economic theory explaining how individuals overweight or underweight probabilities, especially for rare or extreme outcomes",
+      "A psychological concept focusing on emotional arousal in decision making",
+      "A tendency to favor outcomes that are vivid and memorable"
+    ],
+    "correct_answer_text": "A behavioral economic theory explaining how individuals overweight or underweight probabilities, especially for rare or extreme outcomes",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Denominator Neglect refers to which cognitive bias?",
+    "options": [
+      "The tendency to focus on overall sample size rather than favorable outcomes",
+      "The tendency to overvalue probabilities based on statistical inference",
+      "The tendency to solely focus on the number of favorable outcomes and ignore the total sample size",
+      "The tendency to underweight extreme outcomes in decision making"
+    ],
+    "correct_answer_text": "The tendency to solely focus on the number of favorable outcomes and ignore the total sample size",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 is the slow, deliberate processor that manages logical reasoning.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Decision Weight is defined as the psychological value assigned to outcomes that often diverges from their objective probability.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Possibility Effect refers to the tendency to underemphasize the impact of rare outcomes in decision making.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Certainty Effect is the bias where people disproportionately favor outcomes perceived as certain.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

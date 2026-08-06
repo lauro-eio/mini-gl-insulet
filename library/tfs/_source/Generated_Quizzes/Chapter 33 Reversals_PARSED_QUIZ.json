@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is best characterized as which type of mental processing?",
+    "options": [
+      "It is slow, deliberate, and analytical",
+      "It is fast, automatic, and emotionally driven",
+      "It relies on substituting hard judgments with easier evaluations",
+      "It emphasizes consistency regardless of context"
+    ],
+    "correct_answer_text": "It is fast, automatic, and emotionally driven",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which option most accurately describes the Evaluability Hypothesis?",
+    "options": [
+      "Numerical data always carries high weight in isolation",
+      "Numerical data gains importance only when compared side by side",
+      "Numerical data is irrelevant in decision contexts",
+      "Numerical data is best evaluated through intuitive processing"
+    ],
+    "correct_answer_text": "Numerical data gains importance only when compared side by side",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "WYSIATI (What You See Is All There Is) refers to which cognitive bias?",
+    "options": [
+      "The tendency to consider multiple sources of hidden information",
+      "The tendency to base judgments solely on immediately available information",
+      "The inclination to use emotional responses to substitute difficult judgments",
+      "The practice of matching the intensity of emotions with evaluation scales"
+    ],
+    "correct_answer_text": "The tendency to base judgments solely on immediately available information",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Substitution and Intensity Matching describes which mechanism?",
+    "options": [
+      "Replacing difficult judgments with easier ones and converting emotional intensity into quantitative measures",
+      "Comparing options side by side to produce consistent valuations",
+      "Engaging in slow, analytical reasoning to avoid bias",
+      "Ensuring that judgments remain coherent across different contexts"
+    ],
+    "correct_answer_text": "Replacing difficult judgments with easier ones and converting emotional intensity into quantitative measures",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 processing operates as a slow, deliberate mode of thinking.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Preference Reversal involves a scenario where evaluations differ between joint and single assessments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Coherence Doctrine maintains that individual choices should vary with changes in evaluation context.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "According to the Evaluability Hypothesis, certain attributes gain significance when compared side by side.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

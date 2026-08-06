@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which cognitive phenomenon involves largely ignoring the duration of an experience when evaluating its overall impact?",
+    "options": [
+      "Less-is-More Effect",
+      "Duration Neglect",
+      "Peak-End Rule",
+      "Amnesic Vacation"
+    ],
+    "correct_answer_text": "Duration Neglect",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which principle holds that both the most intense moment and the ending of an experience shape its memory disproportionately?",
+    "options": [
+      "Duration Neglect",
+      "Peak-End Rule",
+      "Remembering Self vs. Experiencing Self",
+      "Less-is-More Effect"
+    ],
+    "correct_answer_text": "Peak-End Rule",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What term describes the conceptual division where one self constructs a narrative of life while the other lives through the experience moment-by-moment?",
+    "options": [
+      "Amnesic Vacation",
+      "Less-is-More Effect",
+      "Remembering Self vs. Experiencing Self",
+      "Duration Neglect"
+    ],
+    "correct_answer_text": "Remembering Self vs. Experiencing Self",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which definition refers to a vacation scenario where all memories (such as photos and videos) are eliminated, emphasizing the role of memory in evaluation?",
+    "options": [
+      "Peak-End Rule",
+      "Amnesic Vacation",
+      "Duration Neglect",
+      "Less-is-More Effect"
+    ],
+    "correct_answer_text": "Amnesic Vacation",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Duration Neglect implies that the length of an experience plays a critical role in shaping its overall impact.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Peak-End Rule states that only the peak moment is relevant in forming an overall memory of an event.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The distinction between the Remembering Self and the Experiencing Self is based on the former’s ability to organize life into narratives versus the latter’s focus on immediate events.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Less-is-More Effect suggests that increasing an already positive experience with additional moderate moments results in a diminished overall evaluation.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

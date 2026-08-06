@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Experienced utility is best described as which of the following?",
+    "options": [
+      "The measurement of actual hedonic experience over time",
+      "The concept of wantability in decision making",
+      "An imaginary instrument for recording pain intensity",
+      "A rule for retrospective evaluations of experiences"
+    ],
+    "correct_answer_text": "The measurement of actual hedonic experience over time",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Decision utility primarily represents which concept?",
+    "options": [
+      "Wantability, reflecting preferences and choices",
+      "Measurement of actual hedonic experience",
+      "Integration of momentary ratings",
+      "The insensitivity of remembered intensity to duration"
+    ],
+    "correct_answer_text": "Wantability, reflecting preferences and choices",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "The peak-end rule is defined as the principle that:",
+    "options": [
+      "Evaluations of experiences are based on the cumulative moment-to-moment feelings",
+      "Decision errors arise when pain increments are valued differently",
+      "Retrospective evaluations are determined primarily by the most intense and the final moments",
+      "Duration does not affect the overall remembered intensity"
+    ],
+    "correct_answer_text": "Retrospective evaluations are determined primarily by the most intense and the final moments",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Duration neglect implies that:",
+    "options": [
+      "Longer experiences always lead to higher remembered intensity",
+      "The overall remembered intensity of an experience is insensitive to its duration",
+      "Only the beginning and middle parts of an experience matter for memory",
+      "The integration of momentary ratings increases with time"
+    ],
+    "correct_answer_text": "The overall remembered intensity of an experience is insensitive to its duration",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Experienced utility is measured by calculating the area under the curve of pain or pleasure over time.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Decision utility is determined by integrating moment-to-moment hedonic ratings.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "A hedonimeter, as described by Francis Edgeworth, is an actual instrument used in measuring momentary pain or pleasure.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The distinction between experienced utility and decision utility suggests that decision errors can occur when individuals value identical changes in pain differently due to contextual influences.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

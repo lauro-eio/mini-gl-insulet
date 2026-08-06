@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Clinical Prediction is best described as which of the following?",
+    "options": [
+      "A process using subjective impressions and qualitative interviews",
+      "A method using objective data and algorithms",
+      "A statistical technique determining optimal predictor weightings",
+      "A heuristic applied only when decisive new information arises"
+    ],
+    "correct_answer_text": "A process using subjective impressions and qualitative interviews",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which term refers to the finding that simple statistical formulas consistently match or exceed expert clinical judgments?",
+    "options": [
+      "Clinical Prediction",
+      "Statistical Prediction",
+      "Meehl Pattern",
+      "Equal-Weighting Schemes"
+    ],
+    "correct_answer_text": "Meehl Pattern",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which definition accurately describes the Multiple Regression technique?",
+    "options": [
+      "A process of forecasting outcomes using qualitative interviews",
+      "A statistical technique that determines optimal weightings for predictors to derive a prediction formula",
+      "A heuristic for overriding predictions only when new information is decisive",
+      "A scoring system assessing newborn health with five objective criteria"
+    ],
+    "correct_answer_text": "A statistical technique that determines optimal weightings for predictors to derive a prediction formula",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "The Broken-Leg Rule is best defined as which of the following?",
+    "options": [
+      "Using subjective impressions to predict outcomes",
+      "A standardized scoring system for newborns",
+      "A heuristic stating that one should only override a formula’s prediction when exceptionally rare and decisive new information arises",
+      "A method of assigning equal weights to all predictors"
+    ],
+    "correct_answer_text": "A heuristic stating that one should only override a formula’s prediction when exceptionally rare and decisive new information arises",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Apgar Test employs five objective criteria for assessing newborn health.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Clinical Prediction relies on subjective impressions and qualitative interviews to forecast outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Equal-Weighting Schemes assign identical weights to all predictors and can yield similar or improved accuracy compared to complex weighted formulas.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Low-Validity Environments are characterized by high uncertainty where both human and algorithmic predictions typically have high overall validity.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

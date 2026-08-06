@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Mental Accounts are best described as the cognitive practice of compartmentalizing money and outcomes into separate accounts that influence spending and investment decisions.",
+    "options": [
+      "Dividing resources into fixed budgets based on income sources",
+      "Compartmentalizing money into separate cognitive “accounts” for decision-making",
+      "Aggregating all funds into one pool for market analysis",
+      "Allocating funds based solely on past expenses"
+    ],
+    "correct_answer_text": "Compartmentalizing money into separate cognitive “accounts” for decision-making",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "The Disposition Effect refers to the investor bias of selling stocks that show gains to avoid the negative feeling associated with closing an account at a loss.",
+    "options": [
+      "Selling losing stocks immediately to cut losses",
+      "Holding winning stocks to maximize further gains",
+      "Selling winning stocks to secure a positive record and avoid closure of a “losing” mental account",
+      "Buying more stocks after a gain to capitalize on momentum"
+    ],
+    "correct_answer_text": "Selling winning stocks to secure a positive record and avoid closure of a “losing” mental account",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "The Sunk-Cost Fallacy is defined as the error of continuing an endeavor simply because prior investments have been made despite current evidence suggesting discontinuation.",
+    "options": [
+      "Abandoning projects as soon as new evidence arises",
+      "Continuing an endeavor based solely on previously invested resources",
+      "Evaluating future benefits without regard to past costs",
+      "Investing cautiously in new opportunities without past bias"
+    ],
+    "correct_answer_text": "Continuing an endeavor based solely on previously invested resources",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "The Agency Problem involves a conflict when an executive’s desire to avoid personal regret or blemish leads to decisions that are not aligned with the firm’s best interests.",
+    "options": [
+      "Executives making decisions solely to benefit shareholders",
+      "Conflicts between an executive’s personal incentives and the organization’s objectives",
+      "Management decisions based on rigorous data analysis",
+      "Aligning short-term profits with long-term strategies"
+    ],
+    "correct_answer_text": "Conflicts between an executive’s personal incentives and the organization’s objectives",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Mental accounts involve creating distinct mental “buckets” for different types of financial outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The disposition effect is characterized by an investor’s tendency to sell losing stocks in order to avoid the negative feelings associated with losses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The sunk-cost fallacy is the error of persisting in an activity based on historical investment despite evidence favoring discontinuation.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Loss Aversion posits that individuals tend to perceive equivalent gains as more impactful than equivalent losses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

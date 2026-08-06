@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a convertir una lectura rápida del tono o las palabras de un compañero en una lectura verificada—mediante una breve pausa de reflejo y verificación—para que las decisiones en el piso registren lo que realmente está pasando, no solo lo que es más rápido de asumir.</p>
+      <div class="hero-meta">
+        <span>EIG · U05</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Lecturas rápidas, lecturas erróneas: qué dice la</a>
+<a href="#opinion">El reporte que casi empecé antes de preguntar</a>
+<a href="#assessment">Autodiagnóstico — ¿Verificas tu lectura o simple</a>
+<a href="#case-1">Caso 1 — Naomi y la técnica de cambio de turno q</a>
+<a href="#case-2">Caso 2 — Miguel y el estallido en el muelle</a>
+<a href="#framework">Marco — Lienzo de reflejo: verificar la lectura </a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender un reflejo y verificaci</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de re</a>
+<a href="#key-notes">Puntos clave — Verificar la lectura antes de la </a>
+<a href="#commitment">Compromiso — Proteger el reflejo y verificación </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Lecturas rápidas, lecturas erróneas: qué dice la evidencia sobre verificar una intuición empática bajo presión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Lecturas rápidas, lecturas erróneas: qué dice la evidencia sobre verificar una intuición empática bajo presión</h2>
+<p>Los líderes de primera línea leen el tono de un compañero en medio segundo—una voz plana, una respuesta cortante, una mirada sostenida un instante de más—y actúan sobre esa lectura antes de verificarla. Décadas de investigación sobre qué tan bien las personas se leen entre sí explican por qué la lectura rápida es útil, por qué es menos confiable de lo que parece, y qué la mejora realmente.</p>
+<h3>La empatía como circuito compartido, no una habilidad blanda</h3>
+<p>El modelo de percepción-acción de Preston y de Waal trata la empatía como algo construido sobre un mecanismo básico: percibir el estado de otra persona activa automáticamente una representación equivalente en el propio cuerpo y cerebro del observador, el mismo circuito que se usa al actuar uno mismo (Preston &amp; de Waal, 2002). Esto no es un sentimiento superpuesto a la supervisión. Es más cercano a un cableado compartido que el cuerpo ya usa para rastrear el estado de un compañero, se tenga o no la intención de notarlo.</p>
+<h3>La lectura es automática—y a menudo equivocada</h3>
+<p>Ickes llamó a la precisión de esa lectura &quot;precisión empática&quot;: qué tan bien la suposición de una persona sobre los pensamientos o sentimientos de otra coincide con lo que esa persona realmente reporta (Ickes, 1993). La precisión en sus estudios varía ampliamente entre personas y situaciones, y quienes perciben suelen sentirse seguros de una lectura que resulta estar equivocada. La revisión de Zaki y Ochsner sobre la ciencia subyacente separa la detección automática del estado de otra persona del trabajo laborioso y limitado en recursos de interpretar correctamente qué significa ese estado—dos procesos distintos, y solo uno de ellos funciona en automático (Zaki &amp; Ochsner, 2012).</p>
+<h3>La presión estrecha el canal</h3>
+<p>Kraus encontró, de forma contraintuitiva, que eliminar el canal visual y escuchar solo la voz mejoró la precisión empática en comparación con condiciones cara a cara, porque el tono vocal lleva más información emocional diagnóstica de lo que quienes perciben esperan—y una escena visual ocupada puede desplazarla (Kraus, 2017). En un piso con alarmas, radios y seis cosas ocurriendo a la vez, el ruido visual y situacional que compite por la atención es exactamente lo que degrada la lectura de un líder, incluso mientras la confianza en esa lectura se mantiene alta.</p>
+<h3>Verificar la lectura supera defenderla</h3>
+<p>Rogers y Farson describieron la escucha activa como repetir el contenido y el sentimiento de lo que alguien dijo, con las propias palabras de quien escucha, como forma de verificar la comprensión antes de responder (Rogers &amp; Farson, 1957). Weger y colegas lo probaron directamente: quienes hablaban y recibían una paráfrasis de lo que habían dicho se sintieron más comprendidos que quienes recibieron un simple reconocimiento o un consejo inmediato, en interacciones entre desconocidos que se encontraban por primera vez (Weger, Castle Bell, Minei, &amp; Robinson, 2014). El mecanismo no es la comodidad. Es la corrección—parafrasear expone una lectura equivocada antes de que impulse una decisión.</p>
+<h3>Tres condiciones en las que una lectura necesita verificación</h3>
+<p>No toda lectura necesita verificación. La evidencia sobre cuándo la confianza de quien percibe supera su precisión señala tres condiciones:</p>
+<ol>
+<li><strong>Señal ambigua</strong>—el tono, las palabras y el lenguaje corporal no coinciden claramente.</li>
+<li><strong>Una decisión depende de la suposición</strong>—estás a punto de instruir, corregir o escalar basándote en lo que asumes que está pasando.</li>
+<li><strong>Otra persona carga la consecuencia</strong>—la lectura afecta a alguien que no podrá corregirla después porque ya actuaste.</li>
+</ol>
+<p>Cuando ninguna aplica, una lectura rápida suele ser suficiente. Cuando una o más aplica con fuerza, la evidencia favorece una breve pausa de reflejo y verificación antes de decidir.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>El objetivo no es desconfiar de cada lectura ni frenar cada conversación—ambas cosas cuestan más de lo que protegen. El objetivo es notar cuándo la confianza en una suposición sobre un compañero va por delante de la evidencia que la respalda, y dedicar diez segundos a confirmar la lectura antes de que impulse una instrucción, un reporte o una llamada que el equipo recordará.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Preston, S. D., &amp; de Waal, F. B. M. (2002). Empathy: Its ultimate and proximate bases. <em>Behavioral and Brain Sciences, 25</em>(1), 1–20.</li>
+<li>Ickes, W. (1993). Empathic accuracy. <em>Journal of Personality, 61</em>(4), 587–610.</li>
+<li>Zaki, J., &amp; Ochsner, K. N. (2012). The neuroscience of empathy: Progress, pitfalls and promise. <em>Nature Neuroscience, 15</em>(5), 675–680.</li>
+<li>Kraus, M. W. (2017). Voice-only communication enhances empathic accuracy. <em>American Psychologist, 72</em>(7), 644–654.</li>
+<li>Rogers, C. R., &amp; Farson, R. E. (1957). <em>Active listening</em>. Industrial Relations Center, University of Chicago.</li>
+<li>Weger, H., Castle Bell, G., Minei, E. M., &amp; Robinson, M. C. (2014). The relative effectiveness of active listening in initial interactions. <em>International Journal of Listening, 28</em>(1), 13–31.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El reporte que casi empecé antes de preguntar</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El reporte que casi empecé antes de preguntar</h2>
+<p>He empezado a redactar un reporte en mi cabeza antes de que termine un turno más veces de las que quisiera admitir. Normalmente no importa—me calmo y el momento pasa. Hace dos semanas casi me costó una buena técnica que ya estaba viviendo la peor semana de su año.</p>
+<p>Priya había fallado una verificación de torque en un subensamble por segunda vez en ese turno. Cuando le pregunté al respecto, dio respuestas de una palabra, no levantó la vista de la mesa de trabajo, y se encogió de hombros cuando le pregunté si algo andaba mal. Mi primera lectura fue inmediata: ya se desconectó, no le importa, y si no documento esto ahora volverá a pasar mañana. Ya tenía el reporte de incidente medio escrito en mi cabeza antes de volver a mi oficina.</p>
+<p>No lo envié. No porque no creo en la documentación—sí creo—sino porque algo de la lectura no me cerraba. Su voz era plana, no desafiante. No estaba evitando la verificación de torque por descuido; parecía estar en otro lugar por completo.</p>
+<p>Así que hice algo pequeño: le dije lo que noté en lugar de lo que había decidido sobre ello. &quot;Te veo bastante ausente hoy, y esta es la segunda vez que se te pasa—¿es justo decir eso?&quot; Luego esperé en lugar de terminar la frase con una advertencia.</p>
+<p>Resultó que su padre había ingresado al hospital la noche anterior y ella había trabajado el turno de todos modos en lugar de dejar la línea con poco personal. No estaba desconectada. Estaba funcionando sin dormir y tratando de no derrumbarse frente a seis compañeros en su estación de trabajo. Si hubiera enviado el reporte, habría convertido a alguien que se presentó bajo una tensión real en un caso disciplinario, y le habría enseñado que pedir ayuda cuesta más que ocultarla.</p>
+<p>Antes pensaba que verificar una lectura antes de actuar era más lento que simplemente decidir. No lo es. Reportar a Priya y que eso se desmoronara en una reunión de queja una semana después me habría costado horas, además de una técnica que ya no confiaría en mí para nada real. Hacer una pregunta y esperar la respuesta me costó menos de un minuto.</p>
+<p>No intento dejar de formar una lectura rápida de mi equipo—ese instinto es útil, y no creo que deba desaparecer. Lo que cambió es lo que hago en los diez segundos después de formarla. Digo lo que noté, en voz alta, antes de decidir qué significa.</p>
+<p>Le conté esto a mi jefe de turno después, no como excusa para saltarme el papeleo sino como regla permanente: si una lectura está a punto de convertirse en una instrucción, una advertencia o un reporte, dices lo que notaste y haces una pregunta antes de actuar sobre lo que asumiste. No se trata de suavizar los estándares. Se trata de asegurarte de que la versión de la historia sobre la que actúas sea la que la otra persona realmente confirmó, no solo la que fue más rápida de creer.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Verificas tu lectura o simplemente actúas con ella?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Naomi y la técnica de cambio de turno que se quedó callada</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Naomi y la técnica de cambio de turno que se quedó callada</h2>
+<h3>Apertura</h3>
+<p>Naomi supervisa un equipo de cambio de turno en una línea de embotellado en una planta de empaque de tamaño mediano. Ha dirigido cambios de turno durante tres años y se enorgullece de leer a un equipo rápido—quién está agudo, quién va rezagado, quién necesita una tarea intercambiada antes de que se convierta en un problema. Rara vez siente la necesidad de verificar dos veces una primera impresión.</p>
+<h3>Contexto</h3>
+<p>Doce minutos dentro de una ventana difícil de reinicio, Trevor—normalmente su técnico más rápido—está inusualmente callado, respondiendo preguntas con monosílabos y evitando el contacto visual. La primera lectura de Naomi es inmediata: está resentido por no haber sido elegido para un puesto de líder la semana pasada, y si lo señala ahora solo retrasará más el reinicio. Está lista para reasignarlo discretamente a una estación más simple por el resto del turno y lidiar con la actitud después.</p>
+<p>Sam, un técnico más nuevo, menciona de paso que Trevor parecía estar bien al inicio del turno y solo se quedó callado después de revisar su teléfono durante el último descanso.</p>
+<h3>Punto de decisión</h3>
+<p>Naomi puede:</p>
+<ol>
+<li>Actuar sobre su lectura: reasignar a Trevor a una estación más simple ahora, abordar lo que asume es actitud en una reunión uno a uno después del turno.</li>
+<li>Decir lo que notó en lugar de lo que concluyó, hacerle a Trevor una pregunta abierta, y esperar su respuesta antes de decidir nada sobre su rol para el reinicio.</li>
+<li>No decir nada por ahora, mantener a Trevor en su estación actual, y solo revisarlo si su rendimiento realmente baja.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué evidencia tenía realmente Naomi para su lectura de &quot;resentido por el puesto de líder&quot;, frente a lo que asumió basándose en el momento en que ocurrió?</li>
+<li>¿Cuál de las tres condiciones—señal ambigua, una decisión que depende de la suposición, u otra persona que carga la consecuencia—aplica con más fuerza aquí?</li>
+<li>Si Naomi elige la opción 2, ¿qué dice en los primeros diez segundos, y en qué se diferencia de la reasignación que estaba lista para hacer?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Miguel y el estallido en el muelle</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Miguel y el estallido en el muelle</h2>
+<h3>Apertura</h3>
+<p>Miguel coordina un equipo de muelle de almacén de diez personas. Se ha ganado la reputación de leer bien a las personas y rara vez siente que necesita preguntar qué está pasando—se enorgullece de ya saberlo.</p>
+<h3>Contexto</h3>
+<p>Un nuevo sistema de programación acaba de cancelar los días libres que Ashley había solicitado para el próximo mes, sin aviso previo. A mitad del turno, Ashley le grita a una compañera por un pequeño error de escaneo, con un tono más agudo del usual. La primera lectura de Miguel es inmediata: está molesta por el horario y lo está descargando en el equipo. Está listo para llevarla aparte, recordarle que la decisión del horario no fue suya, y cerrar la conversación rápido para que el turno pueda seguir avanzando.</p>
+<p>Un supervisor par menciona que Ashley ha estado tomando turnos extra durante semanas para cubrir los costos de cuidado de un familiar enfermo, además de su carga regular.</p>
+<h3>Punto de decisión</h3>
+<p>Miguel puede:</p>
+<ol>
+<li>Dar la línea de &quot;el horario no fue mi decisión&quot; ahora, cerrar la conversación, y volver al piso.</li>
+<li>Decir lo que notó—el estallido, el momento—y hacerle a Ashley una pregunta abierta sobre qué está pasando realmente antes de decidir qué necesita.</li>
+<li>No decir nada sobre el estallido más allá de verificar rápido que el error de escaneo esté corregido, y anotarlo para una reunión uno a uno más adelante en la semana.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿En qué se basaba realmente la lectura de Miguel—en lo que vio en el momento, o en lo que asumió dado el cambio de horario?</li>
+<li>¿Cómo debería Miguel sopesar la señal ambigua (el estallido) contra la posibilidad de que una decisión (su respuesta) recaiga sobre alguien que ya carga más de lo que él sabe?</li>
+<li>Diseña una pregunta abierta que Miguel podría hacer que invite a Ashley a corregir su lectura sin ponerla en evidencia frente al equipo.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de reflejo: verificar la lectura antes de decidir</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de reflejo: verificar la lectura antes de decidir</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Aplica un lienzo por cada momento en que formes una lectura fuerte sobre un compañero antes de actuar sobre ella.</p>
+<h3>1. El momento (una frase)</h3>
+<p>¿Qué acabo de notar, y qué estoy asumiendo que significa?</p>
+<h3>2. Verificación de señales</h3>
+<div class="table-wrap"><table>
+<tr><th>Disparador</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Señal ambigua — ¿el tono, las palabras y el lenguaje corporal no coinciden?</td><td></td><td></td></tr>
+<tr><td>Decisión que depende de la suposición — ¿estoy a punto de instruir, corregir o escalar basándome en esta lectura?</td><td></td><td></td></tr>
+<tr><td>Otra persona carga la consecuencia — ¿esto afectará a alguien que no podrá corregirlo después?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero disparadores presentes:</strong> Continúa. La lectura probablemente es suficiente; actúa y sigue adelante.</li>
+<li><strong>Un disparador presente:</strong> Aplica el breve reflejo y verificación de abajo antes de hablar o decidir.</li>
+<li><strong>Dos o más disparadores presentes:</strong> Se requiere verificación completa; delega la instrucción o la conversación si no puedes hacerla.</li>
+</ul>
+<h3>4. Reflejo y verificación (cuando se requiere)</h3>
+<ol>
+<li>Di lo que notaste, no lo que concluiste (&quot;Te veo bastante ausente hoy&quot;, no &quot;No te importa&quot;).</li>
+<li>Haz una pregunta abierta en lugar de plantear tu conclusión.</li>
+<li>Espera la respuesta antes de decidir qué sigue.</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que hiciste la verificación (una pausa, una frase, una pregunta de seguimiento)?</p>
+<h3>6. Responsable cuando no estás en el turno</h3>
+<p>Nombre + suplente, para que el hábito no desaparezca cuando no estés presente:</p>
+<h3>7. Nota posterior a la acción</h3>
+<p>¿Qué hizo que este momento valiera la pena verificar, o no? Agrega una línea al registro del turno de cualquier forma.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender un reflejo y verificación ante un par que quiere una lectura rápida</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender un reflejo y verificación ante un par que quiere una lectura rápida</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger un breve reflejo y verificación sobre una lectura de alto riesgo sin paralizar el piso ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (dueño de la lectura)</strong></p>
+<p>Has formado una lectura fuerte sobre un compañero—distracción, desafío, angustia—vinculada a una decisión que el equipo está observando. Quieres diez a treinta segundos para decir lo que notaste y hacer una pregunta antes de actuar. No debes omitir la verificación solo para evitar friction, y no debes convertirla en un interrogatorio abierto.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo la misma presión y crees que un líder de piso debería confiar en su primera lectura—&quot;conoces a tu gente, solo decide&quot;. Ves la verificación como pensar de más o cuestionar de más una decisión que debería ser obvia. Solo cederás si el dueño de la lectura nombra el disparador específico y da un límite de tiempo concreto y breve para la verificación.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el dueño de la lectura asegurar el acuerdo para un breve reflejo y verificación sobre un momento específico sin que el par escale por encima de él o la tensión se convierta en resentimiento?</p>
+<h3>Notas para el facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): El par presiona por una decisión inmediata basada en la lectura obvia; el dueño de la lectura responde.</li>
+<li>Ronda 2 (8 min): El dueño de la lectura nombra el disparador específico (señal ambigua, decisión que depende de ella, o consecuencias para otra persona) y propone una verificación con límite de tiempo.</li>
+<li>Debrief (10 min): ¿Dónde estuvo el dueño de la lectura cerca de ceder bajo presión? ¿Qué lenguaje realmente conectó con el par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de reflejo y verificación bajo presión de tiempo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de reflejo y verificación bajo presión de tiempo</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar el respaldo para un ritual protegido de reflejo y verificación cuando varios interesados quieren que el piso lea rápido y avance a toda velocidad.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para aplicar una regla permanente: cualquier momento con una señal ambigua, una decisión que depende de la suposición, o consecuencias para otra persona recibe una verificación breve y nombrada antes de una respuesta.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se mide por rendimiento y tiempos límite; ve cualquier verificación como minutos perdidos y llama al ritual &quot;suavizar el piso&quot;.</li>
+<li><strong>Analista de RR. HH. o calidad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para cuándo aplica la verificación, además de un límite de tiempo claro para que no se use para evitar una conversación difícil indefinidamente.</li>
+<li><strong>Supervisor par (aliado o indeciso):</strong> Apoyará el ritual si no ralentiza momentos que genuinamente no lo necesitan, y si no traslada tensión adicional a los turnos vecinos en silencio.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger un reflejo y verificación nombrado y con límite de tiempo para momentos genuinamente ambiguos y de alto riesgo sin parecer débil ante el gerente de operaciones o vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Disparadores nombrados (señal ambigua, decisión que depende de la suposición, consecuencias para otra persona), no un &quot;verificar cuando algo se sienta raro&quot; genérico</li>
+<li>Un límite de tiempo fijo para la verificación, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la verificación y qué cambió</li>
+<li>Ningún segundo proceso secreto que contradiga el ritual acordado bajo presión</li>
+</ul>
+<h3>Preguntas de debrief</h3>
+<ol>
+<li>¿Qué argumento conectó con el gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;verificar la lectura&quot; en un lenguaje que se lee como control de riesgo, no como debilidad?</li>
+<li>¿Qué causaría que el ritual desaparezca en silencio durante la próxima semana de crisis—y quién es responsable de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Verificar la lectura antes de la decisión</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Verificar la lectura antes de la decisión</h2>
+<p><strong>Meta de la unidad:</strong> Convertir una lectura rápida del tono o las palabras de un compañero en una lectura verificada—mediante una breve pausa de reflejo y verificación—para que las decisiones en el piso registren lo que realmente está pasando, no solo lo que es más rápido de asumir.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>La empatía funciona sobre un circuito compartido:</strong> percibir el estado de un compañero activa automáticamente una respuesta equivalente en tu propio cuerpo y cerebro—no es una habilidad blanda superpuesta a la supervisión (Preston &amp; de Waal, 2002).</li>
+<li><strong>La lectura es automática, no automáticamente precisa:</strong> la confianza en una suposición sobre el estado de alguien y la precisión real de esa suposición son dos cosas distintas, y a menudo divergen (Ickes, 1993).</li>
+<li><strong>La presión estrecha el canal:</strong> un piso ocupado y ruidoso puede desplazar las señales—especialmente el tono vocal—que llevan la información más confiable sobre lo que un compañero realmente siente (Kraus, 2017).</li>
+<li><strong>Verificar supera adivinar:</strong> parafrasear lo que alguien dijo, con tus propias palabras, atrapa una lectura equivocada antes de que impulse una decisión (Rogers &amp; Farson, 1957; Weger et al., 2014).</li>
+<li><strong>Tres condiciones para un reflejo y verificación:</strong> una señal ambigua, una decisión que depende de la suposición, y otra persona que carga la consecuencia.</li>
+</ul>
+<h3>Lista de verificación para el líder de primera línea</h3>
+<ol>
+<li>Nota la lectura que acabas de formar sobre un compañero antes de notar qué quieres hacer al respecto.</li>
+<li>Di lo que notaste, no lo que concluiste: &quot;Te veo distante hoy&quot; supera a &quot;No te importa&quot;.</li>
+<li>Haz una pregunta abierta y espera la respuesta antes de instruir, corregir o escalar.</li>
+<li>Reserva el reflejo y verificación completo para momentos con una decisión asociada—no todo intercambio lo necesita.</li>
+<li>Después del turno, anota una lectura que verificaste y una sobre la que actuaste sin verificar—ambas afinan la habilidad.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué momento recurrente del piso sueles leer más rápido, y qué cambiaría un reflejo y verificación en lo que haces a continuación?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger el reflejo y verificación antes de necesitarlo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

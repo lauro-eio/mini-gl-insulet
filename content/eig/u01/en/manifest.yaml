@@ -1,0 +1,74 @@
+program_id: EIG
+unit_id: u01
+audience_id: tier_2_frontline_leader
+locale: en
+program_title: Emotional Resilience & Resonance
+lens_title: Empathic Team Leadership
+article_signature: "Curated by {E}"
+unit_goal: >
+  Help frontline leaders treat emotional surges as evolved signals to notice
+  and regulate—not ignore—so team calls stay deliberate under pressure.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Old Alarms, New Floor: What the Evidence Says About Emotions as Adaptive Signals"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The Radio Call I Almost Made Angry"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Reading the Signal Before the Call"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — Do You Notice the Surge or Just React to It?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — Signal Check Canvas: Naming the Surge Before You Decide"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — Protecting the Pause-and-Label Before It's Needed"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Renata and the Line Handoff Confrontation"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Devon and the Near-Miss on the Dock"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Defending a Pause-and-Label to a Peer Who Wants a Reaction"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Protecting the Pause-and-Label Ritual Under Deadline Pressure"

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Bayesian Inference is best described as which of the following?",
+    "options": [
+      "A method that combines only new evidence with vague assumptions",
+      "A method that updates probabilities by integrating base rates with new evidence",
+      "A heuristic process that disregards prior probabilities",
+      "A rigid statistical procedure that ignores subjective belief"
+    ],
+    "correct_answer_text": "A method that updates probabilities by integrating base rates with new evidence",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which option most accurately defines a Statistical Base Rate?",
+    "options": [
+      "A probability updated by new evidence",
+      "A generalized frequency of an outcome within a population that alone does not account for individual cases",
+      "A deliberate manipulation of base information to fit a narrative",
+      "An anecdotal recount of patterns in data"
+    ],
+    "correct_answer_text": "A generalized frequency of an outcome within a population that alone does not account for individual cases",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What distinguishes a Causal Base Rate from a Statistical Base Rate?",
+    "options": [
+      "It is based on numerical frequency without any causal interpretation",
+      "It is framed as an influencing cause that is readily integrated into personal causal stories",
+      "It excludes any factual numerical information",
+      "It represents random chance without underlying factors"
+    ],
+    "correct_answer_text": "It is framed as an influencing cause that is readily integrated into personal causal stories",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which option correctly characterizes System 1 thinking?",
+    "options": [
+      "A slow, deliberate mode of reasoning based solely on statistical analysis",
+      "An automatic, intuitive mode of thinking that utilizes heuristics, stereotypes, and causal stories",
+      "A computational process that rigorously applies Bayesian inference",
+      "A reflective evaluation method based on detailed data analysis"
+    ],
+    "correct_answer_text": "An automatic, intuitive mode of thinking that utilizes heuristics, stereotypes, and causal stories",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Bayesian Reasoning Mechanism involves integrating an initial base rate with new, imperfect evidence to adjust probability assessments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "A Statistical Base Rate alone is sufficient to explain the behavior of an individual case.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Stereotyping as a Causal Inference Tool refers to the mind's practice of applying generalized group beliefs to infer causal details about an individual.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Diffusion of Responsibility in group settings results in an increased personal sense of obligation to intervene.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

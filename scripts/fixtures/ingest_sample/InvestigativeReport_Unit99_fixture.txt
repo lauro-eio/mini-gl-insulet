@@ -1,0 +1,1 @@
+Fixture InvestigativeReport sample for ingest mapper smoke test.

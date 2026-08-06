@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a tratar los impulsos emocionales como señales evolucionadas que deben notar y regular—no ignorar—para que las decisiones de equipo se mantengan deliberadas bajo presión.</p>
+      <div class="hero-meta">
+        <span>EIG · U01</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Alarmas antiguas, piso nuevo: qué dice la eviden</a>
+<a href="#opinion">La llamada de radio que casi hice con rabia</a>
+<a href="#assessment">Autodiagnóstico — ¿Notas el impulso o solo reacc</a>
+<a href="#case-1">Caso 1 — Renata y la confrontación en el relevo </a>
+<a href="#case-2">Caso 2 — Devon y el casi accidente en el andén</a>
+<a href="#framework">Marco — Lienzo de verificación de señal: nombrar</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender una pausa y etiqueta an</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de pa</a>
+<a href="#key-notes">Puntos clave — Leer la señal antes de la llamada</a>
+<a href="#commitment">Compromiso — Proteger la pausa y etiqueta antes </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Alarmas antiguas, piso nuevo: qué dice la evidencia sobre las emociones como señales adaptativas</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Alarmas antiguas, piso nuevo: qué dice la evidencia sobre las emociones como señales adaptativas</h2>
+<p>Los líderes de primera línea sienten un pico de ira cuando un par cuestiona una decisión frente al equipo. Sienten un sobresalto de miedo cuando una alarma suena cerca de un pasillo. Ambas reacciones llegan antes de que se tome cualquier decisión consciente. La ciencia evolutiva y cognitiva lleva más de un siglo estudiando por qué existen estas respuestas y para qué sirven realmente.</p>
+<h3>Las emociones como sistemas de señales heredados</h3>
+<p>El trabajo comparativo temprano de Darwin argumentaba que las expresiones emocionales—una mandíbula tensa, cejas levantadas, una postura caída—no son decoración aprendida sino señales compartidas y reconocibles entre especies, moldeadas porque en algún momento ayudaron a un animal a sobrevivir o a coordinarse con otros (Darwin, 1872). Un siglo después, Ekman y Friesen (1971) pusieron esta afirmación a prueba directamente: encontraron que personas de culturas muy distintas, sin exposición compartida a los mismos medios, leían las mismas configuraciones faciales como miedo, ira, asco y alegría. La señal no es una peculiaridad personal. Es más cercana a un lenguaje compartido que tu cuerpo ya sabe hablar—y que tu cuadrilla ya sabe leer, sea o no tu intención enviarlo.</p>
+<h3>Construidas para resolver un problema recurrente</h3>
+<p>Los psicólogos evolutivos Tooby y Cosmides (1990) describen las emociones como programas de respuesta coordinados: cada uno reorganiza la atención, la fisiología, la recuperación de memoria y las prioridades al mismo tiempo, ajustado a un problema recurrente específico que los ancestros enfrentaron repetidamente—miedo ante el peligro súbito, ira ante la violación de un límite, asco ante la contaminación. Nesse (1990) plantea esto como emociones que rastrean las exigencias de una situación con suficiente velocidad como para que el razonamiento deliberado por sí solo llegara demasiado tarde para importar. El mecanismo no está roto cuando se activa en una línea o en un andén; está haciendo exactamente lo que fue diseñado para hacer, en un entorno para el que nunca fue diseñado.</p>
+<h3>El circuito que se activa antes de que decidas</h3>
+<p>La investigación de LeDoux sobre el procesamiento de amenazas mapeó una vía neuronal rápida que puede desencadenar una respuesta corporal—un aumento del ritmo cardiaco, músculos tensos, atención estrechada—antes de que la vía más lenta y deliberada termine de evaluar qué ocurrió realmente (LeDoux, 2000). Por eso un supervisor puede sentir el impulso de una reacción en el cuerpo un segundo completo o más antes de poder explicar, con palabras, por qué lo siente. La sensación no es una falla de profesionalismo. Es el circuito más antiguo y más rápido haciendo su trabajo antes de que el más nuevo y más lento lo haya alcanzado.</p>
+<h3>Por qué esto importa en el piso, no solo en un laboratorio</h3>
+<p>Dos consecuencias se derivan directamente de esta evidencia. Primero, dado que el circuito rápido se activa antes de que el lento reporte, un líder no puede pensar más rápido que el pico inicial—pero sí puede decidir qué ocurre en los siguientes segundos, porque existe una breve ventana entre el pico y la respuesta que impulsa (LeDoux, 2000; Ekman, 1992). Segundo, porque las señales faciales y vocales son visibles para el equipo en el momento en que aparecen (Ekman &amp; Friesen, 1971), un líder que ignora su propio impulso no obtiene privacidad—la cuadrilla ya lo está leyendo, y reaccionando a ello, muchas veces antes de que el líder se lo haya nombrado a sí mismo.</p>
+<h3>Tres condiciones en las que el impulso necesita una pausa deliberada</h3>
+<p>No todo impulso necesita una pausa. La evidencia sobre cuándo una reacción se adelanta a una situación señala tres condiciones:</p>
+<ol>
+<li><strong>Desajuste de intensidad</strong>—la reacción se siente más grande de lo que justifica lo que acaba de ocurrir.</li>
+<li><strong>Hay una decisión de por medio</strong>—está por tomarse una decisión que afecta al equipo mientras el impulso todavía está activo.</li>
+<li><strong>Propagación visible</strong>—tu estado ya se nota en tu rostro o en tu voz, y el equipo lo está percibiendo.</li>
+</ol>
+<p>Cuando ninguna aplica, la respuesta rápida suele ser proporcional y no necesita gestionarse. Cuando una o más aplica con fuerza, la evidencia favorece nombrar la señal antes de actuar sobre ella.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>La meta no es suprimir una señal ni esperar a que pase en silencio—ambas estrategias van en contra de la biología y suelen fallar bajo presión. La meta es notar la señal, ponerle una etiqueta breve, y usar la ventana de varios segundos que ese acto de notar compra antes de que impulse una decisión que el equipo recordará.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Darwin, C. (1872). <em>The Expression of the Emotions in Man and Animals</em>. John Murray.</li>
+<li>Ekman, P., &amp; Friesen, W. V. (1971). Constants across cultures in the face and emotion. <em>Journal of Personality and Social Psychology, 17</em>(2), 124–129.</li>
+<li>Ekman, P. (1992). An argument for basic emotions. <em>Cognition &amp; Emotion, 6</em>(3–4), 169–200.</li>
+<li>Tooby, J., &amp; Cosmides, L. (1990). The past explains the present: Emotional adaptations and the structure of ancestral environments. <em>Ethology and Sociobiology, 11</em>(4–5), 375–424.</li>
+<li>Nesse, R. M. (1990). Evolutionary explanations of emotions. <em>Human Nature, 1</em>(3), 261–289.</li>
+<li>LeDoux, J. E. (2000). Emotion circuits in the brain. <em>Annual Review of Neuroscience, 23</em>, 155–184.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La llamada de radio que casi hice con rabia</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La llamada de radio que casi hice con rabia</h2>
+<p>He presionado el botón de la radio con rabia más veces de las que quisiera admitir. La mayoría de las veces no cuesta nada—el momento pasa, el turno sigue. El mes pasado casi me costó la relación de trabajo con un par que necesito para los próximos seis meses.</p>
+<p>Se llamó una retención de calidad en mi línea durante el relevo de un par. Él habló por radio y dijo, frente a ambas cuadrillas, que mi equipo había &quot;dejado pasar otra&quot;. Mi mandíbula se tensó antes de que terminara la frase. Mi mano ya estaba buscando la radio para responder que su cuadrilla había dejado pasar dos la semana anterior y nadie dijo nada.</p>
+<p>No presioné el botón. No porque sea naturalmente tranquilo—no lo soy—sino porque he empezado a prestar atención a lo que pasa en mi cuerpo antes de decidir qué sale de mi boca. Tenía el pecho apretado, mi voz ya sonaba fuerte en mi cabeza, y podía sentir la forma de la frase que quería decir. Esa suele ser mi señal de que la reacción es más grande que el momento, y de que lo que diga a continuación será recordado por dos cuadrillas, no solo resuelto con una.</p>
+<p>Así que hice algo pequeño: lo nombré, en silencio, como &quot;ira defensiva, no realmente sobre la retención&quot;. Luego hice una pregunta en lugar de una afirmación: &quot;¿Qué viste exactamente en la línea?&quot; Eso fue todo. Diez segundos, tal vez menos.</p>
+<p>Resultó que la retención era real, pero era un defecto de proveedor que apareció tanto en nuestra línea como en la suya—no un error de ninguna de las dos cuadrillas. Si hubiera presionado el botón con rabia, habría iniciado una pelea de culpas por algo que ninguno de los dos causó, frente a ambos equipos, en un canal abierto.</p>
+<p>Antes pensaba que notar el impulso antes de reaccionar era más lento. No lo es. Reaccionar de inmediato se habría sentido rápido, pero habría costado veinte minutos de dos cuadrillas desenredando una pelea que nunca debió ocurrir, más un relevo tenso durante semanas después. Nombrar la señal costó diez segundos.</p>
+<p>No estoy intentando dejar de sentir el sobresalto cuando alguien cuestiona a mi equipo frente a otros. Esa reacción no va a desaparecer, y no creo que deba—me dice que algo importa. Lo que cambió es lo que hago en los pocos segundos después de sentirla. Le pongo un nombre antes de dejar que elija mis palabras por mí.</p>
+<p>Le conté esto a mi cuadrilla después, no como una confesión sino como una regla permanente: si sientes el sobresalto y una respuesta está por salir de tu boca, nombra el sentimiento primero, en voz alta si puedes, en silencio si no puedes. No se trata de volverse blando en el piso. Se trata de asegurarte de que la versión de ti que habla sea la que realmente está mirando lo que pasó, no la que sigue reaccionando al tono de una llamada de radio.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Notas el impulso o solo reaccionas a él?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Renata y la confrontación en el relevo de línea</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Renata y la confrontación en el relevo de línea</h2>
+<h3>Apertura</h3>
+<p>Renata supervisa el turno diurno en una línea de ensamble de piezas pequeñas en un fabricante mediano. Ha manejado esta línea durante cuatro años y se enorgullece de un relevo limpio al siguiente turno—sin sorpresas, sin culpas. Sabe que su mandíbula se tensa rápido cuando se siente acusada frente a una cuadrilla.</p>
+<h3>Contexto</h3>
+<p>En el cambio de turno, el supervisor entrante, Callum, llama por radio frente a ambas cuadrillas que se acaba de reportar una retención de calidad en un lote que el equipo de Renata empacó una hora antes—&quot;otra más de tu línea&quot;, dice, lo suficientemente fuerte para que seis personas lo escuchen. Renata siente el sobresalto de inmediato: calor en la cara, una frase ya formándose sobre las dos retenciones que la cuadrilla de él dejó pasar la semana anterior. Tiene quizás cuarenta y cinco segundos antes de que ambas cuadrillas empiecen a sacar sus propias conclusiones sobre quién tiene la culpa.</p>
+<p>Dara, una empacadora más nueva en la cuadrilla de Renata, menciona en voz baja que el mismo código de defecto apareció en una alerta de proveedor publicada esa mañana—una que Renata todavía no ha leído.</p>
+<h3>Punto de decisión</h3>
+<p>Renata puede:</p>
+<ol>
+<li>Responder de inmediato, igualando el tono de Callum y defendiendo a su cuadrilla por radio frente a todos.</li>
+<li>No decir nada durante varios segundos, nombrar en silencio lo que está sintiendo, y luego hacerle a Callum una pregunta sobre lo que realmente vio antes de responder.</li>
+<li>Hacerle una señal a Callum para dejarlo por ahora, decirle a ambas cuadrillas que sigan avanzando, y abordar la retención y el tono en privado después de que el piso se despeje—aceptando que la acusación pública queda sin respuesta mientras tanto.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué le decía el cuerpo de Renata que la reacción era más grande de lo que el momento justificaba, y cómo podría usar esa señal en lugar de ignorarla?</li>
+<li>¿Cuál de las tres condiciones—desajuste de intensidad, decisión de por medio o propagación visible—aplica con más fuerza aquí?</li>
+<li>Si Renata elige la opción 2, ¿qué dice en los diez segundos después de notar el sobresalto, y en qué se diferencia de lo que originalmente quería decir?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Devon y el casi accidente en el andén</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Devon y el casi accidente en el andén</h2>
+<h3>Apertura</h3>
+<p>Devon coordina una cuadrilla de andén de almacén de ocho personas. Un operador de montacargas golpea una pila de tarimas al retroceder cerca de un pasillo; nadie se lastima, pero un miembro de la cuadrilla estaba parado a menos de un metro de donde cayeron las tarimas. Devon siente el pico de miedo antes de terminar de darse la vuelta—pecho apretado, enfoque estrechado, un impulso de gritarle al operador ahí mismo, frente a todos.</p>
+<h3>Contexto</h3>
+<p>El operador, visiblemente alterado, espera la reacción de Devon. El resto de la cuadrilla se detuvo y está observando. Un camión en el andén tiene un límite de tiempo estricto en dieciocho minutos, y el líder de cuadrilla ya está preguntando si pueden reanudar la carga. El instinto de Devon lo jala en dos direcciones a la vez: explotar contra el operador para subrayar la gravedad de lo ocurrido, o restarle importancia rápidamente para proteger el límite de tiempo y evitar que la moral se derrumbe.</p>
+<p>Ninguno de los dos instintos, si se actúa sobre él de inmediato, atiende lo que realmente necesita pasar: revisar al operador, revisar la línea de visión del pasillo, y decidir qué necesita escuchar la cuadrilla en los próximos dos minutos.</p>
+<h3>Punto de decisión</h3>
+<p>Devon puede:</p>
+<ol>
+<li>Reaccionar de inmediato—levantarle la voz al operador ahí mismo para subrayar la gravedad, y luego volver a la carga.</li>
+<li>Tomarse treinta segundos de silencio visible, nombrar el pico de miedo para sí mismo, revisar al operador y al miembro de la cuadrilla, y luego decidir qué decir.</li>
+<li>No decir nada sobre el casi accidente más allá de &quot;¿todos bien?&quot;, reanudar la carga para proteger el límite de tiempo, y abordarlo completamente al final del turno.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué estarían transmitiendo ya el rostro y la voz de Devon a la cuadrilla en los primeros diez segundos, sea o no su intención?</li>
+<li>¿Cómo debería Devon sopesar la propagación visible de su propia respuesta de miedo frente a la necesidad de la cuadrilla de una voz firme en ese momento?</li>
+<li>Diseña una señal de piso que la cuadrilla de Devon pueda usar para que cualquiera—incluido el operador—pueda indicar &quot;dame un momento&quot; después de un casi accidente, sin que se lea como culpa.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de verificación de señal: nombrar el impulso antes de decidir</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de verificación de señal: nombrar el impulso antes de decidir</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre un lienzo por cada momento en que notes un impulso emocional fuerte antes de actuar sobre él.</p>
+<h3>1. El momento (una frase)</h3>
+<p>¿Qué acaba de pasar, y qué estoy sintiendo en este momento?</p>
+<h3>2. Verificación de señal</h3>
+<div class="table-wrap"><table>
+<tr><th>Disparador</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Desajuste de intensidad — ¿este sentimiento parece más grande de lo que la situación justifica?</td><td></td><td></td></tr>
+<tr><td>Decisión de por medio — ¿está por salir de mi boca una decisión que afecta al equipo?</td><td></td><td></td></tr>
+<tr><td>Propagación visible — ¿mi rostro, voz o postura ya le están mostrando esto a otros?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Decisión de ruta</h3>
+<ul>
+<li><strong>Cero disparadores presentes:</strong> Avanza. La señal es proporcional; actúa y sigue adelante.</li>
+<li><strong>Un disparador presente:</strong> Haz la etiqueta y verificación breve de abajo antes de hablar o actuar.</li>
+<li><strong>Dos o más disparadores presentes:</strong> Se requiere una pausa completa; delega la siguiente llamada de radio o instrucción si no puedes tomarla.</li>
+</ul>
+<h3>4. Etiqueta y verificación (cuando se requiere)</h3>
+<ol>
+<li>Nombra el sentimiento en una o dos palabras (por ejemplo, &quot;ira defensiva&quot;, &quot;miedo de sobresalto&quot;).</li>
+<li>¿Qué pasó realmente, aparte de lo que estoy sintiendo al respecto?</li>
+<li>¿Cuál es la única pregunta que podría hacer en lugar de la afirmación que quiero hacer?</li>
+</ol>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que tomaste la pausa (un silencio, una frase, una llamada de radio)?</p>
+<h3>6. Dueño cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que el ritual no desaparezca cuando no estés ahí:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Qué hizo que este momento mereciera un impulso o fuera rutinario? Agrega una línea al registro de turno en cualquiera de los dos casos.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender una pausa y etiqueta ante un par que quiere una reacción</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender una pausa y etiqueta ante un par que quiere una reacción</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger una pausa y etiqueta breve en un momento de alta intensidad sin paralizar el piso ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño de la señal)</strong></p>
+<p>Has sentido un impulso emocional fuerte—ira, miedo, frustración—ligado a una decisión que el equipo está observando. Quieres diez a treinta segundos para nombrar el sentimiento y verificar qué pasó realmente antes de responder. No debes saltarte la pausa solo para evitar fricción, y no debes convertirla en una demora indefinida.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo la misma presión y crees que las reacciones en el piso deben ser inmediatas—&quot;dices lo que ves, sigues adelante&quot;. Ves la pausa como sobreanálisis o como compartir de más los sentimientos en el trabajo. Cederás solo si el Dueño de la señal nombra el disparador específico y da un tiempo acotado concreto y breve para la pausa.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño de la señal asegurar el acuerdo para una pausa y etiqueta breve en un momento específico sin que el par escale por encima de ellos o que la tensión se convierta en un rencor?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona por una reacción inmediata; el Dueño de la señal responde.</li>
+<li>Ronda 2 (8 min): el Dueño de la señal nombra el disparador específico (desajuste de intensidad, decisión de por medio o propagación visible) y propone una pausa con tiempo acotado.</li>
+<li>Cierre (10 min): ¿dónde casi cedió el Dueño de la señal bajo presión? ¿qué lenguaje realmente convenció al par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de pausa y etiqueta bajo presión de tiempo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de pausa y etiqueta bajo presión de tiempo</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar apoyo para un ritual protegido de pausa y etiqueta cuando varios interesados quieren que el piso reaccione y avance a toda velocidad.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para correr una regla permanente: cualquier momento con desajuste de intensidad, decisión de por medio o propagación visible recibe una pausa corta y nombrada antes de una respuesta.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por throughput y tiempos límite; ve cualquier pausa como minutos perdidos y llama al ritual &quot;volverse blando en el piso.&quot;</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para cuándo aplica la pausa, además de un tiempo acotado claro para que no se use para evitar una conversación difícil indefinidamente.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará el ritual si no frena momentos que genuinamente no lo necesitan, y si no traslada en silencio tensión adicional a turnos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una pausa nombrada y con tiempo acotado para momentos genuinamente de alta intensidad sin verse blando ante el gerente de operaciones ni vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Disparadores nombrados (desajuste de intensidad, decisión de por medio, propagación visible), no un genérico &quot;pausa cada vez que sientas algo&quot;</li>
+<li>Un tiempo acotado fijo para la pausa, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la pausa y qué cambió</li>
+<li>Ningún segundo proceso secreto que contradiga el ritual acordado bajo presión</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;pausa&quot; en un lenguaje que se lee como control de riesgo, no como debilidad?</li>
+<li>¿Qué haría que el ritual desapareciera en silencio durante la próxima semana de crisis—y quién es dueño de prevenir eso?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Leer la señal antes de la llamada</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Leer la señal antes de la llamada</h2>
+<p><strong>Meta de la unidad:</strong> Tratar los impulsos emocionales como señales evolucionadas que se deben notar y regular—no ignorar—para que las decisiones de equipo se mantengan deliberadas bajo presión.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Señales, no fallas:</strong> la ira, el miedo y otros impulsos son programas de respuesta heredados, moldeados para resolver problemas recurrentes con rapidez—no fallas personales de profesionalismo (Tooby &amp; Cosmides, 1990; Nesse, 1990).</li>
+<li><strong>El circuito rápido se activa primero:</strong> una reacción corporal puede llegar antes de que la parte más lenta y deliberada del cerebro termine de evaluar qué pasó (LeDoux, 2000). No puedes pensar más rápido que el primer pico—pero puedes decidir qué ocurre después.</li>
+<li><strong>Tu equipo ya lo lee:</strong> las señales faciales y vocales son visibles en el momento en que aparecen, en todas las culturas (Ekman &amp; Friesen, 1971). Ignorar tu propio impulso no lo oculta de la cuadrilla.</li>
+<li><strong>Tres condiciones para una pausa deliberada:</strong> desajuste de intensidad, una decisión de por medio en el momento, y propagación visible hacia el equipo.</li>
+<li><strong>Una etiqueta breve vence a ambos extremos:</strong> ni suprimir la señal ni reaccionar de inmediato sobre ella sirve bien a una decisión de piso.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Nota la señal física (pecho apretado, voz elevada, mandíbula apretada) antes de notar el pensamiento.</li>
+<li>Ponle una palabra—en silencio o en voz alta—antes de hablar o actuar: &quot;ira defensiva&quot;, &quot;miedo de sobresalto&quot;, &quot;frustración&quot;.</li>
+<li>Haz una pregunta en lugar de una afirmación cuando el impulso está activo.</li>
+<li>Mantén una señal visible para el equipo que signifique &quot;dame un momento&quot; y que no se lea como debilidad.</li>
+<li>Después del turno, anota un impulso que nombraste bien y uno que se te escapó—ambos afinan la habilidad.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué momento recurrente del piso te provoca un impulso de forma confiable, y qué cambiaría en lo que dices a continuación si lo nombraras un momento antes?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger la pausa y etiqueta antes de necesitarla</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>
