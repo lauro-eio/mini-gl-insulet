@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is best described as which of the following?",
+    "options": [
+      "Fast, automatic, effortless processing system that generates intuitive judgments",
+      "Slow, deliberate, and effortful analytical system",
+      "A system that performs complex computations only when needed",
+      "A system that focuses solely on emotional responses"
+    ],
+    "correct_answer_text": "Fast, automatic, effortless processing system that generates intuitive judgments",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which principle explains that two distinct cognitive systems operate concurrently with separate roles in decision making?",
+    "options": [
+      "Heuristics and Biases Approach",
+      "Dual-Process Theory",
+      "Mental Shotgun",
+      "Intensity Matching"
+    ],
+    "correct_answer_text": "Dual-Process Theory",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What is the term for the mechanism by which System 1 translates values across different dimensions, such as matching loudness to crime severity?",
+    "options": [
+      "Basic Assessments",
+      "Substitution of Difficult Questions",
+      "Intensity Matching",
+      "Automatic Value Translation"
+    ],
+    "correct_answer_text": "Intensity Matching",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which term best captures the tendency of System 1 to generate multiple, surplus computations beyond what is needed?",
+    "options": [
+      "Mental Shotgun",
+      "Prototype-Based Categorization",
+      "Basic Assessments",
+      "Dual-Process Theory"
+    ],
+    "correct_answer_text": "Mental Shotgun",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 is responsible for producing fast, automatic intuitive judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Basic Assessments involve automatic evaluations that quickly determine if a situation is good or bad, safe or threatening.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Heuristics and Biases Approach implies that System 1 replaces complex evaluations with simpler intuitive judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Substitution of Difficult Questions refers to System 1’s process of replacing complex queries with simpler, intuitive judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

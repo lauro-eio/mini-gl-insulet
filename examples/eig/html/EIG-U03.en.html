@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders label their own emotional state with precision before and during a coaching conversation, so feedback stays about the direct report&#x27;s performance—not the leader&#x27;s unexamined reaction.</p>
+      <div class="hero-meta">
+        <span>EIG · U03</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Naming It Precisely: What the Evidence Says Abou</a>
+<a href="#opinion">The Feedback I Almost Gave Angry</a>
+<a href="#assessment">Self-Assessment — Do You Coach From a Named Stat</a>
+<a href="#case-1">Case 1 — Marcus and the Missed-Deadline Coaching</a>
+<a href="#case-2">Case 2 — Priya and the Repeat Quality Miss</a>
+<a href="#framework">Framework — State Check Canvas: Naming Your Stat</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending a Named-State Pause to</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Label-Befor</a>
+<a href="#key-notes">Key Notes — Labeling the State Before the Coachi</a>
+<a href="#commitment">Commitment — Protecting the Label-Before-Coachin</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Naming It Precisely: What the Evidence Says About Labeling Your Own State Before You Coach</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Naming It Precisely: What the Evidence Says About Labeling Your Own State Before You Coach</h2>
+<p>A frontline leader sits down to coach a direct report on a missed deadline. The words are prepared. What is not prepared is the leader&#x27;s own state—still carrying frustration from an earlier meeting, genuine disappointment, or worry about being blamed themselves. Unless that state gets named first, it does not stay out of the conversation. It leaks into tone, word choice, and emphasis.</p>
+<h3>Vague states drive worse regulation</h3>
+<p>Barrett and colleagues studied emotion differentiation—how finely a person distinguishes between related negative states such as frustrated, disappointed, and anxious, rather than lumping them all under &quot;upset.&quot; People who differentiate more precisely show better-regulated behavioral responses when those states are activated (Barrett, Gross, Christensen, &amp; Benvenuto, 2001). Kashdan, Barrett, and McKnight (2015) extended this: naming a specific negative state, rather than a general one, is consistently associated with more adaptive responses to it—including in exchanges where the stakes belong to someone else, not just the person feeling the state.</p>
+<h3>Putting a feeling into words changes what happens next</h3>
+<p>Lieberman and colleagues found that labeling an emotional state in words reduced amygdala activity—the region driving the intensity of the reaction—compared with viewing the same stimulus without labeling it (Lieberman et al., 2007). Kircanski, Lieberman, and Craske (2012) tested this with a feared stimulus and found that participants who verbally labeled their fear showed a greater later drop in physiological reactivity than those who used distraction or no strategy. The label is not a soft add-on. It has a measurable effect on what the body does next.</p>
+<h3>Mindfulness training builds the capacity to notice before labeling</h3>
+<p>None of this works if a leader cannot first notice the state clearly enough to label it. Creswell, Way, Eisenberger, and Lieberman (2007) found that people with higher dispositional mindfulness—a habit of noticing present-moment experience without immediately reacting to it—showed greater engagement of labeling-related brain regions and lower amygdala reactivity during an affect-labeling task. Farb and colleagues (2010) found that structured attention training shifted how sadness was processed, toward a more present-focused, less narrative-driven experience. Read together, this points to one skill: notice the signal first, then attach a precise word to it, rather than acting from it directly.</p>
+<h3>Why coaching specifically raises the stakes</h3>
+<p>Gross&#x27;s (1998) review of emotion regulation frames unregulated affect as a direct input into subsequent judgment and behavior—not a private background hum that stays contained. In most exchanges, an unregulated state mostly costs the person feeling it. Coaching is different: the leader holds more formal power in the exchange, so their unnamed state does not stay theirs. A direct report generally cannot correct a supervisor&#x27;s tone the way a peer might push back on a colleague&#x27;s. If the leader&#x27;s state—not the report&#x27;s actual performance—is driving word choice, the report has no clean signal to act on. The feedback stops being usable.</p>
+<h3>Three conditions when a coaching moment needs a state check</h3>
+<p>Not every coaching conversation needs a pause first. The evidence above points to three conditions:</p>
+<ol>
+<li><strong>Carryover</strong>—a charge from an earlier, unrelated moment is still running.</li>
+<li><strong>Record attached</strong>—the conversation will be documented, or affects the report&#x27;s rating, schedule, or standing.</li>
+<li><strong>Blurred target</strong>—the leader cannot yet say whether the feeling is about this report&#x27;s performance or something else entirely.</li>
+</ol>
+<p>When none apply, most leaders can coach directly. When one or more strongly applies, the evidence favors naming the specific state before the conversation begins or continues.</p>
+<h3>What this means for supervisors</h3>
+<p>The goal is not to suppress the state or delay the conversation indefinitely—both remove the leader from the exchange rather than preparing them for it. The goal is to notice the state, name it with a specific word rather than a vague one, and use the brief window that naming buys to check whether that word belongs to this report&#x27;s performance before the conversation continues.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Barrett, L. F., Gross, J., Christensen, T. C., &amp; Benvenuto, M. (2001). Knowing what you&#x27;re feeling and knowing what to do about it: Mapping the relation between emotion differentiation and emotion regulation. <em>Cognition &amp; Emotion, 15</em>(6), 713–724.</li>
+<li>Kashdan, T. B., Barrett, L. F., &amp; McKnight, P. E. (2015). Unpacking emotion differentiation: Transforming unpleasant experience by perceiving distinctions in negativity. <em>Current Directions in Psychological Science, 24</em>(1), 10–16.</li>
+<li>Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., &amp; Way, B. M. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. <em>Psychological Science, 18</em>(5), 421–428.</li>
+<li>Kircanski, K., Lieberman, M. D., &amp; Craske, M. G. (2012). Feeling better: Emotional expression and affect labeling reduce fear. <em>Psychological Science, 23</em>(10), 1086–1091.</li>
+<li>Creswell, J. D., Way, B. M., Eisenberger, N. I., &amp; Lieberman, M. D. (2007). Neural correlates of dispositional mindfulness during affect labeling. <em>Psychosomatic Medicine, 69</em>(6), 560–565.</li>
+<li>Farb, N. A. S., Anderson, A. K., Mayberg, H., Bean, J., McKeon, D., &amp; Segal, Z. V. (2010). Minding one&#x27;s emotions: Mindfulness training alters the neural expression of sadness. <em>Emotion, 10</em>(1), 25–33.</li>
+<li>Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. <em>Review of General Psychology, 2</em>(3), 271–299.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Feedback I Almost Gave Angry</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Feedback I Almost Gave Angry</h2>
+<p>I had a 1:1 booked with one of my packers, Theo, about a missed count on his line for the third week running. Twenty minutes before the meeting, a different problem landed on me: my own shift lead had missed a handoff and left me covering two stations short-handed for an hour. By the time I sat down across from Theo, I was already carrying something.</p>
+<p>I almost let it out on him. I had a whole opening line ready about &quot;this being the third time&quot; and how &quot;I need this to stop,&quot; and the tone behind it was not really about Theo&#x27;s count. It was about the hour I had just spent short two stations, with nobody warning me it was coming.</p>
+<p>I caught it because I have started doing one thing before any coaching conversation that matters: naming the specific feeling, out loud in my head, before I open my mouth. Not &quot;I&#x27;m upset.&quot; Something more exact. I sat there for maybe five seconds and landed on it: &quot;residual frustration, not really about Theo.&quot; Once I had the actual word, I could hear how much of my opening line belonged to the handoff, not the count.</p>
+<p>So I changed what I said. Instead of &quot;this is the third time and I need it to stop,&quot; I asked him what was actually happening on his end during that window. It turned out he had been covering for a teammate out sick and had not flagged it, assuming it would sort itself out. That is a real coaching conversation—about coverage, about when to flag a gap—not a conversation about my morning.</p>
+<p>If I had opened with the angry version, Theo would have walked away defending himself against a tone that had nothing to do with him, and I would have missed the actual thing worth coaching: that he needs to flag a coverage gap instead of quietly absorbing it. The feedback would have technically happened. It would not have been usable.</p>
+<p>I am not trying to arrive at every 1:1 feeling nothing. That is not realistic, and it is not the goal. What changed is what I do with five seconds before I speak: name the specific feeling, check whether it actually belongs to the person across from me, and only then start the conversation. My crew does not need a supervisor with no feelings walking into a coaching conversation. They need one who has checked whose feelings are actually in the room before opening their mouth.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Coach From a Named State or a Raw One?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Marcus and the Missed-Deadline Coaching Conversation</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Marcus and the Missed-Deadline Coaching Conversation</h2>
+<h3>Opening</h3>
+<p>Marcus supervises an assembly cell of six. Owen, one of his most experienced techs, has missed his end-of-shift target for the third week running. Marcus has a 1:1 booked with him in fifteen minutes to address it directly.</p>
+<h3>Context</h3>
+<p>Twenty minutes before the 1:1, Marcus&#x27;s own manager pulled him aside and criticized him, in front of a peer supervisor, for a maintenance request that took two days longer than promised—something entirely outside Marcus&#x27;s control. He is still carrying the sting of that exchange when Owen sits down across from him. He notices his jaw is tight and his opening line already forming: &quot;This is the third week in a row, and I need it to stop.&quot; He has maybe five seconds before he says it.</p>
+<p>Owen, for his part, has no idea any of this happened. He is expecting a conversation about his own numbers.</p>
+<h3>Decision point</h3>
+<p>Marcus can:</p>
+<ol>
+<li>Open with the line as it stands—&quot;third week in a row, I need it to stop&quot;—and let the conversation proceed with whatever tone comes out.</li>
+<li>Take five seconds, silently name what he is actually feeling (&quot;residual anger at my manager, not at Owen&quot;), then open by asking Owen what has been different about his shifts the past three weeks.</li>
+<li>Reschedule the 1:1 for later in the day, telling Owen only that something came up, without naming why to himself or preparing differently for the rescheduled conversation.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What in Marcus&#x27;s body told him the feeling walking into the room did not belong to Owen, and how could he use that signal instead of letting it drive his opening line?</li>
+<li>If Marcus chooses option 2, what does he actually say in the first ten seconds, and how does it differ from the line he originally had ready?</li>
+<li>What would Owen have taken away from the conversation if Marcus had chosen option 1 instead—and would that feedback have been usable to him?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Priya and the Repeat Quality Miss</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Priya and the Repeat Quality Miss</h2>
+<h3>Opening</h3>
+<p>Priya leads a packing team of nine at a distribution center. One of her packers, Lena, has had a second quality miss this quarter—a mislabeled shipment that reached a customer. This time, the conversation will be documented and forwarded to HR, since a second miss inside ninety days triggers a formal write-up under company policy.</p>
+<h3>Context</h3>
+<p>Priya likes Lena and has advocated for her before. Sitting down to prepare the documented conversation, Priya realizes she cannot cleanly separate two different feelings: real concern about the mislabeling itself, and a quieter worry that this write-up will make Priya look like she cannot manage her own team, in front of the same manager who reviews her quarterly. She is not sure, honestly, which feeling is going to be driving the room when Lena sits down. The meeting is in ten minutes, and the write-up template is already open on her screen.</p>
+<h3>Decision point</h3>
+<p>Priya can:</p>
+<ol>
+<li>Proceed with the meeting as scheduled, treating the uncertainty about her own feelings as not relevant since the write-up itself is procedural and required either way.</li>
+<li>Take a few minutes before the meeting to name both feelings separately—concern about the mislabeling, and worry about how it reflects on her—so she can check which one is actually shaping what she plans to say to Lena.</li>
+<li>Ask a peer supervisor to sit in and lead the documented portion of the conversation, while Priya stays silent, avoiding the risk that her own mixed feelings show up at all.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Why does a &quot;record attached&quot; conversation raise the stakes of an unnamed or blurred feeling more than an informal check-in would?</li>
+<li>If Priya chooses option 2, how might separating the two feelings change what she actually says to Lena about the mislabeling itself?</li>
+<li>What risk does option 3 avoid, and what does it fail to solve for Priya the next time a documented conversation comes up?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — State Check Canvas: Naming Your State Before You Coach</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — State Check Canvas: Naming Your State Before You Coach</h2>
+<p>Use in workshop or print for the floor. Run one canvas per coaching conversation you know will matter, before you start it.</p>
+<h3>1. The conversation (one sentence)</h3>
+<p>Who am I about to coach, and what is the actual issue I need to raise?</p>
+<h3>2. State check</h3>
+<div class="table-wrap"><table>
+<tr><th>Trigger</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Carryover — is a charge from an earlier, unrelated moment still running?</td><td></td><td></td></tr>
+<tr><td>Record attached — will this conversation be documented, or affect rating, schedule, or standing?</td><td></td><td></td></tr>
+<tr><td>Blurred target — can I clearly say this feeling is about this report&#x27;s performance, not something else?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero triggers present:</strong> Proceed. Your state is likely proportionate to this conversation.</li>
+<li><strong>One trigger present:</strong> Take the short label-and-check below before you start.</li>
+<li><strong>Two or more triggers present:</strong> Full check required; reschedule ten minutes if you cannot take it now.</li>
+</ul>
+<h3>4. Label-and-check (when required)</h3>
+<ol>
+<li>Name the feeling in one or two specific words (e.g., &quot;residual frustration,&quot; &quot;disappointment,&quot; &quot;worry about being blamed&quot;)—not a vague &quot;upset.&quot;</li>
+<li>What actually happened with this report, separate from what I am currently feeling about it?</li>
+<li>What is the one question I could open with instead of the verdict I want to deliver?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>How will you know, in the moment, that your opening line matches the actual issue and not your mood walking in?</p>
+<h3>6. Owner when you are stretched thin</h3>
+<p>Name + backup, so a peer can flag it if your coaching starts running hot on a rough day:</p>
+<h3>7. After-action note</h3>
+<p>Did your opening line belong to this report or to something else? Add one line to your coaching log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending a Named-State Pause to a Peer Who Wants Faster Feedback</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending a Named-State Pause to a Peer Who Wants Faster Feedback</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief state check before a high-stakes coaching conversation without freezing the schedule or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (State Owner)</strong></p>
+<p>You are about to coach a direct report on a real issue, but you know you are carrying a feeling from something else that happened earlier today. You want two to three minutes to name the specific feeling and check whether it belongs to this report before you start. You must not skip the check just to stay on schedule, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are also behind on your own coaching schedule and believe feedback should happen the moment an issue is noticed—&quot;say it now, keep moving.&quot; You see the pause as overthinking your own feelings instead of just doing the job. You will back off only if the State Owner names the specific trigger and gives a concrete, short time box for the check.</p>
+<h3>Conflict</h3>
+<p>Can the State Owner secure a short delay for one specific coaching conversation without the peer escalating over their head or treating it as an excuse to avoid a hard conversation?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for immediate feedback; State Owner responds.</li>
+<li>Round 2 (8 min): State Owner names the specific trigger (carryover, record attached, or blurred target) and proposes a time-boxed check.</li>
+<li>Debrief (10 min): Where did the State Owner nearly fold under schedule pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Label-Before-Coaching Practice Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Label-Before-Coaching Practice Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected state-check practice before coaching conversations when multiple stakeholders want feedback to move fast.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any coaching conversation with carryover, a record attached, or a blurred target gets a short, named state check before it starts.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on coaching-cycle turnaround; sees any pause as lost time and calls the practice &quot;overthinking your own feelings on the clock.&quot;</li>
+<li><strong>HR or quality analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when the check applies, plus a clear time box so it cannot be used to avoid a hard, documented conversation indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the practice if it does not slow down conversations that genuinely do not need it, and if it does not quietly shift extra coaching load onto neighboring teams.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed state check for genuinely high-stakes coaching conversations without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named triggers (carryover, record attached, blurred target), not a blanket &quot;pause whenever I feel something&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of when the check was used and what it changed in the conversation</li>
+<li>No secret second process that contradicts the agreed practice under deadline pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;state check&quot; into language that reads as protecting usable feedback, not softness?</li>
+<li>What would cause the practice to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Labeling the State Before the Coaching Conversation</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Labeling the State Before the Coaching Conversation</h2>
+<p><strong>Unit goal:</strong> Label your own emotional state with precision before and during a coaching conversation, so feedback stays about the direct report&#x27;s performance—not your unexamined reaction.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Precision beats a vague label:</strong> distinguishing &quot;frustrated&quot; from &quot;disappointed&quot; from &quot;anxious&quot; is linked to better-regulated responses than lumping every state under &quot;upset&quot; (Barrett, Gross, Christensen, &amp; Benvenuto, 2001; Kashdan, Barrett, &amp; McKnight, 2015).</li>
+<li><strong>Naming it changes what happens next:</strong> putting a feeling into words measurably reduces the intensity of the reaction driving it (Lieberman et al., 2007; Kircanski, Lieberman, &amp; Craske, 2012).</li>
+<li><strong>Noticing comes before naming:</strong> a habit of paying attention to present-moment signals—without reacting to them right away—makes accurate labeling possible (Creswell, Way, Eisenberger, &amp; Lieberman, 2007; Farb et al., 2010).</li>
+<li><strong>Coaching raises the stakes:</strong> the leader holds more power in the exchange, so an unnamed state does not stay theirs—it leaks into the report&#x27;s feedback and becomes unusable (Gross, 1998).</li>
+<li><strong>Three conditions for a state check:</strong> carryover from an earlier moment, a record attached to this conversation, or a blurred target between the report and something else.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before a coaching conversation that matters, notice what you are carrying in your body—not just what you plan to say.</li>
+<li>Put one specific word on it: &quot;residual frustration,&quot; &quot;disappointment,&quot; &quot;worry,&quot; not just &quot;upset.&quot;</li>
+<li>Ask whether that word actually belongs to this report&#x27;s performance or to something else that happened earlier.</li>
+<li>If it belongs elsewhere, name that out loud to yourself before you speak, then start with a question about their side, not a verdict about the pattern.</li>
+<li>After the conversation, note whether your opening line matched the actual issue—or matched your mood walking in.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which recurring coaching moment is most likely to carry a feeling that belongs to something else, and what would naming it precisely change about how you open that conversation?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Label-Before-Coaching Habit</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

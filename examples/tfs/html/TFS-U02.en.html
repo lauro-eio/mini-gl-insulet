@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytical Deliberation — Cognitive Anchors &amp; Deliberation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Cognitive Anchors &amp; Deliberation</p>
+      <h1>Analytical Deliberation</h1>
+      <p class="hero-lead">Help frontline leaders notice when cognitive ease, anchoring, availability, or resemblance-based judgment is quietly steering a floor decision, and check the actual number, source, or base rate before committing to costly or hard-to-reverse calls.</p>
+      <div class="hero-meta">
+        <span>TFS · U02</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Four Shortcuts the Mind Takes: What the Evidence</a>
+<a href="#opinion">The Number That Set the Whole Room</a>
+<a href="#assessment">Self-Assessment — How Much Are Ease, Anchors, an</a>
+<a href="#case-1">Case 1 — The Anchor on the Shrinkage Estimate</a>
+<a href="#case-2">Case 2 — Jamal and the Return That Looked Like F</a>
+<a href="#framework">Framework — Bias Check Canvas for Floor Decision</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending the Bias Check to a Pe</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting the Bias-Check </a>
+<a href="#key-notes">Key Notes — Four Shortcuts That Quietly Steer Fl</a>
+<a href="#commitment">Commitment — Naming the Bias Before It Names You</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Four Shortcuts the Mind Takes: What the Evidence Says About Ease, Anchors, Availability, and Resemblance</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Four Shortcuts the Mind Takes: What the Evidence Says About Ease, Anchors, Availability, and Resemblance</h2>
+<p>Frontline leaders make judgment calls all shift long: does this estimate sound about right, does this case match a pattern worth flagging, how worried should a rare defect make the team. Decades of cognitive research have mapped four shortcuts the mind uses to answer these questions quickly — and the specific conditions under which each one quietly misleads even a careful, experienced leader.</p>
+<h3>Cognitive ease: fluency feels like truth</h3>
+<p>The mind tracks how smoothly it is processing information, and that smoothness — cognitive ease — shapes judgment without announcing itself. Familiar phrasing, a clean chart, or a simply worded report all feel more credible than the same content presented awkwardly, independent of accuracy (Reber &amp; Schwarz, 1999; Alter &amp; Oppenheimer, 2009). On a floor, the report that reads smoothly is not automatically the one that is correct; a leader can end up more persuaded by a tidy summary than by a rougher one that actually flags the real problem.</p>
+<h3>Anchoring: the first number sticks</h3>
+<p>Once a number is spoken, it pulls every later estimate toward it, even when everyone in the room knows the number was a guess. Tversky and Kahneman (1974) first documented this anchoring effect under controlled conditions; Englich, Mussweiler, and Strack (2006) later found trained legal professionals recommending measurably harsher sentences after exposure to an irrelevant high number, while denying any influence at all. On the floor, the first shrink estimate thrown out in a huddle, the first cause named for a stoppage, or the first figure written on a whiteboard can anchor a whole team&#x27;s later count, correct or not.</p>
+<h3>Availability: easy to recall is not the same as common</h3>
+<p>People judge how frequent or risky something is by how easily examples come to mind, not by the actual rate (Tversky &amp; Kahneman, 1973). A single vivid, recent incident — a bad injury, a viral complaint, a dramatic near-miss — can dominate a team&#x27;s sense of risk long after the odds of a repeat have returned to baseline (Slovic, Finucane, Peters, &amp; MacGregor, 2007). This is not random noise; it is a systematic overweighting of whatever is most recent or emotionally sharp, which can pull attention and resources away from the quieter, more frequent problem.</p>
+<h3>Representativeness: a good match is not a good base rate</h3>
+<p>When a case resembles a familiar type, people estimate its probability from the resemblance and often skip the actual base rate entirely. Kahneman and Tversky (1973) showed that even people who know the underlying statistics will override them once a vivid, specific description &quot;feels like&quot; a known category. A return that looks like a known fraud pattern, or a new hire who reminds a supervisor of a past problem employee, can trigger a judgment based on resemblance alone — even when the real base rate of that category on this floor is far lower than the resemblance suggests.</p>
+<h3>What holds all four together</h3>
+<p>None of these shortcuts require carelessness; they operate by default in careful, experienced people, because they are fast and usually good enough. Each becomes a liability specifically when the fluent, the first-heard, the memorable, or the resemblance-matched case is quietly wrong — and the documented fix is the same across all four: pause long enough to name the shortcut and check it against the actual number, source, or base rate in front of you, not the feeling attached to it.</p>
+<h3>What this means for supervisors</h3>
+<p>A brief, structured check catches most of the damage: What number did I hear first, and is it the source figure? Am I recalling this because it is common, or because it is memorable? Does this case match the category, or does it merely resemble it? Naming which of the four defaults might be active is often enough to stop it from quietly overriding a fast, well-earned instinct.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. <em>Science, 185</em>(4157), 1124–1131.</li>
+<li>Tversky, A., &amp; Kahneman, D. (1973). Availability: A heuristic for judging frequency and probability. <em>Cognitive Psychology, 5</em>(2), 207–232.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1973). On the psychology of prediction. <em>Psychological Review, 80</em>(4), 237–251.</li>
+<li>Reber, R., &amp; Schwarz, N. (1999). Effects of perceptual fluency on judgments of truth. <em>Consciousness and Cognition, 8</em>(3), 338–342.</li>
+<li>Alter, A. L., &amp; Oppenheimer, D. M. (2009). Uniting the tribes of fluency to form a metacognitive nation. <em>Personality and Social Psychology Review, 13</em>(3), 219–235.</li>
+<li>Englich, B., Mussweiler, T., &amp; Strack, F. (2006). Playing dice with criminal sentences: The influence of irrelevant anchors on experts&#x27; judicial decision making. <em>Personality and Social Psychology Bulletin, 32</em>(2), 188–200.</li>
+<li>Slovic, P., Finucane, M. L., Peters, E., &amp; MacGregor, D. G. (2007). The affect heuristic. <em>European Journal of Operational Research, 177</em>(3), 1333–1352.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Number That Set the Whole Room</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Number That Set the Whole Room</h2>
+<p>I called Monday&#x27;s huddle to talk through last week&#x27;s shrink count. Before I had the actual report open, I said out loud, &quot;feels like we&#x27;re maybe five hundred units light this week&quot; — just a rough gut-check while I dug for the file. I was off by nearly half; the real number came in closer to two-eighty. But for the next twenty minutes, every guess my team offered orbited five hundred. Someone said six. Someone else split the difference at four-fifty. Nobody guessed low. I had planted the number, and the whole room built on top of it without noticing.</p>
+<p>I did not think of myself as someone who could be moved by an offhand guess. I have run this floor for years; I trust my read on shrink, on staffing, on which line slows down after lunch. But that huddle was not really instinct. The room was reacting to the first number spoken — mine — regardless of whether it was close to right.</p>
+<p>Once I pulled the actual count and read it out flat, without repeating my earlier guess first, the conversation shifted immediately. People started asking sharper questions: which zone drove it, whether it matched last month&#x27;s pattern. The fix was not complicated. It was refusing to let a guess become the starting point before the real number was in the room.</p>
+<p>Since then I try to notice the moment a number gets said before anyone has checked it — in a huddle, on a call, scrawled on the whiteboard before shift change. I ask myself: is this the actual figure, or just the first thing someone said? If it is the first thing said, I hold off repeating it and pull the real source before anyone anchors on it, including me.</p>
+<p>It is a small habit, maybe ninety seconds most days. But that first Monday cost us most of a huddle chasing a number I had invented on the spot, and nobody — including me — caught it until the real count landed. Now the rule on my floor is simple: no numbers out loud until the source is open on the screen. Guesses can come after, never before.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — How Much Are Ease, Anchors, and Availability Steering You?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — The Anchor on the Shrinkage Estimate</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — The Anchor on the Shrinkage Estimate</h2>
+<h3>Opening</h3>
+<p>Corinne leads the overnight receiving team at a distribution center. Every Friday she runs a fifteen-minute variance huddle before the weekly report goes to the ops director. The team&#x27;s job in that huddle is simple: agree on this week&#x27;s estimated shrinkage before the system count finishes processing, so Corinne can flag anything unusual early.</p>
+<h3>Context</h3>
+<p>This Friday, the system count is running late. To keep the huddle moving, the assistant lead opens with, &quot;rough guess, feels like maybe eight hundred units this week — that&#x27;s about what it looked like walking the floor.&quot; No one has seen the actual report yet. Over the next ten minutes, three other team members offer estimates: 750, 850, and 900. Every number sits close to the assistant lead&#x27;s opening guess. Corinne has to send a preliminary estimate to the ops director in five minutes, before the system count is ready, and the director uses that number to decide whether to pull in an extra inspection team for Monday — a call that is expensive to reverse once inspectors are scheduled.</p>
+<p>Corinne has no strong instinct of her own; walking the floor this week did not stand out to her one way or the other. She only has the room&#x27;s converging guesses, all anchored near the first number spoken, and a report deadline that will not wait for the system count.</p>
+<h3>Decision point</h3>
+<p>Corinne can:</p>
+<ol>
+<li>Send the team&#x27;s consensus estimate (roughly 800) to the ops director now, since the room converged and the deadline is close.</li>
+<li>Tell the director the estimate is pending the system count and provide it in twenty minutes once the real figure is in, even though this delays his Monday inspection-team decision.</li>
+<li>Send a wide range (600–1,000) with a note that the point estimate is not yet source-confirmed, giving the director a defensible number without pretending the huddle guess is solid.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What made the room&#x27;s estimates converge so tightly around the assistant lead&#x27;s opening number, and what evidence actually supported that number?</li>
+<li>Which of the four shortcuts — ease, anchoring, availability, or resemblance — is most clearly at work here, and how would Corinne prove it to a skeptical teammate?</li>
+<li>If Corinne chooses option 3, how should she explain a wide, unconfirmed range to a director who wants a clean single number for his own report?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Jamal and the Return That Looked Like Fraud</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Jamal and the Return That Looked Like Fraud</h2>
+<h3>Opening</h3>
+<p>Jamal supervises the returns desk at a regional fulfillment center. Six weeks ago, his team uncovered a genuine fraud ring: returned boxes that were empty, resealed, and shipped back under a rotating set of names, all flagged by a distinctive combination — high-value electronics, &quot;damaged on arrival&quot; notes with no photo, and next-day repurchase of the same item. It was the biggest case his desk had seen in years, and the story still comes up in nearly every shift huddle.</p>
+<h3>Context</h3>
+<p>A return comes in this morning matching three of those same surface details: a mid-range electronics item, a &quot;damaged on arrival&quot; note with no photo attached, and a repurchase of the same SKU two days later. Jamal&#x27;s gut reaction is immediate — this looks exactly like the fraud pattern from six weeks ago. But the desk&#x27;s own tracking shows that &quot;damaged, no photo&quot; returns without a repurchase-timing flag happen roughly 40 times a month on this SKU category, and only one in the last two years turned out to be part of an actual fraud pattern. This return also has one detail the fraud cases never had: a call-in from the customer, made before the item even arrived back at the warehouse, asking how to get a replacement sent same-day.</p>
+<p>Holding the return for a fraud investigation delays a legitimate customer&#x27;s replacement by up to two weeks and triggers an escalation review that pulls a specialist off other cases. Releasing it without a hold, if this is in fact fraud, lets a repeat pattern continue unflagged.</p>
+<h3>Decision point</h3>
+<p>Jamal can:</p>
+<ol>
+<li>Hold the return for a full fraud investigation, since it visibly matches the pattern his team caught six weeks ago.</li>
+<li>Release the return and process the replacement immediately, since the surface match to one memorable case is not evidence on its own.</li>
+<li>Release the replacement to protect the customer&#x27;s timeline, but flag the account for a lightweight follow-up check against the actual base rate for this return type, without a full investigation hold.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>Which is doing more work in Jamal&#x27;s gut reaction — the resemblance to the six-week-old case, or the actual base rate for this exact combination of details?</li>
+<li>How should the customer&#x27;s early call-in change the read, and would Jamal&#x27;s team have registered it as strongly if the vivid fraud case were not still fresh in memory?</li>
+<li>Design a floor cue that lets any team member flag &quot;this matches a known pattern&quot; without it automatically triggering the full investigation process before the base rate is checked.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Bias Check Canvas for Floor Decisions</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Bias Check Canvas for Floor Decisions</h2>
+<p>Use in workshop or print for the floor. Run one canvas per decision you are unsure about before you commit.</p>
+<h3>1. The call (one sentence)</h3>
+<p>What decision am I about to make, right now?</p>
+<h3>2. Bias check</h3>
+<div class="table-wrap"><table>
+<tr><th>Shortcut</th><th>Present? (yes/no)</th><th>Why</th></tr>
+<tr><td>Ease — am I trusting this because it reads smoothly, not because I checked it?</td><td></td><td></td></tr>
+<tr><td>Anchor — is a number or claim I heard first pulling my estimate, regardless of its source?</td><td></td><td></td></tr>
+<tr><td>Availability — is a vivid or recent case making this feel more common than it actually is?</td><td></td><td></td></tr>
+<tr><td>Representativeness — does this case just resemble a known pattern, without a matching base rate?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Route decision</h3>
+<ul>
+<li><strong>Zero shortcuts present:</strong> Proceed on your read. Note it and move on.</li>
+<li><strong>One shortcut present:</strong> Run the matching structured check below before acting.</li>
+<li><strong>Two or more present:</strong> Full check required; escalate if you cannot resolve it in the time available.</li>
+</ul>
+<h3>4. Structured check (when required)</h3>
+<ol>
+<li><strong>Ease:</strong> What evidence backs this beyond how clean or familiar it looks?</li>
+<li><strong>Anchor:</strong> What is the actual source figure, separate from the first number spoken?</li>
+<li><strong>Availability:</strong> What is the real rate over recent months, not just what comes to mind fastest?</li>
+<li><strong>Representativeness:</strong> What is the base rate for this category, and does this case truly match it or only resemble it?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see that a check happened (board, radio call, log entry)?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the check does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>Which shortcut was actually at work here, and what would have caught it faster? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending the Bias Check to a Peer Who Wants Speed</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending the Bias Check to a Peer Who Wants Speed</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice protecting a brief source, base-rate, or fact check on a call that shows a sign of ease, anchoring, availability, or resemblance—without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Check Owner)</strong></p>
+<p>You have flagged a call where a first number, a vivid recent case, or a resemblance to a known pattern seems to be driving the room, and you want a short check before committing. You must not skip the check just to avoid friction, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same deadline and believe &quot;it&#x27;s obviously the same thing as last time, just call it.&quot; You push for the fast path and treat the check as second-guessing or slowing the team down. You will back off only if the Check Owner names the specific shortcut at work and proposes a concrete time-boxed check.</p>
+<h3>Conflict</h3>
+<p>Can the Check Owner secure agreement for a two-to-four-minute source or base-rate check on one specific call without the peer escalating over their head or the deadline slipping past recovery?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for the fast call; Check Owner responds.</li>
+<li>Round 2 (8 min): Check Owner names the specific shortcut (ease, anchor, availability, or representativeness) and proposes a time-boxed check.</li>
+<li>Debrief (10 min): Where did the Check Owner nearly fold under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting the Bias-Check Ritual Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting the Bias-Check Ritual Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected bias-check ritual when multiple stakeholders want the floor to keep moving at full speed.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any call showing a sign of ease, anchoring, availability, or resemblance gets a short, time-boxed source or base-rate check before action.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any pause as lost minutes and calls the ritual &quot;second-guessing the team&#x27;s read.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when the check applies, plus a clear time box so it cannot be used to stall indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the ritual if it does not slow down calls that genuinely do not show a shortcut, and if it does not quietly shift extra work onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed check for calls showing a real bias signal without looking slow to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named shortcuts (ease, anchor, availability, representativeness), not a blanket &quot;when in doubt, check&quot;</li>
+<li>A fixed time box for the check, agreed in advance</li>
+<li>A visible record of when the check was used and what it caught or ruled out</li>
+<li>No secret second process that contradicts the agreed ritual under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;bias check&quot; into language that reads as risk control, not hesitation?</li>
+<li>What would cause the ritual to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Four Shortcuts That Quietly Steer Floor Decisions</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Four Shortcuts That Quietly Steer Floor Decisions</h2>
+<p><strong>Unit goal:</strong> Notice when cognitive ease, anchoring, availability, or resemblance-based judgment is quietly steering a floor decision, and check the actual number, source, or base rate before committing to a costly or hard-to-reverse call.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Cognitive ease:</strong> fluent, familiar-looking information feels true whether or not it is.</li>
+<li><strong>Anchoring:</strong> the first number spoken pulls every later estimate toward it, even when everyone knows it was a guess.</li>
+<li><strong>Availability:</strong> how easily an example comes to mind is not the same as how often it actually happens.</li>
+<li><strong>Representativeness:</strong> a case that resembles a known pattern gets judged on resemblance, not on the actual base rate.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Before repeating a number out loud, ask: is this the source figure, or just the first guess someone made?</li>
+<li>When a report or explanation feels unusually smooth or convincing, ask what evidence backs it beyond how well it reads.</li>
+<li>When a recent, vivid incident is driving a decision, check it against the actual rate over the last few months, not just how memorable it is.</li>
+<li>When a case &quot;looks like&quot; a known type, check the base rate for that type on this floor before acting on resemblance alone.</li>
+<li>Name which of the four shortcuts might be active before committing to a costly or hard-to-reverse call.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which of the four — ease, anchors, availability, or resemblance — has quietly steered one of your calls this month, and how would you catch it sooner next time?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Naming the Bias Before It Names You</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Cognitive Anchors &amp; Deliberation · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

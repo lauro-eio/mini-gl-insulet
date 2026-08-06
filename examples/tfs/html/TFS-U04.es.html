@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deliberación analítica — Anclaje cognitivo y deliberación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Anclaje cognitivo y deliberación</p>
+      <h1>Deliberación analítica</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a reconocer cuándo una historia coherente construida después de los hechos está reemplazando en silencio lo que el registro y el momento realmente mostraron, y a proteger un ritual de cierre de turno basado en hechos frente a la retrospectiva y los atajos de memoria.</p>
+      <div class="hero-meta">
+        <span>TFS · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">La historia que contamos después del turno: qué </a>
+<a href="#opinion">El cierre de turno donde nuestra historia no coi</a>
+<a href="#assessment">Autodiagnóstico — ¿Estás cerrando el turno o edi</a>
+<a href="#case-1">Caso 1 — El rescate del embarque que no fue como</a>
+<a href="#case-2">Caso 2 — &#x27;Deberíamos haberlo visto venir&#x27;: retro</a>
+<a href="#framework">Marco — Lienzo de integridad narrativa y verific</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender el cierre de turno basa</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de ci</a>
+<a href="#key-notes">Puntos clave — Memoria, retrospectiva y la histo</a>
+<a href="#commitment">Compromiso — Proteger el registro contemporáneo </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>La historia que contamos después del turno: qué dice la evidencia sobre la memoria, la retrospectiva y las narrativas coherentes</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La historia que contamos después del turno: qué dice la evidencia sobre la memoria, la retrospectiva y las narrativas coherentes</h2>
+<p>Los líderes de primera línea dirigen cierres de turno constantemente: al final del turno, tras un casi-incidente, tras un rescate. El relato que sobrevive al cierre se vuelve &quot;lo que pasó&quot;, incluso cuando se aparta en silencio de lo que el registro, los sensores o las marcas de tiempo consignaron en el momento. Décadas de investigación sobre memoria y juicio explican por qué la historia tan a menudo se adelanta al registro.</p>
+<h3>Por qué una buena historia se siente como la verdad</h3>
+<p>Las personas no almacenan secuencias crudas de eventos; las reconstruyen, y cada reconstrucción tiende hacia una versión que se siente coherente. La teoría de las normas de Kahneman y Miller (1986) describe cómo un resultado conocido se vuelve el telón de fondo automático contra el cual se releen los eventos previos, de modo que la secuencia que condujo a él empieza a sentirse como la única posible. Nisbett y Wilson (1977) mostraron algo relacionado: las personas narran con confianza las causas de sus juicios incluso cuando las causas reales les eran inaccesibles, porque una historia plausible es más fácil de producir que una precisa. Ninguno de los dos hallazgos significa que las personas estén mintiendo. Significa que coherencia y precisión son cualidades distintas, y una historia puede tener mucho de la primera con muy poco de la segunda.</p>
+<h3>La retrospectiva reescribe lo &quot;que se podía saber&quot;</h3>
+<p>Una vez que se conoce un resultado, la memoria de lo que se creía antes se ajusta para coincidir con él. Fischhoff (1975) lo demostró directamente: después de que los participantes conocían el resultado real de un evento, sobreestimaban sistemáticamente cuán predecible había sido, y a menudo no recordaban con precisión su incertidumbre previa. Roese y Vohs (2012), al revisar décadas de trabajo posterior, encontraron que este efecto es una de las distorsiones más replicadas en la investigación del juicio, y que es más fuerte precisamente cuando una revisión se esfuerza más por aprender de un resultado — es decir, durante las revisiones de incidentes y post-acción en las que más confían los líderes.</p>
+<h3>Juzgar la decisión por el resultado, no por el razonamiento</h3>
+<p>Una distorsión relacionada es el sesgo de resultado. Baron y Hershey (1988) mantuvieron constante la información disponible y variaron solo el resultado final; los participantes calificaban la misma decisión como mejor o peor solo según cómo resultó. En el piso, esto significa que una decisión defendible que tuvo mala suerte se trata como una mala decisión, mientras que una decisión descuidada que resultó bien se trata como reivindicada — enseñando la lección equivocada en ambos casos.</p>
+<h3>Dos yo que califican el mismo turno de forma distinta</h3>
+<p>La memoria no pondera una experiencia de manera uniforme a lo largo de su duración. Kahneman, Fredrickson, Schreiber y Redelmeier (1993) encontraron que las calificaciones retrospectivas siguen mucho más el momento más intenso de una experiencia y su final que su duración o calidad promedio — la regla del pico y el final — mientras descuentan cuánto duró un tramo bueno o malo, patrón que llamaron negligencia de la duración. Redelmeier y Kahneman (1996) confirmaron el mismo efecto fuera del laboratorio, en los recuerdos de pacientes sobre procedimientos médicos. Aplicado a un turno: un turno mayormente fluido que termina mal a menudo se recuerda como &quot;un mal turno&quot;, y un turno caótico rescatado justo al final se recuerda como &quot;uno bueno&quot;, sin importar lo que muestre el registro hora por hora.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>Nada de esto vuelve inútil a la narrativa o la memoria — un cierre de turno sin historia no le enseña nada al equipo. Significa que la historia debe construirse a partir de un registro contemporáneo, no sustituirlo. Tres verificaciones protegen un cierre de turno de estas distorsiones:</p>
+<ol>
+<li><strong>Fijar los hechos antes de contar la historia</strong> — leer primero las marcas de tiempo y las entradas del registro, y construir la narrativa para que coincida con ellas, no al revés.</li>
+<li><strong>Separar la calidad de la decisión del resultado</strong> — preguntar qué se podía saber en el momento en que se tomó la decisión, no qué es obvio ahora que se conoce el resultado.</li>
+<li><strong>Ponderar todo el registro, no solo el final</strong> — un pico dramático o un cierre fuerte no deberían sustituir en silencio al turno completo.</li>
+</ol>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Fischhoff, B. (1975). Hindsight is not equal to foresight: The effect of outcome knowledge on judgment under uncertainty. <em>Journal of Experimental Psychology: Human Perception and Performance, 1</em>(3), 288–299.</li>
+<li>Roese, N. J., &amp; Vohs, K. D. (2012). Hindsight bias. <em>Perspectives on Psychological Science, 7</em>(5), 411–426.</li>
+<li>Baron, J., &amp; Hershey, J. C. (1988). Outcome bias in decision evaluation. <em>Journal of Personality and Social Psychology, 54</em>(4), 569–579.</li>
+<li>Kahneman, D., &amp; Miller, D. T. (1986). Norm theory: Comparing reality to its alternatives. <em>Psychological Review, 93</em>(2), 136–153.</li>
+<li>Nisbett, R. E., &amp; Wilson, T. D. (1977). Telling more than we can know: Verbal reports on mental processes. <em>Psychological Review, 84</em>(3), 231–259.</li>
+<li>Kahneman, D., Fredrickson, B. L., Schreiber, C. A., &amp; Redelmeier, D. A. (1993). When more pain is preferred to less: Adding a better end. <em>Psychological Science, 4</em>(6), 401–405.</li>
+<li>Redelmeier, D. A., &amp; Kahneman, D. (1996). Patients&#x27; memories of painful medical treatments: Real-time and retrospective evaluations of two minimally invasive procedures. <em>Pain, 66</em>(1), 3–8.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El cierre de turno donde nuestra historia no coincidió con el registro</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El cierre de turno donde nuestra historia no coincidió con el registro</h2>
+<p>He dirigido el cierre de turno del viernes de la misma manera durante años: reunir a la cuadrilla, preguntar &quot;qué pasó esta semana&quot;, dejar que la voz más clara cuente la historia, asentir, avanzar. El viernes pasado la historia fue buena — quizás demasiado buena.</p>
+<p>Marcus lo contó así: la banda de la línea 3 empezó a resbalar alrededor de las 2 p.m., él percibió el olor antes de que alguien lo señalara, llamó él mismo para reportarlo, y ya tenía una pieza de repuesto en camino antes de que la línea se detuviera. Todos asintieron. Era el tipo de historia que hace sentir que un turno estuvo bajo control todo el tiempo.</p>
+<p>Entonces Dana, quien lleva el registro del turno porque nadie más quiere hacerlo, leyó las marcas de tiempo en voz alta. La alarma de la banda se activó a la 1:41. La primera llamada de Marcus a mantenimiento quedó registrada a las 2:09 — veintiocho minutos después, no &quot;de inmediato&quot;. Y la persona que en realidad señaló primero el olor fue un trabajador temporal cuyo nombre nadie en la sala pudo recordar.</p>
+<p>Nadie estaba mintiendo. Marcus genuinamente lo recordaba tal como lo contó. El final — la parte rescatada a tiempo — estaba tan claro en la mente de todos que en silencio editó el medio más desordenado: los veintiocho minutos, la detección del trabajador temporal, el hecho de que la línea se detuvo parcialmente antes de que la solución llegara. La historia era coherente. El registro era preciso. No eran lo mismo.</p>
+<p>Antes pensaba que un buen cierre de turno era uno donde la sala acordaba rápido una versión limpia de los hechos. Ahora pienso que esa velocidad es la señal de alerta. Si la historia de todos coincide perfectamente y sin esfuerzo, probablemente ya suavizamos las partes que hubiera valido la pena examinar — quién realmente lo detectó, cuánto tiempo tomó en realidad, qué no sabíamos hasta que terminó.</p>
+<p>Así que el cierre de turno funciona distinto ahora. Antes de que alguien cuente la historia, Dana lee primero las marcas de tiempo. Solo después de que la sala tiene la secuencia cruda construimos la narrativa — y la construimos para que coincida con el registro, no al revés. Toma cuatro minutos extra. Ya ha cambiado dos conversaciones sobre quién se lleva el crédito, y sacó a la luz un vacío que hubiéramos pasado por alto por completo si el primer relato hubiera quedado sin cuestionar.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Estás cerrando el turno o editando su historia?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — El rescate del embarque que no fue como lo recordábamos</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — El rescate del embarque que no fue como lo recordábamos</h2>
+<h3>Apertura</h3>
+<p>Renata supervisa una cuadrilla de doce personas en el muelle de recepción. Cada viernes dirige un cierre de turno de quince minutos donde la cuadrilla vuelve a contar el momento más difícil de la semana, sobre todo para levantar la moral y detectar algo que valga la pena escalar. Las historias suelen parecerse lo suficiente a lo que pasó como para que nadie haya sentido la necesidad de revisarlas contra el registro.</p>
+<h3>Contexto</h3>
+<p>La historia de esta semana trata sobre una tarima mal etiquetada que casi se envió al centro de distribución equivocado. Dos líderes senior la cuentan de la misma manera: detectaron la discrepancia de etiqueta durante un recorrido de rutina, detuvieron la tarima, y la atraparon con dos horas de margen antes del corte del camión. Es una historia limpia, y la cuadrilla está orgullosa de ella.</p>
+<p>Renata revisa el registro del muelle antes de finalizar el reporte semanal, sobre todo por costumbre. Las marcas de tiempo muestran algo distinto: la discrepancia en realidad fue señalada por una alerta del escáner cuarenta minutos antes de que cualquiera de los dos líderes pasara junto a la tarima, y la alerta fue reconocida primero por un cargador de medio tiempo que lleva seis semanas en el equipo. El margen de dos horas que los líderes recuerdan era, en realidad, más cercano a cuarenta minutos para el momento en que la detención quedó confirmada.</p>
+<p>Nadie inventó nada. Los líderes genuinamente recuerdan haberlo detectado ellos mismos, porque su recorrido es la parte última y más vívida de la secuencia que presenciaron personalmente — la parte que se convirtió en el pico de la historia. La alerta del escáner y el reconocimiento del cargador ocurrieron antes y de forma menos dramática, y ninguna de las dos llegó a formar parte del relato.</p>
+<h3>Punto de decisión</h3>
+<p>Renata puede:</p>
+<ol>
+<li>Dejar que la historia de esta semana quede como se contó — corregirla avergonzaría a dos líderes respetados por una tarima que fue detectada de cualquier forma.</li>
+<li>Corregir en silencio el reporte semanal escrito para que coincida con el registro, sin plantearlo frente a la cuadrilla, y no decir nada sobre la brecha entre la historia y el registro.</li>
+<li>Llevar las marcas de tiempo al cierre de turno de la próxima semana antes de que se cuente cualquier historia, dar crédito al cargador por su nombre, y usar el momento para reiniciar cómo el equipo construye sus historias de post-acción a partir de ahora.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué hizo que el relato de los líderes se sintiera completamente cierto para ellos, aunque el registro muestre una secuencia distinta?</li>
+<li>¿Cuál distorsión está más presente aquí — retrospectiva, sesgo de resultado o memoria de pico y final — y cómo puedes saberlo?</li>
+<li>Si Renata elige la opción 3, ¿cómo debería plantear la brecha sin poner en actitud defensiva a los dos líderes ni incomodar al cargador?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — &#x27;Deberíamos haberlo visto venir&#x27;: retrospectiva en la revisión del incidente</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — &quot;Deberíamos haberlo visto venir&quot;: retrospectiva en la revisión del incidente</h2>
+<h3>Apertura</h3>
+<p>Tomás dirige un turno en una línea de empaque. Un casi-incidente la semana pasada — un panel de resguardo que quedó sin asegurar durante unos diez minutos antes de que alguien lo notara — activó una revisión formal de incidente. El panel de revisión incluye a su gerente de operaciones y a un analista de seguridad, ninguno de los cuales estaba en el turno esa noche.</p>
+<h3>Contexto</h3>
+<p>La conclusión temprana de la revisión, planteada en los primeros cinco minutos: &quot;las señales de advertencia estaban ahí — esto se debió haber detectado antes&quot;. El panel señala una nota de mantenimiento de tres días antes que mencionaba que el cierre de ese mismo panel &quot;se sentía flojo&quot;.</p>
+<p>Tomás revisa el registro del turno para los diez minutos en cuestión. Muestra que se completaron dos recorridos de seguridad de rutina en esa ventana, ambos registrados como sin novedad, y que la nota de mantenimiento en cuestión era una de cuarenta y una notas menores similares presentadas esa misma semana en toda la línea, ninguna marcada como urgente por el líder de mantenimiento que las revisó.</p>
+<div class="table-wrap"><table>
+<tr><th>Señal</th><th>¿Se conocía antes del incidente?</th><th>Cómo se veía en el momento</th></tr>
+<tr><td>Nota de mantenimiento sobre el cierre del panel</td><td>Sí, 3 días antes</td><td>1 de 41 notas menores esa semana; no marcada como urgente</td></tr>
+<tr><td>Recorrido de seguridad durante la ventana de 10 minutos</td><td>Sí, registrado dos veces</td><td>Ambos recorridos registraron el panel como asegurado y sin novedad</td></tr>
+<tr><td>Panel de resguardo realmente sin asegurar</td><td>No — solo visible después de los hechos</td><td>No visible en el ítem del checklist de ningún recorrido</td></tr>
+</table></div>
+<p>Una vez que se le informa al panel el resultado, la nota de mantenimiento se lee como una señal de alerta obvia. Antes del resultado, era una nota ordinaria entre docenas, y dos verificaciones separadas durante la ventana exacta en cuestión resultaron sin novedad.</p>
+<h3>Punto de decisión</h3>
+<p>Tomás puede:</p>
+<ol>
+<li>Aceptar el planteamiento del panel de &quot;se debió detectar antes&quot; para cerrar la revisión rápidamente y evitar un conflicto con su gerente de operaciones.</li>
+<li>Objetar solo verbalmente, sin documentación, y esperar que el punto quede claro sin escalar la tensión.</li>
+<li>Presentar los registros de los recorridos de seguridad y los datos del volumen de notas antes de que concluya la revisión, separando explícitamente lo que se podía saber durante la ventana de lo que es obvio ahora que se conoce el resultado.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué convirtió una nota de mantenimiento ordinaria en una &quot;señal de advertencia&quot; solo después del incidente, y el panel la habría marcado igual de antemano?</li>
+<li>¿Cómo debería una revisión acreditar o culpar una decisión con base en lo que se podía saber en el momento, frente a lo que el resultado reveló después?</li>
+<li>Diseña un paso inicial de revisión que evite que un panel llegue a una conclusión guiada por la retrospectiva antes de revisar el registro contemporáneo.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de integridad narrativa y verificación de memoria</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de integridad narrativa y verificación de memoria</h2>
+<p>Úsalo en un cierre de turno o revisión de incidente, antes de tratar la historia de la sala como definitiva.</p>
+<h3>1. El evento (una oración)</h3>
+<p>¿Qué estamos cerrando o revisando, en este momento?</p>
+<h3>2. Primero el registro contemporáneo</h3>
+<div class="table-wrap"><table>
+<tr><th>Fuente</th><th>Qué muestra</th><th>¿Se registró antes o después de conocer el resultado?</th></tr>
+<tr><td>Marcas de tiempo / registro del sistema</td><td></td><td></td></tr>
+<tr><td>Entradas de checklist o recorrido de seguridad</td><td></td><td></td></tr>
+<tr><td>Primera persona en señalarlo (nombre)</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Verificación de memoria</h3>
+<ul>
+<li><strong>Verificación de retrospectiva:</strong> ¿Alguna parte de la historia suena &quot;obvia&quot; solo porque ahora sabemos cómo terminó?</li>
+<li><strong>Verificación de resultado:</strong> ¿Estamos calificando la decisión por el razonamiento disponible en el momento, o por el resultado?</li>
+<li><strong>Verificación de pico y final:</strong> ¿Este relato está ponderado por el momento más dramático o el final, más que por el registro completo?</li>
+</ul>
+<h3>4. Vacío</h3>
+<p>¿Dónde se aparta la historia de la sala del registro anterior? Nombra el vacío con claridad.</p>
+<h3>5. Crédito</h3>
+<p>¿Quién detectó, señaló o actuó primero en realidad, según el registro — no según quién cuenta la historia más fuerte?</p>
+<h3>6. Responsable cuando no estás en el turno</h3>
+<p>Nombre + respaldo, para que el orden de registro-primero no desaparezca cuando no estés presente:</p>
+<h3>7. Nota de post-acción</h3>
+<p>Una línea para el registro del turno: ¿qué mostró el registro que el primer relato de la historia pasó por alto?</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender el cierre de turno basado en hechos ante un par que quiere la historia rápida</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender el cierre de turno basado en hechos ante un par que quiere la historia rápida</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar cómo proteger un orden de cierre de turno con el registro primero en un incidente o cierre de turno real, sin paralizar la sala ni hacer sentir a un par que se duda de él.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño del cierre de turno)</strong></p>
+<p>Quieres que se lea el registro del turno o las marcas de tiempo antes de tratar como definitiva la historia del equipo sobre lo que pasó. No debes omitir la revisión del registro solo para mantener el ritmo de la sala, y no debes convertirla en una auditoría prolongada que avergüence a nadie.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás listo para cerrar y crees que &quot;todos sabemos qué pasó, solo acordemos la historia y avancemos&quot;. Ves la revisión del registro como poner en duda la memoria del equipo y una pérdida de tiempo de la sala. Solo cederás si el Dueño del cierre de turno nombra una razón específica por la que el registro importa aquí y mantiene la revisión breve.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño del cierre de turno asegurar una lectura del registro de dos a tres minutos antes de que la historia se finalice, sin que el par la descarte como innecesaria o la sala pierda la paciencia?</p>
+<h3>Notas para el facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): El par presiona para saltar directo a la historia; el Dueño del cierre de turno responde.</li>
+<li>Ronda 2 (8 min): El Dueño del cierre de turno nombra el riesgo específico (retrospectiva, sesgo de resultado o memoria de pico y final) y propone una lectura del registro breve y acotada en el tiempo.</li>
+<li>Cierre (10 min): ¿En qué momento el Dueño del cierre de turno casi omitió el registro para evitar la fricción? ¿Qué lenguaje realmente conectó con el par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de cierre de turno bajo presión por avanzar</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de cierre de turno bajo presión por avanzar</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar cómo asegurar respaldo para un ritual de cierre de turno con el registro primero y la historia después, cuando varias partes interesadas quieren cerrar la revisión rápido.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para una regla permanente: toda revisión de incidente o cierre de turno lee el registro contemporáneo antes de tratar cualquier narrativa como el relato definitivo.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por cuán rápido cierran las revisiones y rotan los turnos; ve el paso de registro-primero como una demora y lo llama &quot;relitigar lo que todos ya acuerdan que pasó&quot;.</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita un límite de tiempo claro y breve para que la revisión del registro no se use para alargar las revisiones indefinidamente.</li>
+<li><strong>Supervisor par (aliado o indeciso):</strong> Apoyará el ritual si no retrasa los cierres de turno que genuinamente no tienen nada en disputa, y si acredita a quien el registro muestre que detectó algo — no solo a quien cuenta la historia.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger un paso breve y con el registro primero para las revisiones y cierres de turno sin parecer lento ante el gerente de operaciones ni abierto e indefinido ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Un límite de tiempo nombrado y breve para leer el registro antes de la historia — no una auditoría abierta e indefinida</li>
+<li>Verificaciones explícitas de retrospectiva, sesgo de resultado o memoria de pico y final, no solo &quot;seamos cuidadosos&quot;</li>
+<li>Crédito asignado según el registro, incluyendo voces más calladas o nuevas</li>
+<li>Sin retroceso silencioso hacia &quot;solo acordemos la historia&quot; bajo la siguiente fecha límite</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento conectó con el gerente de operaciones frente al analista?</li>
+<li>¿Cómo enmarcó el supervisor &quot;leer primero el registro&quot; como una forma de proteger el aprendizaje preciso, no como desconfianza hacia el equipo?</li>
+<li>¿Qué causaría que este ritual desaparezca en silencio durante la próxima revisión bajo presión — y quién es responsable de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Memoria, retrospectiva y la historia del turno</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Memoria, retrospectiva y la historia del turno</h2>
+<p><strong>Meta de la unidad:</strong> Reconocer cuándo una historia coherente construida después de los hechos está reemplazando en silencio lo que el registro y el momento realmente mostraron, y proteger un ritual de cierre de turno basado en hechos frente a la retrospectiva y los atajos de memoria.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Construcción narrativa:</strong> las mentes construyen historias coherentes y que se sienten confiables después de los hechos — la coherencia no es evidencia.</li>
+<li><strong>Sesgo de retrospectiva:</strong> conocer el resultado reescribe en silencio la memoria de lo que en verdad se podía saber antes.</li>
+<li><strong>Sesgo de resultado:</strong> juzgar una decisión por cómo resultó, no por el razonamiento disponible en el momento en que se tomó.</li>
+<li><strong>Dos yo:</strong> la memoria de un turno sigue mucho más su momento pico y su final que su duración — no el mismo registro que muestra el log.</li>
+</ul>
+<h3>Lista de verificación para el líder de primera línea</h3>
+<ol>
+<li>Lee las marcas de tiempo o entradas del registro antes de que se cuente cualquier historia, o reconstrúyelas a partir del registro, no de la memoria.</li>
+<li>En cualquier revisión, pregunta &quot;qué se podía saber en ese momento&quot;, separado de lo que parece obvio ahora.</li>
+<li>Deja que la persona que realmente detectó algo lo diga antes de que se forme la historia de consenso de la sala.</li>
+<li>Presta atención a si un turno o incidente se califica por su final o su momento más dramático en lugar de por su registro completo.</li>
+<li>Si todos coinciden de inmediato en una versión limpia, trata eso como una señal para revisar el registro, no como un indicio de que el cierre de turno terminó.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué historia reciente de un turno o incidente has vuelto a contar tantas veces que ya no recuerdas si viene del registro o de haberla vuelto a contar?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger el registro contemporáneo antes de que la historia se fije</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Anclaje cognitivo y deliberación · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+program_id: TFS
+unit_id: u01
+audience_id: tier_2_frontline_leader
+locale: en
+program_title: Cognitive Anchors & Deliberation
+lens_title: Analytical Deliberation
+article_signature: "Curated by {E}"
+unit_goal: >
+  Help frontline leaders notice when snap judgment is driving floor decisions
+  and deliberately engage slower analysis when stakes or ambiguity are high.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - Atomic Habits
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Two Speeds of Judgment: What the Evidence Says About Snap Calls and Slow Checks"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The Ticket I Almost Closed by Instinct"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Two Speeds of Floor Judgment"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — Are You Running on Autopilot or Analysis?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — Fast vs. Slow Decision Check Canvas"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — Naming the Pause Before It's Needed"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Marcus and the Line Stoppage Call"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Aisha's Snap Call on a Safety Override"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Defending a Pause to a Peer Who Wants Speed"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Protecting the Check Ritual Under Deadline Pressure"

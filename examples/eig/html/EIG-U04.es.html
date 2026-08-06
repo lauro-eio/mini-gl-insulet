@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Dar a los líderes de primera línea tres movimientos de regulación rápidos y respaldados por evidencia—respirar, anclar, reformular—para que un pico que ya está en marcha se pueda dirigir en los siguientes diez segundos, no solo nombrarlo.</p>
+      <div class="hero-meta">
+        <span>EIG · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">El suspiro de diez segundos: qué dice la evidenc</a>
+<a href="#opinion">La respiración que casi me salté antes de la lla</a>
+<a href="#assessment">Autodiagnóstico — ¿Regulas el pico o lo dejas co</a>
+<a href="#case-1">Caso 1 — Priya y la falla del sistema en el piso</a>
+<a href="#case-2">Caso 2 — Mateo y el retrabajo en la bahía tres</a>
+<a href="#framework">Marco — La tarjeta de reinicio: respira, ancla, </a>
+<a href="#roleplay-1v1">Role-play 1:1 — Tomar el reinicio antes de respo</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger un estándar de </a>
+<a href="#key-notes">Puntos clave — Tres movimientos para el pico que</a>
+<a href="#commitment">Compromiso — Proteger la tarjeta de reinicio cua</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>El suspiro de diez segundos: qué dice la evidencia sobre regular un pico emocional en tiempo real</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El suspiro de diez segundos: qué dice la evidencia sobre regular un pico emocional en tiempo real</h2>
+<p>Los líderes de primera línea casi nunca eligen cuándo llega el pico. Una falla inunda el piso de alarmas, un técnico responde mal a una corrección, un cliente escala en el mostrador. La reacción ya está en marcha antes de que cualquier plan tenga voto. Décadas de investigación sobre cómo las personas regulan una respuesta emocional una vez que ya empezó señalan tres movimientos que cambian lo que ocurre después: desacelerar la respiración, dirigir la atención al presente, y reformular lo que significa el momento.</p>
+<h3>Regular es una habilidad, no un estado de ánimo</h3>
+<p>El trabajo fundacional de Gross sobre la regulación emocional distingue estrategias que intervienen temprano—antes de que una reacción termine de formarse—de aquellas que intervienen tarde, después de que ya moldeó el rostro, la voz y las palabras de una persona (Gross, 1998). Las estrategias tempranas, aplicadas en los primeros segundos de un pico, cuestan mucho menos que intentar deshacer una reacción que el equipo ya vio y escuchó.</p>
+<h3>Reformular cambia la fisiología, no solo la historia</h3>
+<p>La reevaluación cognitiva—cambiar deliberadamente cómo se interpreta una situación mientras todavía está ocurriendo—reduce de forma consistente la activación fisiológica, en comparación con forzar el sentimiento o suprimirlo hacia afuera (Gross, 2002). La revisión de Ochsner y Gross sobre los sistemas cerebrales involucrados muestra que esto no es solo hablarse a uno mismo sobre una reacción que sigue igual; la reevaluación activa sistemas de control que regulan a la baja, de forma activa, la respuesta que generó el pico en primer lugar (Ochsner &amp; Gross, 2005). Reformular el error de un técnico como una falla de proceso, en lugar de un fracaso personal, no es un sustituto blando de la responsabilidad. Es la versión de la respuesta con más probabilidades de seguir siendo precisa una vez que pasa el calor del momento.</p>
+<h3>La respiración lenta mueve el sistema nervioso, no solo el ánimo</h3>
+<p>La respiración lenta y deliberada alarga la exhalación en relación con la inhalación, lo que desplaza el equilibrio del sistema nervioso autónomo hacia su rama más calmada (Jerath, Edry, Barnes, &amp; Jerath, 2006). El trabajo de Porges sobre la regulación vagal describe este cambio como una señal de seguridad que el cuerpo puede enviarse a sí mismo, distinta del estado de alarma que un pico sostiene de otra forma (Porges, 2007). Una revisión sistemática de decenas de estudios sobre respiración pautada encontró reducciones consistentes en marcadores de activación fisiológica, con efectos que aparecen desde las primeras respiraciones controladas y no solo después de práctica prolongada (Zaccaro et al., 2018).</p>
+<h3>El anclaje redirige la atención, lejos de la alarma</h3>
+<p>Mientras la reevaluación trabaja sobre el significado de un momento y la respiración trabaja sobre el estado de alarma del cuerpo, el anclaje trabaja sobre la atención: notar deliberadamente un detalle físico concreto—una superficie bajo los pies, un sonido específico del piso—aleja la capacidad de procesamiento de un pensamiento en espiral y la devuelve a lo que realmente está frente a la persona en ese momento. Los mismos sistemas de control atencional que sostienen la reevaluación (Ochsner &amp; Gross, 2005) son los que activa una señal de anclaje. Es un punto de entrada más rápido y de menor esfuerzo cuando una reformulación completa no está disponible de inmediato.</p>
+<h3>Por qué la velocidad importa más que el orden</h3>
+<p>Ninguno de estos tres movimientos requiere que el pico pase por completo antes. Cada uno está diseñado para aplicarse dentro de la ventana mientras la reacción sigue activa—justo cuando un líder de primera línea tiene que decidir qué escuchará el equipo a continuación. Un líder que espera a estar en calma antes de regularse ya tomó la decisión por defecto: el pico la tomó por él.</p>
+<h3>Qué significa esto para un turno</h3>
+<p>La evidencia no respalda esperar en silencio a que el pico pase, ni respalda forzarlo sin regularlo. Respalda un movimiento rápido y practicado—un ciclo de respiración, una señal de anclaje, una frase reformulada—aplicado en los segundos en que el pico realmente está en su punto más alto, no después, en un cierre de turno.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. <em>Review of General Psychology, 2</em>(3), 271–299.</li>
+<li>Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. <em>Psychophysiology, 39</em>(3), 281–291.</li>
+<li>Ochsner, K. N., &amp; Gross, J. J. (2005). The cognitive control of emotion. <em>Trends in Cognitive Sciences, 9</em>(5), 242–249.</li>
+<li>Jerath, R., Edry, J. W., Barnes, V. A., &amp; Jerath, V. (2006). Physiology of long pranayamic breathing: Neural respiratory elements may provide a mechanism that explains how slow deep breathing shifts the autonomic nervous system. <em>Medical Hypotheses, 67</em>(3), 566–571.</li>
+<li>Porges, S. W. (2007). The polyvagal perspective. <em>Biological Psychology, 74</em>(2), 116–143.</li>
+<li>Zaccaro, A., Piarulli, A., Laurino, M., Garbella, E., Menicucci, D., Neri, B., &amp; Gemignani, A. (2018). How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. <em>Frontiers in Human Neuroscience, 12</em>, 353.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La respiración que casi me salté antes de la llamada de escalamiento</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La respiración que casi me salté antes de la llamada de escalamiento</h2>
+<p>He contestado un teléfono que sonaba en medio de una crisis y he empezado a hablar antes de decidir qué iba a decir. La mayoría de los días eso no cuesta nada—la llamada sale bien de todos modos. Hace dos meses casi nos costó un cliente con quien llevábamos un año reconstruyendo la confianza.</p>
+<p>Nuestro sistema de escaneo cayó en pleno pico de picking, y cuarenta personas se quedaron viendo pantallas congeladas mientras el teléfono en mi mano se encendía con un cliente preguntando por qué no había salido su pedido. Se me apretó el pecho antes de contestar siquiera. Podía sentir la frase formándose: alguna versión de &quot;no está en mis manos&quot;, dicha en un tono que habría empeorado las cosas, no las habría mejorado.</p>
+<p>No la dije. No porque sea naturalmente estable bajo presión—no lo soy—sino porque he empezado a aplicar un movimiento antes de abrir la boca justo en estos momentos: una exhalación lenta, más larga que la respiración anterior. Cuatro segundos de inhalación, seis de exhalación, dos veces. Eso es todo.</p>
+<p>Para la segunda exhalación, sentí que la urgencia en el pecho se aflojaba lo suficiente para poder pensar. Le dije al cliente la verdad—falla del sistema, estimado en tiempo real en diez minutos—en lugar de la evasiva que había estado por usar. Diez minutos después el sistema volvió a funcionar, y el pedido salió a tiempo.</p>
+<p>Antes pensaba que detenerme a respirar antes de una llamada difícil era más lento. No lo es. La versión de mí que contesta al primer timbre, todavía acalorada, dice algo que después necesita una llamada de disculpa. Dos respiraciones lentas cuestan doce segundos. La llamada de disculpa cuesta veinte minutos y parte de la confianza que no reconstruimos fácilmente.</p>
+<p>No intento dejar de sentir el pico cuando cuarenta pantallas se apagan a la vez. Esa reacción me dice que algo real está pasando. Lo que cambió es lo que hago en los pocos segundos después de sentirlo, antes de decidir qué escucha el piso o el cliente. Pongo la mano plana sobre el mostrador—algo sólido, algo que no está en llamas—y corro la exhalación antes de la frase.</p>
+<p>Después les conté esto a mis líderes de turno, no como una técnica que deban dominar, sino como una regla permanente del piso: si tienes el pecho apretado y una frase ya se está formando, toma las dos respiraciones primero. No se trata de hacer más lento el piso. Se trata de asegurar que la versión de ti que habla sea la que realmente está viendo la falla, no la que sigue reaccionando a cuarenta pantallas apagadas.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Regulas el pico o lo dejas correr?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Priya y la falla del sistema en el piso de picking</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Priya y la falla del sistema en el piso de picking</h2>
+<h3>Apertura</h3>
+<p>Priya dirige un turno de picking de cuarenta personas en un centro de distribución durante el pico de volumen. Quince minutos después de empezar la oleada, el sistema de escaneo cae en todo el piso. Las pantallas se congelan a mitad de un pedido, los pickers dejan de moverse, y tres líderes de cuadrilla ya la están mirando, esperando instrucciones. Priya siente que se le aprieta el pecho y sus pensamientos empiezan a acelerarse por todo lo que podría salir mal en la próxima hora.</p>
+<h3>Contexto</h3>
+<p>Su teléfono se ilumina—un cliente llama por un pedido detenido. Al mismo tiempo, el gerente regional del turno le escribe pidiendo una actualización de estado, y un picker cerca de su estación pregunta, lo bastante fuerte para que cuatro personas lo escuchen, &quot;¿nos van a pagar si solo estamos parados aquí?&quot; Priya tiene quizás diez segundos antes de que lo que diga a continuación marque el tono para cuarenta personas que ya le están leyendo el rostro.</p>
+<p>Un líder de cuadrilla menciona en voz baja que el sistema suele restablecerse en quince minutos, según las últimas dos fallas—información que Priya todavía no ha tenido tiempo de procesar.</p>
+<h3>Punto de decisión</h3>
+<p>Priya puede:</p>
+<ol>
+<li>Contestar la llamada del cliente de inmediato, todavía desbordada, y darle una actualización a su gerente en el mismo aliento—reaccionando a lo que suene más urgente.</li>
+<li>Hacer dos exhalaciones lentas antes de responder a cualquiera, y luego contestar primero la pregunta del picker con lo que realmente sabe.</li>
+<li>No decir nada al piso, desaparecer a una oficina para pensar, y dirigirse a todos hasta tener un plan completo—dejando a cuarenta personas sin dirección mientras tanto.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué le indicó a Priya que su pico era más grande de lo que la falla en sí justificaba, y qué movimiento de regulación—respirar, anclar o reformular—se ajusta mejor a ese pico?</li>
+<li>Si Priya elige la opción 2, ¿qué le dice al picker en los diez segundos después de su segunda exhalación, y en qué se diferencia de lo que habría dicho sin regularse?</li>
+<li>Diseña una señal de piso que el equipo de Priya pueda usar para que todos vean cuándo se está regulando, sin que se lea como que está perdiendo el control de la falla.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Mateo y el retrabajo en la bahía tres</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Mateo y el retrabajo en la bahía tres</h2>
+<h3>Apertura</h3>
+<p>Mateo dirige un taller de mantenimiento de seis personas en un depósito de flota. Una técnica que él capacitó, Ola, devuelve a servicio un vehículo que falla la inspección una hora después—el mismo problema de torque que Mateo le había señalado dos veces el mes pasado. Mateo siente el destello de ira golpear antes incluso de llegar a la bahía: mandíbula tensa, una frase ya formándose sobre cuántas veces ha cubierto este mismo error.</p>
+<h3>Contexto</h3>
+<p>Ola está de pie junto a la bahía, visiblemente consciente de que el vehículo falló, esperando la reacción de Mateo. Otros dos técnicos dejaron de trabajar y están observando. Un conductor espera el vehículo para una ruta que sale en veinte minutos. El instinto de Mateo lo jala en dos direcciones a la vez: llamarle la atención a Ola frente al taller para que el estándar quede claro esta vez, o no decir nada y rehacer el torque él mismo en silencio para proteger la ruta.</p>
+<p>Ninguno de los dos instintos, si se actúa de inmediato, atiende lo que realmente necesita pasar: revisar el vehículo, entender por qué el mismo error ocurrió dos veces, y decidir qué necesitan escuchar Ola y el taller en los próximos minutos.</p>
+<h3>Punto de decisión</h3>
+<p>Mateo puede:</p>
+<ol>
+<li>Reaccionar de inmediato—señalar el error repetido frente al taller para subrayar su gravedad, y luego arreglar el vehículo él mismo.</li>
+<li>Tomarse un momento para reformular el error como una falla de proceso, en lugar de una prueba de que a Ola no le importa, y luego pedirle que le explique qué revisó.</li>
+<li>No decir nada sobre el patrón más allá de &quot;vamos a arreglar esto&quot;, liberar la ruta, y abordarlo por completo al final del turno.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué estarían transmitiendo ya el rostro y la voz de Mateo al taller en los primeros segundos, sea o no su intención?</li>
+<li>Si Mateo elige la opción 2, ¿cuál es la reformulación de una frase que necesita antes de poder hacerle a Ola una pregunta genuina en lugar de dictar un veredicto?</li>
+<li>¿Cómo debería Mateo sopesar abordar el patrón ahora, frente al taller, contra proteger la posición de Ola ante sus compañeros?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — La tarjeta de reinicio: respira, ancla, reformula antes de responder</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — La tarjeta de reinicio: respira, ancla, reformula antes de responder</h2>
+<p>Úsala en el taller o imprímela para el piso. Aplica esta tarjeta cada vez que sientas un pico que tiene una respuesta asociada—antes de hablar, usar la radio o enviar el mensaje.</p>
+<h3>1. El momento (una frase)</h3>
+<p>¿Qué acaba de pasar, y qué estoy sintiendo en este momento?</p>
+<h3>2. Elige el movimiento</h3>
+<div class="table-wrap"><table>
+<tr><th>Situación</th><th>Mejor primer movimiento</th></tr>
+<tr><td>El cuerpo está desbordado (pecho apretado, pulso acelerado, varias alarmas)</td><td>Respirar</td></tr>
+<tr><td>La mente está en espiral más rápido de lo que puedes pensar con claridad</td><td>Anclar</td></tr>
+<tr><td>Hay una historia adjunta (&quot;me hicieron esto a mí / a propósito&quot;)</td><td>Reformular</td></tr>
+</table></div>
+<h3>3. Aplica el movimiento</h3>
+<ul>
+<li><strong>Respirar:</strong> Inhala 4 segundos, exhala 6 segundos. Repite dos veces. Exhalación más larga que la inhalación, siempre.</li>
+<li><strong>Anclar:</strong> Nombra algo que puedas sentir bajo tus pies o en tu mano, algo que puedas escuchar, algo que puedas ver en este momento.</li>
+<li><strong>Reformular:</strong> Termina esta frase antes de responder: &quot;Una forma más útil de leer este momento es ___.&quot;</li>
+</ul>
+<h3>4. Di la versión regulada</h3>
+<p>¿Qué dices ahora que es diferente de lo que casi dijiste antes de aplicar el movimiento?</p>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve el equipo que te tomaste el momento—una pausa, una respiración, una frase, una mano sobre el mostrador?</p>
+<h3>6. Dueño cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que el ritual no desaparezca cuando no estés ahí:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Qué movimiento usaste, y cambió lo que dijiste? Agrega una línea al registro de turno en cualquier caso.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Tomar el reinicio antes de responder a un par que quiere una respuesta inmediata</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Tomar el reinicio antes de responder a un par que quiere una respuesta inmediata</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar aplicar un movimiento de respiración, anclaje o reformulación en un momento de alta intensidad sin paralizar el piso ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño de la regulación)</strong></p>
+<p>Has sentido un pico fuerte—ira, miedo o desborde—ligado a un momento que el equipo está observando. Quieres diez a veinte segundos para aplicar un movimiento de regulación antes de responder. No debes saltarte el movimiento solo para evitar fricción, y no debes convertirlo en una demora indefinida.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo la misma presión y crees que las respuestas en el piso deben ser inmediatas—&quot;dices algo, sigues adelante&quot;. Ves la pausa como sobreanálisis o como estar dando largas. Cederás solo si el Dueño de la regulación nombra el movimiento específico que está aplicando y da un tiempo acotado concreto y breve para él.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño de la regulación asegurar el acuerdo para un movimiento de regulación breve y nombrado en un momento específico, sin que el par escale por encima de él o que la tensión se convierta en un rencor?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona por una respuesta inmediata; el Dueño de la regulación aplica un movimiento en voz alta.</li>
+<li>Ronda 2 (8 min): el Dueño de la regulación nombra el movimiento específico (respirar, anclar o reformular) y propone una pausa con tiempo acotado para aplicarlo.</li>
+<li>Cierre (10 min): ¿dónde estuvo el Dueño de la regulación cerca de saltarse el movimiento bajo presión? ¿qué lenguaje realmente convenció al par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger un estándar de regulación en tiempo real bajo presión de plazos</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger un estándar de regulación en tiempo real bajo presión de plazos</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar apoyo para un estándar de regulación protegido cuando varios interesados quieren que el piso reaccione y avance a toda velocidad.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para aplicar una regla permanente: todo momento con el cuerpo desbordado, la mente en espiral o una historia cargada recibe un movimiento de regulación nombrado—respirar, anclar o reformular—antes de una respuesta.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por throughput y tiempos límite; ve cualquier pausa como minutos perdidos y llama al estándar &quot;volverse blando en el piso.&quot;</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para cuándo aplica cada movimiento, además de un tiempo acotado claro para que no se use para evitar una conversación difícil indefinidamente.</li>
+<li><strong>Supervisor par (aliado o voto indeciso):</strong> Apoyará el estándar si no frena momentos que genuinamente no lo necesitan, y si no traslada en silencio tensión adicional a turnos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger un movimiento de regulación nombrado y con tiempo acotado para momentos genuinamente de alta intensidad, sin verse blando ante el gerente de operaciones ni vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Movimientos nombrados (respirar, anclar, reformular) ligados a disparadores nombrados, no un genérico &quot;pausa cada vez que sientas algo&quot;</li>
+<li>Un tiempo acotado fijo para cada movimiento, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó un movimiento y qué cambió</li>
+<li>Ningún segundo proceso secreto que contradiga el estándar acordado bajo presión</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;movimiento de regulación&quot; en un lenguaje que se lee como control de riesgo, no como debilidad?</li>
+<li>¿Qué haría que el estándar desapareciera en silencio durante la próxima semana de crisis—y quién es responsable de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Tres movimientos para el pico que ya está en marcha</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Tres movimientos para el pico que ya está en marcha</h2>
+<p><strong>Meta de la unidad:</strong> Dar a los líderes de primera línea tres movimientos de regulación rápidos y respaldados por evidencia—respirar, anclar, reformular—para que un pico que ya está en marcha se pueda dirigir en los siguientes diez segundos, no solo nombrarlo.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Regular funciona mejor temprano:</strong> intervenir en los primeros segundos de un pico, antes de que haya moldeado tu rostro, tu voz o tus palabras, cuesta mucho menos que deshacer una reacción que el equipo ya vio (Gross, 1998).</li>
+<li><strong>Reformular cambia la respuesta del cuerpo, no solo la historia:</strong> la reevaluación reduce de forma consistente la activación fisiológica, en comparación con forzar un sentimiento o suprimirlo hacia afuera (Gross, 2002; Ochsner &amp; Gross, 2005).</li>
+<li><strong>Las exhalaciones lentas mueven el sistema nervioso rápido:</strong> exhalar más tiempo del que se inhala lleva al cuerpo hacia la calma dentro de las primeras respiraciones, no después de práctica prolongada (Jerath et al., 2006; Zaccaro et al., 2018).</li>
+<li><strong>El anclaje redirige la atención, no el significado:</strong> nombrar un detalle físico concreto aleja la capacidad de procesamiento de un pensamiento en espiral cuando una reformulación completa no está disponible de inmediato.</li>
+<li><strong>Esperar a estar en calma también es una elección:</strong> ninguno de estos tres movimientos necesita que el pico pase primero—la demora deja que el pico decida por defecto.</li>
+</ul>
+<h3>Lista para líderes de primera línea</h3>
+<ol>
+<li>Nota la señal física, y luego aplica un movimiento antes de hablar: exhala más tiempo del que inhalas, dos veces.</li>
+<li>Si el momento tiene una historia adjunta (&quot;me hicieron esto a mí&quot;), reformúlala en una frase antes de responder.</li>
+<li>Si tu mente está en espiral más rápido de lo que puedes reformular, ancla primero: nombra algo que puedas sentir, ver o escuchar en este momento.</li>
+<li>Di la frase regulada, o envía el mensaje regulado—no esperes a que el sentimiento pase por completo.</li>
+<li>Después del turno, anota qué movimiento usaste realmente y si funcionó—ambos afinan la habilidad.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿A qué movimiento—respirar, reformular o anclar—recurres menos durante el turno, y qué se necesitaría para hacerlo automático?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger la tarjeta de reinicio cuando el turno se pone intenso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

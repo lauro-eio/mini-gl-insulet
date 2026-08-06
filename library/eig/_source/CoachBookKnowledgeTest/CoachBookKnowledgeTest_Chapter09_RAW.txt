@@ -1,0 +1,404 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "According to the chapter’s primary thesis, what is essential for the survival of a marriage?",
+    "options": [
+      "Managing financial resources",
+      "Managing and repairing gender-differentiated emotional conflicts",
+      "Engaging in shared hobbies",
+      "Finding common cultural values"
+    ],
+    "correct_answer_text": "Managing and repairing gender-differentiated emotional conflicts",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What does the term 'Emotional Hijacking' refer to as defined in the chapter?",
+    "options": [
+      "A planned discussion to resolve issues",
+      "A sudden, overwhelming emotional response that overrides rational thought",
+      "A method for calming down during disputes",
+      "A technique for enhancing empathy"
+    ],
+    "correct_answer_text": "A sudden, overwhelming emotional response that overrides rational thought",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "How is 'Flooding' described in the text?",
+    "options": [
+      "The gradual buildup of positive feelings",
+      "A process of emotional distancing",
+      "An overwhelming negative physiological arousal experienced by one or both partners",
+      "A strategic withdrawal from conflict"
+    ],
+    "correct_answer_text": "An overwhelming negative physiological arousal experienced by one or both partners",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What is the primary distinction between 'Criticism' and 'Complaint' as outlined in the chapter?",
+    "options": [
+      "Complaint targets personality; criticism targets behavior",
+      "Criticism focuses on specific actions; complaint is general",
+      "Complaint targets specific actions in a constructive manner; criticism attacks character",
+      "Both are equally destructive expressions"
+    ],
+    "correct_answer_text": "Complaint targets specific actions in a constructive manner; criticism attacks character",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which of the following best defines 'Contempt' in the chapter?",
+    "options": [
+      "A mild form of disagreement",
+      "A supportive behavioral cue",
+      "A corrosive emotional expression marked by mockery and derogatory nonverbal cues",
+      "An active listening strategy"
+    ],
+    "correct_answer_text": "A corrosive emotional expression marked by mockery and derogatory nonverbal cues",
+    "correct_key": "C"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What behavior does the term 'Stonewalling' describe in marital conflict?",
+    "options": [
+      "Engaging communicative conflict resolution",
+      "Withdrawing from communication as a self-protective response",
+      "Expressing criticism constructively",
+      "Actively using nondefensive communication techniques"
+    ],
+    "correct_answer_text": "Withdrawing from communication as a self-protective response",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which concept involves unconscious, immediate interpretations that reinforce negative relationship perceptions?",
+    "options": [
+      "Flooding",
+      "Automatic Thoughts",
+      "Stonewalling",
+      "Nondefensive Communication"
+    ],
+    "correct_answer_text": "Automatic Thoughts",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "What is the purpose of employing Nondefensive Communication techniques in conflicts?",
+    "options": [
+      "To suppress emotions",
+      "To foster empathy and clarity",
+      "To escalate the debate",
+      "To provide a time-out"
+    ],
+    "correct_answer_text": "To foster empathy and clarity",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Which actionable step is recommended for detecting early signs of emotional flooding?",
+    "options": [
+      "Engaging in deep breathing exercises",
+      "Monitoring physiological signals, such as checking heart rate every five minutes",
+      "Immediate confrontation with the partner",
+      "Using the 'XYZ' formula immediately"
+    ],
+    "correct_answer_text": "Monitoring physiological signals, such as checking heart rate every five minutes",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "The 'XYZ' formula for expressing complaints requires stating the specific behavior (X), the resulting feeling (Y), and what?",
+    "options": [
+      "A personal reflection",
+      "A detailed justification",
+      "A proposed alternative (Z)",
+      "A request for space"
+    ],
+    "correct_answer_text": "A proposed alternative (Z)",
+    "correct_key": "C"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which self-soothing technique is mentioned in the chapter as a way to regulate physiological arousal during arguments?",
+    "options": [
+      "Critical self-analysis",
+      "Brief aerobic activity",
+      "Overanalyzing automatic thoughts",
+      "Advanced meditation techniques"
+    ],
+    "correct_answer_text": "Brief aerobic activity",
+    "correct_key": "B"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "What is the purpose of establishing a prearranged 'time-out' protocol according to the chapter?",
+    "options": [
+      "To extend the argument",
+      "To allow for a cooling-off period when partners begin to flood",
+      "To signal the end of the relationship",
+      "To prepare for a debate"
+    ],
+    "correct_answer_text": "To allow for a cooling-off period when partners begin to flood",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Why is it important for couples to rehearse and overlearn communication and self-regulation tactics during calm interactions?",
+    "options": [
+      "To ensure they are scripted during conflicts",
+      "To build an automatic, constructive response during conflicts",
+      "To avoid all types of conflict",
+      "To enforce gender roles in communication"
+    ],
+    "correct_answer_text": "To build an automatic, constructive response during conflicts",
+    "correct_key": "B"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "How do inherent gender differences and learned emotional behaviors contribute to marital problems according to the chapter?",
+    "options": [
+      "They have no real impact on communication",
+      "They create destructive patterns such as escalating criticism and stonewalling",
+      "They always lead to a balanced discussion",
+      "They promote healthy conflict resolution"
+    ],
+    "correct_answer_text": "They create destructive patterns such as escalating criticism and stonewalling",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "Which of the following best summarizes the chapter’s approach to emotional repair in relationships?",
+    "options": [
+      "Avoiding conflict at all costs",
+      "Applying strategies that integrate emotional intelligence with concrete self-regulation techniques",
+      "Focusing solely on self-soothing techniques",
+      "Encouraging partners to confront each other aggressively"
+    ],
+    "correct_answer_text": "Applying strategies that integrate emotional intelligence with concrete self-regulation techniques",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The chapter’s primary thesis posits that marriage survival is dependent on managing gender-differentiated emotional conflicts.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Nondefensive Communication in the chapter includes using mirroring to ensure accurate emotional understanding.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Flooding, as described in the chapter, is related to a positive increase in physiological arousal.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "According to the chapter, criticism and complaint are interchangeable terms in conflict resolution.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "The chapter defines contempt as a corrosive emotional expression characterized by mockery and derogatory nonverbal cues.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Stonewalling is portrayed as a beneficial communication strategy that enhances understanding between partners.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Self-soothing techniques mentioned in the chapter include deep breathing exercises.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "The 'XYZ' formula is used to express complaints by stating a specific behavior, the associated feeling, and offering an alternative.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Automatic Thoughts, as described in the chapter, are conscious reflections that occur after careful reasoning.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Monitoring heart rate every five minutes is recommended as an actionable step to detect emotional flooding.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "The chapter advises couples to challenge toxic self-talk by reframing automatic negative thoughts with evidence of positive intent from their partner.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Emotional Hijacking is described as a gradual buildup of emotions rather than a sudden occurrence.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "A prearranged 'time-out' protocol is meant to provide a cooling-off period when a partner begins to flood.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "Early emotional socialization is stated in the chapter as a significant factor in shaping marital conflict.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "The chapter suggests that inherent gender differences are irrelevant in the development of destructive communication patterns.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]
+--- END JSON DATA ---
+
+--- START REVIEW TEXT ---
+1. (MC) What is essential for marriage survival? 
+   Answer: Managing and repairing gender-differentiated emotional conflicts.
+2. (MC) What is “Emotional Hijacking”? 
+   Answer: A sudden, overwhelming emotional response that overrides rational thought.
+3. (MC) How is “Flooding” defined? 
+   Answer: It is the process where one or both partners become overwhelmed by negative physiological arousal.
+4. (MC) What distinguishes criticism from complaint? 
+   Answer: Complaint targets specific actions constructively, while criticism attacks character.
+5. (MC) How is “Contempt” characterized? 
+   Answer: A corrosive emotional expression marked by mockery and derogatory nonverbal cues.
+6. (MC) What behavior does “Stonewalling” refer to? 
+   Answer: Withdrawing from communication as a self-protective response.
+7. (MC) What are “Automatic Thoughts”? 
+   Answer: Unconscious, immediate interpretations that reinforce negative perceptions in relationships.
+8. (MC) What is the purpose of Nondefensive Communication techniques? 
+   Answer: To foster empathy and clarity during conflict.
+9. (MC) Which actionable step helps detect early emotional flooding? 
+   Answer: Monitoring physiological signals like checking heart rate every five minutes.
+10. (MC) In the “XYZ” formula, what does Z represent? 
+    Answer: A proposed alternative.
+11. (MC) Which self-soothing technique is mentioned? 
+    Answer: Brief aerobic activity.
+12. (MC) Why is a prearranged “time-out” protocol used? 
+    Answer: To allow for a cooling-off period when a partner begins to flood.
+13. (MC) Why rehearse communication tactics during calm times? 
+    Answer: To build an automatic, constructive response during conflicts.
+14. (MC) How do gender differences and learned emotional behaviors contribute to conflict? 
+    Answer: They create destructive patterns such as escalating criticism and stonewalling.
+15. (MC) How does the chapter approach emotional repair in relationships? 
+    Answer: By integrating emotional intelligence with concrete self-regulation techniques.
+16. (TF) Marriage survival depends on managing gender-differentiated emotional conflicts.
+    Answer: TRUE.
+17. (TF) Nondefensive Communication includes mirroring for emotional understanding.
+    Answer: TRUE.
+18. (TF) Flooding is related to a positive increase in physiological arousal.
+    Answer: FALSE.
+19. (TF) Criticism and complaint are interchangeable in conflict resolution.
+   

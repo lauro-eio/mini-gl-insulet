@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Availability Heuristic is best defined as judging the frequency or size of a category based on which of the following?",
+    "options": [
+      "It involves judging the frequency or size based on the ease of retrieving relevant instances from memory.",
+      "It requires detailed analysis of statistical data.",
+      "It depends on emotional responses rather than memory recall.",
+      "It strictly uses logical reasoning independent of memory."
+    ],
+    "correct_answer_text": "It involves judging the frequency or size based on the ease of retrieving relevant instances from memory.",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "The Unexplained Unavailability Heuristic is characterized by which of the following descriptions?",
+    "options": [
+      "The inference that higher memory fluency indicates more instances exist.",
+      "The inference made when retrieval fluency is lower than expected, leading to the perception that fewer instances exist.",
+      "A cognitive process that recalibrates initial impressions using external information.",
+      "A process relying exclusively on deliberate logical analysis."
+    ],
+    "correct_answer_text": "The inference made when retrieval fluency is lower than expected, leading to the perception that fewer instances exist.",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which statement best captures the essence of System 1 as described in the source material?",
+    "options": [
+      "It is a slow, deliberate process that critically analyzes information.",
+      "It is a fast, intuitive process that relies on quick, heuristic-based judgments such as ease of memory retrieval.",
+      "It involves extensive conscious reasoning and methodical evaluation.",
+      "It is defined by its reliance on controlled attention and systematic analysis."
+    ],
+    "correct_answer_text": "It is a fast, intuitive process that relies on quick, heuristic-based judgments such as ease of memory retrieval.",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "According to the provided definitions, fluency refers to:",
+    "options": [
+      "The deliberate process of organizing disjointed memories.",
+      "The ease, speed, and automaticity with which instances come to mind during a memory recall task.",
+      "The ability to recall a large number of instances regardless of speed.",
+      "The measured frequency of thoughts occurring within a given time frame."
+    ],
+    "correct_answer_text": "The ease, speed, and automaticity with which instances come to mind during a memory recall task.",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 is characterized as a fast and intuitive process.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Availability Heuristic relies on the ease of retrieval of instances to judge frequency.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Fluency is defined as the ease, speed, and automaticity with which instances are recalled.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Unexplained Unavailability Heuristic suggests that a higher ease of retrieval leads to the perception that fewer instances exist.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

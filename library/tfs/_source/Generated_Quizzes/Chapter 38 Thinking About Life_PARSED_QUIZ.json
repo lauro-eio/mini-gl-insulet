@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which term describes the process by which individuals predict their future emotional states, often with systematic errors like expecting marriage to confer lasting happiness?",
+    "options": [
+      "Affective Forecasting",
+      "System 1",
+      "Substitution Heuristic",
+      "Miswanting"
+    ],
+    "correct_answer_text": "Affective Forecasting",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which term characterizes the fast, automatic, and intuitive mode of thinking that relies on heuristics in decision-making?",
+    "options": [
+      "Affective Forecasting",
+      "System 1",
+      "Focusing Illusion",
+      "Prospect Theory"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which term refers to the cognitive process of replacing a complex evaluative question with a simpler, more immediately answerable one?",
+    "options": [
+      "WYSIATI",
+      "Miswanting",
+      "Substitution Heuristic",
+      "Duration Neglect"
+    ],
+    "correct_answer_text": "Substitution Heuristic",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which term is defined as the bias where individuals overemphasize one or a few aspects of an experience when making global evaluations?",
+    "options": [
+      "Experiencing Self vs. Remembering Self",
+      "Focusing Illusion",
+      "Hedonimeter Total",
+      "System 1"
+    ],
+    "correct_answer_text": "Focusing Illusion",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Affective Forecasting accurately predicts future emotional states without any systematic errors.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Substitution Heuristic involves replacing a complex question with a simpler one to facilitate judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "System 1 is characterized by slow and analytical reasoning processes that rely on detailed information processing.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Duration Neglect describes the tendency to disregard the length of an experience in favor of focusing on key moments such as the beginning, peak, and end.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

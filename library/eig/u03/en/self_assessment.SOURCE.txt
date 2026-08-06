@@ -1,0 +1,101 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1. When you receive unexpected critical feedback, you tend to:  
+ A. Take it very personally and feel deeply hurt.  
+ B. Dismiss it quickly without much thought.  
+ C. Pause to reflect on what improvements could be made.  
+ D. Analyze it carefully and plan constructive next steps.
+
+Q2. In a stressful situation, your first response is to:  
+ A. React impulsively without considering the consequences.  
+ B. Allow stress to overwhelm you momentarily.  
+ C. Take a deep breath and evaluate the situation.  
+ D. Systematically break the problem down and seek a proactive solution.
+
+Q3. When disagreements arise, you:  
+ A. Let your emotions escalate the conflict.  
+ B. Try to avoid discussing your true feelings.  
+ C. Listen and consider the other person’s viewpoint before responding.  
+ D. Engage in thoughtful dialogue, aiming to reach mutual understanding.
+
+Q4. How easily do you identify and label your own emotions?  
+ A. I often feel confused and cannot pinpoint what I’m feeling.  
+ B. I recognize basic emotions but miss the nuances.  
+ C. I can usually name my feelings accurately.  
+ D. I’m highly in tune with my emotions and clearly understand them.
+
+Q5. When facing uncertain circumstances, you:  
+ A. Feel overwhelmed and lose control quickly.  
+ B. Waver between indecision and anxiety.  
+ C. Approach uncertainty with cautious thoughtfulness.  
+ D. Embrace the challenge by using reflective strategies to guide your actions.
+
+Q6. How regularly do you engage in self-reflection or mindfulness practices?  
+ A. Rarely, if ever.  
+ B. Occasionally, when pressed by circumstances.  
+ C. Often, as part of my routine.  
+ D. Daily, with structured practices that enhance my self-awareness.
+
+Q7. During conversations, you are most likely to:  
+ A. Focus on your own points without much regard for the other person.  
+ B. Listen, but sometimes miss the underlying emotional cues.  
+ C. Make an effort to listen deeply and clarify feelings.  
+ D. Actively empathize and respond to both verbal and nonverbal signals.
+
+Q8. When reflecting on past mistakes, you tend to:  
+ A. Blame external factors or others, avoiding self-analysis.  
+ B. Quickly move on without learning much from them.  
+ C. Consider what went wrong and think about future strategies.  
+ D. Deeply dissect your actions to develop actionable insights for growth.
+
+Q9. How keen are you at interpreting nonverbal cues in others?  
+ A. I rarely notice body language or tone.  
+ B. I sometimes pick up on basic signals.  
+ C. I generally notice and interpret nonverbal communication.  
+ D. I consistently and accurately read underlying emotions and intentions.
+
+Q10. In conflict with a friend or colleague, you typically:  
+ A. React harshly, letting emotions drive your words.  
+ B. Withdraw and avoid addressing the conflict directly.  
+ C. Attempt to understand their perspective before responding.  
+ D. Engage in a calm, thoughtful dialogue aimed at resolving the conflict together.
+
+Q11. When feelings of overwhelm arise, you:  
+ A. Become paralyzed by your emotions and struggle to act.  
+ B. Try to push the feelings aside without addressing them.  
+ C. Recognize the intensity and take steps to center yourself.  
+ D. Implement well-practiced techniques to regain balance and clarity.
+
+Q12. How would you rate your ability to identify emotional triggers and patterns in your behavior?  
+ A. I rarely notice or understand what triggers my emotions.  
+ B. I sometimes catch on but often feel blindsided.  
+ C. I am aware of my triggers and work to mitigate their effects.  
+ D. I have a solid, ongoing insight into my emotions and proactively manage them.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Fully Misaligned – (Score 12-21)  
+You might be struggling to harness your emotional strengths, often feeling overwhelmed or disconnected from your inner self. Your responses tend to be impulsive, and you may find it challenging to reflect on and understand your feelings. Consider exploring mindful practices and self-reflection to start building your emotional insight. Embracing small changes can lead to long-term growth and more fulfilling relationships.
+
+2. The Developing Insight – (Score 22-30)  
+You show early signs of emotional awareness, though there’s still room to deepen your self-understanding. At times, you navigate stress and conflict effectively, yet you may still occasionally struggle to manage impulsive reactions. Your journey towards emotional growth is underway, and with more focused self-reflection and empathy practice, you can enhance your interpersonal skills. Keep investing in your mental and emotional well-being.
+
+3. The Emotionally Savvy – (Score 31-39)  
+You have a strong grasp of your emotions and often engage in reflective practices to improve your reactions. Your ability to empathize and listen carefully elevates your personal and professional relationships. While you display advanced emotional understanding, continuing to fine-tune your self-regulation can further boost your effective decision-making. Your proactive approach to managing emotions is a key asset in today’s complex world.
+
+4. The Mastery Level – (Score 40-48)  
+You exemplify high emotional intelligence, consistently employing self-awareness, empathy, and thoughtful regulation in your daily life. Your deliberate and reflective responses serve as a model for balanced decision-making, even in highly stressful situations. You naturally bridge the gap between intellect and emotion, ensuring that both guide you towards personal fulfillment and relationship success. Your mastery of emotional dynamics empowers you to thrive in both your personal and professional life.

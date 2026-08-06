@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When faced with unexpected criticism, you tend to:
+ A. Act impulsively without reflecting on your feelings.
+ B. Acknowledge your immediate emotions but quickly move on.
+ C. Pause to consider the underlying message behind the criticism.
+ D. Use the feedback as a tool to refine your emotional responses.
+
+Q2: In a heated team discussion, your instinct is to:
+ A. Let your emotions take over and react without thought.
+ B. Offer a brief response while still feeling unsettled.
+ C. Listen carefully to all sides and reflect on the situation.
+ D. Facilitate a calm and empathic discussion to resolve differences.
+
+Q3: When managing your day-to-day stress, you are most likely to:
+ A. Ignore your feelings and push forward without pause.
+ B. Feel the stress but struggle to find an immediate remedy.
+ C. Use occasional mindful techniques like journaling or deep breathing.
+ D. Integrate daily self-awareness practices that help you regulate emotions.
+
+Q4: Regarding the evolutionary roots of our emotions, you:
+ A. Haven’t given it much thought and feel it’s not relevant to you.
+ B. Recognize that past influences might shape your responses.
+ C. Occasionally ponder how evolutionary factors affect your emotions.
+ D. Actively study and apply these insights to master your reactions.
+
+Q5: In educational or clinical settings, when faced with emotionally charged situations, you:
+ A. Stick strictly to the agenda without addressing feelings.
+ B. Briefly acknowledge emotions, yet quickly pivot to logistics.
+ C. Validate others’ feelings and attempt to understand their perspectives.
+ D. Implement structured approaches to integrate emotional literacy into the session.
+
+Q6: Your approach to emotional regulation can best be described as:
+ A. Rarely pausing to assess your inner state.
+ B. Relying on temporary distractions when upset.
+ C. Practicing techniques such as deep breathing to manage stress.
+ D. Employing comprehensive methods to understand and control your emotional responses.
+
+Q7: When exploring the science behind our emotions, you:
+ A. Find the topic too complex and usually avoid it.
+ B. Learn just the basics when the subject comes up.
+ C. Occasionally read about neural mechanisms and their impact.
+ D. Actively seek detailed knowledge to enhance your emotional intelligence.
+
+Q8: In designing programs that foster emotional literacy, you would most likely:
+ A. Overlook the integration of emotional themes entirely.
+ B. Add brief, unstructured moments for emotional discussion.
+ C. Incorporate some emotional awareness components into the curriculum.
+ D. Develop a comprehensive curriculum that builds solid emotional competencies.
+
+Q9: When dealing with a personal setback, your response is to:
+ A. Rush forward without processing the emotions involved.
+ B. Dwell on the negative feelings longer than needed.
+ C. Reflect on the experience to gain insights about yourself.
+ D. Analyze the setback and adjust your strategies for future resilience.
+
+Q10: In moments of high stress, your natural tendency is to:
+ A. Allow your emotions to control your actions impulsively.
+ B. Struggle noticeably despite your efforts to calm down.
+ C. Employ a few calming techniques to regain balance.
+ D. Intentionally activate learned emotional regulation strategies to emerge stronger.
+
+Q11: When someone shares an emotional challenge with you, you:
+ A. Dismiss their feelings and change the topic.
+ B. Offer brief support without deep engagement.
+ C. Listen with genuine interest and validate their experience.
+ D. Guide them using empathy and strategic insights to foster their emotional growth.
+
+Q12: How do you view the role of empathy in leadership or caregiving?
+ A. As a secondary skill behind technical competence.
+ B. As important, yet not the focal point of effective management.
+ C. As a key component that enhances understanding and connection.
+ D. As essential and transformative in building resilient and successful relationships.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Reactivity Rookie: (Score 12-21) — You often find yourself reacting on impulse, with little opportunity given to reflection or analysis. Your emotional responses may sometimes lead to quick decisions that are not strategically considered. There’s an opportunity here to slow down and give more thought to the feelings that drive your behavior. Embracing some basic self-awareness practices can open the door to improved emotional control and resilience.
+
+2. The Emerging Empath: (Score 22-30) — You show an increasing awareness of your emotions and their impact on your actions. While you sometimes take the time to pause and reflect, there’s room to further develop a consistent strategy for managing stress and emotional challenges. Your journey indicates a budding inclination toward empathy and thoughtful response. With practice, you can transform these early insights into a robust framework for emotional regulation.
+
+3. The Emotional Navigator: (Score 31-39) — You navigate complex emotional situations with a strong sense of awareness and a measured approach to regulation. You tend to reflect on your emotional experiences and integrate learning into your daily behaviors, enhancing both your personal and professional relationships. Your balanced response indicates an understanding of both the science and art of emotional management. Keep honing these skills to further elevate your interactions and decision-making.
+
+4. The Mastermind of Empathy: (Score 40-48) — You exemplify mastery over your emotional landscape, seamlessly integrating deep self-awareness with advanced regulating techniques. Your approach fosters transformative empathy in both personal relationships and professional practices. You strategically apply insights from evolutionary and neural frameworks to ensure effective responses under pressure. As a role model for emotional literacy, your approach not only enhances your own wellbeing but also inspires others to follow suit.

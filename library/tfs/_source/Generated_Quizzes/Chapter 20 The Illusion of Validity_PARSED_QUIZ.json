@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which of the following best describes the concept of WYSIATI?",
+    "options": [
+      "Focusing only on the immediately available evidence",
+      "Considering all potential data points",
+      "Analyzing evidence over time",
+      "Relying solely on statistical averages"
+    ],
+    "correct_answer_text": "Focusing only on the immediately available evidence",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which term is defined as the cognitive bias of having unwarranted confidence in judgments derived from coherent, yet potentially misleading narratives?",
+    "options": [
+      "Representativeness Heuristic",
+      "Illusion of Validity",
+      "Cognitive Ease",
+      "Hedgehogs and Foxes"
+    ],
+    "correct_answer_text": "Illusion of Validity",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept involves judging probabilities based on the similarity between events?",
+    "options": [
+      "Nonregressive Predictions",
+      "WYSIATI",
+      "Representativeness Heuristic",
+      "Cognitive Ease"
+    ],
+    "correct_answer_text": "Representativeness Heuristic",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which concept refers to making predictions that ignore the statistical tendency for extreme observations to move closer to the average over time?",
+    "options": [
+      "Cognitive Ease",
+      "Nonregressive Predictions",
+      "Illusion of Validity",
+      "Hedgehogs and Foxes"
+    ],
+    "correct_answer_text": "Nonregressive Predictions",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "WYSIATI is a bias where decision-makers consider only the evidence that is immediately available, neglecting any missing information.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The term \"Cognitive Ease\" refers to a mental state that decreases one's confidence in their judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The illusion of validity is the tendency to overestimate the accuracy of one's judgments when a coherent narrative is present.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "In Tetlock’s categorization, hedgehogs refer to experts who rely on multiple perspectives in forming their judgments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

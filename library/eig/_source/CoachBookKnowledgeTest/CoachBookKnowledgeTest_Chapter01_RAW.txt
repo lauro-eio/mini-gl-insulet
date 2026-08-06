@@ -1,0 +1,322 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the primary thesis of the chapter regarding emotions?",
+    "options": [
+      "Emotions are by-products of higher cognitive thoughts.",
+      "Emotions are evolved survival mechanisms guiding rapid, instinctual responses.",
+      "Emotions are redundant in modern decision making.",
+      "Emotions primarily serve aesthetic functions in human behavior."
+    ],
+    "correct_answer_text": "Emotions are evolved survival mechanisms guiding rapid, instinctual responses.",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which brain region is identified as the center for processing and generating emotions?",
+    "options": [
+      "Neocortex",
+      "Limbic System",
+      "Cerebellum",
+      "Brainstem"
+    ],
+    "correct_answer_text": "Limbic System",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept is defined as the instinctive drive to protect and sacrifice for close kin?",
+    "options": [
+      "Emotional Hijacking",
+      "Altruistic Love",
+      "Rational Review",
+      "Cultural Norms"
+    ],
+    "correct_answer_text": "Altruistic Love",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What brain region is responsible for adding nuance and deliberation to emotional responses?",
+    "options": [
+      "Limbic System",
+      "Neocortex",
+      "Medulla",
+      "Hypothalamus"
+    ],
+    "correct_answer_text": "Neocortex",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "According to the chapter, what is the underlying purpose of evolved emotions?",
+    "options": [
+      "To support only rational, deliberate thought",
+      "To prepare individuals for slow, reasoned decision making",
+      "To prime humans for rapid, instinctual responses in critical situations",
+      "To generate random emotional responses in the absence of danger"
+    ],
+    "correct_answer_text": "To prime humans for rapid, instinctual responses in critical situations",
+    "correct_key": "C"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Which response is described in the chapter as the physiological reaction to perceived danger?",
+    "options": [
+      "Rest-and-digest Response",
+      "Social Engagement Response",
+      "Fight-or-Flight Response",
+      "Freeze Response"
+    ],
+    "correct_answer_text": "Fight-or-Flight Response",
+    "correct_key": "C"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What does the term 'emotional hijacking' refer to in the context of the chapter?",
+    "options": [
+      "When rational thoughts override emotional impulses",
+      "When strong emotions overpower rational control",
+      "When physiological responses are muted during stress",
+      "When cultural norms suppress emotional expression"
+    ],
+    "correct_answer_text": "When strong emotions overpower rational control",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which actionable step involves identifying physical signs such as heart rate changes and muscle tension?",
+    "options": [
+      "Reflect on Evolutionary Context",
+      "Recognize Bodily Cues",
+      "Integrate Rational Review",
+      "Analyze Situation Context"
+    ],
+    "correct_answer_text": "Recognize Bodily Cues",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "What actionable step suggests that one should deliberately slow down when feeling an emotional surge?",
+    "options": [
+      "Reflect on Evolutionary Context",
+      "Analyze Situation Context",
+      "Pause Before Acting",
+      "Practice Emotional Awareness"
+    ],
+    "correct_answer_text": "Pause Before Acting",
+    "correct_key": "C"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "After experiencing an initial emotional response, which step is recommended to evaluate options?",
+    "options": [
+      "Engage in Integrate Rational Review",
+      "Immediately act on the instinct",
+      "Suppress the emotion entirely",
+      "Reflect solely on bodily cues"
+    ],
+    "correct_answer_text": "Engage in Integrate Rational Review",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which actionable step involves comparing the current emotional trigger against historical or cultural norms?",
+    "options": [
+      "Recognize Bodily Cues",
+      "Analyze Situation Context",
+      "Pause Before Acting",
+      "Reflect on Evolutionary Context"
+    ],
+    "correct_answer_text": "Analyze Situation Context",
+    "correct_key": "B"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "What central dichotomy does the chapter highlight?",
+    "options": [
+      "Instinct vs. Learning",
+      "Emotional vs. Rational Minds",
+      "Conscious vs. Unconscious Behaviors",
+      "Biological vs. Environmental Influences"
+    ],
+    "correct_answer_text": "Emotional vs. Rational Minds",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "What is the significance of reflecting on the evolutionary context of emotions?",
+    "options": [
+      "It helps understand that intense emotions have origins in survival imperatives.",
+      "It discourages the use of emotion in modern decision making.",
+      "It negates the influence of the neocortex on emotional processing.",
+      "It promotes the suppression of instinctual responses altogether."
+    ],
+    "correct_answer_text": "It helps understand that intense emotions have origins in survival imperatives.",
+    "correct_key": "A"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "How does the chapter describe the relationship between evolved emotional responses and modern rational judgment?",
+    "options": [
+      "They work in perfect harmony without conflict.",
+      "Evolved emotional responses are irrelevant in modern contexts.",
+      "There is a conflict between instinctive emotions and modern rational demands.",
+      "Modern rational judgment completely overrides evolutionary impulses."
+    ],
+    "correct_answer_text": "There is a conflict between instinctive emotions and modern rational demands.",
+    "correct_key": "C"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "Why is practicing emotional awareness considered an important step in the chapter?",
+    "options": [
+      "It leads to the suppression of all emotions.",
+      "It helps to better understand triggers and manage emotional responses.",
+      "It encourages immediate action driven solely by instinct.",
+      "It minimizes the influence of historical emotional responses."
+    ],
+    "correct_answer_text": "It helps to better understand triggers and manage emotional responses.",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "Emotions are described in the chapter as irrational with no beneficial role in critical situations.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "The limbic system is identified as the brain’s center for processing and generating emotions in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Altruistic love refers to the instinctive drive to protect and sacrifice for close kin.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "The fight-or-flight response is described as a slow, deliberative process engaging the neocortex.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Emotional hijacking occurs when strong emotions override rational control.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Recognizing bodily cues, like heart rate changes, is an actionable step mentioned in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "The chapter advises against pausing before acting because instincts should always dictate behavior.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "The neocortex adds nuance and deliberation to emotional responses, as explained in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "According to the chapter, evolutionary pressures have had no impact on shaping our emotional responses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Analyzing the situation context by comparing triggers against historical or cultural norms is an advocated step in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "The chapter suggests that emotions were primarily developed for modern societal complexities.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Integrating a rational review after an emotional surge is a recommended actionable step in the chapter

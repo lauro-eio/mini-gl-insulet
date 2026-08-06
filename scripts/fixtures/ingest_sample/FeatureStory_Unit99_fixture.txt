@@ -1,0 +1,1 @@
+Fixture FeatureStory sample for ingest mapper smoke test.

@@ -1,0 +1,1 @@
+Fixture CaseStudy sample for case_study_01 mapping.

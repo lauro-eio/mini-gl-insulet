@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which definition best describes System 1?",
+    "options": [
+      "The intuitive, fast-thinking part that rapidly forms beliefs and judgments without awareness of ambiguity.",
+      "The deliberative, analytical system that revises initial conclusions.",
+      "A cognitive bias that ignores missing information.",
+      "A strategy of seeking confirming evidence only."
+    ],
+    "correct_answer_text": "The intuitive, fast-thinking part that rapidly forms beliefs and judgments without awareness of ambiguity.",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which definition best characterizes System 2?",
+    "options": [
+      "The intuitive, fast-thinking part that forms judgments rapidly.",
+      "The deliberative, analytical system responsible for doubting, reflecting on, and revising initial conclusions.",
+      "The bias of only using visible information in decision-making.",
+      "The tendency to favor information that confirms one’s beliefs."
+    ],
+    "correct_answer_text": "The deliberative, analytical system responsible for doubting, reflecting on, and revising initial conclusions.",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which statement accurately defines WYSIATI (What You See Is All There Is)?",
+    "options": [
+      "It refers to the intuitive system that quickly forms judgments.",
+      "It is the process of revising initial beliefs when more information becomes available.",
+      "It is a cognitive bias where decisions are based solely on the information at hand, ignoring missing information.",
+      "It is the strategy of searching for evidence that supports an existing hypothesis."
+    ],
+    "correct_answer_text": "It is a cognitive bias where decisions are based solely on the information at hand, ignoring missing information.",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which option best encapsulates the Decorrelation of Errors principle?",
+    "options": [
+      "It emphasizes that relying on a single source of judgment minimizes cognitive biases.",
+      "It is the tendency to favor confirmatory evidence over disconfirmatory evidence.",
+      "It involves independent assessments that reduce shared biases by ensuring errors in judgment are uncorrelated.",
+      "It describes the process of quickly forming a coherent story from limited data."
+    ],
+    "correct_answer_text": "It involves independent assessments that reduce shared biases by ensuring errors in judgment are uncorrelated.",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 1 is responsible for analytical thinking and the revision of initial conclusions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "WYSIATI implies that decision-making is based solely on the available information, often ignoring what is absent.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Confirmation Bias involves searching for evidence that challenges one’s preexisting beliefs.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Halo Effect describes how a favorable impression in one area can influence judgments in other, unrelated areas.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

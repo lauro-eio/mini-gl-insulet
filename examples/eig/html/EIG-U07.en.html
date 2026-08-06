@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Help frontline leaders embed the team&#x27;s emotional-literacy skills—noticing a surge, naming it, choosing a response—into three touchpoints that outlast a single workshop: new-hire onboarding, pre-shift huddle coaching, and peer check-ins after an incident.</p>
+      <div class="hero-meta">
+        <span>EIG · U07</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Why Training Fades: What the Evidence Says About</a>
+<a href="#opinion">The New Hire I Almost Set Up to Fail</a>
+<a href="#assessment">Self-Assessment — Do You Train the Skill or Embe</a>
+<a href="#case-1">Case 1 — Marisol and the New Hire Who Froze</a>
+<a href="#case-2">Case 2 — Grant and the Peer Check After the Near</a>
+<a href="#framework">Framework — Embed Map: Three Touchpoints Where t</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Defending the Peer Check-In to a</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Securing Buy-In to Embed t</a>
+<a href="#key-notes">Key Notes — Building the Skill Into the Job, Not</a>
+<a href="#commitment">Commitment — Building the Two-Minute Check-In In</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Why Training Fades: What the Evidence Says About Making a Skill Stick</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Why Training Fades: What the Evidence Says About Making a Skill Stick</h2>
+<p>Frontline leaders send a crew through a workshop, watch the room nod along, and then watch the same old reactions show up on the floor three weeks later—as if the day never happened. That is not a training problem specific to any one program. It is one of the best-documented findings in the science of workplace learning.</p>
+<h3>The transfer problem has a name</h3>
+<p>Baldwin and Ford (1988) reviewed decades of research and gave this pattern a name: the transfer problem. A skill learned in a room does not automatically generalize to the job or survive over time. What determines whether it does is not how good the training day felt, but three things working together afterward: the trainee&#x27;s own motivation to use it, how the training was designed, and—critically—what the work environment does with it once the trainee is back on shift.</p>
+<h3>What actually predicts whether it sticks</h3>
+<p>Grossman and Salas (2011), reviewing the transfer literature since Baldwin and Ford, narrowed this down further: the strongest predictors of a skill surviving contact with the job are a supportive work environment, real opportunity to practice it, and follow-up after the initial training. Salas, Tannenbaum, Kraiger, and Smith-Jentsch (2012) reach a similar conclusion from a different angle: training is not a single event, it is a system, and what happens before and after the session matters as much as the session itself. Neither review found that a well-delivered workshop, on its own, reliably produces lasting change on the floor.</p>
+<h3>Onboarding is the highest-leverage moment, not an afterthought</h3>
+<p>Bauer (2010), summarizing onboarding research for the SHRM Foundation, found that new hires who receive only compliance and task training—without deliberate attention to team culture and connection—adjust more slowly and are more likely to leave within the first year. The habits a new hire builds in the first weeks are disproportionately durable. A skill introduced later, once someone already has a working, if incomplete, way of handling pressure, has to compete with habits that are already set.</p>
+<h3>The skill only survives if it is safe to use out loud</h3>
+<p>Edmondson (1999), studying learning behavior in fifty-one work teams, found that team psychological safety—the shared belief that speaking up will not be punished—was the strongest predictor of whether a team engaged in the small, visible learning behaviors that let a skill compound over time: asking a question, naming an error, flagging a concern. A leader can teach a skill perfectly and still lose it if naming a spike out loud reads as weakness on that particular floor.</p>
+<h3>Peer-delivered check-ins, tested where it counts</h3>
+<p>Greenberg, Langston, Iversen, and Wessely (2010) ran a cluster-randomized trial of a peer-delivered check-in program across twelve Royal Navy vessels following potentially traumatic events. The program did not significantly shift measured psychological health scores over the study period—incident rates were low across the trial—but organizational functioning was modestly better where it ran, and the authors found no evidence of harm. The honest reading is not that peer check-ins are a guaranteed fix; it is that a brief, peer-delivered, non-clinical conversation after a hard moment is a low-risk way to keep a team&#x27;s culture from going quiet.</p>
+<h3>What this means for supervisors</h3>
+<p>Taken together, this research points to the same conclusion from four directions: a skill taught once in a room fades unless it is deliberately built into moments the team already passes through—how a new hire is brought on, what gets modeled in the daily huddle, and how the team checks on each other after something goes wrong. None of those moments require a special curriculum. They require a leader who decides, in advance, that this is where the skill lives now.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Baldwin, T. T., &amp; Ford, J. K. (1988). Transfer of training: A review and directions for future research. <em>Personnel Psychology, 41</em>(1), 63–105.</li>
+<li>Grossman, R., &amp; Salas, E. (2011). The transfer of training: What really matters. <em>International Journal of Training and Development, 15</em>(2), 103–120.</li>
+<li>Salas, E., Tannenbaum, S. I., Kraiger, K., &amp; Smith-Jentsch, K. A. (2012). The science of training and development in organizations: What matters in practice. <em>Psychological Science in the Public Interest, 13</em>(2), 74–101.</li>
+<li>Bauer, T. N. (2010). <em>Onboarding new employees: Maximizing success</em>. SHRM Foundation.</li>
+<li>Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(2), 350–383.</li>
+<li>Greenberg, N., Langston, V., Iversen, A., &amp; Wessely, S. (2010). A cluster randomized controlled trial to determine the efficacy of Trauma Risk Management (TRiM) in a military population. <em>Journal of Traumatic Stress, 23</em>(4), 430–436.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The New Hire I Almost Set Up to Fail</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The New Hire I Almost Set Up to Fail</h2>
+<p>I trained Theo the way I train everyone: two days shadowing a veteran, a checklist of procedures, sign-off on the equipment, done. By his second week he could run the line as well as anyone with three months in. I was proud of that turnaround. I did not think about what I had not taught him until it almost cost us.</p>
+<p>A supplier issue triggered an unplanned stop on Theo&#x27;s line during his third week. Nothing dangerous—just a jammed feed and a red light nobody had warned him about. But Theo froze, then panicked, hitting buttons that made it worse before a teammate caught it. Afterward he told me, quietly, that he had felt his heart pounding and his hands shaking and had no idea what to do with that feeling except keep pressing buttons until something worked.</p>
+<p>I realized I had handed Theo a checklist for the machine and nothing for himself. Every other person on my crew had picked up, informally, over months, some version of noticing a spike and taking half a second before reacting. Theo had been on the floor three weeks. Nobody had ever named it in front of him, so he had nothing to reach for when his body did exactly what bodies do under a sudden alarm.</p>
+<p>I changed how I onboard now. Every new hire gets paired with a buddy for the first two weeks, and the buddy&#x27;s job is not just showing them the machine—it is a two-minute check-in at the end of each shift: what came up today that felt bigger than the moment, and what did you do with it. I do the same thing myself in the pre-shift huddle once a week, naming a moment from my own week out loud so the newest person on the crew sees it is not a special skill reserved for veterans.</p>
+<p>I still run the same equipment checklist. I have not softened anything about how fast I expect a new hire to get productive. What changed is that I stopped treating the emotional side of the job as something people would just pick up eventually, the way I did, by accident, over years. Theo did not fail that day because he lacked skill on the machine. He failed because nobody had built the other half of onboarding—the part where you learn what to do with the jolt—into his first three weeks. That gap is on the trainer, not the trainee, and it is a gap any supervisor can close before the next new hire&#x27;s first hard moment finds it for them.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Train the Skill or Embed It?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Marisol and the New Hire Who Froze</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Marisol and the New Hire Who Froze</h2>
+<h3>Opening</h3>
+<p>Marisol supervises a receiving dock crew of six at a distribution center. She has a reputation for turning new hires into competent operators fast—usually within two weeks, a new person can run the scanner, the lift, and the intake queue without supervision. She has never had a serious incident with a new hire, and she credits her tight, checklist-driven onboarding.</p>
+<h3>Context</h3>
+<p>In his third week, a new hire named Deshawn is working the intake queue when a pallet arrives flagged for a safety hold—torn shrink wrap, contents visibly shifted, genuinely unstable. The correct response is simple: stop, tag it, call it in. Deshawn has been trained on the exact procedure. But when the moment actually arrives, his hands start shaking, his mind goes blank, and instead of stopping he tries to quietly restack the pallet himself so it &quot;looks fine,&quot; nearly causing exactly the kind of fall the hold procedure exists to prevent. A teammate catches it in time.</p>
+<p>Afterward, Deshawn tells Marisol he knew the procedure cold. He just does not remember deciding to skip it—one second he was reading the tag, the next he was already restacking, hands moving faster than his thinking. Marisol realizes that in two weeks of onboarding, she taught Deshawn exactly what to do and never once taught him what to do with the jolt that shows up right when the procedure matters most.</p>
+<h3>Decision point</h3>
+<p>Marisol can:</p>
+<ol>
+<li>Retrain Deshawn on the hold procedure again, more firmly, and treat this as a compliance gap to close with repetition.</li>
+<li>Add a standing two-minute check-in to her onboarding buddy pairing—asking every new hire, each shift for two weeks, what came up today that felt bigger than the moment—starting with Deshawn now and every new hire after him.</li>
+<li>Quietly move Deshawn to a lower-stakes station for a few months until he &quot;settles in,&quot; without changing how she onboards anyone else.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What did Deshawn actually lack—knowledge of the procedure, or something else—and how does that change what Marisol should fix?</li>
+<li>If Marisol chooses option 2, what makes a two-minute check-in different from just retraining the procedure again?</li>
+<li>What would tell Marisol, a month from now, whether the new check-in is actually happening for every new hire, or has quietly become something she only remembers to do with hires she likes?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Grant and the Peer Check After the Near-Miss</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Grant and the Peer Check After the Near-Miss</h2>
+<h3>Opening</h3>
+<p>Grant leads a maintenance crew of nine at a mid-sized plant. Two days ago, a teammate, Priya, had a close call—a guard came loose on a machine she was servicing, and for a half-second she thought she was about to lose a finger. She was not hurt. She has said almost nothing about it since, and has been unusually quiet on the floor.</p>
+<h3>Context</h3>
+<p>Grant&#x27;s plant has a formal incident report process, which Priya completed the same day, and a mandatory safety briefing where the near-miss was discussed as a procedural failure—the guard latch design—with an action item to inspect the others. Nobody has asked Priya, directly and privately, how she is doing with what happened to her, as opposed to what happened to the machine. Grant notices she has stopped joining the crew&#x27;s usual joking-around at lunch, and he is not sure whether to bring it up, worried he will make it a bigger deal than she wants it to be, or worse, imply she cannot handle her job.</p>
+<h3>Decision point</h3>
+<p>Grant can:</p>
+<ol>
+<li>Say nothing directly—trust that the formal incident report and safety briefing already covered it, and let Priya come to him if she needs to.</li>
+<li>Pull Priya aside for a brief, low-key check-in—not a debrief of the incident, just asking how she is doing since Tuesday—and make this a standing practice for anyone involved in a near-miss going forward.</li>
+<li>Raise it as a topic in the next all-crew huddle, asking the group generally how everyone is feeling about near-misses lately, without naming Priya specifically.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What is the difference between the formal incident report Priya already filed and the kind of check-in option 2 describes—and why might both be necessary?</li>
+<li>What is the risk if Grant does nothing, versus the risk if his check-in feels like an evaluation of whether Priya can still do her job?</li>
+<li>If Grant builds a standing peer-check practice, who should own it when Grant is the one involved in the next near-miss?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — Embed Map: Three Touchpoints Where the Skill Sticks or Fades</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — Embed Map: Three Touchpoints Where the Skill Sticks or Fades</h2>
+<p>Use in workshop or print for the floor. Run this once per touchpoint you want to build or repair.</p>
+<h3>1. The touchpoint (pick one)</h3>
+<p>Which moment am I embedding the skill into: new-hire onboarding, pre-shift huddle coaching, or a peer check after an incident?</p>
+<h3>2. Current state check</h3>
+<div class="table-wrap"><table>
+<tr><th>Question</th><th>Yes/No</th><th>Why</th></tr>
+<tr><td>Does this touchpoint currently happen at all, even informally?</td><td></td><td></td></tr>
+<tr><td>Does it happen the same way whether or not I am on shift?</td><td></td><td></td></tr>
+<tr><td>Would a new hire or teammate describe it as normal, not remedial?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Design decision</h3>
+<ul>
+<li><strong>Not happening at all:</strong> Design the smallest version that could run this week (a two-minute check-in, one modeled sentence in the huddle, one opt-in peer conversation).</li>
+<li><strong>Happening but depends on me:</strong> Name a second owner and hand off one instance this month.</li>
+<li><strong>Happening and owned:</strong> Set a review date and check whether it is still landing as intended.</li>
+</ul>
+<h3>4. Build it (fill in for the touchpoint you picked)</h3>
+<ol>
+<li>What exactly happens, in one sentence (who says or does what, and when)?</li>
+<li>Who owns it if I am off-shift?</li>
+<li>How does a new hire or teammate learn this is normal, not a special program?</li>
+</ol>
+<h3>5. Visibility</h3>
+<p>Where does the team see this touchpoint happen—so it reads as standard practice, not a one-time announcement?</p>
+<h3>6. Guardrail</h3>
+<p>What would cause this touchpoint to quietly stop during the next busy stretch, and what protects it when that happens?</p>
+<h3>7. After-action note</h3>
+<p>One month from now: did this touchpoint run as designed, drift, or disappear? Add one line to your log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Defending the Peer Check-In to a Veteran Who Calls It Soft</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Defending the Peer Check-In to a Veteran Who Calls It Soft</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice defending a standing peer check-in after a near-miss or incident, without backing down under pressure from a respected, skeptical veteran.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Practice Owner)</strong></p>
+<p>You want to make a brief, opt-in peer check-in standard practice after any near-miss or incident on your team—not a formal debrief, just a private, low-key conversation within a day or two. You must not let the practice get watered down into &quot;just tell HR&quot; or dropped entirely to avoid friction.</p>
+<p><strong>Role 2 — Skeptical veteran teammate</strong></p>
+<p>You have worked the floor for fifteen years without anything like this and see it as unnecessary hand-holding that implies the crew cannot handle their own job. You will back off only if the supervisor can explain, concretely, what this adds beyond the existing incident report and safety briefing.</p>
+<h3>Conflict</h3>
+<p>Can the Practice Owner secure the veteran&#x27;s buy-in—or at least non-interference—for the peer check-in without it being dismissed as soft, or quietly undermined once the supervisor is not watching?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Veteran challenges the practice as unnecessary; Practice Owner responds.</li>
+<li>Round 2 (8 min): Practice Owner distinguishes the peer check-in from the formal incident report and proposes how it would actually run.</li>
+<li>Debrief (10 min): Where did the Practice Owner nearly concede too much? What language actually landed with the veteran?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Securing Buy-In to Embed the Check-In Into Onboarding and Huddles</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Securing Buy-In to Embed the Check-In Into Onboarding and Huddles</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing approval to build a check-in practice into onboarding, huddle coaching, and peer support when multiple stakeholders have different priorities.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to formally build a two-minute check-in into new-hire onboarding, weekly huddle modeling, and a standing peer check after any incident.</li>
+<li><strong>Throughput-focused ops manager (antagonist):</strong> Measured on output and ramp-up speed for new hires; sees any of these as time taken away from task training.</li>
+<li><strong>Safety or HR analyst (skeptic):</strong> Supports the idea in principle but wants a concrete owner, a fixed time cost, and a way to tell whether it is actually happening before signing off.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the practice if it does not slow down onboarding on their own crew, and if it does not become another checklist item nobody actually follows.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor secure approval to embed all three touchpoints without losing the argument on speed to the ops manager, or losing credibility on follow-through with the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>A concrete, minimal time cost named for each touchpoint (not open-ended)</li>
+<li>A named owner for each touchpoint, including a backup</li>
+<li>A simple way to check whether each touchpoint is actually happening, not just approved on paper</li>
+<li>No agreement to build all three at once if that risks none of them sticking</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;two-minute check-in&quot; into language that reads as protecting performance, not adding overhead?</li>
+<li>What would cause one of the three touchpoints to quietly disappear first under the next crunch, and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Building the Skill Into the Job, Not Just the Workshop</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Building the Skill Into the Job, Not Just the Workshop</h2>
+<p><strong>Unit goal:</strong> Embed the team&#x27;s emotional-literacy skills—noticing a surge, naming it, choosing a response—into three touchpoints that outlast a single workshop: new-hire onboarding, pre-shift huddle coaching, and peer check-ins after an incident.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>A skill learned once fades:</strong> what a session teaches does not automatically transfer to the job or survive over time without reinforcement built into the work environment afterward (Baldwin &amp; Ford, 1988).</li>
+<li><strong>The strongest predictors are outside the training room:</strong> a supportive environment, real opportunity to practice, and deliberate follow-up matter more than how the session itself was delivered (Grossman &amp; Salas, 2011; Salas et al., 2012).</li>
+<li><strong>Onboarding sets habits that are hard to unwind later:</strong> new hires who only get task and compliance training, without culture and connection, adjust more slowly and are more likely to leave (Bauer, 2010).</li>
+<li><strong>The skill only survives if it is safe to say out loud:</strong> teams with higher psychological safety show more of the small learning behaviors—naming a concern, flagging an error—that let a skill compound (Edmondson, 1999).</li>
+<li><strong>Peer-delivered check-ins are a low-risk way to keep a team talking:</strong> a brief, non-clinical peer conversation after a hard moment showed no evidence of harm and modestly better team functioning in a controlled trial (Greenberg et al., 2010).</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Build a short check-in into every new hire&#x27;s first two weeks—not just a machine or task checklist.</li>
+<li>Model naming a recent surge yourself in the huddle at least once a week, so it reads as normal, not remedial.</li>
+<li>Set a standing, opt-in peer check after any near-miss or incident, timed within a day or two.</li>
+<li>Name an owner for each of the three touchpoints so the practice does not depend on you being on shift.</li>
+<li>Review one touchpoint a month: did it actually happen, or did it quietly stop when the schedule got tight?</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which of the three touchpoints—onboarding, huddle, or peer check—is most likely to quietly disappear on your team under the next deadline, and what would it take to protect it?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Building the Two-Minute Check-In Into Onboarding, Huddles, and Peer Support</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

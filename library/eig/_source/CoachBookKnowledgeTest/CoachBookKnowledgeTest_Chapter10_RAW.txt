@@ -1,0 +1,271 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which of the following best defines 'Emotional Intelligence in Management' as described in the chapter?",
+    "options": [
+      "The ability to manage technical and financial processes",
+      "The ability to recognize, understand, and manage both personal feelings and those of others",
+      "The capacity to enforce strict workplace rules",
+      "The skill of delegating tasks without oversight"
+    ],
+    "correct_answer_text": "The ability to recognize, understand, and manage both personal feelings and those of others",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which option best describes 'Constructive (Artful) Critique' according to the source material?",
+    "options": [
+      "Feedback that focuses on personal attacks",
+      "Generalized negative feedback",
+      "Specific, solution-oriented, and sensitive feedback",
+      "Compliments without actionable guidance"
+    ],
+    "correct_answer_text": "Specific, solution-oriented, and sensitive feedback",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which of the following is NOT a component of delivering immediate, specific feedback?",
+    "options": [
+      "Identifying a significant incident",
+      "Clearly stating what was done well and what requires improvement",
+      "Explaining the impact of the behavior on team outcomes",
+      "Ignoring the impact on team outcomes"
+    ],
+    "correct_answer_text": "Ignoring the impact on team outcomes",
+    "correct_key": "D"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What characterizes the Feedback Mechanisms outlined in the chapter?",
+    "options": [
+      "Delayed written communication",
+      "Timely, specific, and face-to-face communication",
+      "Digital feedback through anonymous surveys",
+      "Monthly group meetings without individual focus"
+    ],
+    "correct_answer_text": "Timely, specific, and face-to-face communication",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which statement best describes 'Destructive Criticism' as per the chapter content?",
+    "options": [
+      "Feedback that motivates improvement with clear steps",
+      "Harsh, generalized feedback that demotivates and disrupts team harmony",
+      "Balanced feedback provided in private settings",
+      "Constructive feedback that acknowledges positives and areas for growth"
+    ],
+    "correct_answer_text": "Harsh, generalized feedback that demotivates and disrupts team harmony",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What is the primary objective of promoting Diversity and Inclusion in the chapter?",
+    "options": [
+      "Enforcing strict cultural uniformity",
+      "Fostering a tolerant, multiethnic workplace by managing biases",
+      "Reducing interpersonal communication",
+      "Prioritizing performance over cultural values"
+    ],
+    "correct_answer_text": "Fostering a tolerant, multiethnic workplace by managing biases",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which step is essential when delivering immediate, specific feedback?",
+    "options": [
+      "Delaying the feedback until issues accumulate",
+      "Identifying a significant incident and discussing its impacts",
+      "Relying solely on written documentation",
+      "Focusing only on future behavior without context"
+    ],
+    "correct_answer_text": "Identifying a significant incident and discussing its impacts",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "When offering Constructive Solutions, what action is recommended?",
+    "options": [
+      "Suggesting clear, actionable alternatives to correct deficiencies",
+      "Providing vague suggestions without specifics",
+      "Emphasizing the failures without proposing changes",
+      "Avoiding feedback to reduce conflict"
+    ],
+    "correct_answer_text": "Suggesting clear, actionable alternatives to correct deficiencies",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "What is the purpose of facilitating face-to-face exchanges in the feedback process?",
+    "options": [
+      "To allow feedback to be filtered through emails",
+      "To ensure that the feedback is personal and encourages dialogue",
+      "To document feedback without interaction",
+      "To replace feedback with annual reviews"
+    ],
+    "correct_answer_text": "To ensure that the feedback is personal and encourages dialogue",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Which strategy is recommended for cultivating Emotional Sensitivity among managers?",
+    "options": [
+      "Training managers to adjust tone and language to avoid ad hominem attacks",
+      "Encouraging managers to use strong language to assert authority",
+      "Focusing exclusively on performance metrics",
+      "Discouraging managers from addressing emotions in feedback"
+    ],
+    "correct_answer_text": "Training managers to adjust tone and language to avoid ad hominem attacks",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "What action supports the promotion and enforcement of diversity according to the chapter?",
+    "options": [
+      "Setting clear organizational norms against discrimination",
+      "Encouraging a single cultural perspective in the workplace",
+      "Reducing communication on diversity topics",
+      "Implementing diversity only during recruitment"
+    ],
+    "correct_answer_text": "Setting clear organizational norms against discrimination",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Building and Leveraging Informal Networks involves which of the following?",
+    "options": [
+      "Sticking strictly to formal reporting lines",
+      "Encouraging relationship-building and creating ad hoc teams for emergent challenges",
+      "Relying solely on structured team meetings",
+      "Limiting interactions to avoid conflict"
+    ],
+    "correct_answer_text": "Encouraging relationship-building and creating ad hoc teams for emergent challenges",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Which option best encapsulates the chapter’s primary thesis regarding effective management?",
+    "options": [
+      "Management should rely on traditional, aggressive styles to enforce discipline",
+      "Emotional intelligence replaces destructive criticism with constructive, empathetic feedback enhancing performance",
+      "Employee performance is solely increased by financial incentives",
+      "Feedback is best delivered through written communication only"
+    ],
+    "correct_answer_text": "Emotional intelligence replaces destructive criticism with constructive, empathetic feedback enhancing performance",
+    "correct_key": "B"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "What outcome is directly linked to transforming feedback with empathy, as stated in the chapter?",
+    "options": [
+      "Reduced team collaboration",
+      "Enhanced teamwork, innovation, and overall organizational performance",
+      "Increased stress and isolation among team members",
+      "A decline in the group's collective intelligence"
+    ],
+    "correct_answer_text": "Enhanced teamwork, innovation, and overall organizational performance",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "How does the chapter suggest addressing emergent challenges within teams?",
+    "options": [
+      "By solely relying on hierarchical decision-making",
+      "By building informal networks and creating ad hoc teams",
+      "By postponing discussions until the next scheduled meeting",
+      "By enforcing rigid procedural rules without flexibility"
+    ],
+    "correct_answer_text": "By building informal networks and creating ad hoc teams",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "True or False: Emotional Intelligence in Management involves only understanding one's own feelings.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "True or False: Constructive Critique is defined as feedback that is solution-oriented and sensitive, not a personal attack.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "True or False: Feedback Mechanisms should be delivered in a timely and face-to-face manner as specified in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "True or False: Destructive Criticism is characterized by detailed and specific feedback.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "True or False: Diversity and Inclusion in management involves understanding and managing biases to foster a multiethnic workplace.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "True or False: Delivering immediate, specific feedback involves bypassing the identification of a significant incident.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "True or False: When offering constructive solutions, it is recommended to suggest clear, actionable alternatives.",
+    "options": [
+      "TRUE",
+      "FALSE"
+   

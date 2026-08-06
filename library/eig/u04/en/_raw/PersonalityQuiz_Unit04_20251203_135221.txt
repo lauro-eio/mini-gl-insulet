@@ -1,0 +1,97 @@
+--- SECTION 1: QUIZ QUESTIONS ---
+Q1: When you feel a strong emotion rising, what is your first instinct?
+ A. React immediately without reflection.  
+ B. Try to suppress the feeling quickly.  
+ C. Pause momentarily to acknowledge the emotion.  
+ D. Deliberately observe and label the emotion in real time.
+
+Q2: During a heated conversation, how do you handle your emotional response?
+ A. Let your feelings take over and speak impulsively.  
+ B. Ignore your emotions and focus solely on winning the argument.  
+ C. Take a brief moment to recognize your internal state before responding.  
+ D. Step back, reflect on your feelings, and then choose a calm, thoughtful reply.
+
+Q3: When faced with a challenging setback, what is your approach?
+ A. Drown in frustration and blame external factors.  
+ B. Distract yourself to avoid confronting your feelings.  
+ C. Briefly analyze your emotions to understand their source.  
+ D. Engage in self-reflection that helps you learn from the experience and adjust your actions.
+
+Q4: How do you react when unexpected stress disrupts your day?
+ A. Immediately let stress dictate your actions.  
+ B. Push your emotions aside and carry on without pause.  
+ C. Notice your rising stress, even if you don’t fully process it.  
+ D. Take time to mindfully assess your internal state and choose a deliberate response.
+
+Q5: In moments of intense pressure at work, what strategy reflects your emotional style?
+ A. Allow stress to undermine your decision-making.  
+ B. Rely solely on routine responses, ignoring your feelings.  
+ C. Briefly check in with yourself before proceeding with tasks.  
+ D. Use self-awareness to gauge your emotions and adjust your approach for clearheaded decisions.
+
+Q6: How do you handle negative feedback in your professional or personal life?
+ A. React defensively without considering your true feelings.  
+ B. Brush off the feedback without examining your emotional reaction.  
+ C. Acknowledge a twinge of hurt and move on without exploring it further.  
+ D. Reflect on your feelings, understand their source, and use them to guide constructive change.
+
+Q7: When you’re in a conflict, how likely are you to examine what you’re feeling?
+ A. I rarely stop to think about my emotions.  
+ B. I only give a fleeting thought to my emotional state.  
+ C. I sometimes take a moment to identify what I’m feeling.  
+ D. I consistently pause, observe, and label my emotions before reacting.
+
+Q8: In your daily routine, how often do you practice being present with your internal emotions?
+ A. Almost never—I’m too busy reacting.  
+ B. Rarely—I notice them, but rarely reflect on them.  
+ C. Occasionally—I catch myself mid-feeling every now and then.  
+ D. Regularly—I make a habit of self-observation and emotional check-ins.
+
+Q9: How do you deal with sudden bursts of anxiety or excitement?
+ A. Let them overwhelm you and dictate your actions.  
+ B. Try to ignore them and continue with your day.  
+ C. Briefly note the sensation before trying to push it aside.  
+ D. Embrace the moment by observing these feelings and understanding their triggers.
+
+Q10: When making an important decision, what role do your emotions play?
+ A. My feelings control my decisions without reflection.  
+ B. I tend to dismiss my emotions as mere distractions.  
+ C. I recognize their presence but rarely explore their meaning.  
+ D. I explicitly consider and analyze my emotions to guide more balanced decisions.
+
+Q11: How do you handle moments when your emotions seem overwhelming?
+ A. I succumb to them immediately without any self-check.  
+ B. I try to bury them so I can keep going.  
+ C. I acknowledge their presence but feel slightly out of control.  
+ D. I actively engage in self-awareness techniques that let me manage my responses.
+
+Q12: What best describes your overall approach to understanding your internal emotional life?
+ A. I rarely reflect on my feelings or their origins.  
+ B. I sometimes notice my emotions but do not really analyze them.  
+ C. I occasionally observe my emotional patterns, though I struggle with consistency.  
+ D. I conscientiously monitor, label, and learn from my emotions, using them as a guide for personal growth.
+
+--- SECTION 2: SCORING KEY (JSON FORMAT) ---
+[
+  {"Q": 1, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 2, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 3, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 4, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 5, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 6, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 7, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 8, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 9, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 10, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 11, "A": 1, "B": 2, "C": 3, "D": 4},
+  {"Q": 12, "A": 1, "B": 2, "C": 3, "D": 4}
+]
+
+--- SECTION 3: RESULTS AND RANGES ---
+1. The Reactivity Rookie: (Score 12-21) — You’re just beginning your journey into understanding your emotions. Your responses suggest that you tend to react instinctively and might often feel overwhelmed by your feelings. With a little more self-reflection and practice, you can start to notice and manage your internal states more effectively. Embrace the opportunity to explore your inner world and build a foundation for emotional growth.
+
+2. The Emerging Emotional Navigator: (Score 22-30) — You’re starting to recognize the importance of self-awareness in managing your emotions. While you sometimes pause to reflect, there are moments when your emotions still guide your decisions more than you’d like. Your growing curiosity about your internal landscape signals progress toward better self-regulation. Keep honing your reflective practices, and you'll continue transforming your emotional responses into strategic, constructive actions.
+
+3. The Reflective Responder: (Score 31-39) — You actively engage in self-observation, and your answers show a balanced approach to emotional regulation. You are aware of your feelings and understand their impact on your decisions. Still, there may be occasional challenges when managing high-intensity emotions, but overall you handle them with thoughtfulness and care. Continue developing your metacognitive awareness for even more refined emotional mastery.
+
+4. The Master of Emotional Intelligence: (Score 40-48) — You exemplify a high degree of self-awareness and emotional control. Your ability to observe, label, and regulate your emotions contributes to balanced decision-making and effective interpersonal interactions. You consistently use your emotional insights to guide your behavior, reflecting a deep understanding of your inner world. Celebrate your mastery and continue to innovate your approach to emotional resilience for even greater personal and professional success.

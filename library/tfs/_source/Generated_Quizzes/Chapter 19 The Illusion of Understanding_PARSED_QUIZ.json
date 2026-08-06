@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Narrative Fallacy primarily involves constructing coherent stories about past events that disregard which of the following?",
+    "options": [
+      "The influence of randomness and omitted events",
+      "The impact of prior success",
+      "The accuracy of statistical models",
+      "The reliability of outcome predictions"
+    ],
+    "correct_answer_text": "The influence of randomness and omitted events",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which best defines the Halo Effect as described in the source material?",
+    "options": [
+      "Focusing solely on the decision outcome",
+      "Allowing one positive or negative trait to shape overall judgment",
+      "Relying on limited information for decision making",
+      "Attributing success exclusively to skill"
+    ],
+    "correct_answer_text": "Allowing one positive or negative trait to shape overall judgment",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Hindsight Bias is best described as the tendency to view past events as having been predictable after they occur. Which option correctly reflects this definition?",
+    "options": [
+      "Viewing past unpredictability as inherent uncertainty",
+      "Believing that the outcome was unforeseeable",
+      "Perceiving past events as predictable after they have occurred",
+      "Overestimating the impact of chance on outcomes"
+    ],
+    "correct_answer_text": "Perceiving past events as predictable after they have occurred",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Outcome Bias is characterized by which of the following errors in judgment?",
+    "options": [
+      "Evaluating decisions based on the quality of the process rather than the outcome",
+      "Ignoring the outcome entirely in decision-making",
+      "Judging decisions solely on their outcomes while neglecting the decision process",
+      "Assessing performance based on random events"
+    ],
+    "correct_answer_text": "Judging decisions solely on their outcomes while neglecting the decision process",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Constructing simple and coherent narratives from the past while neglecting randomness is the essence of Narrative Fallacy.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Halo Effect implies that a single positive or negative trait can disproportionately bias overall judgment of a person or event.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Hindsight Bias refers to the notion that past events are seen as unpredictable even after they have occurred.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "WYSIATI (What You See Is All There Is) denotes a process in which decisions are made under the assumption that the limited information available is all there is to know.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

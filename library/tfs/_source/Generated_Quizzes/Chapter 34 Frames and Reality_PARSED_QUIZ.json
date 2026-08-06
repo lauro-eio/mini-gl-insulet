@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which term refers to the ways of presenting the same objective outcome in different descriptive terms, thereby influencing emotional and behavioral responses?",
+    "options": [
+      "Frames",
+      "Framing Effects",
+      "Mental Accounting",
+      "Rationality Index"
+    ],
+    "correct_answer_text": "Frames",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What is defined as the cognitive bias whereby identical outcomes, when described differently, evoke different attitudes and choices?",
+    "options": [
+      "Frames",
+      "Prospect Theory",
+      "Framing Effects",
+      "Sunk-Cost Fallacy"
+    ],
+    "correct_answer_text": "Framing Effects",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which system is characterized by fast, intuitive, and emotional processing that reacts automatically to descriptive cues?",
+    "options": [
+      "System 1",
+      "System 2",
+      "Reality-bound Preferences",
+      "Mental Accounting"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which metric ranks how closely an individual’s decisions adhere to objective outcomes rather than being swayed by descriptive presentation?",
+    "options": [
+      "Sunk-Cost Fallacy",
+      "Prospect Theory",
+      "Rationality Index",
+      "Mental Accounting"
+    ],
+    "correct_answer_text": "Rationality Index",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Reality-bound Preferences entail making decisions based solely on the actual states of the world rather than on the narrative description of outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Mental Accounting involves the tendency to categorize money or losses into separate accounts, influencing decision making based on source or presentation.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Sunk-Cost Fallacy is the error of disregarding past, irrecoverable costs when making current decisions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Prospect Theory posits that individuals typically exhibit risk aversion when outcomes are framed as gains and risk-seeking behavior when outcomes are framed as losses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

@@ -1,0 +1,79 @@
+program_id: EIG
+unit_id: u03
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Resiliencia y resonancia emocional
+lens_title: Liderazgo empático de equipos
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a nombrar con precisión su propio
+  estado emocional antes y durante una conversación de coaching, para que la
+  retroalimentación se mantenga centrada en el desempeño del colaborador
+  directo—no en la reacción no examinada del líder.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking Fast and Slow
+  - Thinking, Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+  - Inteligencia emocional
+  - Hábitos Atómicos
+  - Pensar rápido, pensar despacio
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Nombrarlo con precisión: qué dice la evidencia sobre etiquetar tu propio estado antes de dar coaching"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "La retroalimentación que casi di con rabia"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Nombrar el estado antes de la conversación de coaching"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Das coaching desde un estado nombrado o uno sin filtrar?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo de verificación de estado: nombrar tu estado antes de dar coaching"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Proteger el hábito de nombrar antes de dar coaching"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Marcus y la conversación de coaching por el plazo incumplido"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — Priya y el segundo error de calidad"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender una pausa de estado nombrado ante un par que quiere retroalimentación más rápida"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger la práctica de nombrar antes de dar coaching bajo presión de plazos"

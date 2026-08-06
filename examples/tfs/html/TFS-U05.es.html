@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deliberación analítica — Anclaje cognitivo y deliberación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Anclaje cognitivo y deliberación</p>
+      <h1>Deliberación analítica</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a notar cómo está encuadrada una decisión de seguridad, calidad o programación antes de actuar sobre ella, y a verificar deliberadamente ese encuadre contra los hechos cuando la emoción, el lenguaje de pérdida o un incidente reciente y vívido puedan estar impulsando la decisión.</p>
+      <div class="hero-meta">
+        <span>TFS · U05</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Los mismos hechos, otra decisión: qué dice la ev</a>
+<a href="#opinion">El anuncio de horas extra que reescribí antes de</a>
+<a href="#assessment">Autodiagnóstico — ¿Tu decisión de piso está encu</a>
+<a href="#case-1">Caso 1 — Renata y el anuncio de retención por ca</a>
+<a href="#case-2">Caso 2 — La solicitud de horas extra de Diego y </a>
+<a href="#framework">Marco — Lienzo de verificación de encuadre para </a>
+<a href="#roleplay-1v1">Role-play 1:1 — Defender una prueba de reencuadr</a>
+<a href="#roleplay-strategic">Role-play estratégico — Proteger el ritual de ve</a>
+<a href="#key-notes">Puntos clave — Encuadrar la decisión antes de qu</a>
+<a href="#commitment">Compromiso — Nombrar el encuadre antes de enviar</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Los mismos hechos, otra decisión: qué dice la evidencia sobre el encuadre y el riesgo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Los mismos hechos, otra decisión: qué dice la evidencia sobre el encuadre y el riesgo</h2>
+<p>Los líderes de primera línea no solo toman decisiones: las anuncian. Una retención por calidad, una solicitud de horas extra, una anulación de seguridad: la misma decisión puede describirse de más de una manera, y la redacción rara vez es neutral. Décadas de investigación muestran que cómo se redacta una decisión puede cambiar lo que la gente elige, aunque los hechos no hayan cambiado.</p>
+<h3>El mismo resultado, dos descripciones</h3>
+<p>Los estudios clásicos de encuadre de Tversky y Kahneman pidieron a la gente elegir entre resultados idénticos descritos en términos distintos—una vez como &quot;ganancia&quot;, otra como &quot;pérdida&quot;—y encontraron que la redacción por sí sola invertía las preferencias de las personas, incluso entre tomadores de decisiones entrenados (Tversky &amp; Kahneman, 1981). Una revisión posterior confirmó que no es un efecto único: el encuadre moldea las decisiones mediante varios mecanismos, incluyendo cuál resultado se trata como punto de referencia y qué detalles se vuelven salientes (Levin, Schneider, &amp; Gaeth, 1998). La versión de piso es familiar: &quot;perderás el incentivo si no llegamos al corte&quot; y &quot;conservarás el incentivo si lo logramos&quot; describen el mismo cambio, y aun así empujan al equipo hacia niveles distintos de riesgo para conseguirlo.</p>
+<h3>Por qué el lenguaje de pérdida mueve más a la gente</h3>
+<p>La teoría de las perspectivas de Kahneman y Tversky explica por qué. Las personas no evalúan los resultados contra la riqueza total o la seguridad absoluta; los evalúan contra un punto de referencia, y las pérdidas relativas a ese punto se sienten casi el doble de intensas que las ganancias equivalentes (Kahneman &amp; Tversky, 1979). Esto produce un patrón consistente: la gente tiende a jugar seguro cuando una decisión se encuadra como proteger una ganancia, y a asumir más riesgo cuando se encuadra como evitar una pérdida. Un supervisor que encuadra una anulación como &quot;evitar perder el embarque&quot; empuja al equipo hacia la opción más riesgosa, sea o no ese el mensaje que pretendía dar.</p>
+<h3>Cuando un caso vívido pesa más que los datos</h3>
+<p>Una segunda fuerza se suma al encuadre: las heurísticas de disponibilidad y afecto. Los incidentes vívidos y cargados emocionalmente se recuerdan con más facilidad y se ponderan más que los datos secos de tasa base, de modo que un solo cuasi-accidente reciente puede dominar un juicio de riesgo muy por encima de su frecuencia real (Slovic, Finucane, Peters, &amp; MacGregor, 2004). Loewenstein, Weber, Hsee, y Welch (2001) encontraron que esta respuesta de &quot;riesgo como sentimiento&quot; con frecuencia anula la propia estimación de probabilidad de la persona—alguien puede saber que las probabilidades son bajas y aun así actuar como si fueran altas, porque el recuerdo está fresco y el miedo es real.</p>
+<h3>Tres disparadores de piso para una verificación de encuadre</h3>
+<p>Tres condiciones señalan que el encuadre de una decisión merece una segunda mirada antes de actuar sobre ella:</p>
+<ol>
+<li><strong>Lenguaje de pérdida en una decisión de riesgo</strong>—la solicitud está redactada alrededor de evitar una pérdida, lo cual tiende a empujar hacia la búsqueda de riesgo.</li>
+<li><strong>Un incidente reciente y vívido</strong>—un caso emocionalmente disponible, en lugar del patrón real de resultados, está impulsando la lectura de la situación.</li>
+<li><strong>La prueba de reencuadre falla</strong>—plantear los mismos hechos en el encuadre opuesto (ganancia en lugar de pérdida, o viceversa) cambiaría la decisión.</li>
+</ol>
+<h3>La versión de piso de la solución</h3>
+<p>El trabajo más amplio de Thaler y Kahneman sobre la toma de decisiones bajo riesgo señala un remedio práctico: evaluar una decisión recurrente como una política permanente aplicada de forma consistente, no como un juicio hecho de nuevo cada vez—y por lo tanto vulnerable a cualquier encuadre que llegue primero (Kahneman, 2003). Una verificación de encuadre no requiere hacer más lento cada anuncio. Requiere nombrar el encuadre en voz alta antes de que impulse una decisión, plantear los hechos de la otra manera, y verificar la lectura emocional contra el patrón real, no contra la historia más reciente.</p>
+<h3>Qué significa esto para los supervisores</h3>
+<p>Antes de decidir cómo anunciarás una retención, una anulación o un turno obligatorio, pregúntate qué encuadre elegiste primero y por qué. Si la redacción está construida alrededor de evitar una pérdida, o un incidente reciente está haciendo más trabajo del que los datos respaldan, plantea los mismos hechos de la manera opuesta y comprueba si la decisión se mantiene.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Tversky, A., &amp; Kahneman, D. (1981). The framing of decisions and the psychology of choice. <em>Science, 211</em>(4481), 453–458.</li>
+<li>Kahneman, D., &amp; Tversky, A. (1979). Prospect theory: An analysis of decision under risk. <em>Econometrica, 47</em>(2), 263–291.</li>
+<li>Levin, I. P., Schneider, S. L., &amp; Gaeth, G. J. (1998). All frames are not created equal: A typology and critical analysis of framing effects. <em>Organizational Behavior and Human Decision Processes, 76</em>(2), 149–188.</li>
+<li>Slovic, P., Finucane, M. L., Peters, E., &amp; MacGregor, D. G. (2004). Risk as analysis and risk as feelings: Some thoughts about affect, reason, risk, and rationality. <em>Risk Analysis, 24</em>(2), 311–322.</li>
+<li>Loewenstein, G. F., Weber, E. U., Hsee, C. K., &amp; Welch, N. (2001). Risk as feelings. <em>Psychological Bulletin, 127</em>(2), 267–286.</li>
+<li>Kahneman, D. (2003). Maps of bounded rationality: Psychology for behavioral economics. <em>American Economic Review, 93</em>(5), 1449–1475.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>El anuncio de horas extra que reescribí antes de enviarlo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>El anuncio de horas extra que reescribí antes de enviarlo</h2>
+<p>Tenía el mensaje a medio escribir antes de haberlo pensado bien: &quot;Si no cubrimos este turno, perdemos el incentivo de toda la semana.&quot; Cierto, técnicamente. También habría funcionado—mi equipo odia perder algo que ya siente suyo más de lo que le gusta ganar algo nuevo. Por eso mismo dejé de escribir.</p>
+<p>Dos noches antes, una decisión distinta había salido mal por el mismo instinto. Un sensor de puerta en el muelle 3 se había disparado dos veces en una hora, un patrón inusual para esa puerta. Le dije al líder de turno: &quot;si detenemos el camión para revisarlo, perdemos el corte seguro.&quot; Lenguaje de pérdida, dicho rápido, bajo presión. Él anuló el sensor y movió el camión. Esa noche no pasó nada malo. Pero al repasarlo, me di cuenta de que había encuadrado una revisión de seguridad como una pérdida garantizada y una anulación como la única forma de evitarla—cuando el encuadre honesto se acercaba más a &quot;un riesgo pequeño y verificable frente a un corte que probablemente aún podíamos alcanzar con cuatro minutos extra.&quot; Había elegido el encuadre que conseguía el sí más rápido, no el que coincidía con los hechos.</p>
+<p>Así que antes de enviar el mensaje de horas extra, me obligué a hacer una cosa: decir los mismos hechos de la otra manera. En lugar de &quot;van a perder el incentivo&quot;, escribí &quot;todos conservan el incentivo si cubrimos esto juntos.&quot; Mismo turno, mismo pago, misma fecha límite. Pero entonces noté algo—planteada como ganancia, la solicitud me pareció más pequeña, menos urgente, más algo que en realidad explicaría en lugar de empujar. Esa diferencia me dijo que la versión de pérdida había estado haciendo un trabajo que los hechos por sí solos no justificaban.</p>
+<p>Envié la versión encuadrada como ganancia. También volví a la anulación del muelle 3 de dos noches antes e hice la prueba de reencuadre sobre esa, tarde, después de los hechos: &quot;detener cuatro minutos para revisar un sensor con un patrón inusual&quot; versus &quot;garantizar que perdemos el corte.&quot; En cuanto lo dije de la segunda manera, fue obvio que el primer encuadre había sido el honesto, y el miedo a la fecha límite había elegido el segundo encuadre por mí en el momento.</p>
+<p>Ahora, antes de anunciar cualquier decisión que implique riesgo, pérdida u horas extra, me pregunto qué encuadre elegí primero y si aún lo elegiría si planteara los mismos hechos de la manera opuesta. No estoy tratando de hacer más lento cada anuncio ni de suavizar cada mensaje hasta volverlo confuso—el equipo necesita dirección clara y rápida la mayoría de los turnos. Estoy tratando de atrapar el puñado de decisiones donde la redacción, no la situación, estaba a punto de tomar la decisión por mí.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Tu decisión de piso está encuadrada por los hechos o por el miedo?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Renata y el anuncio de retención por calidad</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Renata y el anuncio de retención por calidad</h2>
+<h3>Apertura</h3>
+<p>Renata dirige una línea de empaque en un distribuidor de alimentos de tamaño mediano. Una revisión aleatoria marca un lote pequeño con un defecto de etiquetado que podría, en casos raros, ocultar una advertencia de alérgeno. Ella tiene que decidir si retiene el lote para una revisión completa y cómo anunciar esa decisión a su línea y a su líder de turno antes de que cierre la ventana de entrega.</p>
+<h3>Contexto</h3>
+<p>Hace tres semanas, una línea distinta tuvo un cuasi-accidente con un lote mal etiquetado que llegó casi hasta el muelle de carga antes de que alguien lo detectara por casualidad. La historia se difundió rápido y sigue siendo lo primero que alguien del turno menciona cuando surge el tema del etiquetado. La lectura honesta de Renata sobre el lote de hoy, basada en el registro real de defectos, es que este tipo de falla de etiquetado ocurre en aproximadamente uno de cada varios cientos de lotes y casi siempre se detecta en este mismo punto de control—el hallazgo de hoy es el punto de control funcionando, no una señal de un problema mayor. Pero con la historia del cuasi-accidente fresca en la mente de todos, su primer borrador del anuncio dice: &quot;Si enviamos esto sin una revisión completa, podríamos ser el lote que causa un retiro de producto.&quot; Ese encuadre es técnicamente posible. También es la versión encuadrada como pérdida que garantizará que el equipo respalde una retención prolongada, sin importar si el riesgo real aquí realmente la justifica.</p>
+<h3>Punto de decisión</h3>
+<p>Renata puede:</p>
+<ol>
+<li>Enviar el anuncio encuadrado como pérdida tal como está redactado, y dejar que la vívida historia del cuasi-accidente arrastre a la sala hacia la retención más larga y que se siente más segura.</li>
+<li>Replantear los mismos hechos como una ganancia protegida—&quot;detectar esto ahora protege el punto de control que ya está funcionando&quot;—y verificar la decisión por separado contra el registro real de defectos, no contra la historia reciente.</li>
+<li>Omitir por completo un encuadre por escrito, retener el lote por defecto sin explicar el razonamiento, y dejar que el equipo asuma lo peor sobre por qué.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Qué detalle en el primer borrador de Renata estaba haciendo más trabajo emocional del que los datos reales justificaban, y por qué la historia del cuasi-accidente hizo que ese encuadre se sintiera obviamente correcto en el momento?</li>
+<li>Corre la prueba de reencuadre sobre la redacción original de Renata: replantéala como ganancia en lugar de pérdida. ¿La decisión de retención todavía tiene sentido una vez encuadrada así?</li>
+<li>Si Renata elige la opción 2, ¿qué debería decirle a un líder de turno que asume que cualquier retención significa &quot;encontramos algo grave&quot;, para que el equipo no sobrecorrija en la siguiente decisión no relacionada?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — La solicitud de horas extra de Diego y la anulación que llegó de paso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — La solicitud de horas extra de Diego y la anulación que llegó de paso</h2>
+<h3>Apertura</h3>
+<p>Diego coordina un equipo de almacén de once personas. Un camión retrasado significa que el equipo necesita quedarse dos horas extra para llegar al corte de esta noche, o el embarque se pasa a mañana y el incentivo de la semana queda en riesgo para todo el equipo. Diego también necesita que el equipo acepte una anulación de equipo en un escáner que ha estado marcando de forma intermitente, para que las horas extra no se desperdicien esperando una solución lenta.</p>
+<h3>Contexto</h3>
+<p>Diego redacta la solicitud de horas extra como una pérdida: &quot;Si no nos quedamos, todos pierden el incentivo de esta semana.&quot; Funciona—el equipo acepta rápido. Pero el mismo encuadre de pérdida se traslada a la conversación sobre la anulación unos minutos después, cuando el líder de turno reporta por radio sobre el escáner que marca: &quot;si nos detenemos a revisarlo, perdemos el corte por el que acabamos de luchar.&quot; El registro de turno de Diego muestra que el escáner ha marcado once veces este trimestre; diez fueron falsas alarmas confirmadas y resueltas en menos de dos minutos, y una marcó un atasco real que habría dañado el producto de haberse anulado. El patrón de la marca de esta noche se parece a las diez, pero Diego no puede saberlo solo por la llamada de radio, y el encuadre de pérdida de la conversación de horas extra ya está arrastrando a la sala hacia &quot;anular y seguir avanzando.&quot;</p>
+<div class="table-wrap"><table>
+<tr><th>Este trimestre</th><th>Anulaciones en este escáner</th><th>Falla real confirmada después</th></tr>
+<tr><td>Semanas 1–10</td><td>9</td><td>0</td></tr>
+<tr><td>Semanas 11–12</td><td>2</td><td>1 (patrón de marca distinto)</td></tr>
+</table></div>
+<h3>Punto de decisión</h3>
+<p>Diego puede:</p>
+<ol>
+<li>Aprobar la anulación de inmediato, llevando el mismo encuadre de pérdida de la solicitud de horas extra directamente a la decisión del equipo.</li>
+<li>Separar las dos decisiones: mantener la solicitud de horas extra como está, pero decidir la anulación en sus propios términos—una revisión de noventa segundos contra el patrón de marcas, independiente del encuadre del corte.</li>
+<li>Aprobar la anulación para proteger el corte de esta noche, y agregar después una regla permanente de que las anulaciones de este escáner siempre se verifiquen contra el patrón de marcas sin importar qué más esté pasando ese turno.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Cómo se filtró el encuadre de pérdida que Diego elegió para la solicitud de horas extra hacia una decisión que nunca estaba destinada a influir?</li>
+<li>Usando la tabla, ¿la decisión de anulación de esta noche es un caso de juicio puntual y único o de política de riesgo permanente aplicada de la misma manera cada vez? ¿Cuál es la diferencia en la práctica?</li>
+<li>Diseña una frase o señal de piso que le permita a un miembro del equipo separar &quot;esto es el encuadre de horas extra hablando&quot; de &quot;este es el riesgo real de la anulación&quot; sin hacer más lenta cada extensión de turno normal.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de verificación de encuadre para políticas de piso y diseño de decisiones</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de verificación de encuadre para políticas de piso y diseño de decisiones</h2>
+<p>Úsalo en el taller o impreso para el piso. Corre un lienzo por cada decisión riesgosa o anuncio de política antes de enviarlo.</p>
+<h3>1. La decisión (una frase)</h3>
+<p>¿Qué estoy a punto de anunciar o decidir, ahora mismo?</p>
+<h3>2. Auditoría de encuadre</h3>
+<div class="table-wrap"><table>
+<tr><th>Pregunta</th><th>Respuesta</th><th>Por qué</th></tr>
+<tr><td>¿Está redactada alrededor de una pérdida (&quot;evitar perder...&quot;) o de una ganancia (&quot;proteger/ganar...&quot;)?</td><td></td><td></td></tr>
+<tr><td>¿Un incidente específico, vívido y reciente está impulsando la lectura emocional de hoy?</td><td></td><td></td></tr>
+<tr><td>¿Cambiaría la decisión si planteara los mismos hechos de la manera opuesta?</td><td></td><td></td></tr>
+</table></div>
+<h3>3. Prueba de reencuadre</h3>
+<p>Escribe los mismos hechos como pérdida, y luego como ganancia, en una frase cada uno:</p>
+<ul>
+<li>Versión de pérdida:</li>
+<li>Versión de ganancia:</li>
+<li>¿La decisión se mantiene bajo ambas? Si no, ¿cuál coincide con los hechos reales, no solo con el sí más rápido?</li>
+</ul>
+<h3>4. Decisión de ruta</h3>
+<ul>
+<li><strong>La prueba de reencuadre pasa, sin incidente vívido impulsándola:</strong> Procede con el encuadre que coincide con los hechos. Anótalo y sigue.</li>
+<li><strong>Un disparador presente (lenguaje de pérdida o un incidente vívido):</strong> Verifica el patrón real (registro, tasa de defectos, alertas previas) antes de enviar el anuncio.</li>
+<li><strong>La prueba de reencuadre falla, o hay dos disparadores presentes:</strong> Retén el anuncio; resuelve cuál encuadre es honesto antes de que llegue al equipo.</li>
+</ul>
+<h3>5. ¿Caso único o política permanente?</h3>
+<p>¿Este tipo de decisión se repite con suficiente frecuencia como para que deba ser una regla fija, decidida una vez y aplicada de la misma manera cada vez, en lugar de reencuadrada de nuevo bajo la presión de cada turno?</p>
+<h3>6. Visibilidad</h3>
+<p>¿Dónde ve el equipo el encuadre que elegiste y por qué (pizarra, llamada de radio, entrada de registro)?</p>
+<h3>7. Responsable cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que la verificación de encuadre no desaparezca cuando no estés presente:</p>
+<h3>8. Nota de después de la acción</h3>
+<p>¿Qué encuadre usaste realmente, y coincidió con los hechos o solo consiguió el acuerdo más rápido? Agrega una línea al registro de turno de cualquier manera.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Defender una prueba de reencuadre ante un par que quiere la vía rápida</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Defender una prueba de reencuadre ante un par que quiere la vía rápida</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar proteger una breve prueba de reencuadre en una decisión riesgosa o redactada como pérdida sin paralizar el piso ni perder la confianza de un par.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Dueño del encuadre)</strong></p>
+<p>Has redactado un anuncio riesgoso (anulación, retención, solicitud de horas extra) y notaste que está redactado alrededor de una pérdida o apoyado en un incidente reciente y vívido. Quieres noventa segundos para replantearlo de la otra manera antes de enviarlo. No debes omitir la verificación solo para evitar fricción, ni convertirla en una sesión de reescritura abierta.</p>
+<p><strong>Rol 2 — Supervisor par escéptico</strong></p>
+<p>Estás bajo la misma fecha límite y crees que &quot;hay que enviar el mensaje que consiga el sí más rápido.&quot; Presionas por la versión encuadrada como pérdida porque funciona, y tratas la prueba de reencuadre como pensar de más. Cederás solo si el Dueño del encuadre nombra el disparador específico (lenguaje de pérdida, un incidente vívido, o una prueba de reencuadre fallida) y ofrece una verificación concreta y con tiempo acotado.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Dueño del encuadre asegurar el acuerdo para una prueba de reencuadre de noventa segundos en un anuncio específico sin que el par escale por encima de ellos o que la fecha límite se pierda sin remedio?</p>
+<h3>Notas del facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): el par presiona por el envío rápido y encuadrado como pérdida; el Dueño del encuadre responde.</li>
+<li>Ronda 2 (8 min): el Dueño del encuadre nombra el disparador específico y propone una prueba de reencuadre con tiempo acotado.</li>
+<li>Cierre (10 min): ¿dónde casi cedió el Dueño del encuadre bajo presión? ¿qué lenguaje realmente convenció al par escéptico?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Proteger el ritual de verificación de encuadre bajo presión de tiempo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Proteger el ritual de verificación de encuadre bajo presión de tiempo</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar el respaldo para un ritual protegido de verificación de encuadre cuando múltiples partes interesadas quieren que el piso siga avanzando con la redacción que consiga el acuerdo más rápido.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para correr una regla permanente: cualquier anuncio riesgoso redactado alrededor de una pérdida, o apoyado en un incidente reciente y vívido, recibe una prueba de reencuadre breve y con tiempo acotado antes de salir.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Se le mide por rendimiento y tiempos de corte; ve la prueba de reencuadre como minutos perdidos y la llama &quot;pulir palabras cuando deberíamos estar avanzando.&quot;</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita disparadores nombrados para cuándo aplica la verificación, además de un límite de tiempo claro para que no pueda usarse para detener cada anuncio.</li>
+<li><strong>Supervisor par (aliado o indeciso):</strong> Apoyará el ritual si no hace más lentas las decisiones que genuinamente no lo necesitan, y si no traslada silenciosamente explicaciones adicionales a los turnos vecinos.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una verificación de reencuadre nombrada y con tiempo acotado para decisiones genuinamente riesgosas o redactadas como pérdida sin parecer lento ante el gerente de operaciones o vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Disparadores nombrados (lenguaje de pérdida, incidente reciente vívido, prueba de reencuadre fallida), no un genérico &quot;replantear todo&quot;</li>
+<li>Un límite de tiempo fijo para la verificación, acordado de antemano</li>
+<li>Un registro visible de qué encuadre se usó y si coincidió con los hechos</li>
+<li>Ninguna segunda redacción secreta que contradiga el ritual acordado bajo presión</li>
+</ul>
+<h3>Preguntas de cierre</h3>
+<ol>
+<li>¿Qué argumento convenció al gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;prueba de reencuadre&quot; en un lenguaje que se lee como control de riesgo, no como duda o juego de palabras?</li>
+<li>¿Qué haría que el ritual desapareciera silenciosamente durante la próxima semana de crisis—y quién es responsable de evitarlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Encuadrar la decisión antes de que la decisión te encuadre a ti</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Encuadrar la decisión antes de que la decisión te encuadre a ti</h2>
+<p><strong>Objetivo de la unidad:</strong> Notar cómo está encuadrada una decisión de seguridad, calidad o programación antes de actuar sobre ella, y verificar ese encuadre contra los hechos cuando la emoción o un incidente vívido puedan estar impulsando la decisión.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Mismos hechos, distinta redacción, distinta decisión:</strong> resultados idénticos descritos como ganancia versus pérdida pueden invertir lo que la gente elige, aunque nada de la situación haya cambiado.</li>
+<li><strong>El lenguaje de pérdida empuja hacia la toma de riesgo:</strong> las pérdidas relativas a un punto de referencia se sienten más intensas que las ganancias equivalentes, así que &quot;evitar perder X&quot; tiende a invitar decisiones más riesgosas que &quot;proteger X.&quot;</li>
+<li><strong>Los casos vívidos pesan más que los datos:</strong> un incidente reciente y cargado emocionalmente puede dominar un juicio de riesgo mucho más de lo que el patrón real de resultados justifica.</li>
+<li><strong>La prueba de reencuadre:</strong> plantea los mismos hechos de la manera opuesta (ganancia en lugar de pérdida); si la decisión cambia, la redacción—no la situación—la estaba impulsando.</li>
+</ul>
+<h3>Lista de verificación para el líder de primera línea</h3>
+<ol>
+<li>Antes de anunciar una decisión relacionada con riesgo, nota qué encuadre elegiste primero: ganancia o pérdida.</li>
+<li>Corre la prueba de reencuadre—plantea los mismos hechos de la otra manera y comprueba si la decisión se mantiene.</li>
+<li>Pregúntate si un incidente reciente específico, en lugar del patrón real, está impulsando la lectura emocional de hoy.</li>
+<li>Donde una decisión se repite con frecuencia, trátala como una política permanente aplicada de forma consistente, no como un juicio nuevo reencuadrado cada vez.</li>
+<li>Haz visible el encuadre para tu equipo (dilo en voz alta, regístralo) para que un compañero pueda señalarlo antes de que se convierta en la decisión.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>¿Qué anuncio de piso recurrente has estado redactando alrededor de evitar una pérdida—y tomarías la misma decisión si en cambio lo encuadraras como proteger una ganancia?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Nombrar el encuadre antes de enviarlo</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Anclaje cognitivo y deliberación · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

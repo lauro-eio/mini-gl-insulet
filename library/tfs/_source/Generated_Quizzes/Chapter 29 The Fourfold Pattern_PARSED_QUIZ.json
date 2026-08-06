@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which statement best describes System 1?",
+    "options": [
+      "A: A slow, deliberate process used for analytical reasoning.",
+      "B: A method for calculating expected outcomes using averages.",
+      "C: The brain’s fast, automatic process that assigns weights to characteristics and outcomes without conscious awareness.",
+      "D: A decision-making model based solely on statistical probabilities."
+    ],
+    "correct_answer_text": "C: The brain’s fast, automatic process that assigns weights to characteristics and outcomes without conscious awareness.",
+    "correct_key": "C"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "What does the Expectation Principle refer to?",
+    "options": [
+      "A: Averaging outcomes without considering probabilities.",
+      "B: Calculating an outcome’s value as the average of its possibilities weighted by their probabilities.",
+      "C: Assigning psychological values to outcomes irrespective of likelihood.",
+      "D: Overweighting small probabilities to determine outcome values."
+    ],
+    "correct_answer_text": "B: Calculating an outcome’s value as the average of its possibilities weighted by their probabilities.",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which definition best aligns with the concept of Utility?",
+    "options": [
+      "A: The objective monetary value of an outcome.",
+      "B: The psychological value assigned to outcomes that may differ from their monetary value.",
+      "C: The statistical likelihood of an outcome.",
+      "D: The decision weight assigned solely based on outcome frequency."
+    ],
+    "correct_answer_text": "B: The psychological value assigned to outcomes that may differ from their monetary value.",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which statement best characterizes the Fourfold Pattern?",
+    "options": [
+      "A: It is a framework categorizing decision-making behavior based solely on outcome magnitude.",
+      "B: It refers to the normative model for calculating expected utility using probabilities.",
+      "C: It categorizes decision-making behavior into four quadrants based on combinations of outcome valence (gains vs. losses) and probability levels (low vs. high).",
+      "D: It describes the fast processing mechanism for assigning weights to outcomes."
+    ],
+    "correct_answer_text": "C: It categorizes decision-making behavior into four quadrants based on combinations of outcome valence (gains vs. losses) and probability levels (low vs. high).",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Possibility Effect involves the tendency to overweight unlikely events, giving them decision weights that exceed their objective probabilities.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Certainty Effect refers to the phenomenon where nearly certain outcomes are underweighted relative to their straight probabilistic value.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Decision Weights denote the objective probabilities of outcomes that are used in calculating expected value.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Diminishing Sensitivity means that the subjective impact of changes in value decreases as the magnitude of outcomes increases.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

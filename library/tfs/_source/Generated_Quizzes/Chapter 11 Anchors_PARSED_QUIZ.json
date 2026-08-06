@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which of the following best defines the Anchoring Effect?",
+    "options": [
+      "A cognitive bias where initial exposure to a number influences subsequent judgments about an unknown quantity.",
+      "A method of calibrating measurement devices.",
+      "A strategy for memorizing numerical sequences.",
+      "A statistical technique for data normalization."
+    ],
+    "correct_answer_text": "A cognitive bias where initial exposure to a number influences subsequent judgments about an unknown quantity.",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which option correctly describes System 1 cognitive processing?",
+    "options": [
+      "A slow, deliberate, and analytical process.",
+      "A fast, automatic, and associative process operating without conscious awareness.",
+      "A process that exclusively relies on logical reasoning.",
+      "A method used only in high-stress decision environments."
+    ],
+    "correct_answer_text": "A fast, automatic, and associative process operating without conscious awareness.",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What is the Adjust-and-Anchor Heuristic?",
+    "options": [
+      "A deliberate strategy where individuals begin with a given number and adjust their estimation, often insufficiently.",
+      "An unconscious process that reinforces initial numerical impressions without adjustment.",
+      "A method of eliminating biases by overcorrecting from an initial number.",
+      "A technique for calibrating automatic judgments with no final bias."
+    ],
+    "correct_answer_text": "A deliberate strategy where individuals begin with a given number and adjust their estimation, often insufficiently.",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What does the Anchoring Index quantitatively measure?",
+    "options": [
+      "The speed at which initial anchors are established.",
+      "The ratio (expressed as a percentage) of the difference in estimates to the difference in anchors.",
+      "The frequency of anchor occurrence in decision making.",
+      "The absolute error between initial and adjusted estimates."
+    ],
+    "correct_answer_text": "The ratio (expressed as a percentage) of the difference in estimates to the difference in anchors.",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Adjust-and-Anchor Heuristic is an automatic process that occurs without conscious effort.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "System 2 processing involves slower, deliberate, and effortful reasoning that is responsible for conscious adjustments away from initial anchors.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Priming Effect is characterized by deliberate cognitive adjustments made to counteract bias.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Associative Coherence refers to the mind's tendency to create a consistent narrative that validates the anchor and influences related thoughts.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

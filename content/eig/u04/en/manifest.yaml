@@ -1,0 +1,75 @@
+program_id: EIG
+unit_id: u04
+audience_id: tier_2_frontline_leader
+locale: en
+program_title: Emotional Resilience & Resonance
+lens_title: Empathic Team Leadership
+article_signature: "Curated by {E}"
+unit_goal: >
+  Give frontline leaders three fast, evidence-based regulation moves—breath, ground,
+  reframe—so a surge that is already running gets steered in the next ten seconds,
+  not just named.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "The Ten-Second Exhale: What the Evidence Says About Regulating a Surge in Real Time"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The Breath I Almost Skipped Before the Escalation Call"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Three Moves for the Surge That's Already Running"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — Do You Regulate the Surge or Ride It Out?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — The Reset Card: Breathe, Ground, Reframe Before You Respond"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — Protecting the Reset Card When the Shift Gets Loud"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Priya and the Outage on the Pick Floor"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Mateo and the Rework on Bay Three"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Taking the Reset Before Responding to a Peer Who Wants an Instant Answer"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Protecting a Real-Time Regulation Standard Under Deadline Pressure"

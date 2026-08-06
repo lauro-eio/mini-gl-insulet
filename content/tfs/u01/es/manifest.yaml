@@ -1,0 +1,75 @@
+program_id: TFS
+unit_id: u01
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Anclaje cognitivo y deliberación
+lens_title: Deliberación analítica
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a notar cuándo un juicio instantáneo
+  está impulsando decisiones de piso y a activar deliberadamente un análisis
+  más lento cuando el riesgo o la ambigüedad son altos.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - Atomic Habits
+  - In our modern age
+  - In a fast-paced world
+  - Pensar rápido, pensar despacio
+  - Hábitos Atómicos
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Dos velocidades de juicio: qué dice la evidencia sobre decisiones instantáneas y verificaciones lentas"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "El ticket que casi cerré por instinto"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Dos velocidades de juicio en el piso"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Operas en automático o con análisis?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo de verificación rápida vs. lenta"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Nombrar la pausa antes de necesitarla"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Marcus y la decisión de detener la línea"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — La decisión instantánea de Aisha sobre una anulación de seguridad"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender una pausa ante un par que quiere velocidad"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger el ritual de verificación bajo presión de tiempo"

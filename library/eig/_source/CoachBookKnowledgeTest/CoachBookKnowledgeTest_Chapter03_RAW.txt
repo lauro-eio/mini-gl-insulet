@@ -1,0 +1,288 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "According to the chapter's primary thesis, what is insufficient for real-life success?",
+    "options": [
+      "High academic intelligence (IQ) alone",
+      "Emotional intelligence (EQ) alone",
+      "A balanced combination of IQ and EQ",
+      "Neither IQ nor EQ"
+    ],
+    "correct_answer_text": "High academic intelligence (IQ) alone",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following is NOT listed as a component of emotional intelligence in the chapter?",
+    "options": [
+      "Self-awareness",
+      "Emotional regulation",
+      "Empathy",
+      "Memory recall"
+    ],
+    "correct_answer_text": "Memory recall",
+    "correct_key": "D"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What does emotional regulation primarily involve as defined in the chapter?",
+    "options": [
+      "Ignoring emotions altogether",
+      "Managing, mitigating, and appropriately expressing emotions",
+      "Suppressing emotions permanently",
+      "Amplifying emotions intentionally"
+    ],
+    "correct_answer_text": "Managing, mitigating, and appropriately expressing emotions",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which key skill is described as recognizing and understanding one’s own feelings?",
+    "options": [
+      "Self-awareness",
+      "Social skills",
+      "Academic intelligence",
+      "Emotional regulation"
+    ],
+    "correct_answer_text": "Self-awareness",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which term is used to describe the idea that emotional competencies determine how effectively one can use their intellectual capabilities?",
+    "options": [
+      "Meta-Intelligence",
+      "Emotional Quotient (EQ)",
+      "Social Intelligence",
+      "Cognitive Flexibility"
+    ],
+    "correct_answer_text": "Meta-Intelligence",
+    "correct_key": "A"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "How does the chapter differentiate between IQ and EQ?",
+    "options": [
+      "IQ relates to academic competency while EQ pertains to emotional competencies",
+      "They are essentially the same skill set",
+      "IQ is more critical than EQ",
+      "EQ is only important in social settings"
+    ],
+    "correct_answer_text": "IQ relates to academic competency while EQ pertains to emotional competencies",
+    "correct_key": "A"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What actionable step is suggested for enhancing self-awareness?",
+    "options": [
+      "Ignoring one’s feelings",
+      "Developing self-monitoring practices such as journaling",
+      "Relying solely on IQ tests",
+      "Comparing oneself to peers"
+    ],
+    "correct_answer_text": "Developing self-monitoring practices such as journaling",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which technique is proposed for effective emotional regulation?",
+    "options": [
+      "Deep breathing and mindfulness",
+      "Immediate impulsive reactions",
+      "Suppressing emotions completely",
+      "Avoiding emotional situations"
+    ],
+    "correct_answer_text": "Deep breathing and mindfulness",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "What activity is recommended for enhancing empathy according to the chapter?",
+    "options": [
+      "Role-playing or active listening exercises",
+      "Intensive academic study",
+      "Solo reflection without external input",
+      "Memorizing emotional theories"
+    ],
+    "correct_answer_text": "Role-playing or active listening exercises",
+    "correct_key": "A"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Which assessment does the chapter suggest using to identify a broader range of talents?",
+    "options": [
+      "Multi-Intelligence Assessments, including social perceptiveness tasks",
+      "Standard IQ tests only",
+      "Physical fitness tests",
+      "Memory retention quizzes"
+    ],
+    "correct_answer_text": "Multi-Intelligence Assessments, including social perceptiveness tasks",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "In terms of promoting emotional intelligence, which sector is emphasized for integration?",
+    "options": [
+      "Education through structured programs",
+      "Sports exclusively",
+      "Information technology",
+      "Finance training"
+    ],
+    "correct_answer_text": "Education through structured programs",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "The chapter advocates reflecting on emotional episodes by analyzing case studies. Which incident is mentioned as an example?",
+    "options": [
+      "The Jason H. incident",
+      "The Newton experiment",
+      "The Einstein breakthrough",
+      "The historic debate"
+    ],
+    "correct_answer_text": "The Jason H. incident",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "What misconception does the chapter address regarding intellectual prowess?",
+    "options": [
+      "That academic achievement alone guarantees success",
+      "That emotional regulation is unnecessary",
+      "That EQ completely replaces the need for IQ",
+      "That only social skills lead to success"
+    ],
+    "correct_answer_text": "That academic achievement alone guarantees success",
+    "correct_key": "A"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "How does the chapter compare academic intelligence to emotional intelligence in impacting life success?",
+    "options": [
+      "Academic intelligence alone does not mitigate the disruptive effects of unmanaged emotions",
+      "Academic intelligence always compensates for poor emotional skills",
+      "Emotional intelligence is less important than academic intelligence",
+      "Both are irrelevant for success"
+    ],
+    "correct_answer_text": "Academic intelligence alone does not mitigate the disruptive effects of unmanaged emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "What topic do subsequent chapters promise to explore, as mentioned in the sequence summary?",
+    "options": [
+      "Self-understanding and practical application of emotional skills",
+      "Advanced computational theories",
+      "Historical analysis of academic systems",
+      "Technical innovations in brain science"
+    ],
+    "correct_answer_text": "Self-understanding and practical application of emotional skills",
+    "correct_key": "A"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The chapter posits that high IQ alone ensures real-life success.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Emotional intelligence includes self-monitoring and journaling as actionable practices for developing self-awareness.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Self-awareness in the context of emotional intelligence is defined as the ability to recognize others’ feelings exclusively.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Emotional regulation techniques such as deep breathing are recommended to control impulses and mood swings.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Interpersonal skills, as mentioned in the chapter, refer solely to analyzing one’s inner life.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Multi-Intelligence Assessments are suggested to identify talents beyond standard IQ tests.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "The chapter claims that intellectual prowess automatically mitigates the effects of emotional hijackings.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Practicing empathy through perspective-taking activities is an actionable step outlined in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type

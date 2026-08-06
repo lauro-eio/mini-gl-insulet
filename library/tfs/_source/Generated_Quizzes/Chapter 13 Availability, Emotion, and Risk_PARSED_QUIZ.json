@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which definition best describes the cognitive bias where events that are easier to recall are perceived as more frequent or likely?",
+    "options": [
+      "Availability Effect",
+      "Affect Heuristic",
+      "Availability Cascade",
+      "Probability Neglect"
+    ],
+    "correct_answer_text": "Availability Effect",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which concept is defined as a decision-making shortcut in which people’s emotions guide their judgments about risks and benefits?",
+    "options": [
+      "Availability Effect",
+      "Affect Heuristic",
+      "Subjective Risk",
+      "Associative Coherence"
+    ],
+    "correct_answer_text": "Affect Heuristic",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which term describes the self-reinforcing process whereby media coverage and public discussion amplify the perceived risk of an event?",
+    "options": [
+      "Subjective Risk",
+      "Affect Heuristic",
+      "Availability Cascade",
+      "Probability Neglect"
+    ],
+    "correct_answer_text": "Availability Cascade",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which term refers to the tendency to disregard the actual probability of an event due to the impact of vivid, emotionally charged examples?",
+    "options": [
+      "Probability Neglect",
+      "Associative Coherence",
+      "Availability Effect",
+      "Affect Heuristic"
+    ],
+    "correct_answer_text": "Probability Neglect",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Associative Coherence refers to the alignment of risk and benefit evaluations with an individual’s overall positive or negative feelings toward a subject.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Risk perceptions are minimally affected by the ease with which examples or related disasters can be recalled from memory.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The substitution heuristic leads individuals to answer an easier, emotional question (“How do I feel about it?”) instead of analytically assessing complex risks.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Protective actions are typically based on statistical probabilities rather than on the worst disaster previously experienced.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liderazgo empático de equipos — Resiliencia y resonancia emocional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Resiliencia y resonancia emocional</p>
+      <h1>Liderazgo empático de equipos</h1>
+      <p class="hero-lead">Ayudar a los líderes de primera línea a distinguir, en el piso, un desacuerdo sobre la tarea de una ruptura de confianza, y a reparar la correcta a propósito—para que una decisión difícil no le cueste, en silencio, la confianza de la cuadrilla.</p>
+      <div class="hero-meta">
+        <span>EIG · U06</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">Tarea o confianza: qué dice la evidencia sobre e</a>
+<a href="#opinion">La disculpa que no aterrizó</a>
+<a href="#assessment">Autodiagnóstico — ¿Peleas la tarea o peleas a la</a>
+<a href="#case-1">Caso 1 — Priya y el conteo faltante</a>
+<a href="#case-2">Caso 2 — Darío y el defecto oculto</a>
+<a href="#framework">Marco — Lienzo de reparación de confianza: nombr</a>
+<a href="#roleplay-1v1">Role-play 1:1 — Nombrar un desacuerdo de tarea a</a>
+<a href="#roleplay-strategic">Role-play estratégico — Asegurar una norma de re</a>
+<a href="#key-notes">Puntos clave — Nombrar la ruptura antes de repar</a>
+<a href="#commitment">Compromiso — Proteger la conversación de reparac</a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>Tarea o confianza: qué dice la evidencia sobre el conflicto y la reparación en un equipo de piso</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Tarea o confianza: qué dice la evidencia sobre el conflicto y la reparación en un equipo de piso</h2>
+<p>Dos supervisores no están de acuerdo sobre cómo secuenciar un pedido urgente. Treinta segundos después, una de ellas ya no solo defiende un horario—defiende si su criterio puede confiarse en absoluto. Décadas de investigación sobre conflicto y confianza en equipos explican por qué ese giro ocurre tan rápido, y qué repara realmente la situación una vez que ocurre.</p>
+<h3>Dos conflictos, no uno</h3>
+<p>Jehn (1995) traza una línea clara entre el conflicto de tarea—desacuerdo sobre qué hacer, cómo secuenciar el trabajo, qué método es correcto—y el conflicto de relación—fricción sobre quién es alguien, tensión personal, desconfianza. Un metaanálisis posterior de De Dreu y Weingart (2003) encontró que el conflicto de tarea, mantenido en un nivel moderado, no perjudica de manera confiable el desempeño del equipo; el conflicto de relación sí lo hace de forma consistente, arrastrando hacia abajo tanto el desempeño como la satisfacción. El problema en el piso no es que exista el desacuerdo. Es que un desacuerdo sobre el trabajo se desliza habitualmente hacia un desacuerdo sobre la persona dentro del mismo intercambio, sin que nadie nombre que el tema acaba de cambiar.</p>
+<h3>La confianza descansa sobre tres patas</h3>
+<p>El modelo integrador de confianza de Mayer, Davis y Schoorman (1995) la describe como algo que descansa sobre tres juicios distintos que una persona hace sobre otra: <strong>capacidad</strong> (¿puede realmente hacer este trabajo?), <strong>benevolencia</strong> (¿me quiere bien, o solo vela por sí mismo?), e <strong>integridad</strong> (¿cumple su palabra y dice la verdad, incluso cuando le cuesta?). Un supervisor que suelta «no confío en tu conteo» después de un desacuerdo de horario puede estar reaccionando a cualquiera de estas tres—y tratarlas como intercambiables es exactamente donde fallan los intentos de reparación.</p>
+<h3>Qué pata se tambaleó cambia la reparación</h3>
+<p>Kim, Ferrin, Cooper y Dirks (2004) probaron cómo responde la gente a dos tipos distintos de violaciones de confianza. Ante una violación <strong>basada en competencia</strong>—un error honesto, un defecto no detectado, un plazo mal calculado—una disculpa junto con una corrección concreta suele restaurar la confianza razonablemente bien; la gente perdona una brecha de capacidad una vez que se nombra y se atiende. Ante una violación <strong>basada en integridad</strong>—alguien ocultó un error, rompió una promesa, o fue descubierto en una mentira—una disculpa por sí sola suele aterrizar mucho más débil de lo que espera quien la ofrece. Reconstruir ese tipo de confianza requiere un comportamiento consistente y verificable sostenido en el tiempo, no una conversación bien formulada en el momento. Tratar una mentira como un descuido, o un descuido como una mentira, desperdicia el intento de reparación en el problema equivocado.</p>
+<h3>La seguridad psicológica evita que el conflicto de tarea se vuelva personal</h3>
+<p>Edmondson (1999) encontró que los equipos con mayor seguridad psicológica—donde los miembros creen que pueden hablar, discrepar o admitir un error sin ser castigados por ello—muestran más comportamiento de aprendizaje: más reporte de errores, más desacuerdo abierto sobre el trabajo, corrección más rápida. Esa seguridad es lo que permite plantear y resolver un desacuerdo genuino de tarea sin que ninguna de las partes lo lea como un ataque de carácter, y lo que permite que un error real salga a la luz temprano, mientras todavía es pequeño y barato de corregir.</p>
+<h3>Qué significa esto para un líder de piso</h3>
+<p>Dos movimientos, antes de responder a un momento tenso: primero, nombra si la fricción frente a ti es realmente sobre la tarea—el conteo, la secuencia, la decisión—o si ya se convirtió en una cuestión de confianza. Segundo, si es confianza, nombra qué pata se tambalea: capacidad, benevolencia o integridad. Un supervisor que trata cada desacuerdo como un ataque personal provocará un conflicto de relación donde no era necesario que existiera. Un supervisor que trata cada ruptura de confianza como una brecha de capacitación—disculpándose y siguiendo adelante cuando el problema real era la honestidad—descubrirá que la disculpa no se sostiene, y la cuadrilla notará que no lo hizo.</p>
+<h3>Referencias seleccionadas</h3>
+<ul>
+<li>Jehn, K. A. (1995). A multimethod examination of the benefits and detriments of intragroup conflict. <em>Administrative Science Quarterly, 40</em>(2), 256–282.</li>
+<li>De Dreu, C. K. W., &amp; Weingart, L. R. (2003). Task versus relationship conflict, team performance, and team member satisfaction: A meta-analysis. <em>Journal of Applied Psychology, 88</em>(4), 741–749.</li>
+<li>Mayer, R. C., Davis, J. H., &amp; Schoorman, F. D. (1995). An integrative model of organizational trust. <em>Academy of Management Review, 20</em>(3), 709–734.</li>
+<li>Kim, P. H., Ferrin, D. L., Cooper, C. D., &amp; Dirks, K. T. (2004). Removing the shadow of suspicion: The effects of apology versus denial for repairing competence- versus integrity-based trust violations. <em>Journal of Applied Psychology, 89</em>(1), 104–118.</li>
+<li>Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(2), 350–383.</li>
+</ul>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>La disculpa que no aterrizó</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>La disculpa que no aterrizó</h2>
+<p>El trimestre pasado me faltó una tarima en un conteo, y le costó al siguiente turno cuarenta minutos desenredar un embarque. Cuando mi contraparte del segundo turno se enteró, hice lo que pensé que era lo correcto: me disculpé rápido, asumí el error de conteo, y le expliqué exactamente cómo había pasado. Asintió, dijo que estaba bien, y luego pasó las siguientes dos semanas revisando dos veces cada número que le enviaba.</p>
+<p>Eso me dijo que la disculpa en realidad no había aterrizado, y me tomó un tiempo entender por qué.</p>
+<p>Seguí asumiendo que el problema era el error de conteo en sí—que si explicaba el error con suficiente claridad, y no volvía a pasar, la tensión se disolvería sola. Pero cuando finalmente le pregunté directamente qué seguía molestándole, no era el número. Me dijo: «Lo sabías antes de que terminara tu turno y a mí no me llegó hasta la mañana». Esa fue la ruptura real: no que yo cometiera un error, sino que él sintió que me lo guardé. Para él, eso se leía menos como un error y más como algo cercano a que lo dejaran en la oscuridad.</p>
+<p>Me había disculpado por lo equivocado. Estaba tratando una pregunta sobre mi honestidad como si fuera una pregunta sobre mi conteo, y ninguna cantidad de repasar los números iba a arreglar eso. Lo que él necesitaba no era otra explicación—era prueba, a lo largo de varios turnos, de que sabría de mí en el momento en que algo se viera mal, no después de que yo hubiera tenido tiempo de pensar cómo plantearlo.</p>
+<p>Así que cambié lo que hacía, no solo lo que decía. Durante el siguiente mes, si algo en mi turno se veía aunque fuera un poco raro, le escribía antes de marcar salida—a veces sobre cosas que resultaban no ser nada. Se sentía como sobrecorregir. No lo era. Por ahí del tercer o cuarto mensaje, dejó de volver a revisar mis números.</p>
+<p>Antes pensaba que una disculpa era una disculpa—decir las palabras correctas, decirlas en serio, seguir adelante. Ahora me hago una pregunta antes de abrir la boca: ¿esta persona está cuestionando si puedo hacer el trabajo, o si puede creer lo que le digo? Esas no son la misma reparación. Una brecha de habilidad se cierra con una corrección y una demostración. Una brecha de confianza se cierra con un historial, y no hay atajo para eso con mejores palabras.</p>
+<p>Todavía les digo a los supervisores nuevos de mi cuadrilla: si alguien sigue frío después de que te disculpaste, probablemente te disculpaste por lo equivocado. Pregunta qué se rompió realmente antes de intentar arreglarlo de nuevo.</p>
+<p class="article-signature">Curaduría de {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Autodiagnóstico — ¿Peleas la tarea o peleas a la persona?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Este diagnóstico se abrirá en <strong>Google Forms</strong> para que tus respuestas se mantengan privadas y recibas tu perfil al enviar — no dentro de esta página.</p><p class="gate-note">Las preguntas y el puntaje viven en el formulario. Aquí aún no hay nada que completar.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Caso 1 — Priya y el conteo faltante</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 1 — Priya y el conteo faltante</h2>
+<h3>Apertura</h3>
+<p>Priya lidera el cierre de inventario en el turno vespertino de un centro de distribución. Ha manejado el proceso de cierre durante dos años sin un error serio y es conocida por detectar los errores de otros antes de que salgan del edificio. Esta noche, apurada por terminar antes del corte del camión, firma un conteo al que le falta una tarima.</p>
+<h3>Contexto</h3>
+<p>El faltante no se descubre hasta que Jordan, el líder de recepción del turno matutino, intenta conciliar el manifiesto y le falta exactamente la cantidad que el conteo de Priya no captó. Jordan tiene que detener un camión durante cuarenta minutos mientras el piso busca la tarima faltante, que resulta haber sido mal escaneada, no perdida. Jordan, frustrado, dice frente a otros dos líderes: &quot;Ya no sé si puedo confiar en tus conteos&quot;. Priya siente la acusación más grande que el error—nunca antes había fallado un conteo así, y el comentario de Jordan suena a que se trata de algo más que una mala noche.</p>
+<h3>Punto de decisión</h3>
+<p>Priya puede:</p>
+<ol>
+<li>Disculparse de inmediato y explicar exactamente cómo ocurrió el error de conteo, asumiendo que la explicación misma resolverá la preocupación de Jordan.</li>
+<li>Preguntarle a Jordan directamente qué es específicamente lo que lo hace dudar—el error en sí, o algo sobre cómo se desarrolló—antes de decidir qué tipo de reparación ofrecer.</li>
+<li>Minimizarlo como un caso aislado y señalar su historial de dos años, esperando que el historial hable por sí solo sin más conversación.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿El comentario de Jordan es más probablemente sobre la capacidad de Priya para contar correctamente, o sobre algo completamente distinto—y cómo sabría Priya cuál es sin preguntar?</li>
+<li>Si esta es una cuestión de confianza basada en competencia, ¿qué reparación la reconstruye realmente, más allá de una disculpa?</li>
+<li>¿Qué cambiaría en la respuesta de Priya si Jordan hubiera dicho &quot;no sé si puedo confiar en lo que me dices&quot; en lugar de &quot;confiar en tus conteos&quot;?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Caso 2 — Darío y el defecto oculto</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Caso 2 — Darío y el defecto oculto</h2>
+<h3>Apertura</h3>
+<p>Darío opera una estación de prensa en una línea de ensamble supervisada por Renee. A la mitad de un turno, nota un defecto en una corrida que ya empacó y selló para envío. Reportarlo significaría detener la línea, reabrir un lote sellado, y no cumplir la meta de producción del turno. Darío decide no decir nada, esperando que el defecto sea lo suficientemente menor como para no importar.</p>
+<h3>Contexto</h3>
+<p>El defecto sale a la luz una semana después, cuando el cliente devuelve el lote. Renee lo rastrea hasta la estación de Darío y confirma, con registros con marca de tiempo, que él marcó la corrida como limpia bastante después de que ya habría visto la falla. Cuando lo confronta, Darío se disculpa y dice que &quot;no pensó que fuera gran cosa&quot;. Renee se encuentra más inquieta por el silencio que por el defecto mismo—ahora lee cada reporte que Darío presenta asumiendo que puede haber algo que decidió no mencionar.</p>
+<h3>Punto de decisión</h3>
+<p>Renee puede:</p>
+<ol>
+<li>Aceptar la disculpa, recordarle a Darío el estándar de reporte, y tratarlo como resuelto una vez que termine la conversación.</li>
+<li>Nombrar directamente que el problema no es el defecto sino la decisión de no reportarlo, y establecer una forma específica y acotada en el tiempo para que Darío reconstruya que se puede confiar en sus reportes sin verificarlos dos veces.</li>
+<li>No decir nada más, pero empezar en silencio a reverificar ella misma la producción de Darío de ahí en adelante, sin decirle que eso fue lo que cambió.</li>
+</ol>
+<h3>Preguntas de discusión</h3>
+<ol>
+<li>¿Por qué una disculpa que probablemente resolvería un error honesto se queda corta aquí—qué está realmente roto, y qué demostraría que está arreglado?</li>
+<li>¿Cuál es el costo para Renee, y para el resto de la línea, de elegir la opción 3 en lugar de nombrar el problema directamente?</li>
+<li>Diseña una norma de piso que haría más seguro para alguien en la posición de Darío reportar un defecto de inmediato, incluso cuando le cueste la meta de producción del turno.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Marco — Lienzo de reparación de confianza: nombrar la ruptura antes de repararla</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Marco — Lienzo de reparación de confianza: nombrar la ruptura antes de repararla</h2>
+<p>Úsalo en el taller o imprímelo para el piso. Corre un lienzo por cada momento de fricción antes de responder a él.</p>
+<h3>1. La fricción (una frase)</h3>
+<p>¿Qué acaba de pasar, y cuál es la tensión en este momento?</p>
+<h3>2. Diagnóstico: ¿tarea o confianza?</h3>
+<ul>
+<li><strong>Solo tarea:</strong> Avanza—aborda el desacuerdo de trabajo directamente; no se necesita reparación más allá de resolver el punto.</li>
+<li><strong>Confianza involucrada:</strong> Continúa al paso 3.</li>
+</ul>
+<h3>3. ¿Qué pata se tambaleó?</h3>
+<div class="table-wrap"><table>
+<tr><th>Pata</th><th>¿Presente? (sí/no)</th><th>Por qué</th></tr>
+<tr><td>Capacidad — ¿duda de que esta persona (o tú) pueda hacer el trabajo?</td><td></td><td></td></tr>
+<tr><td>Benevolencia — ¿duda de que esta persona le quiera bien?</td><td></td><td></td></tr>
+<tr><td>Integridad — ¿duda de que esta persona dijera la verdad o cumpliera su palabra?</td><td></td><td></td></tr>
+</table></div>
+<h3>4. Ruta de reparación</h3>
+<ul>
+<li><strong>Tambaleo de capacidad:</strong> Disculpa más una corrección concreta, luego una repetición demostrada con apoyo visible.</li>
+<li><strong>Tambaleo de benevolencia:</strong> Nombra directamente la pregunta sobre la intención y pregunta qué demostraría que realmente te importó.</li>
+<li><strong>Tambaleo de integridad:</strong> Una disculpa por sí sola no cerrará esto. Comprométete a un comportamiento específico y verificable, sostenido durante un número determinado de turnos.</li>
+</ul>
+<h3>5. Visibilidad</h3>
+<p>¿Dónde ve la cuadrilla que la reparación ocurrió—no solo escucha que se discutió?</p>
+<h3>6. Dueño cuando no estás en turno</h3>
+<p>Nombre + respaldo, para que la reparación no se estanque cuando no estés ahí:</p>
+<h3>7. Nota de cierre</h3>
+<p>¿Qué habría hecho salir esta fricción a la luz antes—antes de que necesitara una reparación siquiera? Agrega una línea al registro de turno en cualquiera de los dos casos.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-play 1:1 — Nombrar un desacuerdo de tarea antes de que un par lo lea como desconfianza</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play 1:1 — Nombrar un desacuerdo de tarea antes de que un par lo lea como desconfianza</h2>
+<p><strong>Duración:</strong> 25–35 minutos</p>
+<p><strong>Propósito:</strong> Practicar plantear un desacuerdo genuino sobre el trabajo sin dejar que un par lo lea como un juicio sobre su capacidad—y reparar esa lectura si ocurre de todos modos.</p>
+<h3>Roles</h3>
+<p><strong>Rol 1 — Supervisor de primera línea (Diagnosticador)</strong></p>
+<p>No estás de acuerdo con la decisión de un par sobre una decisión de horario o secuencia que afecta a tu cuadrilla. Crees que el desacuerdo es completamente sobre el trabajo, no sobre la competencia del par, y necesitas decirlo con claridad sin suavizar el punto real.</p>
+<p><strong>Rol 2 — Supervisor par (A la defensiva)</strong></p>
+<p>Tuviste hace poco un incidente difícil donde una de tus decisiones fue cuestionada públicamente, y te dolió. Ahora escuchas cualquier desacuerdo sobre tus decisiones como una pregunta sobre si se puede confiar en ti para tomarlas. Solo bajarás la guardia si el Diagnosticador separa explícitamente el punto de tarea de cualquier juicio sobre ti.</p>
+<h3>Conflicto</h3>
+<p>¿Puede el Diagnosticador plantear el desacuerdo de tarea con claridad y lograr que se escuche como un desacuerdo de tarea—sin retroceder en el punto real, y sin dejar sin abordar la actitud defensiva del par?</p>
+<h3>Notas para el facilitador</h3>
+<ul>
+<li>Ronda 1 (8 min): El Diagnosticador plantea el desacuerdo de tarea; el par a la defensiva lo lee como personal y se resiste.</li>
+<li>Ronda 2 (8 min): El Diagnosticador nombra explícitamente la diferencia entre el punto de tarea y cualquier cuestión de confianza, y verifica a cuál está reaccionando realmente el par.</li>
+<li>Debrief (10 min): ¿Dónde casi suavizó el Diagnosticador el punto real para evitar la lectura personal? ¿Qué lenguaje específico separó los dos?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Role-play estratégico — Asegurar una norma de reparación de confianza tras un error público</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-play estratégico — Asegurar una norma de reparación de confianza tras un error público</h2>
+<p><strong>Duración:</strong> 40–50 minutos</p>
+<p><strong>Propósito:</strong> Practicar asegurar el respaldo para una práctica nombrada y basada en criterios de reparación de confianza, después de que un error se volviera visible para más de un turno.</p>
+<h3>Cuatro roles</h3>
+<ol>
+<li><strong>Supervisor (protagonista):</strong> Quiere aprobación para una práctica permanente: toda ruptura de confianza se diagnostica según qué pata se tambaleó—capacidad, benevolencia o integridad—antes de elegir y registrar una reparación.</li>
+<li><strong>Gerente de operaciones enfocado en velocidad (antagonista):</strong> Medido por rendimiento; ve las conversaciones de reparación como tiempo perdido y llama a la práctica &quot;pensar de más un error que ya está corregido&quot;.</li>
+<li><strong>Analista de calidad o seguridad (escéptico):</strong> Apoya la idea en principio pero necesita criterios nombrados para lo que cuenta como ruptura de confianza frente a fricción rutinaria, además de un límite de tiempo claro para cuánto debería tomar una reparación.</li>
+<li><strong>Supervisor par (aliado o indeciso):</strong> Apoyará la práctica si no convierte cada pequeño desacuerdo en un proceso formal de reparación, y si no se convierte en silencio en una forma de evitar conversaciones directas.</li>
+</ol>
+<h3>Tesis del conflicto</h3>
+<p>¿Puede el supervisor proteger una práctica de reparación nombrada, que diagnostica primero, para rupturas de confianza genuinas, sin verse débil ante el gerente de operaciones o vago ante el analista?</p>
+<h3>Señales de éxito</h3>
+<ul>
+<li>Patas de confianza nombradas (capacidad, benevolencia, integridad), no un genérico &quot;hablemos de sentimientos&quot;</li>
+<li>Una línea clara entre la fricción rutinaria de tarea y una ruptura de confianza real</li>
+<li>Un límite de tiempo fijo para la reparación, acordado de antemano</li>
+<li>Un registro visible de cuándo se usó la práctica y qué cambió</li>
+</ul>
+<h3>Preguntas para el debrief</h3>
+<ol>
+<li>¿Qué argumento aterrizó con el gerente de operaciones frente al analista?</li>
+<li>¿Cómo convirtió el supervisor &quot;diagnosticar antes de reparar&quot; en un lenguaje que se lee como control de riesgo, no como debilidad?</li>
+<li>¿Qué haría que la práctica desapareciera en silencio durante la próxima semana de crisis—y quién es responsable de prevenirlo?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Puntos clave — Nombrar la ruptura antes de repararla</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Puntos clave — Nombrar la ruptura antes de repararla</h2>
+<p><strong>Meta de la unidad:</strong> Distinguir un desacuerdo de tarea de una ruptura de confianza en el piso, y reparar la correcta a propósito—para que una decisión difícil no le cueste, en silencio, la confianza de la cuadrilla.</p>
+<h3>Ideas centrales</h3>
+<ul>
+<li><strong>Dos conflictos, no uno:</strong> el desacuerdo sobre el trabajo (conflicto de tarea) y la fricción sobre la persona (conflicto de relación) se comportan de manera distinta—el conflicto de tarea en un nivel moderado no es automáticamente dañino; el conflicto de relación sí lo es de forma consistente (Jehn, 1995; De Dreu &amp; Weingart, 2003).</li>
+<li><strong>La confianza tiene tres patas:</strong> capacidad, benevolencia e integridad (Mayer, Davis &amp; Schoorman, 1995). Una ruptura de confianza casi siempre es sobre una pata específica, no sobre «la confianza» en general.</li>
+<li><strong>La pata que se tambaleó decide la reparación:</strong> una ruptura de competencia responde a una disculpa más una corrección concreta; una ruptura de integridad necesita comportamiento consistente y verificado en el tiempo—una disculpa por sí sola suele quedarse corta (Kim, Ferrin, Cooper &amp; Dirks, 2004).</li>
+<li><strong>La seguridad psicológica evita que el desacuerdo se vuelva personal:</strong> los equipos donde la gente puede hablar y admitir errores sin castigo muestran más conflicto de tarea abierto y corrección más rápida, no menos (Edmondson, 1999).</li>
+<li><strong>El diagnóstico viene antes de la reparación:</strong> disculparse por un error cuando el problema real es la honestidad—o viceversa—desperdicia el intento, y la cuadrilla lo nota.</li>
+</ul>
+<h3>Lista de verificación para el líder de primera línea</h3>
+<ol>
+<li>Antes de responder a una fricción en el piso, nombra si se trata de la tarea o de la confianza.</li>
+<li>Si es confianza, nombra qué pata se tambaleó: capacidad, benevolencia o integridad.</li>
+<li>Iguala la reparación—una ruptura de competencia recibe disculpa más corrección; una ruptura de integridad recibe un historial sostenido y visible.</li>
+<li>Protege una norma de equipo donde discrepar sobre el trabajo sea seguro y no se lea automáticamente como un ataque personal.</li>
+<li>Registra la fricción y la reparación en algún lugar donde la cuadrilla pueda ver que ocurrió, no solo recordarlo.</li>
+</ol>
+<h3>Reflexión</h3>
+<p>Piensa en un conflicto de piso recurrente que sueles tratar de la misma manera siempre. ¿Es en realidad un desacuerdo de tarea que estás leyendo como personal, o una ruptura de confianza que estás tratando como una simple brecha de capacitación?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Compromiso — Proteger la conversación de reparación antes de necesitarla</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Próximamente</p><p>Tu plan de compromiso se abrirá en <strong>Google Forms</strong> para que puedas enviarlo y guardar un registro — no como campos rellenables en esta página.</p><p class="gate-note">Nada que completar aquí hasta que el enlace del formulario esté listo.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Resiliencia y resonancia emocional · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>

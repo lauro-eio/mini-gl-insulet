@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Regression to the Mean is defined as the statistical phenomenon where extreme performances tend to move closer to the average on subsequent measurements due to random fluctuations. Which term best describes this phenomenon?",
+    "options": [
+      "Regression to the Mean",
+      "Correlation Coefficient",
+      "Filial Regression",
+      "Talent + Luck Formula"
+    ],
+    "correct_answer_text": "Regression to the Mean",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "According to the provided definitions, what is the range of the Correlation Coefficient?",
+    "options": [
+      "0 to 1",
+      "-1 to 1",
+      "1 to 10",
+      "0 to 100"
+    ],
+    "correct_answer_text": "0 to 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept, introduced by Galton, illustrates how offspring measurements (e.g., height) tend to be closer to the population mean than those of the parents?",
+    "options": [
+      "Regression to the Mean",
+      "Filial Regression",
+      "Talent + Luck Formula",
+      "System 1 and System 2 Thinking"
+    ],
+    "correct_answer_text": "Filial Regression",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which expression encapsulates the idea that success is the sum of one’s talent and the influence of luck?",
+    "options": [
+      "Regression to the Mean",
+      "Correlation Coefficient",
+      "Filial Regression",
+      "Talent + Luck Formula"
+    ],
+    "correct_answer_text": "Talent + Luck Formula",
+    "correct_key": "D"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Extreme performances tend to move closer to the group average on subsequent attempts due to random variability rather than systematic factors.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "A correlation coefficient, as defined in the source, is a numerical measure ranging strictly between 0 and 1 that indicates both the strength and direction of a relationship.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Filial Regression implies that offspring measurements, like height, shift closer to the population mean compared to their parents’ measurements.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "System 1 thinking is characterized by slow, analytical processes while System 2 thinking is fast and intuitive.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

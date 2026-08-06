@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Which decision-making model evaluates outcomes as gains and losses relative to a reference point rather than by the final state of wealth?",
+    "options": [
+      "Utility Theory",
+      "Prospect Theory",
+      "Loss Aversion",
+      "Diminishing Sensitivity"
+    ],
+    "correct_answer_text": "Prospect Theory",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which principle states that the subjective impact of incremental changes decreases as the magnitude of wealth increases?",
+    "options": [
+      "Diminishing Sensitivity",
+      "Loss Aversion",
+      "Reference Point",
+      "Utility Theory"
+    ],
+    "correct_answer_text": "Diminishing Sensitivity",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "According to Utility Theory, upon what is the value of wealth primarily based?",
+    "options": [
+      "Relative changes to a reference point",
+      "Final state of wealth",
+      "Emotional responses",
+      "Incremental changes"
+    ],
+    "correct_answer_text": "Final state of wealth",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What serves as the baseline for evaluating gains and losses in decision-making models?",
+    "options": [
+      "Diminishing Sensitivity",
+      "Reference Point",
+      "Loss Aversion",
+      "Prospect Theory"
+    ],
+    "correct_answer_text": "Reference Point",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Prospect Theory evaluates outcomes solely based on the final state of wealth.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Loss Aversion describes the phenomenon where losses are experienced more intensely than gains of equivalent magnitude.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Loss Aversion Ratio is a numerical measure that typically ranges from 1.5 to 2.5.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Diminishing Sensitivity implies that the subjective effect of changes in wealth remains unaffected by the scale of the wealth level.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

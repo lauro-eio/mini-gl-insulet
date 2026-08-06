@@ -1,0 +1,305 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the primary thesis of Chapter 16 – Schooling the Emotions Synthesis Report?",
+    "options": [
+      "Academic instruction alone is sufficient for development",
+      "Emotional literacy is a critical, teachable skill integrated into the everyday curriculum",
+      "Physical education is the core focus of the curriculum",
+      "Technology integration is the primary goal in schools"
+    ],
+    "correct_answer_text": "Emotional literacy is a critical, teachable skill integrated into the everyday curriculum",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which tool is explicitly mentioned as part of the Self Science Curriculum?",
+    "options": [
+      "Reading log",
+      "Feelings cube",
+      "Meditation bell",
+      "Peer-review sheet"
+    ],
+    "correct_answer_text": "Feelings cube",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which step is included in the 'stoplight' method for teaching impulse control?",
+    "options": [
+      "Ignore emotional triggers",
+      "Pause",
+      "Rush decisions",
+      "Implement punitive measures"
+    ],
+    "correct_answer_text": "Pause",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which key concept emphasizes adjusting lesson plans according to children’s developmental stages?",
+    "options": [
+      "Teacher empowerment",
+      "Developmental appropriateness",
+      "Parental involvement",
+      "Academic acceleration"
+    ],
+    "correct_answer_text": "Developmental appropriateness",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Embedding which of the following into core subjects is a focus of the chapter?",
+    "options": [
+      "Historical analysis",
+      "Emotional skills",
+      "Physical education techniques",
+      "Standardized testing methods"
+    ],
+    "correct_answer_text": "Emotional skills",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Which daily practice is recommended to help students articulate and monitor emotions?",
+    "options": [
+      "Multiple-choice quizzes",
+      "Silent reading assignments",
+      "Roll the feelings cube exercise",
+      "Group debates"
+    ],
+    "correct_answer_text": "Roll the feelings cube exercise",
+    "correct_key": "C"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What is one of the overarching benefits of integrating social and emotional learning as stated in the chapter?",
+    "options": [
+      "Increased academic decline",
+      "Enhanced technology skills",
+      "Prevention of violence and social dysfunction",
+      "Reduction of extracurricular involvement"
+    ],
+    "correct_answer_text": "Prevention of violence and social dysfunction",
+    "correct_key": "C"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which action is proposed to address the neglect of children’s emotional development in traditional education systems?",
+    "options": [
+      "Extending school hours",
+      "Integrating emotional lessons into daily curriculum",
+      "Focusing solely on academic subjects",
+      "Eliminating classroom discussions"
+    ],
+    "correct_answer_text": "Integrating emotional lessons into daily curriculum",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Which conflict resolution technique is highlighted in the chapter?",
+    "options": [
+      "Negotiation races",
+      "Stoplight method",
+      "Silent meditation sessions",
+      "Rapid response tactics"
+    ],
+    "correct_answer_text": "Stoplight method",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Who is identified as playing a critical role in modeling emotional competence?",
+    "options": [
+      "School janitors",
+      "Substitute teachers",
+      "Specialized, trained educators",
+      "Cafeteria staff"
+    ],
+    "correct_answer_text": "Specialized, trained educators",
+    "correct_key": "C"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which method is suggested for engaging parents and communities in reinforcing emotional lessons?",
+    "options": [
+      "Traditional grading systems",
+      "Standardized tests",
+      "Workshops and coordinated programs",
+      "Online surveys"
+    ],
+    "correct_answer_text": "Workshops and coordinated programs",
+    "correct_key": "C"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "What is the purpose of structured conflict-resolution exercises such as silent teamwork games?",
+    "options": [
+      "To encourage passive behavior",
+      "To practice active listening and assertiveness",
+      "To reduce classroom interaction",
+      "To eliminate group problem-solving practices"
+    ],
+    "correct_answer_text": "To practice active listening and assertiveness",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Which of the following is NOT a key concept mentioned in the chapter?",
+    "options": [
+      "Self Science Curriculum",
+      "Peer mediation",
+      "Financial literacy",
+      "Empathy"
+    ],
+    "correct_answer_text": "Financial literacy",
+    "correct_key": "C"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "Integrating emotional lessons into subjects like reading, math, and health is intended to:",
+    "options": [
+      "Distract students from core academics",
+      "Contextualize feelings and relationships in everyday learning",
+      "Confuse students with mixed content",
+      "Promote rote memorization techniques"
+    ],
+    "correct_answer_text": "Contextualize feelings and relationships in everyday learning",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "How does the chapter propose that teachers effectively deliver emotional literacy content?",
+    "options": [
+      "Through unstructured, casual conversations",
+      "By implementing specialized teacher training programs",
+      "By solely focusing on student discipline",
+      "By ignoring emotional aspects in classroom instruction"
+    ],
+    "correct_answer_text": "By implementing specialized teacher training programs",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The report asserts that emotional literacy should be integrated into the everyday curriculum to foster well-rounded individuals.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "The 'roll the feelings cube' exercise is designed to monitor academic performance rather than emotions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "The stoplight method includes steps such as pausing, articulating feelings, and brainstorming solutions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "The chapter suggests that integrating emotional lessons into subjects like math and reading is unnecessary.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Community and parental involvement is identified as critical for reinforcing emotional lessons beyond the classroom.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Teacher training in emotional competence is depicted as optional if curricular integration is strong.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "The chapter emphasizes that emotional literacy can help prevent violence, social dysfunction, and academic decline.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Social-emotional learning (SEL) is one of the key concepts outlined in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "According to the chapter, academic instruction alone is sufficient for a child’s overall development.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Adjusting lesson plans to align with children’s developmental stages is an actionable step mentioned in the chapter.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+   

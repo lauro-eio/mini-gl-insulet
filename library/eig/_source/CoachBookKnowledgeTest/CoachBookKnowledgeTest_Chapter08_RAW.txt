@@ -1,0 +1,249 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the definition of social intelligence as presented in the chapter?",
+    "options": ["The ability to read, manage, and influence both one’s own and others’ emotions", "The ability to regulate only one’s emotions", "A technique for role-playing social scenarios", "A process of synchronizing nonverbal cues"],
+    "correct_answer_text": "The ability to read, manage, and influence both one’s own and others’ emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which key concept refers to the unconscious transmission and synchronization of moods between individuals?",
+    "options": ["Display Rules", "Emotional Contagion", "Synchrony", "Emotional Entrainment"],
+    "correct_answer_text": "Emotional Contagion",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept describes the culturally and socially determined norms that guide how emotions are expressed?",
+    "options": ["Dyssemia", "Display Rules", "Social Intelligence", "Emotional Entrainment"],
+    "correct_answer_text": "Display Rules",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What does the term 'synchrony' refer to in interpersonal interactions?",
+    "options": ["The alignment of nonverbal cues such as gestures, facial expressions, and tone", "The ability to control one’s own emotional states", "The transmission of moods between individuals", "The deliberate misinterpretation of cues"],
+    "correct_answer_text": "The alignment of nonverbal cues such as gestures, facial expressions, and tone",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which term is used to describe the difficulty in interpreting and using nonverbal signals?",
+    "options": ["Emotional Contagion", "Dyssemia", "Social Intelligence", "Modeling Display Rules"],
+    "correct_answer_text": "Dyssemia",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Which actionable step involves carefully watching others' body language and facial expressions to read their emotional signals?",
+    "options": ["Observe Social Cues", "Employ Mirroring Techniques", "Practice Empathetic Listening", "Self-Monitor Emotions"],
+    "correct_answer_text": "Observe Social Cues",
+    "correct_key": "A"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What does it mean to model appropriate display rules according to the chapter?",
+    "options": ["Expressing emotions in a controlled manner that aligns with cultural and situational norms", "Suppressing all emotional expressions", "Expressing emotions without considering the social context", "Allowing emotions to flow freely regardless of setting"],
+    "correct_answer_text": "Expressing emotions in a controlled manner that aligns with cultural and situational norms",
+    "correct_key": "A"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which strategy involves using subtle mimicry of gestures or expressions to foster synchrony and rapport?",
+    "options": ["Use Distraction Strategies", "Employ Mirroring Techniques", "Self-Monitor Emotions", "Role-Play Social Scenarios"],
+    "correct_answer_text": "Employ Mirroring Techniques",
+    "correct_key": "B"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "What actionable step requires fully engaging with others by reflecting their emotional states through both verbal and nonverbal feedback?",
+    "options": ["Practice Empathetic Listening", "Observe Social Cues", "Employ Mirroring Techniques", "Model Appropriate Display Rules"],
+    "correct_answer_text": "Practice Empathetic Listening",
+    "correct_key": "A"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Which technique is described as guiding the other person toward a neutral or positive focus in emotionally charged situations?",
+    "options": ["Use Distraction Strategies", "Observe Social Cues", "Employ Mirroring Techniques", "Self-Monitor Emotions"],
+    "correct_answer_text": "Use Distraction Strategies",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "What is the purpose of role-playing social scenarios as described in the chapter?",
+    "options": ["To rehearse various interactions and build self-control", "To ignore nonverbal cues", "To increase internal regulation without interaction", "To enhance memorization of display rules"],
+    "correct_answer_text": "To rehearse various interactions and build self-control",
+    "correct_key": "A"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Which actionable step involves checking in with personal feelings during interactions to prevent emotional overflow?",
+    "options": ["Self-Monitor Emotions", "Observe Social Cues", "Employ Mirroring Techniques", "Use Distraction Strategies"],
+    "correct_answer_text": "Self-Monitor Emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "According to the chapter, miscommunication in relationships is primarily caused by what?",
+    "options": ["Poor role-playing techniques", "Inadequate internal regulation", "Poorly managed nonverbal cues and inability to modulate emotional displays", "Excessive empathetic listening"],
+    "correct_answer_text": "Poorly managed nonverbal cues and inability to modulate emotional displays",
+    "correct_key": "C"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "Which key concept highlights the capacity to organize groups, mediate conflicts, and connect on an empathetic level?",
+    "options": ["Social Intelligence", "Emotional Entrapment", "Emotional Contagion", "Dyssemia"],
+    "correct_answer_text": "Social Intelligence",
+    "correct_key": "A"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "How is emotional entrainment described in this chapter?",
+    "options": ["As the unconscious transmission of moods", "As the deliberate management of display rules", "As the process by which one person’s expressive force sets the tempo of another’s emotional state", "As the difficulty in interpreting nonverbal signals"],
+    "correct_answer_text": "As the process by which one person’s expressive force sets the tempo of another’s emotional state",
+    "correct_key": "C"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The chapter defines social intelligence as the ability to read, manage, and influence emotions in oneself only.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Emotional contagion involves the unconscious transmission and synchronization of moods between individuals.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Display rules are universally identical and not influenced by cultural or social factors.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Synchrony refers to the alignment of nonverbal cues during interactions that fosters rapport.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Social intelligence is only about organizing groups and does not involve mediating conflicts.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Emotional entrainment occurs when one individual's expressive force sets the tempo of another's emotional state.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Dyssemia refers to the ease with which nonverbal signals are interpreted, leading to enhanced social competence.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Observing social cues is an actionable step that improves one’s ability to accurately read others’ emotions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Modeling appropriate display rules means ignoring cultural and situational norms when expressing emotions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Employing mirroring techniques involves subtly mimicking another's gestures or expressions to foster emotional rapport.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Practicing empathetic listening requires only verbal engagement, without the need for nonverbal feedback.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Using distraction strategies in emotionally charged situations helps to redirect focus to a neutral or positive topic.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "Role-playing social scenarios is recommended to build self-control and effective emotional responses.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "Self-monitoring emotions involves regularly checking one’s personal feelings to prevent emotional overflow during interactions.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "According to the chapter, miscommunication in relationships is solely the result of verbal misunderstandings.",
+    "options": ["TRUE", "FALSE"],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]
+--- END JSON DATA ---
+
+--- START REVIEW TEXT ---
+1. What is the definition of social intelligence as presented in the chapter? 
+   Answer: The ability to read, manage, and influence both one’s own and others’ emotions.
+

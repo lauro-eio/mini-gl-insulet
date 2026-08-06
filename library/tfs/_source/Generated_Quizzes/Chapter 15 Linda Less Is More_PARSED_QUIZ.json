@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Linda Problem is primarily used to illustrate which of the following phenomena?",
+    "options": [
+      "Representativeness Heuristic",
+      "Logical Summation",
+      "Evaluation Method Effects",
+      "Less-Is-More Effect"
+    ],
+    "correct_answer_text": "Representativeness Heuristic",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "The conjunction fallacy is best described as which of the following errors?",
+    "options": [
+      "Assuming that a single event is less probable than its detailed alternative",
+      "Assuming that a conjunction of events is more probable than a constituent event",
+      "Overestimating outcomes due to frequency representation",
+      "Reversing logical probability through dual processing"
+    ],
+    "correct_answer_text": "Assuming that a conjunction of events is more probable than a constituent event",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which definition best characterizes the representativeness heuristic?",
+    "options": [
+      "The tendency to judge the frequency of an event based on its similarity to a prototype",
+      "The systematic comparison between options in joint evaluation",
+      "The logical process of adding details to reduce probability",
+      "The slow, analytical mode of decision-making in System 2"
+    ],
+    "correct_answer_text": "The tendency to judge the frequency of an event based on its similarity to a prototype",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "What is the primary distinction between System 1 and System 2 processing?",
+    "options": [
+      "System 1 is slow and methodical, while System 2 is fast and intuitive",
+      "System 1 operates on intuitive, rapid responses, whereas System 2 involves deliberate, logical reasoning",
+      "System 1 assesses representativeness and System 2 applies the conjunction fallacy",
+      "System 1 is used in joint evaluation, while System 2 is used in single evaluation"
+    ],
+    "correct_answer_text": "System 1 operates on intuitive, rapid responses, whereas System 2 involves deliberate, logical reasoning",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The Linda problem is designed to demonstrate a violation of logical probability rules by employing an illustrative fictitious scenario.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The conjunction fallacy entails judging a conjunctive event as less probable than a single constituent event.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The representativeness heuristic involves comparing new events to an existing mental prototype to determine their likelihood.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Joint evaluation versus single evaluation refers to experimental conditions affecting perceived value or probability, not to the differences in System 1 versus System 2 processing.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

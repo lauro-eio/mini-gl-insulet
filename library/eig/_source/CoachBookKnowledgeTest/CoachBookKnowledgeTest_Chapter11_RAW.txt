@@ -1,0 +1,323 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What is the primary thesis of the chapter regarding emotional intelligence in medical care?",
+    "options": [
+      "Focusing solely on physical symptoms improves outcomes",
+      "Integration of emotional intelligence into medical care is essential",
+      "Relying only on medications is sufficient for recovery",
+      "Emphasizing technical procedures is paramount"
+    ],
+    "correct_answer_text": "Integration of emotional intelligence into medical care is essential",
+    "correct_key": "B"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which concept describes the interdependence between psychological states and physical health?",
+    "options": [
+      "Psychoneuroimmunology",
+      "Stress Hormones",
+      "Mind-Body Connection",
+      "Chronic Emotional Distress"
+    ],
+    "correct_answer_text": "Mind-Body Connection",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What field focuses on the interaction between the nervous, endocrine, and immune systems?",
+    "options": [
+      "Psychoneuroimmunology",
+      "Emotional Interventions",
+      "Relationship-Centered Care",
+      "Patient Communication Training"
+    ],
+    "correct_answer_text": "Psychoneuroimmunology",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which of the following is NOT considered a stress hormone as mentioned in the chapter?",
+    "options": [
+      "Catecholamines",
+      "Cortisol",
+      "Other biochemical mediators",
+      "Insulin"
+    ],
+    "correct_answer_text": "Insulin",
+    "correct_key": "D"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "What term is used to describe sustained negative emotions such as anger, anxiety, depression, and hostility affecting physical health?",
+    "options": [
+      "Acute Stress Response",
+      "Chronic Emotional Distress",
+      "Mindfulness",
+      "Emotional Intelligence"
+    ],
+    "correct_answer_text": "Chronic Emotional Distress",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "What does Relationship-Centered Care primarily emphasize?",
+    "options": [
+      "Strict adherence to medical protocols",
+      "Empathic communication and meaningful interactions",
+      "Technological innovation in patient monitoring",
+      "Isolation of treatment approaches"
+    ],
+    "correct_answer_text": "Empathic communication and meaningful interactions",
+    "correct_key": "B"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "Which option is an example of an Emotional Intervention mentioned in the chapter?",
+    "options": [
+      "Routine physical examinations",
+      "Presurgical counseling with anxiety-reduction strategies",
+      "Increasing medication dosages",
+      "Reducing patient-provider communication"
+    ],
+    "correct_answer_text": "Presurgical counseling with anxiety-reduction strategies",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which actionable step involves the use of standardized evaluations to measure patient emotions?",
+    "options": [
+      "Presurgical Counseling",
+      "Patient Communication Training",
+      "Routine Emotional Assessment",
+      "Mindfulness and Relaxation Programs"
+    ],
+    "correct_answer_text": "Routine Emotional Assessment",
+    "correct_key": "C"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "Educating patients on how to formulate and ask relevant questions about their treatment is known as:",
+    "options": [
+      "Support Group Initiatives",
+      "Empathy Training for Medical Staff",
+      "Patient Communication Training",
+      "Journaling Exercises"
+    ],
+    "correct_answer_text": "Patient Communication Training",
+    "correct_key": "C"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "Which actionable step is implemented preoperatively to include relaxation techniques and detailed explanations of procedures?",
+    "options": [
+      "Presurgical Counseling",
+      "Mindfulness and Relaxation Programs",
+      "Routine Emotional Assessment",
+      "Inclusion of Family in Care"
+    ],
+    "correct_answer_text": "Presurgical Counseling",
+    "correct_key": "A"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Offering yoga and mindfulness training to help patients manage stress exemplifies which actionable step?",
+    "options": [
+      "Support Group Initiatives",
+      "Presurgical Counseling",
+      "Mindfulness and Relaxation Programs",
+      "Patient Communication Training"
+    ],
+    "correct_answer_text": "Mindfulness and Relaxation Programs",
+    "correct_key": "C"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "Which step involves providing workshops on active listening and empathy for medical staff?",
+    "options": [
+      "Empathy Training for Medical Staff",
+      "Journaling Exercises",
+      "Routine Emotional Assessment",
+      "Patient Communication Training"
+    ],
+    "correct_answer_text": "Empathy Training for Medical Staff",
+    "correct_key": "A"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "Developing support groups for patients like cancer survivors is an example of which initiative?",
+    "options": [
+      "Journaling Exercises",
+      "Support Group Initiatives",
+      "Mindfulness Programs",
+      "Patient Communication Training"
+    ],
+    "correct_answer_text": "Support Group Initiatives",
+    "correct_key": "B"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "What technique is recommended to help patients process traumatic experiences and potentially improve immune function?",
+    "options": [
+      "Presurgical Counseling",
+      "Journaling Exercises",
+      "Mindfulness and Relaxation Programs",
+      "Empathy Training for Medical Staff"
+    ],
+    "correct_answer_text": "Journaling Exercises",
+    "correct_key": "B"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "Designing care protocols that allow family members to support patients during hospitalization is known as:",
+    "options": [
+      "Presurgical Counseling",
+      "Journaling Exercises",
+      "Routine Emotional Assessment",
+      "Inclusion of Family in Care"
+    ],
+    "correct_answer_text": "Inclusion of Family in Care",
+    "correct_key": "D"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "The chapter asserts that integrating emotional intelligence into medical care enhances overall health outcomes.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "The Mind-Body Connection implies that psychological states have no influence on physical health.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Psychoneuroimmunology deals with the interactions among the nervous, endocrine, and immune systems.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Catecholamines and cortisol are cited as examples of stress hormones that affect immune function.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Chronic Emotional Distress refers to short-lived emotional reactions with little impact on physical health.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Relationship-Centered Care is centered on empathic communication between patients and healthcare providers.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Routine Emotional Assessment is used to evaluate only patients' physical symptoms.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Patient Communication Training helps patients learn to ask relevant questions regarding their diagnoses and treatments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Presurgical Counseling involves preoperative sessions that include relaxation techniques and detailed procedural explanations.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Mindfulness and Relaxation Programs are designed to help patients achieve a relaxation response and better manage stress.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "Empathy Training for Medical Staff excludes active listening in its curriculum.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "Support Group Initiatives are intended to provide patients with the opportunity to share experiences and emotional relief.",
+    "options":

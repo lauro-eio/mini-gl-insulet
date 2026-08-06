@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Remembering self is best defined as the part of the self that evaluates life retrospectively by answering global life satisfaction questions.",
+    "options": [
+      "It measures moment-to-moment feelings",
+      "It uses real-time technology for sampling emotions",
+      "It evaluates life retrospectively",
+      "It segments the day into discrete episodes"
+    ],
+    "correct_answer_text": "It evaluates life retrospectively",
+    "correct_key": "C"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "The experiencing self is characterized by which of the following?",
+    "options": [
+      "Living through each moment with immediate feelings",
+      "Evaluating life satisfaction globally",
+      "Measuring pleasure and pain cumulatively",
+      "Calculating the percentage of unpleasant states"
+    ],
+    "correct_answer_text": "Living through each moment with immediate feelings",
+    "correct_key": "A"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which statement accurately describes the concept of Flow as defined by Csikszentmihalyi?",
+    "options": [
+      "A method for reconstructing daily episodes of emotion",
+      "A state of total absorption in an activity where interruptions are unwelcome",
+      "A ladder-based measure for evaluating life satisfaction",
+      "A calculation comparing negative and positive emotion intensities"
+    ],
+    "correct_answer_text": "A state of total absorption in an activity where interruptions are unwelcome",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "The Day Reconstruction Method (DRM) involves which of the following processes?",
+    "options": [
+      "Sampling real-time emotions with cell-phone beeps",
+      "Calculating a duration-weighted measure of affect",
+      "Reconstructing the previous day into discrete episodes for evaluation",
+      "Measuring accumulated pleasure and pain continuously"
+    ],
+    "correct_answer_text": "Reconstructing the previous day into discrete episodes for evaluation",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "The U-index is defined as the percentage of time an individual spends in an unpleasant state, calculated by comparing the intensity of negative and positive emotions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Edgeworth’s hedonimeter is an early method for measuring accumulated pleasure and pain over successive moments.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "The Cantril Self-Anchoring Striving Scale employs a ladder-based approach to assess overall life satisfaction.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Flow, as defined in the source material, allows for frequent interruptions without breaking the state of absorption.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

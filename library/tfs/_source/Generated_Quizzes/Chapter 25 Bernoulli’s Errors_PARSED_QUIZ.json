@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "Econs are depicted as rational and selfish agents, while Humans display cognitive biases and rely on limited information. Which statement best distinguishes \"Econs\" from \"Humans\"?",
+    "options": [
+      "Econs are rational and selfish while Humans are influenced by cognitive biases and limited information.",
+      "Econs are influenced by emotions whereas Humans are not.",
+      "Econs rely on heuristics and biases, unlike Humans.",
+      "Econs are inconsistent decision makers in contrast to Humans who act rationally."
+    ],
+    "correct_answer_text": "Econs are rational and selfish while Humans are influenced by cognitive biases and limited information.",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following accurately describes System 1 in human decision making?",
+    "options": [
+      "A slow, analytical process requiring deliberate effort.",
+      "A reflective mode that revisits past decisions.",
+      "A fast, intuitive mode that governs immediate judgments.",
+      "A calculated reasoning process derived solely from probabilities."
+    ],
+    "correct_answer_text": "A fast, intuitive mode that governs immediate judgments.",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Bernoulli’s Error specifically critiques which aspect of Bernoulli’s model?",
+    "options": [
+      "Its reliance on absolute wealth without considering reference dependence.",
+      "Its use of a linear utility function.",
+      "Its incorporation of diminishing marginal utility.",
+      "Its assumption that all agents are rational Econs."
+    ],
+    "correct_answer_text": "Its reliance on absolute wealth without considering reference dependence.",
+    "correct_key": "A"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Utility is defined as:",
+    "options": [
+      "The measurable monetary gain from an outcome.",
+      "The subjective satisfaction derived from different levels of wealth, often modeled by a utility function.",
+      "A cognitive bias leading to irrational decision making.",
+      "The logarithmic increase of wealth relative to physical stimulus."
+    ],
+    "correct_answer_text": "The subjective satisfaction derived from different levels of wealth, often modeled by a utility function.",
+    "correct_key": "B"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "WYSIATI refers to the cognitive bias where individuals rely solely on the information immediately available when making decisions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "Humans are characterized as consistently rational decision makers, much like Econs.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Expected Utility Theory evaluates choices by weighting outcomes by their probabilities under an assumption of rationality.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "Theory-induced Blindness describes a scenario where an adherence to a theoretical model helps individuals recognize its flaws and counterexamples.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  }
+]

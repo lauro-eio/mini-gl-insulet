@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is best described as which of the following?",
+    "options": [
+      "System 1",
+      "System 2",
+      "Flow",
+      "Ego Depletion"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which term refers to a state of effortless, deeply focused concentration that is considered an “optimal experience”?",
+    "options": [
+      "Ego Depletion",
+      "Flow",
+      "Cognitive Reflection Test",
+      "Algorithmic Mind"
+    ],
+    "correct_answer_text": "Flow",
+    "correct_key": "B"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which concept describes the phenomenon whereby exerting self-control in one task reduces the available mental energy for subsequent tasks?",
+    "options": [
+      "Law of Least Effort",
+      "System 2",
+      "Ego Depletion",
+      "Rationality"
+    ],
+    "correct_answer_text": "Ego Depletion",
+    "correct_key": "C"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which of the following terms identifies the component of System 2 that is responsible for slow, detailed, and demanding reasoning?",
+    "options": [
+      "System 1",
+      "Cognitive Reflection Test",
+      "Algorithmic Mind",
+      "Flow"
+    ],
+    "correct_answer_text": "Algorithmic Mind",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "System 2 operates automatically and effortlessly, just like System 1.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "The Law of Least Effort indicates that individuals naturally avoid tasks requiring high cognitive effort unless they are strongly motivated.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "Rationality, as defined in the content, is determined solely by high intellectual aptitude without the role of active, critical self-monitoring.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "The Cognitive Reflection Test (CRT) is designed to measure the tendency to override an intuitive answer in favor of a reflective and potentially correct response.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

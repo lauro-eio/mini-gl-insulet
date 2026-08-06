@@ -1,0 +1,380 @@
+--- START JSON DATA ---
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "What does the term 'Emotional Illiteracy' refer to, according to the chapter?",
+    "options": [
+      "A deficiency in understanding, expressing, and managing one’s own emotions",
+      "The ability to monitor and control emotional responses",
+      "The skill of reading social cues and resolving conflicts",
+      "A fixed negative outlook that predisposes children to depression"
+    ],
+    "correct_answer_text": "A deficiency in understanding, expressing, and managing one’s own emotions",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Which of the following outcomes is NOT associated with emotional illiteracy as mentioned in the chapter?",
+    "options": [
+      "Violence and mental illness",
+      "Substance abuse and academic failure",
+      "Long-term relational difficulties",
+      "Improved academic performance"
+    ],
+    "correct_answer_text": "Improved academic performance",
+    "correct_key": "D"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "What is the definition of 'Emotional Regulation' as presented in the chapter?",
+    "options": [
+      "The capacity to recover from emotional setbacks",
+      "The process of monitoring and controlling emotional responses",
+      "The misinterpretation of neutral cues as hostile",
+      "The fixed negative outlook that predisposes children to depression"
+    ],
+    "correct_answer_text": "The process of monitoring and controlling emotional responses",
+    "correct_key": "B"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "Which key concept involves interpreting neutral or benign cues as threatening?",
+    "options": [
+      "Emotional Regulation",
+      "Pessimistic Cognition",
+      "Perceptual Bias",
+      "Social Competence"
+    ],
+    "correct_answer_text": "Perceptual Bias",
+    "correct_key": "C"
+  },
+  {
+    "id": 5,
+    "type": "MC",
+    "question": "Which actionable step is designed to allow children to practice alternative responses in conflict situations?",
+    "options": [
+      "Reframing techniques",
+      "Role-playing exercises",
+      "Monitoring techniques",
+      "Friendship coaching sessions"
+    ],
+    "correct_answer_text": "Role-playing exercises",
+    "correct_key": "B"
+  },
+  {
+    "id": 6,
+    "type": "MC",
+    "question": "Which intervention involves teaching children to identify early signs of emotional escalation through physical cues such as muscle tension or flushing?",
+    "options": [
+      "Role-playing exercises",
+      "Friendship coaching sessions",
+      "Monitoring techniques",
+      "Reframing techniques"
+    ],
+    "correct_answer_text": "Monitoring techniques",
+    "correct_key": "C"
+  },
+  {
+    "id": 7,
+    "type": "MC",
+    "question": "What is the primary goal of teaching reframing techniques to children according to the chapter?",
+    "options": [
+      "To help children act impulsively",
+      "To reinterpret setbacks as opportunities for learning",
+      "To encourage physical aggression",
+      "To enhance academic rigor"
+    ],
+    "correct_answer_text": "To reinterpret setbacks as opportunities for learning",
+    "correct_key": "B"
+  },
+  {
+    "id": 8,
+    "type": "MC",
+    "question": "Which action step is specifically designed to improve social competence through structured interactions?",
+    "options": [
+      "Friendship coaching sessions",
+      "Longitudinal assessments",
+      "Reframing techniques",
+      "Monitoring techniques"
+    ],
+    "correct_answer_text": "Friendship coaching sessions",
+    "correct_key": "A"
+  },
+  {
+    "id": 9,
+    "type": "MC",
+    "question": "How does the chapter suggest integrating emotional education into the school curriculum?",
+    "options": [
+      "By focusing solely on academic subjects",
+      "By pairing academic lessons with emotional and social skills training",
+      "By eliminating lessons on self-awareness and impulse control",
+      "By emphasizing standardized testing"
+    ],
+    "correct_answer_text": "By pairing academic lessons with emotional and social skills training",
+    "correct_key": "B"
+  },
+  {
+    "id": 10,
+    "type": "MC",
+    "question": "What role do engaging parents and caregivers play in the actionable steps provided in the chapter?",
+    "options": [
+      "They are solely responsible for academic success",
+      "They ensure consistent emotional support and reinforcement at home",
+      "They are not involved in the emotional education process",
+      "They provide disciplinary action in schools"
+    ],
+    "correct_answer_text": "They ensure consistent emotional support and reinforcement at home",
+    "correct_key": "B"
+  },
+  {
+    "id": 11,
+    "type": "MC",
+    "question": "Which group is specifically targeted by the preventive programs mentioned in the chapter?",
+    "options": [
+      "Children with exceptional academic skills",
+      "At-risk groups showing early signs of aggression or withdrawal",
+      "Only children with physical disabilities",
+      "Students with no prior behavioral issues"
+    ],
+    "correct_answer_text": "At-risk groups showing early signs of aggression or withdrawal",
+    "correct_key": "B"
+  },
+  {
+    "id": 12,
+    "type": "MC",
+    "question": "What tool is recommended for tracking progress in emotional skills over time?",
+    "options": [
+      "Standardized tests",
+      "Longitudinal assessments",
+      "Daily quizzes",
+      "Parent-teacher meetings"
+    ],
+    "correct_answer_text": "Longitudinal assessments",
+    "correct_key": "B"
+  },
+  {
+    "id": 13,
+    "type": "MC",
+    "question": "According to the chapter, neglect of emotional literacy can lead to which cascade of problems?",
+    "options": [
+      "Improved family stability",
+      "A cascade of violence, mental illness, substance abuse, and academic failure",
+      "Increased emotional regulation",
+      "Enhanced social competence"
+    ],
+    "correct_answer_text": "A cascade of violence, mental illness, substance abuse, and academic failure",
+    "correct_key": "B"
+  },
+  {
+    "id": 14,
+    "type": "MC",
+    "question": "Which key concept is characterized as a fixed negative outlook that predisposes children to depression?",
+    "options": [
+      "Resilience",
+      "Emotional Regulation",
+      "Pessimistic Cognition",
+      "Self-Awareness"
+    ],
+    "correct_answer_text": "Pessimistic Cognition",
+    "correct_key": "C"
+  },
+  {
+    "id": 15,
+    "type": "MC",
+    "question": "What does the concept of 'Resilience' refer to as defined in the chapter?",
+    "options": [
+      "The ability to monitor emotional responses",
+      "The capacity to recover from emotional setbacks or stress",
+      "The skill of reframing challenges",
+      "The misinterpretation of emotional cues"
+    ],
+    "correct_answer_text": "The capacity to recover from emotional setbacks or stress",
+    "correct_key": "B"
+  },
+  {
+    "id": 16,
+    "type": "TF",
+    "question": "Emotional illiteracy impacts only academic performance and does not affect family or community stability.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 17,
+    "type": "TF",
+    "question": "Early deficits in recognizing, understanding, and managing emotions can destabilize both families and communities.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 18,
+    "type": "TF",
+    "question": "Emotional Regulation is defined as the misinterpretation of neutral cues as hostile.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 19,
+    "type": "TF",
+    "question": "Perceptual Bias involves the misinterpretation of neutral or benign cues as hostile, potentially fueling aggressive behavior.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 20,
+    "type": "TF",
+    "question": "Reframing techniques assist children in viewing setbacks, such as poor grades, as opportunities for learning rather than failures.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 21,
+    "type": "TF",
+    "question": "Friendship coaching sessions are implemented to decrease social competencies in children.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 22,
+    "type": "TF",
+    "question": "Integrating comprehensive emotional and social skills training into the curriculum involves pairing academic subjects with lessons on self-awareness, impulse control, and stress management.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 23,
+    "type": "TF",
+    "question": "Engaging parents and caregivers in parallel training sessions has no impact on reinforcing emotional support at home.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 24,
+    "type": "TF",
+    "question": "Preventive programs are specifically designed to target at-risk groups, such as children showing early signs of aggression or withdrawal.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 25,
+    "type": "TF",
+    "question": "Longitudinal assessments are used to track progress in emotional skills and to adapt interventions based on individual and group needs.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 26,
+    "type": "TF",
+    "question": "The chapter argues that emotional and social deficiencies are inevitable and cannot be remediated through early interventions.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 27,
+    "type": "TF",
+    "question": "A deficiency in self-awareness is a contributing factor to emotional illiteracy.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 28,
+    "type": "TF",
+    "question": "Role-playing exercises in the classroom aim to simulate conflict situations to help children practice alternative responses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 29,
+    "type": "TF",
+    "question": "Pessimistic Cognition is described as a fixed negative outlook that predisposes children to depression.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 30,
+    "type": "TF",
+    "question": "The chapter's thesis suggests that comprehensive emotional education can mitigate long-term relational difficulties and other societal problems.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]
+--- END JSON DATA ---
+
+--- START REVIEW TEXT ---
+1. (MC) What does the term 'Emotional Illiteracy' refer to, according to the chapter? 
+   Answer: A deficiency in understanding, expressing, and managing one’s own emotions.
+2. (MC) Which of the following outcomes is NOT associated with emotional illiteracy as mentioned in the chapter? 
+   Answer: Improved academic performance.
+3. (MC) What is the definition of 'Emotional Regulation' as presented in the chapter? 
+   Answer: The process of monitoring and controlling emotional responses.
+4. (MC) Which key concept involves interpreting neutral or benign cues as threatening? 
+   Answer: Perceptual Bias.
+5. (MC) Which actionable step is designed to allow children to practice alternative responses in conflict situations? 
+   Answer: Role-playing exercises.
+6. (MC) Which intervention involves teaching children to identify early signs of emotional escalation through physical cues such as muscle tension or flushing? 
+   Answer: Monitoring techniques.
+7. (MC) What is the primary goal of teaching reframing techniques to children according to the chapter? 
+   Answer: To reinterpret setbacks

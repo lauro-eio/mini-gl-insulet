@@ -1,0 +1,76 @@
+program_id: EIG
+unit_id: u07
+audience_id: tier_2_frontline_leader
+locale: en
+program_title: Emotional Resilience & Resonance
+lens_title: Empathic Team Leadership
+article_signature: "Curated by {E}"
+unit_goal: >
+  Help frontline leaders embed the team's emotional-literacy skills—noticing a
+  surge, naming it, choosing a response—into three touchpoints that outlast a
+  single workshop: new-hire onboarding, pre-shift huddle coaching, and peer
+  check-ins after an incident.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Why Training Fades: What the Evidence Says About Making a Skill Stick"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "The New Hire I Almost Set Up to Fail"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Key Notes — Building the Skill Into the Job, Not Just the Workshop"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Self-Assessment — Do You Train the Skill or Embed It?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Framework — Embed Map: Three Touchpoints Where the Skill Sticks or Fades"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Commitment — Building the Two-Minute Check-In Into Onboarding, Huddles, and Peer Support"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Case 1 — Marisol and the New Hire Who Froze"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Case 2 — Grant and the Peer Check After the Near-Miss"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-Play 1v1 — Defending the Peer Check-In to a Veteran Who Calls It Soft"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Strategic Role-Play — Securing Buy-In to Embed the Check-In Into Onboarding and Huddles"

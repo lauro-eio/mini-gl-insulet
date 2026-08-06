@@ -4,6 +4,9 @@
 # Generated HTML preview (rebuild with scripts/render.py)
 preview/
 
+# Ingest smoke targets
+library/_smoke/
+
 # Secrets / local
 .env
 .env.*

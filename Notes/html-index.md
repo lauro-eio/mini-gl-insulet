@@ -56,6 +56,30 @@ Examples:
 | --- | --- |
 | ATC U01 EN | `/atc/u01/en/` |
 | ATC U01 ES | `/atc/u01/es/` |
+| TFS U01 EN | `/tfs/u01/en/` |
+| TFS U01 ES | `/tfs/u01/es/` |
+| TFS U02 EN | `/tfs/u02/en/` |
+| TFS U02 ES | `/tfs/u02/es/` |
+| TFS U03 EN | `/tfs/u03/en/` |
+| TFS U03 ES | `/tfs/u03/es/` |
+| TFS U04 EN | `/tfs/u04/en/` |
+| TFS U04 ES | `/tfs/u04/es/` |
+| TFS U05 EN | `/tfs/u05/en/` |
+| TFS U05 ES | `/tfs/u05/es/` |
+| EIG U01 EN | `/eig/u01/en/` |
+| EIG U01 ES | `/eig/u01/es/` |
+| EIG U02 EN | `/eig/u02/en/` |
+| EIG U02 ES | `/eig/u02/es/` |
+| EIG U03 EN | `/eig/u03/en/` |
+| EIG U03 ES | `/eig/u03/es/` |
+| EIG U04 EN | `/eig/u04/en/` |
+| EIG U04 ES | `/eig/u04/es/` |
+| EIG U05 EN | `/eig/u05/en/` |
+| EIG U05 ES | `/eig/u05/es/` |
+| EIG U06 EN | `/eig/u06/en/` |
+| EIG U06 ES | `/eig/u06/es/` |
+| EIG U07 EN | `/eig/u07/en/` |
+| EIG U07 ES | `/eig/u07/es/` |
 
 Tier stays in handle/metadata (`ATC-T2-U01`); it does **not** need to appear in the public path. Locale is implied by the path and page language — no locale switcher required on the atom.
 

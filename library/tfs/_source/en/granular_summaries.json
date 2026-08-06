@@ -1,0 +1,160 @@
+{
+  "master_workshop_title": "Intuition to Insight: The Decision Clarity Blueprint",
+  "granular_summaries": [
+    {
+      "source_name": "Chapter 1 The Characters of the Story.txt",
+      "summary": "This chapter introduces dual-process theory by contrasting System 1—fast, automatic, intuitive thinking—with System 2, which is slow, deliberate, and effortful. Through vivid examples like recognizing emotional expressions, solving arithmetic, and experiencing optical illusions, it explains how these systems interact, often leading to cognitive biases and conflicts. The narrative emphasizes that while System 1 generates quick impressions and feelings, System 2 monitors and corrects these impulses for better decision-making in complex, attention-demanding situations."
+    },
+    {
+      "source_name": "Chapter 2 Attention and Effort.txt",
+      "summary": "This chapter contrasts the effortless, intuitive operations of System 1 with the deliberate, energy-intensive functions of System 2. Using tasks like Add-1 and Add-3 and measuring pupil dilation, it illustrates how mental effort escalates with task complexity and memory load. The discussion highlights the law of least effort, the challenges of switching between tasks, and the role of executive control in maintaining task sets, emphasizing how attention is strategically allocated to balance cognitive demands and optimize performance."
+    },
+    {
+      "source_name": "Chapter 3 The Lazy Controller.txt",
+      "summary": "This chapter explains the dual-system model of thought: an effortless, intuitive System 1 and a deliberate, self-controlling System 2. It shows how cognitive tasks and self-control deplete mental energy, leading to reliance on intuitive, sometimes error-prone responses. Experiments illustrate phenomena like ego depletion and the influence of glucose on cognitive performance. The text also highlights how insufficient engagement from System 2 can result in biases, impulsive decisions, and a failure to override appealing but incorrect intuitions, emphasizing the importance of active, reflective reasoning."
+    },
+    {
+      "source_name": "Chapter 4 The Associative Machine.txt",
+      "summary": "This chapter delves into System 1’s automatic associative processes, showing how subconscious priming links words to emotions, memories, and physical reactions. It explains how unexpected word pairings trigger cascades of intuitions and behaviors, as ideas spread rapidly through an interconnected network. Through various experiments, the chapter demonstrates that subtle environmental cues can influence actions, attitudes, and decisions without conscious awareness, highlighting the embodied, self-reinforcing nature of intuitive thought and its powerful impact on everyday behavior."
+    },
+    {
+      "source_name": "Chapter 5 Cognitive Ease.txt",
+      "summary": "This chapter explains how System 1 continuously assesses cognitive ease—an index of whether our mental processes are running smoothly—and how this influences mood, perception, and judgment. It details how factors like clear fonts, repetition, and simplicity promote ease, affecting memory, truth assessment, and creative problem solving. The text also explores experiments showing that cognitive strain can sharpen analytical thinking, while ease tends to foster intuition, trust, and even gullibility. Practical insights are offered on crafting persuasive messages by leveraging these psychological principles."
+    },
+    {
+      "source_name": "Chapter 6 Norms, Surprises, and Causes.txt",
+      "summary": "This chapter explores how System 1 builds and updates our understanding of what is normal through associative links, driving our detection of surprises and formation of causal stories. It explains how repeated events adjust our expectations, illustrating phenomena like the Moses illusion and norm theory in interpreting anomalies. The text also contrasts physical versus intentional causality, highlighting our innate readiness to assign agency, and underscores the limitations of System 1 in statistical reasoning, necessitating System 2’s intervention for more deliberate analysis."
+    },
+    {
+      "source_name": "Chapter 7 A Machine for Jumping to Conclusions.txt",
+      "summary": "This chapter examines how our intuitive System 1 quickly jumps to conclusions using minimal evidence, often neglecting ambiguity and favoring coherent stories over accuracy. It explores biases such as the halo effect, confirmation bias, and the “what you see is all there is” (WYSIATI) phenomenon. The text also discusses the role of deliberate, effortful System 2 processing in counteracting these biases and highlights strategies like decorrelating errors to improve judgment and decision-making in complex, real-world situations."
+    },
+    {
+      "source_name": "Chapter 8 How Judgments Happen.txt",
+      "summary": "This chapter explores the dual-process theory of judgment, distinguishing between System 1’s fast, intuitive assessments and System 2’s deliberate, effortful reasoning. It illustrates how rapid, automatic evaluations—like assessing facial cues for dominance and trustworthiness—can substitute detailed analysis, leading to heuristics that influence decisions such as voting. The chapter also discusses intensity matching and the “mental shotgun” effect, where unintended computations interfere with targeted tasks, emphasizing the evolutionary basis and potential biases inherent in our intuitive judgments."
+    },
+    {
+      "source_name": "Chapter 9 Answering an Easier Question.txt",
+      "summary": "The chapter explains how our intuitive System 1 simplifies difficult questions by substituting them with easier heuristic ones. This process, known as substitution, uses mental shortcuts like intensity matching and the affect heuristic to produce quick answers, often influenced by emotions. While these shortcuts facilitate rapid judgments, they can lead to predictable biases and misinterpretations. The chapter highlights system interactions, demonstrating that although System 2 can review these answers, it often defaults to the effortless responses provided by System 1."
+    },
+    {
+      "source_name": "Chapter 10 The Law of Small Numbers.txt",
+      "summary": "The chapter explores how small sample sizes generate extreme outcomes that mislead causal reasoning. It demonstrates that our intuitive System 1 mistakenly infers direct causes from random statistical fluctuations, such as varying cancer rates or small school performances. By contrasting intuitive judgments with mathematical facts, the text highlights widespread misconceptions like the hot hand illusion and stresses the importance of using large samples to reduce erroneous conclusions. Researchers and decision-makers are encouraged to rely on computation over intuition when evaluating statistical evidence."
+    },
+    {
+      "source_name": "Chapter 11 Anchors.txt",
+      "summary": "This chapter explores the anchoring effect, demonstrating how initial, even arbitrary, numbers influence our judgments. It discusses two mechanisms behind anchoring: deliberate adjustment by System 2 and automatic priming by System 1. The text provides diverse examples—from experimentally rigged wheels of fortune to real-world applications in negotiations, real estate, and legal decisions—illustrating how anchors shape estimates and behavior. It also highlights strategies to counteract anchoring biases, emphasizing the importance of critical thinking to mitigate the pervasive impact of irrelevant numerical cues on decision-making."
+    },
+    {
+      "source_name": "Chapter 12 The Science of Availability.txt",
+      "summary": "This chapter examines how the ease with which examples are recalled—termed the availability heuristic—influences judgments and decision-making. It explains that people estimate frequency based on retrieval fluency, which can lead to biases in perceptions of risk, self-assessment, and credit allocation in team settings. Experiments showed that increased effort in retrieving examples can paradoxically lower self-assessments, and that contextual cues can mitigate these effects by altering retrieval fluency. The chapter underscores the importance of recognizing and adjusting for these biases in everyday judgments."
+    },
+    {
+      "source_name": "Chapter 13 Availability, Emotion, and Risk.txt",
+      "summary": "This chapter explores how cognitive shortcuts like the availability and affect heuristics shape risk perceptions and public responses. It details how vivid, memorable events and media focus can distort judgments of frequency and danger, leading to exaggerated public fear and misaligned policy priorities. The discussion compares expert and public evaluations of risk, illustrating the conflict between objective measures and emotionally driven responses. It also examines cases like Love Canal and the Alar incident to show how availability cascades can lead to significant shifts in resource allocation and risk management."
+    },
+    {
+      "source_name": "Chapter 14 Tom W’s Specialty.txt",
+      "summary": "This chapter explores how the representativeness heuristic can lead to systematic errors in probability judgments. Using the Tom W problem, it illustrates the tendency to rely on stereotypical descriptions over base-rate statistics when assessing likelihoods. The discussion contrasts the quick, automatic processes of System 1 with the more deliberate, effortful reasoning of System 2. It also emphasizes the importance of Bayesian thinking—anchoring judgments on realistic base rates and critically evaluating the diagnosticity of evidence—to mitigate biases in decision making."
+    },
+    {
+      "source_name": "Chapter 15 Linda Less Is More.txt",
+      "summary": "This chapter explores the Linda problem as a striking example of the conjunction fallacy, where intuitive representativeness overrides logical probability. It demonstrates how people often judge a more detailed, coherent scenario as more likely than a broader, logically certain one, due to the influence of System 1 thinking. Experiments comparing joint and single evaluations reveal that richer details can distort judgment, leading even experts to make systematic errors. The findings highlight the persistent conflict between intuitive plausibility and formal, logical reasoning in decision-making."
+    },
+    {
+      "source_name": "Chapter 16 Causes Trump Statistics.txt",
+      "summary": ""
+    },
+    {
+      "source_name": "Chapter 17 Regression to the Mean.txt",
+      "summary": "This chapter explains how extreme performances often regress toward the average due to random fluctuations rather than the effects of reward or punishment. Using examples from flight training, sports, and other fields, it highlights common misinterpretations where causal links are wrongly attributed to naturally occurring statistical phenomena. The discussion emphasizes understanding the limits of predictive inference, the importance of control groups in experiments, and recognizing that regression to the mean is a mathematical outcome of imperfect correlations, not a causal mechanism."
+    },
+    {
+      "source_name": "Chapter 18 Taming Intuitive Predictions.txt",
+      "summary": "This chapter examines the pitfalls of relying solely on intuitive judgments, which often yield overconfident, extreme predictions due to heuristic substitution and nonregressive thinking. It contrasts skilled intuition based on experience with rash assessments from System 1 processing. The text introduces a corrective method—anchoring predictions at a baseline average and adjusting toward the intuitive guess based on a measured correlation—to achieve moderated, unbiased outcomes. Real-world examples from academia, finance, and military contexts underscore the importance of adjusting intuitive forecasts to account for uncertainty and regression toward the mean."
+    },
+    {
+      "source_name": "Chapter 19 The Illusion of Understanding.txt",
+      "summary": "This chapter examines how humans create simple, coherent narratives to explain complex events, leading to an illusion of understanding. It highlights the narrative fallacy, halo effect, and outcome bias, showing how we often overestimate skill and underestimate luck in successes like Google’s and in leadership evaluations. The text warns that hindsight bias distorts our recollection of past beliefs, pushing us to judge decisions by outcomes rather than process. Ultimately, the chapter cautions that clear-cut lessons derived from success stories can be misleading due to the pervasive role of randomness and regression to the mean."
+    },
+    {
+      "source_name": "Chapter 20 The Illusion of Validity.txt",
+      "summary": "The chapter explores how overconfidence arises from System 1’s reliance on coherent, yet often flimsy, narratives rather than sound evidence. Through examples from military evaluations and stock picking, it unveils how both individuals and experts mistakenly equate confident predictions with skill. Even when evidence shows forecasting to be largely random or akin to dice rolls, people persist in their certainty. The text highlights that high subjective confidence is more about narrative coherence than actual predictive validity, urging caution in relying on seemingly informed judgments in uncertain environments."
+    },
+    {
+      "source_name": "Chapter 21 Intuitions vs. Formulas.txt",
+      "summary": "This chapter explores how simple statistical formulas consistently outperform expert intuition in predicting outcomes across various domains. Drawing on Paul Meehl’s research and subsequent studies, it shows that structured, objective data—often gathered through standardized interviews or equal-weighted predictors—leads to higher accuracy than complex human judgments. The chapter highlights examples from medicine, economics, and even wine pricing, emphasizing that while intuition can add value when combined with disciplined data collection, formulas offer consistency and reliability in low-validity environments."
+    },
+    {
+      "source_name": "Chapter 22 Expert Intuition When Can We Trust It.txt",
+      "summary": "This chapter examines when expert intuition can be trusted, contrasting environments that foster accurate judgment with those that do not. It details how expertise arises from prolonged practice in regular, predictable settings where clear feedback is available. The discussion contrasts the intuition of professionals like firefighters and clinicians with overconfident pseudo-experts, emphasizing that high subjective confidence does not guarantee accuracy. Ultimately, the chapter underscores the need to evaluate intuitive claims based on an expert’s learning history and environmental regularity."
+    },
+    {
+      "source_name": "Chapter 23 The Outside View.txt",
+      "summary": "This chapter contrasts the optimistic inside view with the statistically informed outside view in forecasting project outcomes. Using a curriculum development project as a case study, it illustrates how planners fall prey to the planning fallacy by underestimating completion times and overestimating their progress. The narrative emphasizes the importance of reference class forecasting, where past project data inform realistic estimates, and cautions against irrational perseverance driven by sunk costs, urging decision-makers to integrate broad base-rate data into their planning processes."
+    },
+    {
+      "source_name": "Chapter 24 The Engine of Capitalism.txt",
+      "summary": "The chapter explores how optimistic bias drives economic decision-making, leading individuals and leaders to underestimate risks and overestimate their forecasting abilities. It discusses the planning fallacy, entrepreneurial delusions, and competition neglect, showing how overconfidence fuels bold, yet often misguided, business risks. The text highlights the role of optimism in promoting resilience and success while cautioning against its potential distortions, particularly in financial and strategic planning. It introduces the premortem technique as a tool to counteract overconfidence and mitigate overlooked risks in decision-making."
+    },
+    {
+      "source_name": "Chapter 25 Bernoulli’s Errors.txt",
+      "summary": "This chapter explores the evolution of decision-making theories by contrasting expected utility theory with prospect theory. It highlights how traditional assumptions of rational, stable preferences fail to capture human behavior, as choices are influenced by psychological factors such as reference dependence and diminishing marginal utility. Drawing on historical insights from Bernoulli and psychophysics, the chapter demonstrates that risk attitudes vary based on changes in wealth and individual reference points, challenging the conventional logic of evaluating gambles solely on their expected monetary values."
+    },
+    {
+      "source_name": "Chapter 26 Prospect Theory.txt",
+      "summary": "This chapter outlines the evolution of prospect theory, emphasizing how evaluating outcomes as gains and losses—rather than absolute wealth—reveals risk aversion for gains and risk seeking for losses. It challenges Bernoulli’s utility theory by highlighting the significance of a reference point and diminishing sensitivity. Through experimental examples and thought problems, the text illustrates loss aversion, where losses weigh more heavily than equivalent gains, and critiques the inability of traditional models to address disappointment and regret, thereby justifying the richer predictions of prospect theory."
+    },
+    {
+      "source_name": "Chapter 27 The Endowment Effect.txt",
+      "summary": "FILE_SUMMARY_START::Chapter"
+    },
+    {
+      "source_name": "Chapter 28 Bad Events.txt",
+      "summary": "This chapter examines loss aversion, emphasizing how we weigh losses more heavily than gains due to inherent negativity dominance in our cognitive systems. It illustrates this through various examples, from neural responses to threats and biased processing in social interactions to tangible effects in golf and economic negotiations. The discussion extends to fairness in commercial and employment contexts, showing how reference points shape our perception of losses and gains, ultimately influencing decision-making, public policy, and legal principles."
+    },
+    {
+      "source_name": "Chapter 29 The Fourfold Pattern.txt",
+      "summary": "This chapter explains how people evaluate risky prospects using decision weights that deviate from objective probabilities due to the possibility and certainty effects. It discusses how our intuitive assessments overweight low-probability gains and underweight nearly certain outcomes, leading to systematic deviations from expected utility theory, as illustrated by the Allais paradox. The fourfold pattern reveals risk aversion for sure gains, risk seeking for losses, and its impact in practical situations like gambling and legal settlements, highlighting costly long-run consequences of such biases."
+    },
+    {
+      "source_name": "Chapter 30 Rare Events.txt",
+      "summary": "This chapter examines how vivid imagery and framing significantly distort perceptions of rare events. Using examples like bus bombings and lottery winnings, it illustrates how emotional arousal and available memories lead to an overweighting of low-probability risks. System 1’s automatic, heuristic response, coupled with cognitive biases such as confirmation bias and denominator neglect, makes unlikely events seem more probable and influential than they are. The discussion highlights that both the presentation of statistics and personal experiences shape decision weights, often resulting in irrational judgments and behaviors in the face of rare but emotionally charged risks."
+    },
+    {
+      "source_name": "Chapter 31 Risk Policies.txt",
+      "summary": "This chapter explores how framing affects risk policies and decision-making under uncertainty. Through choice experiments and bundled gambling scenarios, it reveals that individuals tend to be risk averse in gains and risk seeking in losses, often leading to inconsistent and suboptimal decisions. The text advocates for broad framing—viewing decisions collectively rather than in isolation—to mitigate loss aversion and improve outcomes. It highlights the importance of adopting systematic risk policies and an outside view to overcome biases and achieve better financial and strategic decisions."
+    },
+    {
+      "source_name": "Chapter 32 Keeping Score.txt",
+      "summary": "This chapter explains how emotional and psychological factors, like mental accounting and regret, influence financial decisions and everyday choices. It discusses how individuals use mental accounts to keep score, often leading to biases such as the disposition effect and sunk-cost fallacy. The text highlights how the anticipation of regret and the default options shape choices in investing, risk management, and even non-monetary decisions. It underscores the conflict between rational economic models and real human behavior driven by self-administered rewards and punishments."
+    },
+    {
+      "source_name": "Chapter 33 Reversals.txt",
+      "summary": "This chapter explores how evaluation context influences judgments and decision-making, highlighting the differences between single (System 1) and joint (System 2) evaluations. Through examples such as victim compensation, betting scenarios, donation appeals, and legal punishments, the text shows that contextual framing can trigger emotional responses and anchoring effects, leading to preference reversals. It demonstrates that the same options can be valued differently when evaluated in isolation versus in comparison, underlining the importance of comprehensive framing to achieve more rational and consistent judgments."
+    },
+    {
+      "source_name": "Chapter 34 Frames and Reality.txt",
+      "summary": "The chapter explores how framing alters perception and decision-making by evoking different emotional responses, even when outcomes are identical. It explains that while logical reasoning treats equivalent statements similarly, human decisions are influenced by associations and emotional biases (System 1). Evidence from experiments, including neuroeconomic studies and real-world examples like organ donation and tax policy, illustrates that framing can significantly skew choices. This insight challenges the rational-agent model and underscores the need to reframe problems for more reality-bound, rational decisions."
+    },
+    {
+      "source_name": "Chapter 35 Two Selves.txt",
+      "summary": "This chapter examines the distinction between experienced utility—pain and pleasure measured in real time—and decision utility, or “wantability,” guiding our choices. Through thought experiments and studies like the injection puzzle and cold-hand immersion, it reveals how our memories (the peak-end rule and duration neglect) often distort reality. The tension between the experiencing self, which feels pain, and the remembering self, which rates experiences based on selective moments, challenges the assumption of rational decision-making and consistent preferences."
+    },
+    {
+      "source_name": "Chapter 36 Life as a Story.txt",
+      "summary": "This chapter explores how we perceive life as a narrative, focusing on memorable peaks and endings rather than total duration. Using examples like Verdi’s La Traviata and experiments on life evaluations, it illustrates duration neglect and the peak-end rule: our memories emphasize significant moments over cumulative experiences. The text also examines how our choice of vacations and reactions to painful events are driven by the story we want to construct, highlighting the tension between our experiencing self and our remembering self in shaping life’s narrative."
+    },
+    {
+      "source_name": "Chapter 37 Experienced Well-Being.txt",
+      "summary": "This chapter explores the distinction between the experiencing self, which undergoes real-time emotional states, and the remembering self, which evaluates life satisfaction retrospectively. It introduces methods like experience sampling and the Day Reconstruction Method (DRM) to objectively measure well-being, including the U-index for tracking negative emotions. The analysis reveals that while wealth improves life satisfaction, it does little to boost experienced happiness beyond a certain income level, highlighting how situational factors, social interactions, and time management influence overall emotional well-being."
+    },
+    {
+      "source_name": "Chapter 38 Thinking About Life.txt",
+      "summary": "The chapter explores how people misjudge their long-term happiness through errors in affective forecasting and the focusing illusion, particularly around events like marriage. It explains that global life evaluations are influenced by salient, short-lived experiences and heuristics rather than a comprehensive view of one’s day-to-day existence. The discussion differentiates between the experiencing self and the remembering self, highlighting how selective attention to critical moments distorts true well-being and emphasizes the role of adaptation over time in shaping satisfaction."
+    }
+  ],
+  "creation_date": "2025-11-07T15:25:40.680733",
+  "phase": "1_completed",
+  "mode": "modular_per_unit"
+}

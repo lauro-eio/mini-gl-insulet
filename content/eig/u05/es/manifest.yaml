@@ -1,0 +1,79 @@
+program_id: EIG
+unit_id: u05
+audience_id: tier_2_frontline_leader
+locale: es
+program_title: Resiliencia y resonancia emocional
+lens_title: Liderazgo empático de equipos
+article_signature: "Curaduría de {E}"
+unit_goal: >
+  Ayudar a los líderes de primera línea a convertir una lectura rápida del tono o
+  las palabras de un compañero en una lectura verificada—mediante una breve
+  pausa de reflejo y verificación—para que las decisiones en el piso registren lo
+  que realmente está pasando, no solo lo que es más rápido de asumir.
+banned_phrases:
+  - fabricated
+  - mock metric
+  - Emotional Intelligence
+  - Emotional Resilience Accelerator
+  - Atomic Habits
+  - Thinking, Fast and Slow
+  - Thinking Fast and Slow
+  - In our modern age
+  - In a fast-paced world
+  - Inteligencia emocional
+  - Hábitos Atómicos
+  - Pensar rápido, pensar despacio
+word_budgets:
+  research_article: { max: 900, soft_max: 750 }
+  opinion_article: { max: 550, soft_max: 450 }
+  key_notes: { max: 400, soft_max: 350 }
+  self_assessment: { max: 900, soft_max: 800 }
+  case_study: { max: 700, soft_max: 600 }
+  framework_tool: { max: 450, soft_max: 400 }
+  commitment_plan: { max: 350, soft_max: 300 }
+  live_roleplay_1v1: { max: 450, soft_max: 400 }
+  live_roleplay_strategic: { max: 450, soft_max: 400 }
+# When present, HTML hides quiz/commitment markdown until URLs are set.
+forms:
+  self_assessment_url: ""
+  commitment_plan_url: ""
+assets:
+  research_article:
+    asset_id: research_article
+    path: research_article.md
+    title: "Lecturas rápidas, lecturas erróneas: qué dice la evidencia sobre verificar una intuición empática bajo presión"
+  opinion_article:
+    asset_id: opinion_article
+    path: opinion_article.md
+    title: "El reporte que casi empecé antes de preguntar"
+  key_notes:
+    asset_id: key_notes
+    path: key_notes.md
+    title: "Puntos clave — Verificar la lectura antes de la decisión"
+  self_assessment:
+    asset_id: self_assessment
+    path: self_assessment.md
+    title: "Autodiagnóstico — ¿Verificas tu lectura o simplemente actúas con ella?"
+  framework_tool:
+    asset_id: framework_tool
+    path: framework_tool.md
+    title: "Marco — Lienzo de reflejo: verificar la lectura antes de decidir"
+  commitment_plan:
+    asset_id: commitment_plan
+    path: commitment_plan.md
+    title: "Compromiso — Proteger el reflejo y verificación antes de necesitarlo"
+  cases:
+    - asset_id: case_study
+      path: case_study_01.md
+      title: "Caso 1 — Naomi y la técnica de cambio de turno que se quedó callada"
+    - asset_id: case_study
+      path: case_study_02.md
+      title: "Caso 2 — Miguel y el estallido en el muelle"
+  live_roleplay_1v1:
+    asset_id: live_roleplay_1v1
+    path: live_roleplay_1v1.md
+    title: "Role-play 1:1 — Defender un reflejo y verificación ante un par que quiere una lectura rápida"
+  live_roleplay_strategic:
+    asset_id: live_roleplay_strategic
+    path: live_roleplay_strategic.md
+    title: "Role-play estratégico — Proteger el ritual de reflejo y verificación bajo presión de tiempo"

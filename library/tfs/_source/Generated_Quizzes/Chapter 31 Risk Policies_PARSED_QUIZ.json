@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "type": "MC",
+    "question": "System 1 is defined as the fast, automatic, emotional evaluation mechanism reacting to sure gains and losses.",
+    "options": [
+      "System 1",
+      "Loss Aversion",
+      "Narrow Framing",
+      "Broad Framing"
+    ],
+    "correct_answer_text": "System 1",
+    "correct_key": "A"
+  },
+  {
+    "id": 2,
+    "type": "MC",
+    "question": "Loss Aversion is best described as the tendency to feel the pain of losses more intensely than the pleasure of equivalent gains.",
+    "options": [
+      "Narrow Framing",
+      "Risk Policy",
+      "Loss Aversion",
+      "Outside View"
+    ],
+    "correct_answer_text": "Loss Aversion",
+    "correct_key": "C"
+  },
+  {
+    "id": 3,
+    "type": "MC",
+    "question": "Which term refers to evaluating individual decisions in isolation, potentially causing one to pay a premium for a sure gain or to avoid a sure loss?",
+    "options": [
+      "Broad Framing",
+      "Risk Policy",
+      "WYSIATI",
+      "Narrow Framing"
+    ],
+    "correct_answer_text": "Narrow Framing",
+    "correct_key": "D"
+  },
+  {
+    "id": 4,
+    "type": "MC",
+    "question": "The concept that involves judging a decision by referencing statistical outcomes from similar situations is known as what?",
+    "options": [
+      "Outside View",
+      "System 1",
+      "Broad Framing",
+      "Loss Aversion"
+    ],
+    "correct_answer_text": "Outside View",
+    "correct_key": "A"
+  },
+  {
+    "id": 5,
+    "type": "TF",
+    "question": "Broad Framing aggregates multiple decisions into a single evaluation to mitigate inconsistent preferences.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 6,
+    "type": "TF",
+    "question": "System 1 operates through slow, analytical processing rather than fast, emotional responses.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "FALSE",
+    "correct_key": "FALSE"
+  },
+  {
+    "id": 7,
+    "type": "TF",
+    "question": "A Risk Policy is a pre-established strategy for handling risky decisions by aggregating similar choices consistently.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  },
+  {
+    "id": 8,
+    "type": "TF",
+    "question": "WYSIATI describes the bias where decision makers consider only the information at hand, ignoring any unseen factors.",
+    "options": [
+      "TRUE",
+      "FALSE"
+    ],
+    "correct_answer_text": "TRUE",
+    "correct_key": "TRUE"
+  }
+]

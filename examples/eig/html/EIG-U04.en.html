@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empathic Team Leadership — Emotional Resilience &amp; Resonance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14221c; --ink-soft: #2a3d34; --paper: #f3efe6; --paper-2: #e8e2d4;
+      --line: #c9c0ae; --accent: #0f6e56; --accent-deep: #0a4f3d; --warm: #c45c26;
+      --white: #fbfaf6; --shadow: 0 18px 40px rgba(20, 34, 28, 0.08); --wide: 68rem; --max: 44rem;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--ink); font-family: "Outfit", system-ui, sans-serif; line-height: 1.65;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(15,110,86,.12), transparent 55%),
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 40%, #efe9db 100%);
+    }
+    .hero {
+      min-height: min(70vh, 560px); display: grid; align-items: end; color: var(--white);
+      padding: 1.25rem clamp(1.25rem,4vw,3rem) 2.5rem;
+      background: linear-gradient(165deg, rgba(10,40,32,.92), rgba(15,70,54,.88) 45%, rgba(20,34,28,.94));
+    }
+    .brand { font-family: "Fraunces", Georgia, serif; font-size: clamp(2rem,6vw,3.5rem); font-weight: 700; margin: 0 0 .35rem; }
+    .program-title {
+      margin: 0 0 1rem; font-size: clamp(1.05rem,2.4vw,1.35rem); font-weight: 500;
+      color: rgba(251,250,246,.9); max-width: 36rem;
+    }
+    .hero h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,3.2vw,2rem); font-weight: 500; max-width: 22ch; margin: 0 0 1rem; }
+    .hero-lead { max-width: 40rem; color: rgba(251,250,246,.88); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin-top: 1.25rem; color: rgba(251,250,246,.7); font-size: .95rem; }
+    .toc { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: rgba(243,239,230,.9); border-bottom: 1px solid var(--line); }
+    .toc-inner { max-width: var(--wide); margin: 0 auto; padding: .65rem clamp(1.25rem,4vw,3rem); display: flex; gap: .35rem 1rem; overflow-x: auto; }
+    .toc a { flex: 0 0 auto; text-decoration: none; color: var(--ink-soft); font-size: .82rem; font-weight: 500; }
+    main { max-width: var(--wide); margin: 0 auto; padding: 1.5rem clamp(1.25rem,4vw,3rem) 4rem; }
+    section { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+    .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 .35rem; }
+    h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(1.35rem,2.8vw,1.85rem); margin: 0; letter-spacing: -.02em; }
+    .fold > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding: 1.25rem 0; }
+    .fold > summary::-webkit-details-marker { display: none; }
+    .fold-chevron { width: 2.1rem; height: 2.1rem; border-radius: 999px; border: 1px solid var(--line); background: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+    .fold-chevron::before { content: ""; width: .4rem; height: .4rem; border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg) translate(-1px,-1px); }
+    .fold[open] > summary .fold-chevron { transform: rotate(180deg); background: var(--ink); border-color: var(--ink); }
+    .fold[open] > summary .fold-chevron::before { border-color: var(--white); }
+    .fold-body { padding: 0 0 1.75rem; max-width: var(--max); }
+    .prose p { margin: 0 0 1rem; }
+    .prose ul, .prose ol { margin: 0 0 1rem; padding-left: 1.2rem; }
+    .prose h2:first-child { display: none; }
+    .article-signature {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .gate-panel {
+      padding: 1.25rem 1.35rem;
+      border: 1px dashed var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 4px;
+    }
+    .gate-kicker {
+      margin: 0 0 .5rem;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      font-weight: 600;
+    }
+    .gate-note { color: var(--ink-soft); font-size: .95rem; margin-bottom: 0 !important; }
+    .form-cta {
+      display: inline-block;
+      margin-top: .25rem;
+      padding: .65rem 1.1rem;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .form-cta:hover { background: var(--accent-deep); }
+    .table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--paper-2); }
+    footer { max-width: var(--wide); margin: 0 auto; padding: 1rem clamp(1.25rem,4vw,3rem) 3rem; color: var(--ink-soft); font-size: .88rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="brand">Global Leadership</p>
+      <p class="program-title">Emotional Resilience &amp; Resonance</p>
+      <h1>Empathic Team Leadership</h1>
+      <p class="hero-lead">Give frontline leaders three fast, evidence-based regulation moves—breath, ground, reframe—so a surge that is already running gets steered in the next ten seconds, not just named.</p>
+      <div class="hero-meta">
+        <span>EIG · U04</span>
+      </div>
+    </div>
+  </header>
+  <nav class="toc" aria-label="Sections"><div class="toc-inner"><a href="#research">The Ten-Second Exhale: What the Evidence Says Ab</a>
+<a href="#opinion">The Breath I Almost Skipped Before the Escalatio</a>
+<a href="#assessment">Self-Assessment — Do You Regulate the Surge or R</a>
+<a href="#case-1">Case 1 — Priya and the Outage on the Pick Floor</a>
+<a href="#case-2">Case 2 — Mateo and the Rework on Bay Three</a>
+<a href="#framework">Framework — The Reset Card: Breathe, Ground, Ref</a>
+<a href="#roleplay-1v1">Role-Play 1v1 — Taking the Reset Before Respondi</a>
+<a href="#roleplay-strategic">Strategic Role-Play — Protecting a Real-Time Reg</a>
+<a href="#key-notes">Key Notes — Three Moves for the Surge That&#x27;s Alr</a>
+<a href="#commitment">Commitment — Protecting the Reset Card When the </a></div></nav>
+  <main id="contenido">
+    
+    <section id="research">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Research</p>
+            <h2>The Ten-Second Exhale: What the Evidence Says About Regulating a Surge in Real Time</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Ten-Second Exhale: What the Evidence Says About Regulating a Surge in Real Time</h2>
+<p>Frontline leaders rarely get to schedule when a surge peaks. An outage floods the floor with alarms, a technician snaps back at a correction, a customer escalates at the counter. The reaction is already running before any plan gets a vote. Decades of work on how people manage an emotional response once it has started point to three moves that change what happens next: slowing the breath, shifting attention to the present, and reframing what the moment means.</p>
+<h3>Regulation is a skill, not a mood</h3>
+<p>Gross&#x27;s foundational work on emotion regulation distinguishes strategies that intervene early—before a reaction fully forms—from ones that intervene late, after it has already shaped a person&#x27;s face, voice, and words (Gross, 1998). Early strategies, run in the first seconds of a surge, cost far less than trying to undo a reaction the team already saw and heard.</p>
+<h3>Reframing changes the physiology, not just the story</h3>
+<p>Cognitive reappraisal—deliberately changing how a situation is interpreted while it is still unfolding—reliably lowers physiological arousal compared with pushing through the feeling or suppressing it outwardly (Gross, 2002). Ochsner and Gross&#x27;s review of the brain systems involved shows this is not self-talk laid over an unchanged reaction; reappraisal recruits control systems that actively down-regulate the response generating the surge in the first place (Ochsner &amp; Gross, 2005). Reframing a technician&#x27;s mistake as a process gap rather than a personal failure is not a soft substitute for accountability. It is the version of the response most likely to stay accurate once the heat passes.</p>
+<h3>Slow breathing moves the nervous system, not just the mood</h3>
+<p>Deliberate slow breathing lengthens the exhale relative to the inhale, which shifts the balance of the autonomic nervous system toward its calmer branch (Jerath, Edry, Barnes, &amp; Jerath, 2006). Porges&#x27;s work on vagal regulation describes this shift as a cue of safety the body can send itself, distinct from the alarm state a surge otherwise sustains (Porges, 2007). A systematic review spanning dozens of studies on paced breathing found consistent reductions in markers of physiological arousal, with effects appearing within the first few controlled breaths rather than after extended practice (Zaccaro et al., 2018).</p>
+<h3>Grounding recruits attention away from the alarm</h3>
+<p>Where reappraisal works on the meaning of a moment and breathing works on the body&#x27;s alarm state, grounding works on attention: deliberately noticing a concrete physical detail—a surface underfoot, a specific sound on the floor—pulls processing capacity away from a spiraling thought and back to what is actually in front of a person right now. The same attentional control systems that support reappraisal (Ochsner &amp; Gross, 2005) are what a grounding cue engages. It is a faster, lower-effort entry point when a full reframe is not immediately available.</p>
+<h3>Why speed matters more than order</h3>
+<p>None of these three moves requires a surge to fully pass first. Each is designed to run inside the window while the reaction is still active—precisely when a frontline leader has to decide what the team hears next. A leader who waits for calm before regulating has already made the decision by default: the surge made it for them.</p>
+<h3>What this means for a shift</h3>
+<p>The evidence does not support waiting out a surge in silence, and it does not support pushing through it unregulated. It supports one fast, practiced move—a breath cycle, a grounding cue, a reframed sentence—run in the seconds the surge is actually peaking, not afterward in a debrief.</p>
+<h3>Selected references</h3>
+<ul>
+<li>Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. <em>Review of General Psychology, 2</em>(3), 271–299.</li>
+<li>Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. <em>Psychophysiology, 39</em>(3), 281–291.</li>
+<li>Ochsner, K. N., &amp; Gross, J. J. (2005). The cognitive control of emotion. <em>Trends in Cognitive Sciences, 9</em>(5), 242–249.</li>
+<li>Jerath, R., Edry, J. W., Barnes, V. A., &amp; Jerath, V. (2006). Physiology of long pranayamic breathing: Neural respiratory elements may provide a mechanism that explains how slow deep breathing shifts the autonomic nervous system. <em>Medical Hypotheses, 67</em>(3), 566–571.</li>
+<li>Porges, S. W. (2007). The polyvagal perspective. <em>Biological Psychology, 74</em>(2), 116–143.</li>
+<li>Zaccaro, A., Piarulli, A., Laurino, M., Garbella, E., Menicucci, D., Neri, B., &amp; Gemignani, A. (2018). How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. <em>Frontiers in Human Neuroscience, 12</em>, 353.</li>
+</ul>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="opinion">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Opinion</p>
+            <h2>The Breath I Almost Skipped Before the Escalation Call</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>The Breath I Almost Skipped Before the Escalation Call</h2>
+<p>I have picked up a ringing phone mid-crisis and started talking before I had decided what I was going to say. Most days that costs nothing—the call goes fine anyway. Two months ago it almost cost us a customer we had spent a year rebuilding trust with.</p>
+<p>Our scan system dropped during peak pick, and forty people were staring at frozen screens while the phone in my hand lit up with a customer asking why their order hadn&#x27;t shipped. My chest went tight before I even answered. I could feel the sentence forming: some version of &quot;it&#x27;s out of my hands,&quot; said in a tone that would have made things worse, not better.</p>
+<p>I did not say it. Not because I am naturally steady under pressure—I am not—but because I have started running one move before I open my mouth in exactly these moments: a slow exhale, longer than the breath before it. Four seconds in, six seconds out, twice. That is it.</p>
+<p>By the second exhale, I could feel the urgency in my chest loosen enough to actually think. I told the customer the truth—system outage, real-time estimate in ten minutes—instead of the deflection I had been about to reach for. Ten minutes later the system was back up, and the order shipped on time.</p>
+<p>I used to think stopping to breathe before a hard call was slower. It is not. The version of me that answers on the first ring, still running hot, says something that needs a follow-up apology call later. Two slow breaths cost twelve seconds. The apology call costs twenty minutes and some of the trust we cannot easily rebuild.</p>
+<p>I am not trying to stop feeling the spike when forty screens go dark at once. That reaction tells me something real is happening. What changed is what I do in the few seconds after I feel it, before I decide what the floor or the customer hears. I put my hand flat on the counter—something solid, something not on fire—and I run the exhale before the sentence.</p>
+<p>I told my shift leads about this afterward, not as a technique they have to master, but as a standing floor rule: if your chest is tight and a sentence is already forming, take the two breaths first. It is not about slowing the floor down. It is about making sure the version of you that speaks is the one actually looking at the outage, not the one still reacting to forty dark screens.</p>
+<p class="article-signature">Curated by {E}</p></div>
+      </details>
+    </section>
+    
+    <section id="assessment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Pre-work · Diagnostic</p>
+            <h2>Self-Assessment — Do You Regulate the Surge or Ride It Out?</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>This diagnostic will open in <strong>Google Forms</strong> so answers stay private and you get your profile after submit — not inside this page.</p><p class="gate-note">Questions and scoring stay in the form. Nothing to fill here yet.</p></div></div>
+      </details>
+    </section>
+    
+    <section id="case-1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 1</p>
+            <h2>Case 1 — Priya and the Outage on the Pick Floor</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 1 — Priya and the Outage on the Pick Floor</h2>
+<h3>Opening</h3>
+<p>Priya leads a forty-person pick shift at a distribution center during peak volume. Fifteen minutes into the rush, the scan system drops floor-wide. Screens freeze mid-order, pickers stop moving, and three team leads are already looking at her, waiting for instructions. Priya feels her chest tighten and her thoughts start racing through everything that could go wrong in the next hour.</p>
+<h3>Context</h3>
+<p>Her phone lights up—a customer calling about a stalled order. At the same time, the shift&#x27;s regional manager pings her for a status update, and a picker near her station asks, loudly enough for four people to hear, &quot;are we getting paid if we&#x27;re just standing here?&quot; Priya has maybe ten seconds before whatever she says next sets the tone for forty people who are already reading her face.</p>
+<p>A team lead quietly mentions the system usually restores within fifteen minutes based on the last two outages—information Priya has not had time to process yet.</p>
+<h3>Decision point</h3>
+<p>Priya can:</p>
+<ol>
+<li>Answer the customer&#x27;s call immediately, still flooded, and give a status update to her manager in the same breath—reacting to whichever demand is loudest.</li>
+<li>Run two slow exhales before responding to anyone, then answer the picker&#x27;s question first with what she actually knows.</li>
+<li>Say nothing to the floor, disappear to a back office to think, and address everyone once she has a full plan—leaving forty people without direction in the meantime.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What told Priya her spike was bigger than the outage itself warranted, and which regulation move—breathe, ground, or reframe—fits that spike best?</li>
+<li>If Priya chooses option 2, what does she say to the picker in the ten seconds after her second exhale, and how is it different from what she would have said unregulated?</li>
+<li>Design a floor cue Priya&#x27;s team could use so everyone can see when she is regulating, without it reading as her losing control of the outage.</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="case-2">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Case 2</p>
+            <h2>Case 2 — Mateo and the Rework on Bay Three</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Case 2 — Mateo and the Rework on Bay Three</h2>
+<h3>Opening</h3>
+<p>Mateo runs a six-person maintenance shop at a fleet depot. A technician he trained, Ola, sends a vehicle back to service that fails inspection an hour later—the same torque issue Mateo flagged with her twice last month. Mateo feels the flash of anger hit before he has even reached the bay: tight jaw, a sentence already forming about how many times he has covered for this exact mistake.</p>
+<h3>Context</h3>
+<p>Ola is standing at the bay, visibly aware the vehicle failed, waiting for Mateo&#x27;s reaction. Two other technicians have stopped working and are watching. A driver is waiting on the vehicle for a route that leaves in twenty minutes. Mateo&#x27;s instinct pulls two ways at once: call Ola out in front of the shop to make the standard land this time, or say nothing and quietly redo the torque himself to protect the route.</p>
+<p>Neither instinct, acted on immediately, addresses what actually needs to happen: checking the vehicle, understanding why the same miss happened twice, and deciding what Ola and the shop need to hear in the next few minutes.</p>
+<h3>Decision point</h3>
+<p>Mateo can:</p>
+<ol>
+<li>React immediately—call out the repeated mistake in front of the shop to underline how serious it is, then get the vehicle fixed himself.</li>
+<li>Take a moment to reframe the mistake as a process gap rather than proof Ola doesn&#x27;t care, then ask her to walk him through what she checked.</li>
+<li>Say nothing about the pattern beyond &quot;let&#x27;s get this fixed,&quot; clear the route, and address it fully at the end of the shift.</li>
+</ol>
+<h3>Discussion questions</h3>
+<ol>
+<li>What would Mateo&#x27;s face and voice already be broadcasting to the shop in the first few seconds, whether he intends it or not?</li>
+<li>If Mateo chooses option 2, what is the one-sentence reframe he needs before he can ask Ola a genuine question instead of delivering a verdict?</li>
+<li>How should Mateo weigh addressing the pattern now, in front of the shop, against protecting Ola&#x27;s standing with her peers?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="framework">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Framework</p>
+            <h2>Framework — The Reset Card: Breathe, Ground, Reframe Before You Respond</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Framework — The Reset Card: Breathe, Ground, Reframe Before You Respond</h2>
+<p>Use in workshop or print for the floor. Run this card any time you feel a surge that has a response attached to it—before you speak, radio, or send the message.</p>
+<h3>1. The moment (one sentence)</h3>
+<p>What just happened, and what am I feeling right now?</p>
+<h3>2. Pick the move</h3>
+<div class="table-wrap"><table>
+<tr><th>Situation</th><th>Best first move</th></tr>
+<tr><td>Body is flooded (tight chest, racing pulse, multiple alarms)</td><td>Breathe</td></tr>
+<tr><td>Mind is spiraling faster than you can think straight</td><td>Ground</td></tr>
+<tr><td>A story is attached (&quot;they did this to me / on purpose&quot;)</td><td>Reframe</td></tr>
+</table></div>
+<h3>3. Run the move</h3>
+<ul>
+<li><strong>Breathe:</strong> Inhale 4 seconds, exhale 6 seconds. Repeat twice. Longer exhale than inhale, every time.</li>
+<li><strong>Ground:</strong> Name one thing you can feel underfoot or in your hand, one thing you can hear, one thing you can see right now.</li>
+<li><strong>Reframe:</strong> Finish this sentence before you respond: &quot;A more useful way to read this moment is ___.&quot;</li>
+</ul>
+<h3>4. Say the regulated version</h3>
+<p>What do you say now that is different from what you almost said before running the move?</p>
+<h3>5. Visibility</h3>
+<p>Where does the team see that you took the beat—a pause, a breath, a phrase, a hand on the counter?</p>
+<h3>6. Owner when you are off-shift</h3>
+<p>Name + backup, so the ritual does not disappear when you are not there:</p>
+<h3>7. After-action note</h3>
+<p>Which move did you use, and did it change what you said? Add one line to the shift log either way.</p></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-1v1">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Role-play</p>
+            <h2>Role-Play 1v1 — Taking the Reset Before Responding to a Peer Who Wants an Instant Answer</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Role-Play 1v1 — Taking the Reset Before Responding to a Peer Who Wants an Instant Answer</h2>
+<p><strong>Duration:</strong> 25–35 minutes</p>
+<p><strong>Purpose:</strong> Practice running a breath, ground, or reframe move on a high-intensity moment without freezing the floor or losing a peer&#x27;s trust.</p>
+<h3>Roles</h3>
+<p><strong>Role 1 — Frontline supervisor (Regulation Owner)</strong></p>
+<p>You have felt a strong surge—anger, fear, or overwhelm—tied to a moment the team is watching. You want ten to twenty seconds to run one regulation move before you respond. You must not skip the move just to avoid friction, and you must not turn it into an open-ended delay.</p>
+<p><strong>Role 2 — Skeptical peer supervisor</strong></p>
+<p>You are under the same pressure and believe responses on the floor should be immediate—&quot;say something, move on.&quot; You see the pause as overthinking or stalling. You will back off only if the Regulation Owner names the specific move they are running and gives a concrete, short time box for it.</p>
+<h3>Conflict</h3>
+<p>Can the Regulation Owner secure agreement for a short, named regulation move on one specific moment without the peer escalating over their head or the tension curdling into a grudge?</p>
+<h3>Facilitator notes</h3>
+<ul>
+<li>Round 1 (8 min): Peer pushes for an immediate response; Regulation Owner runs a move out loud.</li>
+<li>Round 2 (8 min): Regulation Owner names the specific move (breathe, ground, or reframe) and proposes a time-boxed pause for it.</li>
+<li>Debrief (10 min): Where did the Regulation Owner nearly skip the move under pressure? What language actually landed with the skeptical peer?</li>
+</ul></div>
+      </details>
+    </section>
+    
+    <section id="roleplay-strategic">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Live · Strategic role-play</p>
+            <h2>Strategic Role-Play — Protecting a Real-Time Regulation Standard Under Deadline Pressure</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Strategic Role-Play — Protecting a Real-Time Regulation Standard Under Deadline Pressure</h2>
+<p><strong>Duration:</strong> 40–50 minutes</p>
+<p><strong>Purpose:</strong> Practice securing buy-in for a protected regulation standard when multiple stakeholders want the floor to react and move at full speed.</p>
+<h3>Four roles</h3>
+<ol>
+<li><strong>Supervisor (protagonist):</strong> Wants approval to run a standing rule: any moment with a flooded body, a spiraling mind, or a loaded story gets one named regulation move—breathe, ground, or reframe—before a response.</li>
+<li><strong>Speed-focused ops manager (antagonist):</strong> Measured on throughput and cutoff times; sees any pause as lost minutes and calls the standard &quot;getting soft on the floor.&quot;</li>
+<li><strong>Quality or safety analyst (skeptic):</strong> Supports the idea in principle but needs named criteria for when each move applies, plus a clear time box so it cannot be used to avoid a hard conversation indefinitely.</li>
+<li><strong>Peer supervisor (ally or swing):</strong> Will support the standard if it does not slow down moments that genuinely do not need it, and if it does not quietly shift extra tension onto neighboring shifts.</li>
+</ol>
+<h3>Conflict thesis</h3>
+<p>Can the supervisor protect a named, time-boxed regulation move for genuinely high-intensity moments without looking soft to the ops manager or vague to the analyst?</p>
+<h3>Success look-fors</h3>
+<ul>
+<li>Named moves (breathe, ground, reframe) tied to named triggers, not a blanket &quot;pause whenever you feel something&quot;</li>
+<li>A fixed time box for each move, agreed in advance</li>
+<li>A visible record of when a move was used and what it changed</li>
+<li>No secret second process that contradicts the agreed standard under pressure</li>
+</ul>
+<h3>Debrief prompts</h3>
+<ol>
+<li>Which argument landed with the ops manager versus the analyst?</li>
+<li>How did the supervisor turn &quot;regulation move&quot; into language that reads as risk control, not softness?</li>
+<li>What would cause the standard to quietly disappear during the next crunch week—and who owns preventing that?</li>
+</ol></div>
+      </details>
+    </section>
+    
+    <section id="key-notes">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Take-away · Key notes</p>
+            <h2>Key Notes — Three Moves for the Surge That&#x27;s Already Running</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><h2>Key Notes — Three Moves for the Surge That&#x27;s Already Running</h2>
+<p><strong>Unit goal:</strong> Give frontline leaders three fast, evidence-based regulation moves—breath, ground, reframe—so a surge that is already running gets steered in the next ten seconds, not just named.</p>
+<h3>Core ideas</h3>
+<ul>
+<li><strong>Regulation works best early:</strong> intervening in the first seconds of a surge, before it has shaped your face, voice, or words, costs far less than undoing a reaction the team already saw (Gross, 1998).</li>
+<li><strong>Reframing changes the body&#x27;s response, not just the story:</strong> reappraisal reliably lowers physiological arousal compared with pushing through a feeling or suppressing it outwardly (Gross, 2002; Ochsner &amp; Gross, 2005).</li>
+<li><strong>Slow exhales shift the nervous system fast:</strong> longer exhales than inhales move the body toward calm within the first few breaths, not after extended practice (Jerath et al., 2006; Zaccaro et al., 2018).</li>
+<li><strong>Grounding redirects attention, not meaning:</strong> naming a concrete physical detail pulls processing capacity off a spiraling thought when a full reframe is not immediately available.</li>
+<li><strong>Waiting for calm is a choice too:</strong> none of these three moves needs the surge to pass first—delay lets the surge make the call by default.</li>
+</ul>
+<h3>Frontline leader checklist</h3>
+<ol>
+<li>Notice the physical signal, then run one move before you speak: exhale longer than you inhale, twice.</li>
+<li>If the moment has a story attached (&quot;they did this to me&quot;), reframe it in one sentence before you respond.</li>
+<li>If your mind is spiraling faster than you can reframe, ground first: name one thing you can feel, see, or hear right now.</li>
+<li>Say the regulated sentence, or send the regulated message—don&#x27;t wait for the feeling to fully pass.</li>
+<li>After the shift, note which move you actually used and whether it worked—both sharpen the skill.</li>
+</ol>
+<h3>Reflection</h3>
+<p>Which move—breath, reframe, or ground—do you reach for least on shift, and what would it take to make it automatic?</p></div>
+      </details>
+    </section>
+    
+    <section id="commitment">
+      <details class="fold">
+        <summary>
+          <div class="fold-heading">
+            <p class="section-label">Close · Commitment</p>
+            <h2>Commitment — Protecting the Reset Card When the Shift Gets Loud</h2>
+          </div>
+          <span class="fold-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="fold-body prose"><div class="gate-panel"><p class="gate-kicker">Coming soon</p><p>Your commitment plan will open in <strong>Google Forms</strong> so you can submit and keep a record — not as fillable fields on this page.</p><p class="gate-note">Nothing to complete here until the form link is ready.</p></div></div>
+      </details>
+    </section>
+    
+  </main>
+  <footer>
+    <p>Emotional Resilience &amp; Resonance · Global Leadership · {E}</p>
+  </footer>
+  <script>
+    (function () {
+      function openFoldTarget(id) {
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var node = el;
+        while (node && node !== document.body) {
+          if (node.tagName === "DETAILS") node.open = true;
+          node = node.parentElement;
+        }
+        if (el.tagName !== "DETAILS") {
+          var child = el.querySelector(":scope > details.fold");
+          if (child) child.open = true;
+        }
+      }
+      function syncHash() { openFoldTarget((location.hash || "").slice(1)); }
+      window.addEventListener("hashchange", syncHash);
+      syncHash();
+    })();
+  </script>
+</body>
+</html>
